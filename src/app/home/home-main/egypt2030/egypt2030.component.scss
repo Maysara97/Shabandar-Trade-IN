@@ -1,0 +1,24 @@
+@media (max-width: 414px) {
+  .egypt-area {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+  }
+}
+@media (min-width: 768px) {
+  .tm-button,
+  a.tm-button {
+    padding: 6px 40px;
+  }
+}
+
+.egypt-area {
+  background-position: bottom;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
