@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "you-trade-in-public": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "you-trade-in-public"
+    }
+  },
+  "defaultProject": "you-trade-in-public",
+  "cli": {
+    "analytics": "00b34b73-5f07-406b-9016-83d4f873db3e"
+  }
 }
