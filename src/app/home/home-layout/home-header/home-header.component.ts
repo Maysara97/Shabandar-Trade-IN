@@ -18,4 +18,9 @@ export class HomeHeaderComponent implements OnInit {
       x.style.display = "none";
     }
   }
+
+  public navigateToSection(section: string) {
+    window.location.hash = "";
+    window.location.hash = section;
+  }
 }

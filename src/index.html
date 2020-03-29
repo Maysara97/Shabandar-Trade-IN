@@ -34,6 +34,21 @@
   <script src="./assets/js/bootstrap.min.js"></script>
   <script src="./assets/js/plugins.js"></script>
   <script src="./assets/js/main.js"></script>
+
+
+  <script>
+    $(window).scroll(function () {
+      var scrollDistance = $(window).scrollTop();
+      // Assign active class to nav links while scolling
+      $('.page-section').each(function (i) {
+        if ($(this).position().top <= scrollDistance) {
+          $('.navigation li.active').removeClass('active');
+          $('.navigation li').eq(i).addClass('active');
+        }
+      });
+    }).scroll();
+
+  </script>
 </body>
 
 </html>

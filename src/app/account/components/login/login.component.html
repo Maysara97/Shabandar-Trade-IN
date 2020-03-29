@@ -1,0 +1,39 @@
+<!-- Login Area -->
+<div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0E1234;">
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-lg-8">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+                    class="tm-form tm-login-form tm-form-bordered bg-white">
+                    <h4>Login</h4>
+                    <div class="tm-form-inner">
+                        <div class="tm-form-field">
+                            <label for="login-email">Email</label> <br>
+                            <input type="email" id="login-email" required="required"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="login-password">Password</label> <br>
+                            <input type="password" id="login-password" required="required"
+                                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tm-form-field">
+                            <button type="submit" class="tm-button mt-2">Login <b></b></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--// Login Area -->
