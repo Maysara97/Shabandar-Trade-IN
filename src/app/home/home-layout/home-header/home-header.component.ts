@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home-header",
@@ -6,7 +7,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home-header.component.scss"]
 })
 export class HomeHeaderComponent implements OnInit {
-  constructor() {}
+  // tslint:disable-next-line:variable-name
+  constructor(public _route: Router) {}
 
   ngOnInit(): void {}
 

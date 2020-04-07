@@ -9,10 +9,12 @@
                     <div class="single-widget widget-contact">
                         <ul>
                             <li>
-                                <a href="index.html">Home</a>
+                                <a routerLink="/home/home-main" fragment="default"
+                                    (click)="navigateToSection('default')">Home</a>
                             </li>
                             <li>
-                                <a href="index.html#products">Sell Products</a>
+                                <a routerLink="/home/home-main/" fragment="Findproducts"
+                                    (click)="navigateToSection('Findproducts')">Sell Products</a>
                             </li>
                             <li>
                                 <a href="#">Suppliers</a>
@@ -25,13 +27,16 @@
                     <div class="single-widget widget-contact">
                         <ul>
                             <li>
-                                <a href="index.html#products">Find Products</a>
+                                <a routerLink="/home/home-main/" fragment="Findproducts"
+                                    (click)="navigateToSection('Findproducts')">Find Products</a>
                             </li>
                             <li>
-                                <a href="index.html#egypt2030">Egypt 2030</a>
+                                <a routerLink="/home/home-main/" fragment="egypt"
+                                    (click)="navigateToSection('egypt')">Egypt 2030</a>
                             </li>
                             <li>
-                                <a href="index.html#contact">Contact</a>
+                                <a routerLink="/home/home-main/" fragment="contact"
+                                    (click)="navigateToSection('contact')">Contact</a>
                             </li>
                         </ul>
                     </div>

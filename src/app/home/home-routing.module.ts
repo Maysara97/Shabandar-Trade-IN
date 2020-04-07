@@ -34,7 +34,6 @@ const routes: Routes = [
       },
       {
         path: "home-main",
-        redirectTo: "/home",
         component: HomeMainComponent
       }
     ]

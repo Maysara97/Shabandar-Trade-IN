@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
 
 @Component({
   selector: "app-home-main",
@@ -6,7 +7,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home-main.component.scss"]
 })
 export class HomeMainComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.events.subscribe(evt => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
+  }
 }

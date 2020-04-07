@@ -14,3 +14,20 @@ input {
 .tm-button {
   width: 100%;
 }
+
+p {
+  text-align: center;
+  margin-top: 40px;
+  color: #0e1234;
+  font-size: large;
+}
+
+p a {
+  color: #c0972e;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #0e1234;
+}
