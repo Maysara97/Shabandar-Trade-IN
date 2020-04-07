@@ -1,6 +1,11 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+
+#header {
+  visibility: hidden;
+}
+
 h4 {
   text-align: center;
   color: #c0972e;
@@ -41,4 +46,23 @@ select {
   color: #e83748;
   background-color: inherit;
   border: none;
+}
+
+p {
+  text-align: center;
+  margin-top: 40px;
+  color: #0e1234;
+  font-size: large;
+}
+
+p a {
+  color: #c0972e;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #0e1234;
+  cursor: pointer;
+  text-decoration: underline;
 }

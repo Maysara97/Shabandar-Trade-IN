@@ -14,4 +14,9 @@ export class HomeFooterComponent implements OnInit {
   getBackgroundImageUrl() {
     return `url(${this.myBackgroundImageUrl})`;
   }
+
+  public navigateToSection(section: string) {
+    window.location.hash = "";
+    window.location.hash = section;
+  }
 }

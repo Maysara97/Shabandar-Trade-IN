@@ -30,3 +30,25 @@ a:hover {
   color: #fff;
   text-decoration: none;
 }
+
+.tm-button,
+a.tm-button,
+button.tm-button {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1px;
+  background: #c0972e;
+  height: 60px;
+  line-height: 48px;
+  padding: 0px 27px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+  border: 1px solid #c0972e;
+  border-radius: 5px;
+  z-index: 1;
+  vertical-align: middle;
+  padding-top: 4px;
+  width: 181px;
+}

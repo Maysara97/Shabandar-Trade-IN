@@ -4192,24 +4192,27 @@ button.tm-videobutton:hover span {
 .tm-service2 {
   -webkit-box-shadow: none;
   box-shadow: none;
+
   padding: 0 25px;
   margin-top: 50px;
 }
 
 .tm-service2-icon {
+  color: #c0972e;
   display: inline-block;
-  height: 92px;
-  width: 92px;
+  height: 100px;
+  width: 100px;
   text-align: center;
   line-height: 90px;
-  border-radius: 999px;
+  border-radius: 5px;
   -webkit-box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
   font-size: 38px;
   margin-bottom: 25px;
-  background: #ffffff;
+  /* background: #ffffff; */
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
+  border: 3px solid #c0972e;
   transition: all 0.3s ease-in-out;
 }
 
