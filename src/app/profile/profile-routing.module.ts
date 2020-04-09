@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeLayoutComponent } from '../home/home-layout/home-layout.component';
-import { RegisterationComponent } from './components/registeration/registeration.component';
 import { HomeMainComponent } from '../home/home-main/home-main.component';
-import { LoginComponent } from './components/login/login.component';
-import { OwnerComponent } from '../profile/owner/owner.component';
+import { Egypt2030Component } from '../home/home-main/egypt2030/egypt2030.component';
+import { HomeReadMoreComponent } from '../home/home-read-more/home-read-more.component';
 
 const routes: Routes = [
   {
@@ -16,23 +15,22 @@ const routes: Routes = [
         component: HomeMainComponent
       },
       {
-        path: 'login',
-        component: LoginComponent
+        path: 'egypt2030',
+        component: Egypt2030Component
       },
       {
-        path: 'registeration',
-        component: RegisterationComponent
+        path: 'home-read-more',
+        component: HomeReadMoreComponent
       },
       {
-        path: 'owner',
-        component: OwnerComponent
+        path: 'home-main',
+        component: HomeMainComponent
       }
     ]
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AccountRoutingModule {}
+export class ProfileRoutingModule { }

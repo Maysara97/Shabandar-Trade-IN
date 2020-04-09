@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-lg-8">
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+                <form [formGroup]="loginForm" 
                     class="tm-form tm-login-form tm-form-bordered bg-white">
                     <h4>Login</h4>
                     <div class="tm-form-inner">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="tm-form-field">
-                            <button type="submit" class="tm-button mt-2">Login <b></b></button>
+                            <button type="submit" class="tm-button mt-2"><a router-link="/owner">Login <b></b></a></button>
                             <p>Don't have an Account <a routerLink="/home/registeration">Register</a> Now</p>
                         </div>
                     </div>
