@@ -1,72 +1,122 @@
 .toggle {
-  width: 100%;
-  padding: 10px 20px;
-  text-align: right;
-  box-sizing: border-box;
-  color: #c0972e !important;
-  font-size: 30px;
-  display: none;
+    width: 100%;
+    padding: 10px 20px;
+    text-align: right;
+    box-sizing: border-box;
+    color: #c0972e !important;
+    font-size: 30px;
+    display: none;
 }
 
 .toggle button {
-  background: #c0972e;
-  color: #fff;
-  border: #c0972e;
+    background: #c0972e;
+    color: #fff;
+    border: #c0972e;
 }
 
 .header-logo-mobile {
-  display: none;
+    display: none;
 }
 
 @media (max-width: 1024px) {
-  #mainNav {
-    display: none;
-  }
+    #mainNav {
+        display: none;
+    }
 
-  .toggle {
-    display: block;
-    cursor: pointer;
-    margin-top: -70px;
-  }
+    .toggle {
+        display: block;
+        cursor: pointer;
+        margin-top: -70px;
+    }
 
-  .navigation {
-    width: 100%;
-    /* display: none; */
-  }
+    .navigation {
+        width: 100%;
+        /* display: none; */
+    }
 
-  .header-logo-mobile {
-    display: block;
-    width: 50%;
-  }
+    .header-logo-mobile {
+        display: block;
+        width: 50%;
+    }
 
-  .header-logo {
-    display: none;
-  }
+    .header-logo {
+        display: none;
+    }
 }
 @media (min-width: 768px) and (max-width: 1365px) {
-  .header-logo-mobile {
-    width: 48%;
-  }
+    .header-logo-mobile {
+        width: 48%;
+    }
 
-  .toggle {
-    margin-top: -115px;
-  }
-  .header.sticky-active .header-bottomarea {
-    padding-bottom: 30px;
-  }
+    .toggle {
+        margin-top: -115px;
+    }
+    .header.sticky-active .header-bottomarea {
+        padding-bottom: 30px;
+    }
 }
 
 .btn-signup {
-  color: #0e1234;
-  background-color: #fff;
-  border-color: #fff;
+    color: #0e1234;
+    background-color: #fff;
+    border-color: #fff;
+    height: 100%;
 }
 .btn-login {
-  background-color: transparent;
-  background-image: none;
-  border-color: #fff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #fff;
+    height: 100%;
 }
 .btn-login:hover {
-  background-color: #fff;
-  color: #000 !important;
+    background-color: #fff;
+    color: #000 !important;
+}
+.btn-logout {
+    background-color: transparent;
+    background-image: none;
+    border-color: #fff;
+    height: 90%;
+}
+.btn-logout:hover {
+    background-color: #fff;
+    color: #000 !important;
+}
+@media (max-width: 1024px) {
+    .btn-logout {
+        height: 40%;
+    }
+}
+
+.btn-profile {
+    background-color: transparent;
+    background-image: none;
+    border-color: #fff;
+    height: 90%;
+}
+.btn-profile:hover {
+    background-color: #fff;
+    color: #000 !important;
+}
+
+@media (max-width: 1024px) {
+    .btn-profile {
+        height: 40%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header-bottominner .tm-navigation .nav .btn-signup,
+    .header-bottominner .tm-navigation .nav .btn-login {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header-bottominner .tm-navigation .nav .btn-profile,
+    .header-bottominner .tm-navigation .nav .btn-logout {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
 }

@@ -5,46 +5,115 @@
         <div class="container">
             <div class="header-logo-mobile">
                 <a href="index.html">
-                    <img src="assets/images/You-Trade-In/youtradeinlogo.png" alt="logo" width="80%">
+                    <img
+                        src="assets/images/You-Trade-In/youtradeinlogo.png"
+                        alt="logo"
+                        width="80%"
+                    />
                 </a>
             </div>
             <div class="toggle">
                 <button (click)="hideNav()">
                     <i class="fa fa-bars menu" aria-hidden="true"></i>
                 </button>
-
             </div>
             <div class="header-bottominner">
                 <div class="header-logo">
                     <a href="index.html">
-                        <img src="assets/images/You-Trade-In/youtradeinlogo.png" alt="logo" width="80%">
+                        <img
+                            src="assets/images/You-Trade-In/youtradeinlogo.png"
+                            alt="logo"
+                            width="80%"
+                        />
                     </a>
                 </div>
                 <nav class="tm-navigation" id="mainNav">
                     <ul class="navigation nav">
-                        <li class="navigation__link"><a routerLink="/home/home-main" fragment="default"
-                                (click)="navigateToSection('default')">Home</a>
+                        <li class="navigation__link">
+                            <a
+                                routerLink="/home/home-main"
+                                fragment="default"
+                                (click)="navigateToSection('default')"
+                                >Home</a
+                            >
                         </li>
                         <li><a href="#">Buying Request</a></li>
-                        <li class="navigation__link"><a routerLink="/home/home-main" fragment="egypt"
-                                (click)="navigateToSection('egypt')">Egypt
-                                2030</a></li>
-                        <li class="navigation__link"><a routerLink="/home/home-main" fragment="Findproducts"
-                                (click)="navigateToSection('Findproducts')">Find Products</a></li>
-                        <li class="navigation__link"><a routerLink="/home/home-main" fragment="Findproducts"
-                                (click)="navigateToSection('Findproducts')">Sell Products</a></li>
-                        <li class="navigation__link"><a routerLink="/home/home-main" fragment="contact"
-                                (click)="navigateToSection('contact')">Contact</a></li>
+                        <li class="navigation__link">
+                            <a
+                                routerLink="/home/home-main"
+                                fragment="egypt"
+                                (click)="navigateToSection('egypt')"
+                                >Egypt 2030</a
+                            >
+                        </li>
+                        <li class="navigation__link">
+                            <a
+                                routerLink="/home/home-main"
+                                fragment="Findproducts"
+                                (click)="navigateToSection('Findproducts')"
+                                >Find Products</a
+                            >
+                        </li>
+                        <li class="navigation__link">
+                            <a
+                                routerLink="/home/home-main"
+                                fragment="Findproducts"
+                                (click)="navigateToSection('Findproducts')"
+                                >Sell Products</a
+                            >
+                        </li>
+                        <li class="navigation__link">
+                            <a
+                                routerLink="/home/home-main"
+                                fragment="contact"
+                                (click)="navigateToSection('contact')"
+                                >Contact</a
+                            >
+                        </li>
 
-                        <button type="button" class="btn btn-signup" routerLink="registeration">Sign
-                            Up</button>
-                        <button type="button" class="btn btn-login" routerLink="login" style="color: #fff;">Log
-                            In</button>
+                        <div *ngIf="!isUserRegistered()">
+                            <button
+                                type="button"
+                                class="btn btn-signup"
+                                routerLink="registeration"
+                            >
+                                Sign Up
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-login"
+                                routerLink="login"
+                                style="color: #fff;"
+                            >
+                                Log In
+                            </button>
+                        </div>
+                        <div *ngIf="isUserRegistered()">
+                            <button
+                                type="button"
+                                class="btn btn-profile"
+                                style="color: #fff;"
+                                routerLink="owner"
+                            >
+                                <i
+                                    class="fas fa-user-circle"
+                                    aria-hidden="true"
+                                    style="font-size: 25px;"
+                                ></i>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-logout"
+                                routerLink="login"
+                                style="color: #fff;"
+                            >
+                                Log Out
+                            </button>
+                        </div>
                     </ul>
                 </nav>
-
             </div>
-
         </div>
     </div>
     <!--// Header Bottom Area -->

@@ -1,0 +1,197 @@
+.input-search {
+    background-color: #0e1234;
+    border-radius: 5px !important;
+    height: 90%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+@media (max-width: 767px) {
+    .input-search {
+        height: 47%;
+    }
+}
+.productSelect {
+    background-color: #0e1234;
+    color: #fff;
+}
+.dropdown-menu {
+    background-color: #fff;
+    color: #0e1234;
+}
+.searchButton {
+    background-color: #c0972e;
+    color: #fff;
+    margin-right: 5px;
+}
+.countrySelect {
+    border-radius: 5px;
+    background-color: #0e1234;
+    color: #fff;
+}
+
+.homepage-area .single-widget {
+    background-color: #0e1234;
+    color: #fff;
+    border-radius: 5px;
+    height: 100%;
+}
+.homepage-area h5 {
+    color: #fff;
+    padding: 15px;
+}
+
+.homepage-area .imageContainer {
+    position: relative;
+}
+.homepage-area .imageContainer img {
+    border: 2px solid #c0972e;
+    border-radius: 5px;
+}
+.homepage-area .imageContainer .plusBtn {
+    position: absolute;
+    /* width: 0px; */
+    height: 27px;
+    top: 25%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #c0972e;
+    color: white;
+    font-size: 12px;
+    padding: 0px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+.homepage-area .tm-product-actions li button {
+    border-radius: 5px;
+}
+.homepage-area .tm-product-actions li button:hover {
+    background: #c0972e;
+    color: #fff;
+    border-radius: 5px;
+}
+.homepage-area .tm-product-imagelink {
+    display: block;
+    width: 100%;
+    border: 2px solid #c0972e;
+    border-radius: 5px;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.homepage-area .tm-product-imagelink::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.homepage-area .tm-product-content {
+    padding-top: 0px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: -5px;
+    background-color: #0e1234;
+}
+.homepage-area .tm-product-content p {
+    color: #fff;
+    margin-left: 0px;
+    font-weight: 700;
+    padding: 5px;
+    font-size: 12px;
+}
+.homepage-area .supplier-name {
+    margin-top: 10px;
+}
+.homepage-area .supplier-name p {
+    float: right;
+    font-size: 13px;
+    color: #c0972e;
+}
+@media (max-width: 768px) {
+    .homepage-area .supplier-name p {
+        float: right;
+        font-size: 20px;
+        color: #c0972e;
+        margin-top: 5px;
+    }
+}
+.homepage-area .buttons button {
+    height: 50px;
+    font-size: 15px;
+    padding: 0 8px;
+}
+.homepage-area .buttons .category-btn {
+    background-color: #0e1234;
+    color: #fff;
+    border-radius: 5px;
+    height: 35px;
+}
+.homepage-area .buttons .category-btn p {
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 19px;
+}
+.homepage-area .buttons .email-btn {
+    background-color: #c0972e;
+    color: #fff;
+    border-radius: 5px;
+    height: 35px;
+}
+.homepage-area .widget-button {
+    position: relative;
+}
+.homepage-area .widget-button .up-btn {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    border-radius: 5px;
+    width: 50%;
+    font-size: 20px;
+    color: #fff;
+    line-height: 10px;
+    background-color: #c0972e;
+    border: 1px solid #c0972e;
+}
+@media (min-width: 768px) {
+    .homepage-area .buttons .category-btn p {
+        padding: 8px;
+        margin-bottom: 0px;
+        font-size: 12px;
+        line-height: 19px;
+    }
+    .homepage-area .buttons button {
+        height: 50px;
+        font-size: 10px;
+        padding: 0 8px;
+    }
+    .homepage-area .buttons .email-btn {
+        background-color: #c0972e;
+        color: #fff;
+        border-radius: 5px;
+        /* height: 35px; */
+    }
+}
