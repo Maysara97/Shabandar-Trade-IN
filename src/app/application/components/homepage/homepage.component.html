@@ -2,18 +2,25 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <button
-                    class="btn dropdown-toggle productSelect"
-                    type="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                >
-                    Products
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
+                <div class="dropdown">
+                    <button
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Products
+                    </button>
+                    <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                    >
+                        <a class="dropdown-item" href="#">Action</a>
+                    </div>
                 </div>
+                <!-- [(ngModel)]="term" -->
                 <input
                     type="text"
                     class="form-control input-search"
@@ -45,23 +52,26 @@
                 <div class="single-widget widget-categories">
                     <h5>Categories</h5>
                     <ul>
-                        <li><a href="#">Industry</a></li>
-                        <li><a href="#">Tourism</a></li>
-                        <li><a href="#">Real Estate</a></li>
-                        <li><a href="#">Designers</a></li>
-                        <li><a href="#">Shipping & Logistics</a></li>
+                        <li *ngFor="let category of categories">
+                            <a href="#">{{ category.categoryName }}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-7 col-md-7 col-sm-12 col-12">
                 <div class="row">
                     <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
+                    <div
+                        class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
+                        *ngFor="let product of products"
+                    >
+                        <!--To apply search functionality-->
+                        <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
                             <div class="tm-product-image">
                                 <a class="tm-product-imagelink" href="#">
                                     <img
-                                        src="assets/white.jpg"
+                                        src="assets/images/You-Trade-In/white.jpg"
                                         alt="product image"
                                     />
                                 </a>
@@ -79,13 +89,12 @@
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    Place Product Title Here With A Maximum Of
-                                    Two Lines
+                                    {{ product.ProductName }}
                                 </p>
                             </div>
-                            <div class="supplier-name">
+                            <!-- <div class="supplier-name">
                                 <img
-                                    src="assets/images/uk.png"
+                                    src="assets/images/You-Trade-In/uk.png"
                                     alt=""
                                     width="12%"
                                     style="float: left;"
@@ -94,290 +103,10 @@
                                     Place Supplier Name Here
                                 </p>
                                 <div style="clear: both;"></div>
-                            </div>
-                            <div class="buttons">
+                            </div> -->
+                            <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
-                                    <p>Industry</p>
-                                </div>
-                                <button class="email-btn" style="float: right;">
-                                    <i
-                                        class="fa fa-envelope"
-                                        aria-hidden="true"
-                                    ></i>
-                                    Send Email
-                                </button>
-                                <div style="clear: both;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Product -->
-                    <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
-                        <div class="tm-product">
-                            <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img
-                                        src="assets/white.jpg"
-                                        alt="product image"
-                                    />
-                                </a>
-                                <ul class="tm-product-actions">
-                                    <li>
-                                        <button
-                                            type="button"
-                                            data-toggle="modal"
-                                            data-target="#tm-product-quickview"
-                                        >
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tm-product-content">
-                                <p class="tm-product-title">
-                                    Place Product Title Here With A Maximum Of
-                                    Two Lines
-                                </p>
-                            </div>
-                            <div class="supplier-name">
-                                <img
-                                    src="assets/images/uk.png"
-                                    alt=""
-                                    width="12%"
-                                    style="float: left;"
-                                />
-                                <p>
-                                    Place Supplier Name Here
-                                </p>
-                                <div style="clear: both;"></div>
-                            </div>
-                            <div class="buttons">
-                                <div class="category-btn" style="float: left;">
-                                    <p>Industry</p>
-                                </div>
-                                <button class="email-btn" style="float: right;">
-                                    <i
-                                        class="fa fa-envelope"
-                                        aria-hidden="true"
-                                    ></i>
-                                    Send Email
-                                </button>
-                                <div style="clear: both;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Product -->
-                    <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
-                        <div class="tm-product">
-                            <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img
-                                        src="assets/white.jpg"
-                                        alt="product image"
-                                    />
-                                </a>
-                                <ul class="tm-product-actions">
-                                    <li>
-                                        <button
-                                            type="button"
-                                            data-toggle="modal"
-                                            data-target="#tm-product-quickview"
-                                        >
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tm-product-content">
-                                <p class="tm-product-title">
-                                    Place Product Title Here With A Maximum Of
-                                    Two Lines
-                                </p>
-                            </div>
-                            <div class="supplier-name">
-                                <img
-                                    src="assets/images/uk.png"
-                                    alt=""
-                                    width="12%"
-                                    style="float: left;"
-                                />
-                                <p>
-                                    Place Supplier Name Here
-                                </p>
-                                <div style="clear: both;"></div>
-                            </div>
-                            <div class="buttons">
-                                <div class="category-btn" style="float: left;">
-                                    <p>Industry</p>
-                                </div>
-                                <button class="email-btn" style="float: right;">
-                                    <i
-                                        class="fa fa-envelope"
-                                        aria-hidden="true"
-                                    ></i>
-                                    Send Email
-                                </button>
-                                <div style="clear: both;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Product -->
-                    <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
-                        <div class="tm-product">
-                            <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img
-                                        src="assets/white.jpg"
-                                        alt="product image"
-                                    />
-                                </a>
-                                <ul class="tm-product-actions">
-                                    <li>
-                                        <button
-                                            type="button"
-                                            data-toggle="modal"
-                                            data-target="#tm-product-quickview"
-                                        >
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tm-product-content">
-                                <p class="tm-product-title">
-                                    Place Product Title Here With A Maximum Of
-                                    Two Lines
-                                </p>
-                            </div>
-                            <div class="supplier-name">
-                                <img
-                                    src="assets/images/uk.png"
-                                    alt=""
-                                    width="12%"
-                                    style="float: left;"
-                                />
-                                <p>
-                                    Place Supplier Name Here
-                                </p>
-                                <div style="clear: both;"></div>
-                            </div>
-                            <div class="buttons">
-                                <div class="category-btn" style="float: left;">
-                                    <p>Industry</p>
-                                </div>
-                                <button class="email-btn" style="float: right;">
-                                    <i
-                                        class="fa fa-envelope"
-                                        aria-hidden="true"
-                                    ></i>
-                                    Send Email
-                                </button>
-                                <div style="clear: both;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Product -->
-                    <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
-                        <div class="tm-product">
-                            <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img
-                                        src="assets/white.jpg"
-                                        alt="product image"
-                                    />
-                                </a>
-                                <ul class="tm-product-actions">
-                                    <li>
-                                        <button
-                                            type="button"
-                                            data-toggle="modal"
-                                            data-target="#tm-product-quickview"
-                                        >
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tm-product-content">
-                                <p class="tm-product-title">
-                                    Place Product Title Here With A Maximum Of
-                                    Two Lines
-                                </p>
-                            </div>
-                            <div class="supplier-name">
-                                <img
-                                    src="assets/images/uk.png"
-                                    alt=""
-                                    width="12%"
-                                    style="float: left;"
-                                />
-                                <p>
-                                    Place Supplier Name Here
-                                </p>
-                                <div style="clear: both;"></div>
-                            </div>
-                            <div class="buttons">
-                                <div class="category-btn" style="float: left;">
-                                    <p>Industry</p>
-                                </div>
-                                <button class="email-btn" style="float: right;">
-                                    <i
-                                        class="fa fa-envelope"
-                                        aria-hidden="true"
-                                    ></i>
-                                    Send Email
-                                </button>
-                                <div style="clear: both;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Product -->
-                    <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
-                        <div class="tm-product">
-                            <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img
-                                        src="assets/white.jpg"
-                                        alt="product image"
-                                    />
-                                </a>
-                                <ul class="tm-product-actions">
-                                    <li>
-                                        <button
-                                            type="button"
-                                            data-toggle="modal"
-                                            data-target="#tm-product-quickview"
-                                        >
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tm-product-content">
-                                <p class="tm-product-title">
-                                    Place Product Title Here With A Maximum Of
-                                    Two Lines
-                                </p>
-                            </div>
-                            <div class="supplier-name">
-                                <img
-                                    src="assets/images/uk.png"
-                                    alt=""
-                                    width="12%"
-                                    style="float: left;"
-                                />
-                                <p>
-                                    Place Supplier Name Here
-                                </p>
-                                <div style="clear: both;"></div>
-                            </div>
-                            <div class="buttons">
-                                <div class="category-btn" style="float: left;">
-                                    <p>Industry</p>
+                                    <p>{{ product.CategoryId }}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
                                     <i
@@ -397,9 +126,9 @@
                 class="col-lg-2 col-md-2 col-sm-4 col-12 justify-content-center"
             >
                 <div class="single-widget widget-button">
-                    <button class="up-btn">
+                    <a id="scrollUp" href="/home/homepage#top" class="up-btn">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

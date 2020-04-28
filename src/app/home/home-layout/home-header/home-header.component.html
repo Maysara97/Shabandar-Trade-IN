@@ -62,13 +62,16 @@
                                 >Sell Products</a
                             >
                         </li>
-                        <li class="navigation__link">
+                        <!-- <li class="navigation__link">
                             <a
                                 routerLink="/home/home-main"
                                 fragment="contact"
                                 (click)="navigateToSection('contact')"
                                 >Contact</a
                             >
+                        </li> -->
+                        <li class="navigation__link">
+                            <a routerLink="homepage">Contact</a>
                         </li>
 
                         <div *ngIf="!isUserRegistered()">
@@ -93,7 +96,7 @@
                                 type="button"
                                 class="btn btn-profile"
                                 style="color: #fff;"
-                                routerLink="owner"
+                                routerLink="/home/owner"
                             >
                                 <i
                                     class="fas fa-user-circle"

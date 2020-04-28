@@ -43,4 +43,8 @@ export class AuthService extends BaseService<any> {
     register(model: User) {
         return this.post('Account', model)
     }
+
+    updateProfile(model: User) {
+        return this.put('Account', model)
+    }
 }

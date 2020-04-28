@@ -298,7 +298,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     border: 1px solid #fff;
     margin: 10px;
-    width: 350px !important;
+    width: 345px !important;
 }
 
 .interests-area .tm-portfoliodetails-info > ul {
@@ -387,4 +387,33 @@
     color: #ffffff;
     margin-top: -20px;
     font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .interests-section .tm-blog-image {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+    }
+    .interests-section .tm-blog-image img {
+        margin-left: 50%;
+    }
+    .interests-section .tm-blog-description {
+        width: 25%;
+    }
+}
+
+@media (max-width: 320px) {
+    .interests-section .tm-blog-image img {
+        width: 50%;
+    }
+
+    .interests-area .tm-portfoliodetails-info {
+        padding: 30px;
+        /* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        border: 1px solid #fff;
+        margin: 10px;
+        width: 250px !important;
+    }
 }

@@ -7,11 +7,11 @@
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-lg-8">
                 <form
-                    [formGroup]="registerForm"
-                    (ngSubmit)="onSubmit(registerForm.value)"
+                    [formGroup]="editProfileForm"
+                    (ngSubmit)="onSubmit(editProfileForm.value)"
                     class="tm-form tm-register-form tm-form-bordered bg-white"
                 >
-                    <h4>Create an account</h4>
+                    <h4>Update Your Profile</h4>
                     <div class="tm-form-inner">
                         <div class="form-group tm-form-field">
                             <div class="row">
@@ -30,6 +30,9 @@
                                             'is-invalid':
                                                 submitted && f.firstname.errors
                                         }"
+                                        [(ngModel)]="
+                                            profileData.primaryAdminFirstlName
+                                        "
                                     />
                                     <div
                                         *ngIf="submitted && f.firstname.errors"
@@ -57,6 +60,9 @@
                                             'is-invalid':
                                                 submitted && f.lastname.errors
                                         }"
+                                        [(ngModel)]="
+                                            profileData.primaryAdminLastName
+                                        "
                                     />
                                     <div
                                         *ngIf="submitted && f.lastname.errors"
@@ -86,6 +92,7 @@
                                     'is-invalid':
                                         submitted && f.telephonenumber.errors
                                 }"
+                                [(ngModel)]="profileData.accountMobile"
                             />
                             <div
                                 *ngIf="submitted && f.telephonenumber.errors"
@@ -110,6 +117,7 @@
                                 [ngClass]="{
                                     'is-invalid': submitted && f.email.errors
                                 }"
+                                [(ngModel)]="profileData.primaryAdminEmail"
                             />
                             <div
                                 *ngIf="submitted && f.email.errors"
@@ -140,6 +148,9 @@
                                             'is-invalid':
                                                 submitted && f.password.errors
                                         }"
+                                        [(ngModel)]="
+                                            profileData.primaryAdminPassword
+                                        "
                                     />
                                     <div
                                         *ngIf="submitted && f.password.errors"
@@ -155,48 +166,6 @@
                                         >
                                             Password must be at least 6
                                             characters
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label for="register-password-con"
-                                        >Confirm Password</label
-                                    >
-                                    <br />
-                                    <input
-                                        type="password"
-                                        id="register-password-con"
-                                        name="confirmPassword"
-                                        required="required"
-                                        formControlName="confirmPassword"
-                                        [ngClass]="{
-                                            'is-invalid':
-                                                submitted &&
-                                                f.confirmPassword.errors
-                                        }"
-                                    />
-                                    <div
-                                        *ngIf="
-                                            submitted &&
-                                            f.confirmPassword.errors
-                                        "
-                                        class="alert alert-danger"
-                                    >
-                                        <div
-                                            *ngIf="
-                                                f.confirmPassword.errors
-                                                    .required
-                                            "
-                                        >
-                                            Confirm Password is required
-                                        </div>
-                                        <div
-                                            *ngIf="
-                                                f.confirmPassword.errors
-                                                    .mustMatch
-                                            "
-                                        >
-                                            Passwords must match
                                         </div>
                                     </div>
                                 </div>
@@ -223,21 +192,14 @@
                                 <option value="" disabled selected
                                     >Choose your country</option
                                 >
-                                <option value="Cairo">Cairo</option>
-                                <option value="2">Alexandria</option>
-                                <option value="3">Luxor</option>
-                                <option value="3">Giza</option>
-                                <option value="3">10th of Ramadan</option>
+                                <option value="EGYPT">EGYPT</option>
+                                <option value="USA">USA</option>
                             </select>
                         </div>
                         <div class="form-group tm-form-field">
                             <button type="submit" class="tm-button mt-5">
-                                Register <b></b>
+                                Submit <b></b>
                             </button>
-                            <p>
-                                Already have an Account
-                                <a routerLink="/home/login">Login</a> here
-                            </p>
                         </div>
                     </div>
                 </form>
