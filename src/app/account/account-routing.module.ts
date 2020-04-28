@@ -4,6 +4,8 @@ import { HomeLayoutComponent } from '../home/home-layout/home-layout.component'
 import { RegisterationComponent } from './components/registeration/registeration.component'
 import { HomeMainComponent } from '../home/home-main/home-main.component'
 import { LoginComponent } from './components/login/login.component'
+import { OwnerComponent } from '../application/components/owner/owner.component'
+import { EditprofileComponent } from './components/editprofile/editprofile.component'
 
 const routes: Routes = [
     {
@@ -21,6 +23,13 @@ const routes: Routes = [
             {
                 path: 'registeration',
                 component: RegisterationComponent,
+            },
+            {
+                path: 'owner',
+                component: OwnerComponent,
+                children: [
+                    { path: 'editprofile', component: EditprofileComponent },
+                ],
             },
         ],
     },

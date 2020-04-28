@@ -6142,8 +6142,8 @@ button.tm-videobutton:hover span {
 /* Widget Categories */
 .widget-categories ul li,
 .widget-archives ul li {
-    border-bottom: 1px solid #dddddd;
-    padding: 12px 0;
+    /* border-bottom: 1px solid #dddddd; */
+    padding: 12px 29px;
 }
 
 .widget-categories ul li:first-child,
@@ -6156,7 +6156,7 @@ button.tm-videobutton:hover span {
     display: block;
     font-size: 14px;
     font-weight: 400;
-    color: #444444;
+    color: #fff;
 }
 
 .widget-categories ul li a::after,
@@ -6189,9 +6189,10 @@ button.tm-videobutton:hover span {
 
 .widget-categories ul li a:hover,
 .widget-archives ul li a:hover {
-    color: #333333;
+    color: #c0972e;
     font-weight: 700;
     padding-left: 13px;
+    text-decoration: none;
 }
 
 /* Widget Social */

@@ -13,12 +13,14 @@ export class BaseService<T> {
         this.baseUrl = environment.baseUrl
     }
 
-    protected getMany(url: string): Observable<T[]> {
+    protected getAll(url: string): Observable<T[]> {
         return this.http
             .get(`${this.baseUrl}/${url}`)
             .pipe(map((data: T[]) => data))
     }
-
+    getById(url: string, id: string) {
+        return this.get(`${url}/${id}`)
+    }
     protected get(url: string): Observable<T> {
         return this.http
             .get(`${this.baseUrl}/${url}`)
@@ -37,9 +39,9 @@ export class BaseService<T> {
             .pipe(map((data: T) => data))
     }
 
-    protected remove(url: string): Observable<T> {
+    protected remove(url: string, id: string | number): Observable<T> {
         return this.http
-            .delete(`${this.baseUrl}/${url}`)
+            .delete(`${this.baseUrl}/${url}${url}/${id}`)
             .pipe(map((data: T) => data))
     }
 
