@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]],
+            email: [null, [Validators.required]],
+            password: [null, [Validators.required]],
         })
 
         this.router.events.subscribe((evt) => {
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         this.auth.login(loginData.email, loginData.password).subscribe(
             (result) => {
                 if (result) {
-                    this.router.navigate(['/owner'])
+                    this.router.navigate(['/home/owner'])
                     alert(
                         'SUCCESS!! :-)\n\n' +
                             JSON.stringify(this.loginForm.value, null, 4)
@@ -68,8 +68,8 @@ export class LoginComponent implements OnInit {
                             JSON.stringify(this.loginForm.value, null, 4)
                     )
                 }
-            },
-            (error) => this.router.navigate(['/home/owner'])
+            }
+            // (error) => this.router.navigate(['/home/owner'])
         )
         // display form values on success
     }
