@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { User } from 'src/app/account/models/register'
 import { Observable } from 'rxjs'
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
+import { AuthService } from 'src/app/shared/services/auth.service'
 @Component({
     selector: 'app-owner',
     templateUrl: './owner.component.html',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router'
 })
 export class OwnerComponent implements OnInit {
     user: User
+    userDetails = ''
     loggedUser$: Observable<User>
 
-    title = 'angularowlslider'
+    // title = 'angularowlslider'
     customOptions: any = {
         loop: true,
         mouseDrag: true,
@@ -61,9 +63,15 @@ export class OwnerComponent implements OnInit {
         },
         nav: true,
     }
-    constructor(private router: Router) {}
+    constructor(
+        private router: Router,
+        private auth: AuthService,
+        private route: ActivatedRoute
+    ) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        // this.loggedUser$ = this.auth.currentUser
+    }
 }
 
 // updateProfile(userId: number) {
