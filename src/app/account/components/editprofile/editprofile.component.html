@@ -106,71 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group tm-form-field">
-                            <label for="register-email">Email</label> <br />
-                            <input
-                                type="email"
-                                name="email"
-                                id="register-email"
-                                required="required"
-                                formControlName="email"
-                                [ngClass]="{
-                                    'is-invalid': submitted && f.email.errors
-                                }"
-                                [(ngModel)]="profileData.primaryAdminEmail"
-                            />
-                            <div
-                                *ngIf="submitted && f.email.errors"
-                                class="alert alert-danger"
-                            >
-                                <div *ngIf="f.email.errors?.required">
-                                    Email is required
-                                </div>
-                                <div *ngIf="f.email.errors?.email">
-                                    Email must be a valid email address
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group tm-form-field">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="register-password"
-                                        >Password</label
-                                    >
-                                    <br />
-                                    <input
-                                        type="password"
-                                        id="register-password"
-                                        name="password"
-                                        required="required"
-                                        formControlName="password"
-                                        [ngClass]="{
-                                            'is-invalid':
-                                                submitted && f.password.errors
-                                        }"
-                                        [(ngModel)]="
-                                            profileData.primaryAdminPassword
-                                        "
-                                    />
-                                    <div
-                                        *ngIf="submitted && f.password.errors"
-                                        class="alert alert-danger"
-                                    >
-                                        <div
-                                            *ngIf="f.password.errors?.required"
-                                        >
-                                            Password is required
-                                        </div>
-                                        <div
-                                            *ngIf="f.password.errors?.minlength"
-                                        >
-                                            Password must be at least 6
-                                            characters
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="form-group tm-form-field">
                             <label for="register-company">Company Name</label>
                             <br />

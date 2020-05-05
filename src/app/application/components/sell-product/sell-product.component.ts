@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core'
-import { Category } from '../../models/category'
-import { Ng2SearchPipeModule } from 'ng2-search-filter'
-import { Observable } from 'rxjs'
 import { CategoryService } from '../../services/category.service'
+import { Observable } from 'rxjs'
+import { Category } from '../../models/category'
 
 @Component({
-    selector: 'app-homepage',
-    templateUrl: './homepage.component.html',
-    styleUrls: ['./homepage.component.scss'],
+    selector: 'app-sell-product',
+    templateUrl: './sell-product.component.html',
+    styleUrls: ['./sell-product.component.scss'],
 })
-export class HomepageComponent implements OnInit {
+export class SellProductComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
 

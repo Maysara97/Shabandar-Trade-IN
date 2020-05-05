@@ -2,7 +2,7 @@
 <div class="owner-profile">
     <div class="page-section tm-section owner-area tm-padding-section" style="background-color: #0e1234;">
         <div class="container">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="mb-5">
                         <h2 style="color: #c0972e; float: left;" class="leftAlign">
@@ -12,7 +12,7 @@
                             color: #fff;
                             float: right;
                             background-color: #c0972e;
-                        " routerLink="/home/editProfile">
+                        " routerLink="/account/editprofile">
                             Edit Profile
                         </a>
                     </div>
@@ -29,7 +29,10 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 col-md-8 justify-content-right data"
                                 data-bgimage="assets/background-end.png">
+
+                                <!-- loggedUser$ | async -->
                                 <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
+                                    <!-- <p>{{primaryAdminFirstlName}}</p> -->
                                     <p>Name</p>
                                 </div>
                                 <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
@@ -201,12 +204,19 @@
     <div class="page-section tm-section req-products-services-area tm-padding-section"
         style="background-color: #0e1234;">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="mb-5">
                         <h2 style="color: #c0972e; float: left;" class="leftAlign">
                             Requested Products/Services
                         </h2>
+                        <a type="button" class="btn rightAlign" style="
+                            color: #fff;
+                            float: right;
+                            background-color: #c0972e;
+                        ">
+                            Add New Request <i class="fa fa-plus" aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div style="clear: both;"></div>
                 </div>
@@ -305,9 +315,9 @@
 
     <div class="page-section tm-section interests-area" style="background-color: #0e1234;">
         <div class="container">
-            <div class="row">
+            <div class="row ">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <div class="mb-5">
+                    <div class="mb-5 mt-5">
                         <h2 style="color: #c0972e; float: left;" class="leftAlign">
                             Interests
                         </h2>
@@ -316,7 +326,7 @@
                 </div>
             </div>
 
-            <owl-carousel-o [options]="interestsOptions" class="interests-section" style="width: 400px;">
+            <owl-carousel-o [options]="interestsOptions" class="interests-section mt-3" style="width: 400px;">
                 <ng-template carouselSlide>
                     <div class="col">
                         <div class="tm-portfoliodetails-info">
