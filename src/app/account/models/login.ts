@@ -1,4 +1,5 @@
 export class Login {
-    email: string
-    password: string
+    primaryAdminEmail: string
+    primaryAdminPassword: string
+    rememberMe: boolean
 }

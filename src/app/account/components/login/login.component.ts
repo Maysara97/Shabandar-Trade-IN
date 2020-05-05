@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms'
 import { Router, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { User } from '../../models/register'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
     selector: 'app-login',
@@ -12,17 +13,19 @@ import { User } from '../../models/register'
 export class LoginComponent implements OnInit {
     loginForm: FormGroup
     submitted = false
+    userId
     userData: User
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
-        private auth: AuthService
+        private auth: AuthService,
+        private toastr: ToastrService
     ) {}
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
-            email: [null, [Validators.required]],
-            password: [null, [Validators.required]],
+            primaryAdminEmail: [null, [Validators.required]],
+            primaryAdminPassword: [null, [Validators.required]],
         })
 
         this.router.events.subscribe((evt) => {
@@ -37,40 +40,33 @@ export class LoginComponent implements OnInit {
         return this.loginForm.controls
     }
 
-    get username() {
-        return (
-            this.userData.primaryAdminFirstlName +
-            '' +
-            this.userData.primaryAdminLastName
-        )
+    get email() {
+        return this.loginForm.get('primaryAdminEmail')
     }
+    get password() {
+        return this.loginForm.get('primaryAdminPassword')
+    }
+    // get accountId() {
+    //     return this.userData.accountId
+    // }
 
     onSubmit() {
         this.submitted = true
-
-        const loginData = this.loginForm.value
         // stop here if form is invalid
         if (this.loginForm.invalid) {
             return
         }
-
-        this.auth.login(loginData.email, loginData.password).subscribe(
-            (result) => {
+        this.auth.login(this.email.value, this.password.value).subscribe(
+            (result: any) => {
                 if (result) {
-                    this.router.navigate(['/home/owner'])
-                    alert(
-                        'SUCCESS!! :-)\n\n' +
-                            JSON.stringify(this.loginForm.value, null, 4)
-                    )
+                    this.toastr.success('Success')
+                    this.router.navigate(['/account/owner'])
                 } else {
-                    alert(
-                        'Failed!! :-)\n\n' +
-                            JSON.stringify(this.loginForm.value, null, 4)
-                    )
+                    this.loginForm.reset()
+                    this.toastr.error('Error')
                 }
             }
             // (error) => this.router.navigate(['/home/owner'])
         )
-        // display form values on success
     }
 }

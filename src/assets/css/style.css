@@ -2558,7 +2558,7 @@ button.tm-videobutton:hover span {
     /* box-shadow: 5px 0 5px rgba(0, 0, 0, 0.15); */
     z-index: 3;
     position: relative;
-    background-color: #ffffff00;
+    background-color: #0e1234;
 }
 
 .header-bottominner {
@@ -2736,6 +2736,12 @@ button.tm-videobutton:hover span {
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
+
+/* @media (min-width: 1024px) {
+     .header-bottomarea .tm-navigation {
+        margin-left: 15%; 
+    } 
+} */
 /* .header-bottomarea .tm-navigation ul li .egypt {
   padding-top: 10px;
   background-color: #fff;

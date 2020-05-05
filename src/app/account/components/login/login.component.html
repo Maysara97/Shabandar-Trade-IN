@@ -9,22 +9,26 @@
                     <div class="tm-form-inner">
                         <div class="tm-form-field">
                             <label for="login-email">Email</label> <br />
-                            <input type="email" name="email" formControlName="email" id="login-email"
-                                required="required" [ngClass]="{
-                                    'is-invalid': submitted && f.email.errors
+                            <input type="email" name="primaryAdminEmail" formControlName="primaryAdminEmail"
+                                id="login-email" required="required" [ngClass]="{
+                                    'is-invalid': submitted && f.primaryAdminEmail.errors
                                 }" />
 
-                            <label class="text-danger" *ngIf="loginForm.get('email').errors?.required">
+                            <label class="text-danger"
+                                *ngIf="loginForm.get('primaryAdminEmail').touched && loginForm.get('primaryAdminEmail').errors?.required">
                                 Email is required
                             </label>
+
                         </div>
                         <div class="tm-form-field">
                             <label for="login-password">Password</label> <br />
-                            <input type="password" id="login-password" name="password" formControlName="password"
-                                required="required" [ngClass]="{
-                                    'is-invalid': submitted && f.password.errors
+                            <input type="password" id="login-password" name="primaryAdminPassword"
+                                formControlName="primaryAdminPassword" required="required" [ngClass]="{
+                                    'is-invalid': submitted && f.primaryAdminPassword.errors
                                 }" />
-                            <label class="text-danger" *ngIf="loginForm.get('password').errors?.required">Password is
+                            <label class="text-danger"
+                                *ngIf="loginForm.get('primaryAdminPassword').touched && loginForm.get('primaryAdminPassword').errors?.required">Password
+                                is
                                 required</label>
                         </div>
                         <div class="tm-form-field">
@@ -33,7 +37,7 @@
                             </button>
                             <p>
                                 Don't have an Account
-                                <a routerLink="/home/registeration">Register</a>
+                                <a routerLink="/account/registeration">Register</a>
                                 Now
                             </p>
                         </div>

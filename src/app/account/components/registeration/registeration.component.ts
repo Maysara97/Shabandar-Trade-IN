@@ -5,6 +5,7 @@ import { AccountsService } from '../../services/accounts.service'
 import { User } from '../../models/register'
 import { Router, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
     selector: 'app-registeration',
@@ -21,46 +22,11 @@ export class RegisterationComponent implements OnInit {
         private formBuilder: FormBuilder,
         public accountService: AccountsService,
         private router: Router,
-        private auth: AuthService
+        private auth: AuthService,
+        private toastr: ToastrService
     ) {}
 
     ngOnInit(): void {
-        // this.registerForm = this.formBuilder.group(
-        //     {
-        //         firstname: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //         lastname: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //         email: [
-        //             '',
-        //             [
-        //                 Validators.required,
-        //                 Validators.email,
-        //                 Validators.pattern(
-        //                     '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'
-        //                 ),
-        //             ],
-        //         ],
-        //         telephonenumber: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //         password: ['', [Validators.required, Validators.minLength(6)]],
-        //         confirmPassword: ['', [Validators.required]],
-        //         company: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //     },
-        //     {
-        //         validator: MustMatch('password', 'confirmPassword'),
-        //     }
-        // )
-
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return
@@ -69,30 +35,16 @@ export class RegisterationComponent implements OnInit {
         })
     }
     get f() {
-        return this.registerForm.controls
+        return this.accountService.registerForm.controls
     }
 
-    onSubmit(user: User) {
-        this.auth.register().subscribe((result: any) => {
-            if (result.succeded) {
-                this.router.navigateByUrl('/home')
-                alert(
-                    'SUCCESS!! :-)\n\n' +
-                        JSON.stringify(
-                            this.accountService.registerForm.value,
-                            null,
-                            4
-                        )
-                )
+    onSubmit(user) {
+        this.submitted = true
+        this.auth.register(user).subscribe((result: any) => {
+            if (result) {
+                this.router.navigate(['/account/login'])
             } else {
-                alert(
-                    'Failed!! :-)\n\n' +
-                        JSON.stringify(
-                            this.accountService.registerForm.value,
-                            null,
-                            4
-                        )
-                )
+                this.toastr.error('Error')
             }
         })
     }

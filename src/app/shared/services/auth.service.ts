@@ -3,59 +3,67 @@ import { Injectable, Injector } from '@angular/core'
 import { map } from 'rxjs/operators'
 import { User } from 'src/app/account/models/register'
 import { AccountsService } from 'src/app/account/services/accounts.service'
-import { Observable } from 'rxjs'
+import { Observable, BehaviorSubject } from 'rxjs'
+import { JwtHelperService } from '@auth0/angular-jwt'
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService extends BaseService<any> {
-    constructor(injector: Injector, public accountService: AccountsService) {
+    private currentUserSubject = new BehaviorSubject<any>(this.decodeToken())
+    public currentUser = this.currentUserSubject.asObservable()
+
+    private isAuthSubject = new BehaviorSubject<boolean>(this.hasToken())
+    public isAuthed = this.isAuthSubject.asObservable()
+
+    constructor(injector: Injector) {
         super(injector)
     }
 
-    login(username: string, password: string) {
-        return this.post('Authorization/login', { username, password }).pipe(
+    login(email: string, password: string) {
+        return this.post('Authorization/login', { email, password }).pipe(
             map((result: any) => {
-                if (!result.token) {
+                if (!result.isSucceeded) {
                     return false
                 }
 
-                localStorage.setItem('token', result.token)
-                // const helper = new JwtHelperService();
-
-                // const decodedToken = helper.decodeToken(result.token);
-                // this.currentUserSubject.next(decodedToken); // <-- pump the value in here
+                localStorage.setItem('token', result.data)
+                const currentUser = this.decodeToken(result.data)
+                this.currentUserSubject.next(currentUser) // <-- pump the value in here
+                this.isAuthSubject.next(true)
                 return true
             })
         )
     }
 
+    isLoggedIn() {
+        return this.isAuthSubject.value
+    }
+
+    private decodeToken(token?: any) {
+        token = token ? token : localStorage.getItem('token')
+        const helper = new JwtHelperService()
+        return helper.decodeToken(token)
+    }
+
+    private hasToken() {
+        return !!localStorage.getItem('token')
+    }
+
     logout() {
+        this.isAuthSubject.next(false)
         localStorage.removeItem('token')
     }
 
-    isAuthendicated() {
-        const token = localStorage.getItem('token')
-        if (!token) {
-            return false
-        }
-        return true
-    }
-
-    register(): Observable<User> {
+    register(user: User): Observable<User> {
         const body = {
-            accountId: this.accountService.registerForm.value.accountId,
-            accountName: this.accountService.registerForm.value.accountName,
-            primaryAdminFirstlName: this.accountService.registerForm.value
-                .primaryAdminFirstlName,
-            primaryAdminLastName: this.accountService.registerForm.value
-                .primaryAdminLastName,
-            primaryAdminEmail: this.accountService.registerForm.value
-                .primaryAdminEmail,
-            primaryAdminPassword: this.accountService.registerForm.value
-                .primaryAdminPassword,
-            accountMobile: this.accountService.registerForm.value.accountMobile,
-            countryId: this.accountService.registerForm.value.countryId,
+            accountName: user.accountName,
+            primaryAdminFirstlName: user.primaryAdminFirstlName,
+            primaryAdminLastName: user.primaryAdminLastName,
+            primaryAdminEmail: user.primaryAdminEmail,
+            primaryAdminPassword: user.primaryAdminPassword,
+            accountMobile: user.accountMobile,
+            countryId: user.countryId,
         }
         return this.post('Account', body)
     }
