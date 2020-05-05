@@ -8,7 +8,6 @@
                     <h4>Create an account</h4>
                     <div class="tm-form-inner">
                         <div class="form-group tm-form-field">
-                            <input hidden name="accountId" formControlName="accountId" />
                             <div class="row">
                                 <div class="col-6">
                                     <label for="register-firstname">First Name</label>
@@ -57,45 +56,48 @@
                                 must be a valid email address</label>
 
                         </div>
-                        <div formGroupName="Passwords">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group tm-form-field">
-                                        <label for="register-password">Password</label>
-                                        <br />
-                                        <input type="password" id="register-password" name="primaryAdminPassword"
-                                            required="required" formControlName="primaryAdminPassword" />
-                                        <label class="text-danger"
-                                            *ngIf="accountService.registerForm.get('Passwords.primaryAdminPassword').touched && accountService.registerForm.get('Passwords.primaryAdminPassword').errors?.required">Password
-                                            is required</label>
-                                        <label class="text-danger"
-                                            *ngIf="accountService.registerForm.get('Passwords.primaryAdminPassword').touched && accountService.registerForm.get('Passwords.primaryAdminPassword').errors?.minLength">Password
-                                            must be at least 6 characters</label>
-                                    </div>
+                        <!-- <div formGroupName="Passwords"> -->
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group tm-form-field">
+                                    <label for="register-password">Password</label>
+                                    <br />
+                                    <input type="password" id="register-password" name="primaryAdminPassword"
+                                        required="required" formControlName="primaryAdminPassword" />
+                                    <label class="text-danger"
+                                        *ngIf="accountService.registerForm.get('primaryAdminPassword').touched && accountService.registerForm.get('primaryAdminPassword').errors?.required">Password
+                                        is required</label>
+                                    <label class="text-danger"
+                                        *ngIf="accountService.registerForm.get('primaryAdminPassword').touched && accountService.registerForm.get('primaryAdminPassword').errors?.minLength">Password
+                                        must be at least 6 characters</label>
+                                    <!-- <label class="text-danger"
+                                            *ngIf="accountService.registerForm.get('Passwords.primaryAdminPassword').touched && accountService.registerForm.get('Passwords.primaryAdminPassword').errors?.pattern">Password
+                                            must contain at least 1 Uppercase character</label> -->
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-group tm-form-field">
-                                        <label for="register-password-con">Confirm Password</label>
-                                        <br />
-                                        <input type="password" id="register-password-con" name="confirmPassword"
-                                            required="required" formControlName="confirmPassword" />
-                                        <label class="text-danger"
-                                            *ngIf="accountService.registerForm.get('Passwords.confirmPassword').touched && accountService.registerForm.get('Passwords.confirmPassword').errors?.required">Confirm
-                                            Password is required</label>
-                                        <label class="text-danger"
-                                            *ngIf="accountService.registerForm.get('Passwords.confirmPassword').touched && accountService.registerForm.get('Passwords.confirmPassword').errors?.passwordMismatch">Confirm
-                                            Password not match with Password</label>
-                                    </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group tm-form-field">
+                                    <label for="register-password-con">Confirm Password</label>
+                                    <br />
+                                    <input type="password" id="register-password-con" name="confirmPassword"
+                                        required="required" formControlName="confirmPassword" />
+                                    <label class="text-danger"
+                                        *ngIf="accountService.registerForm.get('confirmPassword').touched && accountService.registerForm.get('confirmPassword').errors?.required">Confirm
+                                        Password is required</label>
+                                    <label class="text-danger"
+                                        *ngIf="accountService.registerForm.get('confirmPassword').touched && accountService.registerForm.get('confirmPassword').errors">Confirm
+                                        Password not match with Password</label>
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                         <div class="form-group tm-form-field">
                             <label for="register-company">Company Name</label>
                             <br />
-                            <input type="text" id="register-company" required="required" formControlName="company"
-                                name="company" />
+                            <input type="text" id="register-company" required="required" formControlName="accountName"
+                                name="accountName" />
                             <label class="text-danger"
-                                *ngIf="accountService.registerForm.get('company').touched && accountService.registerForm.get('company').errors?.required">Company
+                                *ngIf="accountService.registerForm.get('accountName').touched && accountService.registerForm.get('accountName').errors?.required">Company
                                 Name is required</label>
                         </div>
 
@@ -103,7 +105,11 @@
                             <label for="register-country">Country</label> <br />
                             <select class="mdb-select md-form" formControlName="countryId" searchable="Search here..">
                                 <option value="" disabled selected>Choose your country</option>
-                                <option value="EGYPT">EGYPT</option>
+                                <option value="1">EGYPT</option>
+                                <option value="2">USA</option>
+                                <option value="3">AUSTRALIA</option>
+                                <option value="4">CHINA</option>
+                                <option value="5">JAPAN</option>
                             </select>
                             <label class="text-danger"
                                 *ngIf="accountService.registerForm.get('countryId').touched && accountService.registerForm.get('countryId').errors?.required">Country
@@ -115,7 +121,7 @@
                             </button>
                             <p>
                                 Already have an Account
-                                <a routerLink="/home/login">Login</a> here
+                                <a routerLink="/account/login">Login</a> here
                             </p>
                         </div>
                     </div>

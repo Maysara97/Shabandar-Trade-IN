@@ -8,10 +8,16 @@ import { AuthService } from 'src/app/shared/services/auth.service'
     styleUrls: ['./home-header.component.scss'],
 })
 export class HomeHeaderComponent implements OnInit {
+    isLoggedIn
     // tslint:disable-next-line:variable-name
     constructor(public _route: Router, private auth: AuthService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        // this.isLoggedIn = this.auth.isLoggedIn()
+        this.auth.isAuthed.subscribe((result) => {
+            this.isLoggedIn = result
+        })
+    }
 
     hideNav() {
         const x = document.getElementById('mainNav')
@@ -27,11 +33,22 @@ export class HomeHeaderComponent implements OnInit {
         window.location.hash = section
     }
 
-    isUserRegistered() {
-        const email = !!localStorage.getItem('email')
-        if (email) {
-            return true
-        }
-        return false
+    logout() {
+        this.auth.logout()
+        // this._route.navigateByUrl('login')
     }
+
+    // isUserRegistered() {
+    //     const email = !!localStorage.getItem('email')
+    //     if (email) {
+    //         return true
+    //     }
+    //     return false
+    // }
+    // isLoggedIn() {
+    //     if (localStorage.getItem('currentUser')) {
+    //         return true
+    //     }
+    //     return false
+    // }
 }

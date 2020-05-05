@@ -7,7 +7,6 @@ import { RegisterationComponent } from '../account/components/registeration/regi
 import { Egypt2030Component } from './home-main/egypt2030/egypt2030.component'
 import { LoginComponent } from '../account/components/login/login.component'
 import { OwnerComponent } from '../application/components/owner/owner.component'
-import { HomepageComponent } from '../application/components/homepage/homepage.component'
 import { EditprofileComponent } from '../account/components/editprofile/editprofile.component'
 
 const routes: Routes = [
@@ -28,28 +27,8 @@ const routes: Routes = [
                 component: HomeReadMoreComponent,
             },
             {
-                path: 'login',
-                component: LoginComponent,
-            },
-            {
-                path: 'registeration',
-                component: RegisterationComponent,
-            },
-            {
                 path: 'home-main',
                 component: HomeMainComponent,
-            },
-            {
-                path: 'owner',
-                component: OwnerComponent,
-            },
-            {
-                path: 'homepage',
-                component: HomepageComponent,
-            },
-            {
-                path: 'editProfile',
-                component: EditprofileComponent,
             },
         ],
     },
