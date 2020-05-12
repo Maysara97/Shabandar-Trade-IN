@@ -24,12 +24,7 @@
                                     <label for="register-firstname">First Name</label>
                                     <br />
                                     <input type="text" id="register-firstname" required name="firstname"
-                                        formControlName="firstname" [ngClass]="{
-                                            'is-invalid':
-                                                submitted && f.firstname.errors
-                                        }" [(ngModel)]="
-                                            profileData.primaryAdminFirstlName
-                                        " />
+                                        formControlName="firstname" />
                                     <div *ngIf="submitted && f.firstname.errors" class="alert alert-danger">
                                         <div *ngIf="f.firstname.errors?.required">
                                             First Name is required
@@ -40,12 +35,7 @@
                                     <label for="register-lastname">Last Name</label>
                                     <br />
                                     <input type="text" id="register-lastname" required name="lastname"
-                                        formControlName="lastname" [ngClass]="{
-                                            'is-invalid':
-                                                submitted && f.lastname.errors
-                                        }" [(ngModel)]="
-                                            profileData.primaryAdminLastName
-                                        " />
+                                        formControlName="lastname" />
                                     <div *ngIf="submitted && f.lastname.errors" class="alert alert-danger">
                                         <div *ngIf="f.lastname.errors?.required">
                                             Last Name is required

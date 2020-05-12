@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import { User } from 'src/app/account/models/register'
+import { User, Administrator } from 'src/app/account/models/register'
 import { Observable } from 'rxjs'
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
+import { Product } from '../../models/product'
+import { ProductService } from '../../services/product.service'
 @Component({
     selector: 'app-owner',
     templateUrl: './owner.component.html',
@@ -10,9 +12,11 @@ import { AuthService } from 'src/app/shared/services/auth.service'
 })
 export class OwnerComponent implements OnInit {
     user: User
-    userDetails = ''
+    userAdministrator: Administrator
     loggedUser$: Observable<User>
+    isLoggedIn
 
+    product: Product[] = []
     // title = 'angularowlslider'
     customOptions: any = {
         loop: true,
@@ -24,7 +28,7 @@ export class OwnerComponent implements OnInit {
         navText: ['Prev', 'Next'],
         responsive: {
             0: {
-                items: 1,
+                items: 3,
             },
             400: {
                 items: 2,
@@ -66,12 +70,26 @@ export class OwnerComponent implements OnInit {
     constructor(
         private router: Router,
         private auth: AuthService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private productService: ProductService
     ) {}
 
     ngOnInit() {
-        // this.loggedUser$ = this.auth.currentUser
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return
+            }
+            window.scrollTo(0, 0)
+        })
+        this.userAdministrator = this.auth.accountAdminastratorInfo
+        this.user = this.auth.accountInfo
+
+        // this.getProductsByOwner()
     }
+
+    // getProductsByOwner() {
+    //     this.product$ = this.productService.getProductsByOwner()
+    // }
 }
 
 // updateProfile(userId: number) {

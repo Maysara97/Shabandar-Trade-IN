@@ -46,9 +46,6 @@ export class LoginComponent implements OnInit {
     get password() {
         return this.loginForm.get('primaryAdminPassword')
     }
-    // get accountId() {
-    //     return this.userData.accountId
-    // }
 
     onSubmit() {
         this.submitted = true
@@ -56,17 +53,16 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return
         }
-        this.auth.login(this.email.value, this.password.value).subscribe(
-            (result: any) => {
+        this.auth
+            .login(this.email.value, this.password.value)
+            .subscribe((result: any) => {
                 if (result) {
-                    this.toastr.success('Success')
+                    // this.toastr.success('Success')
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.loginForm.reset()
-                    this.toastr.error('Error')
+                    this.toastr.error('Invalid Email and/or Password')
                 }
-            }
-            // (error) => this.router.navigate(['/home/owner'])
-        )
+            })
     }
 }

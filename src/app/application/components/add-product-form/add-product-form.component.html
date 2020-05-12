@@ -1,0 +1,329 @@
+<!-- Register Area -->
+<div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0e1234;">
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-lg-10">
+                <form [formGroup]="addProductForm" (submit)="onSubmit(addProductForm.value)"
+                    class="p-3 tm-form tm-register-form tm-form-bordered bg-white">
+                    <h4 class="m-5">Add New Product</h4>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="productName">Product Name</label>
+                                <input type="text" class="form-control w-100" id="productName"
+                                    formControlName="productName" placeholder="Product Name">
+                                <label class="text-danger"
+                                    *ngIf="addProductForm.get('productName').touched && addProductForm.get('productName').errors?.required">
+                                    Product Name is Required
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <label for="productPrice">Product Price</label>
+                                <input type="text" class="form-control w-100" id="productPrice"
+                                    formControlName="productPrice" placeholder="Product Price">
+                                <label class="text-danger"
+                                    *ngIf="addProductForm.get('productPrice').touched && addProductForm.get('productPrice').errors?.required">
+                                    Product Price is Required
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="country">Country</label>
+                                <select class="form-control" id="countries" formControlName="country">
+                                    <option value="" disabled selected>Choose Product's Country</option>
+                                    <option value="1">EGYPT</option>
+                                    <option value="2">USA</option>
+                                    <option value="3">AUSTRALIA</option>
+                                    <option value="4">CHINA</option>
+                                    <option value="5">JAPAN</option>
+                                </select>
+                                <label class="text-danger"
+                                    *ngIf="addProductForm.get('country').touched && addProductForm.get('country').errors?.required">
+                                    You Must choose the Product's Country
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <label for="category">Product Category</label>
+                                <select class="form-control" id="category" formControlName="category"
+                                    [(ngModel)]="categorySelected">
+                                    <option value="" disabled selected>Choose Product's Category</option>
+                                    <option value="1">Industry</option>
+                                    <option value="2">Touristic</option>
+                                    <option value="3">Real Estate</option>
+                                    <option value="4">Designers</option>
+                                    <option value="5">Shipping & Logistics</option>
+                                </select>
+                                <label class="text-danger"
+                                    *ngIf="addProductForm.get('category').touched && addProductForm.get('category').errors?.required">
+                                    You Must choose the Product's Category
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="industry-category" *ngIf="categorySelected == 1">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productBrand">Brand Name</label>
+                                    <input type="text" class="form-control w-100" id="productBrand"
+                                        formControlName="productBrand" placeholder="Brand Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productOrigin">Product Origin</label>
+                                    <input type="text" class="form-control w-100" id="productOrigin"
+                                        formControlName="productOrigin" placeholder="Product Origin">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productPackingWay">Packing Way</label>
+                                    <input type="text" class="form-control w-100" id="productPackingWay"
+                                        formControlName="productPackingWay" placeholder="Packing Way">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productPaymentTerms">Payment Terms</label>
+                                    <input type="text" class="form-control w-100" id="productPaymentTerms"
+                                        formControlName="productPaymentTerms" placeholder="Payment Terms">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productStorage">Storage</label>
+                                    <input type="text" class="form-control w-100" id="productStorage"
+                                        formControlName="productStorage" placeholder="Storage">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productMaterial">Material</label>
+                                    <input type="text" class="form-control w-100" id="productMaterial"
+                                        formControlName="productMaterial" placeholder="Material">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productWeight">Wieght</label>
+                                    <input type="text" class="form-control w-100" id="productWeight"
+                                        formControlName="productWeight" placeholder="Wieght">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productSize">Product Size</label>
+                                    <input type="text" class="form-control w-100" id="productSize"
+                                        formControlName="productSize" placeholder="Product Size">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productGrade">Grade</label>
+                                    <input type="text" class="form-control w-100" id="productGrade"
+                                        formControlName="productGrade" placeholder="Grade">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productCode">Code</label>
+                                    <input type="text" class="form-control w-100" id="productCode"
+                                        formControlName="productCode" placeholder="Code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productMOQ">MOQ</label>
+                                    <input type="text" class="form-control w-100" id="productMOQ"
+                                        formControlName="productMOQ" placeholder="MOQ">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productCertificate">Certifications</label>
+                                    <input #fileInput id="productCertificate" type='file'
+                                        (click)="fileInput.value = null" value="" formControlName="productCertificate">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Description</label>
+                            <textarea class="form-control w-100" id="productDescription"
+                                formControlName="productDescription" placeholder="Product Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="touristic-category" *ngIf="categorySelected == 2">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productLocation">Location</label>
+                                    <input type="text" class="form-control w-100" id="productLocation"
+                                        formControlName="productLocation" placeholder="Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productDuration">Duration</label>
+                                    <input type="text" class="form-control w-100" id="productDuration"
+                                        formControlName="productDuration" placeholder="Duration">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productAccomdation">Accomdation Name</label>
+                                    <input type="text" class="form-control w-100" id="productAccomdation"
+                                        formControlName="productAccomdation" placeholder="Accomdation Name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productProgram">Program</label>
+                                    <input type="text" class="form-control w-100" id="productProgram"
+                                        formControlName="productProgram" placeholder="Program">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Description</label>
+                            <textarea class="form-control" id="productDescription" rows="3"
+                                formControlName="productDescription" placeholder="Product Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="real-state-category" *ngIf="categorySelected == 3">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productLocation">Location</label>
+                                    <input type="text" class="form-control w-100" id="productLocation"
+                                        formControlName="productLocation" placeholder="Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productSpace">Space</label>
+                                    <input type="text" class="form-control w-100" id="productSpace"
+                                        formControlName="productSpace" placeholder="Space">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productSize">Product Size</label>
+                                    <input type="text" class="form-control w-100" id="productSize"
+                                        formControlName="productSize" placeholder="Product Size">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productPaymentTerms">Payment Terms</label>
+                                    <input type="text" class="form-control w-100" id="productPaymentTerms"
+                                        formControlName="productPaymentTerms" placeholder="Payment Terms">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="furnishiesState">Furnishies Or No</label>
+                                    <select class="form-control" id="furnishiesState" formControlName="furnishiesState">
+                                        <option value="" disabled selected>Choose Furnishies's State</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="finishedOrNot">Finished Or Semi Or Unfinished</label>
+                                    <select class="form-control" id="finishedOrNot" formControlName="finishedOrNot">
+                                        <option value="" disabled selected>Choose Product's State</option>
+                                        <option value="Finished">Finished</option>
+                                        <option value="No">Semi</option>
+                                        <option value="Unfinished">Unfinished</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Description</label>
+                            <textarea class="form-control" id="productDescription" rows="3"
+                                formControlName="productDescription" placeholder="Product Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="shipping-and-logistics-category" *ngIf="categorySelected == 4">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productLocation">Location</label>
+                                    <input type="text" class="form-control w-100" id="productLocation"
+                                        formControlName="productLocation" placeholder="Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productCoverage">Coverage</label>
+                                    <input type="text" class="form-control w-100" id="productCoverage"
+                                        formControlName="productCoverage" placeholder="Coverage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="serviceType">Service Type</label>
+                                    <input type="text" class="form-control w-100" id="serviceType"
+                                        formControlName="serviceType" placeholder="Service Type">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productAgentsLocation">Agents Location</label>
+                                    <input type="text" class="form-control w-100" id="productAgentsLocation"
+                                        formControlName="productAgentsLocation" placeholder="Agents Location">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="designers-category" *ngIf="categorySelected == 5">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productLocation">Location</label>
+                                    <input type="text" class="form-control w-100" id="productLocation"
+                                        formControlName="productLocation" placeholder="Location">
+                                </div>
+                                <div class="col-6">
+                                    <label for="productPaymentTerms">Payment Terms</label>
+                                    <input type="text" class="form-control w-100" id="productPaymentTerms"
+                                        formControlName="productPaymentTerms" placeholder="Payment Terms">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productSoftwares">Softwares</label>
+                            <input type="text" class="form-control w-100" id="productSoftwares"
+                                formControlName="productSoftwares" placeholder="Softwares">
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Description</label>
+                            <textarea class="form-control" id="productDescription" rows="3"
+                                formControlName="productDescription" placeholder="Product Description"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group tm-form-field">
+                        <button type="submit" class="tm-button mt-5">
+                            Submit <b></b>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// Register Area -->
+
+<script>
+    // Material Select Initialization
+    $(document).ready(function () {
+        $('.mdb-select').materialSelect()
+    })
+</script>

@@ -31,21 +31,8 @@ const routes: Routes = [
                 path: 'owner',
                 component: OwnerComponent,
                 canActivate: [AuthGuard],
-                // children: [
-                //     { path: 'editprofile', component: EditprofileComponent },
-                // ],
             },
             { path: 'editprofile', component: EditprofileComponent },
-            {
-                // Buying Request
-                path: 'homepage',
-                component: HomepageComponent,
-            },
-            {
-                // Sell Request
-                path: 'sell-product',
-                component: SellProductComponent,
-            },
         ],
     },
 ]

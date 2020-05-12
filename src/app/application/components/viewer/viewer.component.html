@@ -1,7 +1,4 @@
-<div
-    class="page-section tm-section owner-area tm-padding-section"
-    style="background-color: #0e1234;"
->
+<div class="page-section tm-section viewer-area tm-padding-section" style="background-color: #0e1234;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -9,15 +6,11 @@
                     <h2 style="color: #c0972e; float: left;" class="leftAlign">
                         TradeIn User
                     </h2>
-                    <button
-                        type="button"
-                        class="btn rightAlign"
-                        style="
+                    <button type="button" class="btn rightAlign" style="
                             color: #fff;
                             float: right;
                             background-color: #c0972e;
-                        "
-                    >
+                        ">
                         Add Interest
                         <i class="fa fa-star" aria-hidden="true"></i>
                     </button>
@@ -29,54 +22,31 @@
             <div class="col-lg-12 col-xs-12 col-sm-6 col-md-6">
                 <div class="well well-sm">
                     <div class="row justify-content-center">
-                        <div
-                            class="col-sm-6 col-md-4 col-12 justify-content-left avatar-img"
-                        >
-                            <img
-                                src="assets/images/You-Trade-In/student.png"
-                                alt=""
-                                class="img-rounded img-responsive"
-                                width="70%"
-                            />
+                        <div class="col-sm-6 col-md-4 col-12 justify-content-left avatar-img">
+                            <img src="assets/images/You-Trade-In/student.png" alt="" class="img-rounded img-responsive"
+                                width="70%" />
                         </div>
-                        <div
-                            class="col-lg-6 col-sm-6 col-md-8 justify-content-right data"
-                            data-bgimage="assets/background-end.png"
-                        >
-                            <div
-                                class="col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: left;"
-                            >
+                        <div class="col-lg-6 col-sm-6 col-md-8 justify-content-right data"
+                            data-bgimage="assets/background-end.png">
+                            <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
                                 <p>Name</p>
                             </div>
-                            <div
-                                class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: right;"
-                            >
+                            <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
+                                style="background-color: #fff; float: right;">
                                 <p>Company Name</p>
                             </div>
-                            <div
-                                class="col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: left;"
-                            >
+                            <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
                                 <p>Email</p>
                             </div>
-                            <div
-                                class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: right;"
-                            >
+                            <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
+                                style="background-color: #fff; float: right;">
                                 <p>Company Category</p>
                             </div>
-                            <div
-                                class="col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: left;"
-                            >
+                            <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
                                 <p>Mobile</p>
                             </div>
-                            <div
-                                class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: right;"
-                            >
+                            <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
+                                style="background-color: #fff; float: right;">
                                 <p>Country</p>
                             </div>
                         </div>
@@ -116,12 +86,9 @@
     </div>
 </div>
 
-<div
-    class="page-section tm-section products-services-area tm-padding-section"
-    style="background-color: #0e1234;"
->
+<div class="page-section tm-section products-services-area tm-padding-section" style="background-color: #0e1234;">
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="mb-5">
                     <h2 style="color: #c0972e; float: left;" class="leftAlign">
@@ -131,118 +98,100 @@
                 <div style="clear: both;"></div>
             </div>
         </div>
-        <div class="row blog-slider-active mt-3">
-            <!-- Single Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+
+        <owl-carousel-o [options]="customOptions" style="width: 100px !important;">
+            <!-- <ng-template carouselSlide *ngFor="let pro of product">
+                <div class="col-lg-12 col-md-8 col-12">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="{{pro.ProductImage}}" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>{{pro.ProductName}}</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> {{pro.Description}}
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Product -->
-            <!-- Single Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template> -->
+            <ng-template carouselSlide id="carouselSlide">
+                <div class="col-lg-12 col-md-8 col-12">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Product -->
-            <!-- Single Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="col-lg-12 col-md-8 col-12">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Product -->
-            <!-- Single Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="col-lg-12 col-md-8 col-12">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Product -->
-            <!-- Single Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="col-lg-12 col-md-8 col-12">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Product -->
-        </div>
+            </ng-template>
+        </owl-carousel-o>
     </div>
     <!--// Products Area -->
 </div>
 
-<div
-    class="page-section tm-section req-products-services-area tm-padding-section"
-    style="background-color: #0e1234;"
->
+<div class="page-section tm-section req-products-services-area tm-padding-section" style="background-color: #0e1234;">
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="mb-5">
                     <h2 style="color: #c0972e; float: left;" class="leftAlign">
@@ -252,108 +201,94 @@
                 <div style="clear: both;"></div>
             </div>
         </div>
-        <div class="row blog-slider-active mt-3">
-            <!-- Single Requested Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide>
+                <div class="col">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Requested Product -->
-            <!-- Single Requested Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="col">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Requested Product -->
-            <!-- Single Requested Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="col">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Requested Product -->
-            <!-- Single Requested Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="col">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Requested Product -->
-            <!-- Single Requested Product -->
-            <div class="col">
-                <div class="tm-blog">
-                    <div class="tm-blog-image">
-                        <img
-                            src="assets/images/You-Trade-In/white.jpg"
-                            alt="product image"
-                        />
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="col">
+                    <div class="tm-blog">
+                        <div class="tm-blog-image">
+                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Product Title</h4>
+                        <p style="color: #fff;">
+                            <b>This is the product description,</b> consetetur
+                            sadipscing elitr, sed diam nonumy eirmod tempor
+                            invidunt ut labore et dolore magna
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h4>Product Title</h4>
-                    <p style="color: #fff;">
-                        <b>This is the product description,</b> consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna
-                    </p>
-                </div>
-            </div>
-            <!--// Single Requested Product -->
-        </div>
+            </ng-template>
+        </owl-carousel-o>
     </div>
     <!--// Products Area -->
 </div>

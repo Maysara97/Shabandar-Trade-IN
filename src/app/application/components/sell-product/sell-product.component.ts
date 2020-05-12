@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { CategoryService } from '../../services/category.service'
 import { Observable } from 'rxjs'
 import { Category } from '../../models/category'
+import { Router, NavigationEnd } from '@angular/router'
 
 @Component({
     selector: 'app-sell-product',
@@ -45,9 +46,19 @@ export class SellProductComponent implements OnInit {
         },
     ]
     filteredCategories = []
-    constructor(private categoryService: CategoryService) {}
+    constructor(
+        private categoryService: CategoryService,
+        private router: Router
+    ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return
+            }
+            window.scrollTo(0, 0)
+        })
+    }
 
     getAllCategories() {
         this.categories$ = this.categoryService.getAllCategories()

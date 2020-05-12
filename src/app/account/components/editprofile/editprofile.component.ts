@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr'
 import { Component, OnInit } from '@angular/core'
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { NavigationEnd, Router } from '@angular/router'
@@ -22,45 +23,31 @@ export class EditprofileComponent implements OnInit {
         private formBuilder: FormBuilder,
         private accountService: AccountsService,
         private router: Router,
-        private auth: AuthService
+        private auth: AuthService,
+        private toastr: ToastrService
     ) {}
 
     ngOnInit(): void {
-        // this.editProfileForm = this.formBuilder.group(
-        //     {
-        //         firstname: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //         lastname: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //         email: [
-        //             '',
-        //             [
-        //                 Validators.required,
-        //                 Validators.email,
-        //                 Validators.pattern(
-        //                     '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'
-        //                 ),
-        //             ],
-        //         ],
-        //         telephonenumber: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //         password: ['', [Validators.required, Validators.minLength(6)]],
-        //         confirmPassword: ['', [Validators.required]],
-        //         company: [
-        //             '',
-        //             [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-        //         ],
-        //     },
-        //     {
-        //         validator: MustMatch('password', 'confirmPassword'),
-        //     }
-        // )
+        this.profileData = this.auth.accountInfo
+        this.editProfileForm = this.formBuilder.group({
+            firstname: [
+                this.profileData.primaryAdminFirstlName,
+                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
+            ],
+            lastname: [
+                this.profileData.primaryAdminLastName,
+                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
+            ],
+
+            telephonenumber: [
+                this.profileData.accountMobile,
+                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
+            ],
+            company: [
+                this.profileData.accountName,
+                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
+            ],
+        })
 
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
@@ -74,18 +61,12 @@ export class EditprofileComponent implements OnInit {
     }
 
     onSubmit(form: NgForm) {
-        this.auth.updateProfile(form.value).subscribe((result) => {
+        this.submitted = true
+        this.auth.updateProfile(form.value).subscribe((result: any) => {
             if (result) {
-                this.router.navigateByUrl('/owner')
-                alert(
-                    'Updated SUCCESSFULLY!! :-)\n\n' +
-                        JSON.stringify(this.editProfileForm.value, null, 4)
-                )
+                this.router.navigate(['/account/owner'])
             } else {
-                alert(
-                    'Failed!! :-)\n\n' +
-                        JSON.stringify(this.editProfileForm.value, null, 4)
-                )
+                this.toastr.error('Error')
             }
         })
     }
