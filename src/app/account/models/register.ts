@@ -1,3 +1,5 @@
+import { Role } from './role'
+
 export class User {
     accountId?: string
     accountName?: string
@@ -7,4 +9,13 @@ export class User {
     primaryAdminPassword?: string
     accountMobile?: string
     countryId?: 0
+    role: Role
+}
+
+export class Administrator {
+    administratorId?: string
+    accountId?: string
+    email?: string
+    firstName?: string
+    lastName?: string
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
+import { User } from 'src/app/account/models/register'
+import { Role } from 'src/app/account/models/role'
 
 @Component({
     selector: 'app-home-header',
@@ -9,11 +11,11 @@ import { AuthService } from 'src/app/shared/services/auth.service'
 })
 export class HomeHeaderComponent implements OnInit {
     isLoggedIn
+    currentUser: User
     // tslint:disable-next-line:variable-name
     constructor(public _route: Router, private auth: AuthService) {}
 
     ngOnInit(): void {
-        // this.isLoggedIn = this.auth.isLoggedIn()
         this.auth.isAuthed.subscribe((result) => {
             this.isLoggedIn = result
         })
@@ -33,22 +35,19 @@ export class HomeHeaderComponent implements OnInit {
         window.location.hash = section
     }
 
+    openProfile() {
+        // // Here Check if admin or Regular User
+        // if (this.currentUser.role === Role.User) {
+        //     this._route.navigateByUrl('/account/owner')
+        // } else if (this.currentUser.role === Role.Admin) {
+        //     // this._route.navigateByUrl('/admin-panel/dashboard')
+        // }
+
+        this._route.navigateByUrl('/account/owner')
+    }
+
     logout() {
         this.auth.logout()
         // this._route.navigateByUrl('login')
     }
-
-    // isUserRegistered() {
-    //     const email = !!localStorage.getItem('email')
-    //     if (email) {
-    //         return true
-    //     }
-    //     return false
-    // }
-    // isLoggedIn() {
-    //     if (localStorage.getItem('currentUser')) {
-    //         return true
-    //     }
-    //     return false
-    // }
 }

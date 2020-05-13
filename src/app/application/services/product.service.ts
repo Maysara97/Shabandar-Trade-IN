@@ -24,7 +24,10 @@ export class ProductService extends BaseService<any> {
     getAllProducts(): Observable<Product[]> {
         return this.getAll('Product/AllProducts')
     }
-    getProductById(productId: string) {
-        return this.getById('Product', productId)
+    getProductsByOwner() {
+        return this.getAll('Product/ProductsByOwner')
+    }
+    getProductsByCategory(productId: string) {
+        return this.getById('Product/ProductsByCategory', productId)
     }
 }

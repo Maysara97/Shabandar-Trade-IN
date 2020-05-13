@@ -24,6 +24,13 @@ const routes: Routes = [
                 (m) => m.ApplicationModule
             ),
     },
+    {
+        path: 'admin-layout',
+        loadChildren: () =>
+            import('./admin-layout/admin-layout.module').then(
+                (m) => m.AdminLayoutModule
+            ),
+    },
 ]
 
 @NgModule({

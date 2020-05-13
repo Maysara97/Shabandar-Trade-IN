@@ -4,11 +4,22 @@ import { CommonModule } from '@angular/common'
 import { AccountRoutingModule } from './account-routing.module'
 import { RegisterationComponent } from './components/registeration/registeration.component'
 import { LoginComponent } from './components/login/login.component'
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms'
+
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
 
 @NgModule({
-    declarations: [RegisterationComponent, LoginComponent, EditprofileComponent],
-    imports: [CommonModule, AccountRoutingModule, ReactiveFormsModule],
+    declarations: [
+        RegisterationComponent,
+        LoginComponent,
+        EditprofileComponent,
+    ],
+    imports: [
+        CommonModule,
+        AccountRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
 })
 export class AccountModule {}

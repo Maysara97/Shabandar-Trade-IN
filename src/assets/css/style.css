@@ -2558,7 +2558,7 @@ button.tm-videobutton:hover span {
     /* box-shadow: 5px 0 5px rgba(0, 0, 0, 0.15); */
     z-index: 3;
     position: relative;
-    background-color: #0e1234;
+    background-color: #00000040;
 }
 
 .header-bottominner {
@@ -6172,11 +6172,11 @@ button.tm-videobutton:hover span {
     display: table;
 }
 
-.widget-categories ul li a:before,
+/* .widget-categories ul li a:before,
 .widget-archives ul li a:before {
     content: '-';
     padding-right: 5px;
-}
+} */
 
 .widget-categories ul li a span,
 .widget-archives ul li a span {
