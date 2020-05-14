@@ -6,13 +6,18 @@ import { SidebarComponent } from './sidebar/sidebar.component'
 import { AllProductsComponent } from './all-products/all-products.component'
 import { AllCategoriesComponent } from './all-categories/all-categories.component'
 import { MatTableModule } from '@angular/material/table'
-
+import { MatIconModule } from '@angular/material/icon'
 @NgModule({
     declarations: [
         SidebarComponent,
         AllProductsComponent,
         AllCategoriesComponent,
     ],
-    imports: [CommonModule, AdminLayoutRoutingModule, MatTableModule],
+    imports: [
+        CommonModule,
+        AdminLayoutRoutingModule,
+        MatTableModule,
+        MatIconModule,
+    ],
 })
 export class AdminLayoutModule {}

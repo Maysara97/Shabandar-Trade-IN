@@ -3,6 +3,8 @@ import { Category } from '../../models/category'
 import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { Observable } from 'rxjs'
 import { CategoryService } from '../../services/category.service'
+import { Product } from '../../models/product'
+import { ProductService } from '../../services/product.service'
 
 @Component({
     selector: 'app-homepage',
@@ -12,6 +14,7 @@ import { CategoryService } from '../../services/category.service'
 export class HomepageComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
+    products$: Observable<Product[]>
 
     categories = [
         {
@@ -46,11 +49,21 @@ export class HomepageComponent implements OnInit {
         },
     ]
     filteredCategories = []
-    constructor(private categoryService: CategoryService) {}
+    constructor(
+        private categoryService: CategoryService,
+        private productService: ProductService
+    ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.getAllProducts()
+        this.getAllCategories()
+    }
 
     getAllCategories() {
         this.categories$ = this.categoryService.getAllCategories()
+    }
+
+    getAllProducts() {
+        this.products$ = this.productService.getAllProducts()
     }
 }
