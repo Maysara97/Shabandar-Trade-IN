@@ -37,6 +37,7 @@ export class AllProductsComponent implements OnInit {
         'categoryName',
         'accountName',
         'description',
+        'actions',
     ]
     dataSource = ELEMENT_DATA
     constructor() {}

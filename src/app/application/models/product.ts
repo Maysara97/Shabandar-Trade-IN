@@ -5,4 +5,10 @@ export class Product {
     CategoryId?: string
     ProductImage?: string
     Description?: string
+    status?: number
+    createdOn?: string
+    lastModifiedOn?: string
+    createdBy?: string
+    lastModifiedBy?: string
+    isDeleted?: boolean
 }

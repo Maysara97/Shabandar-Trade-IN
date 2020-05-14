@@ -6,7 +6,7 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="mb-5">
                         <h2 style="color: #c0972e; float: left;" class="leftAlign">
-                            Hi TradeIn {{userAdministrator?.lastName}}!
+                            Hi TradeIn User {{userAdministrator?.lastName}}!
                         </h2>
                         <a type="button" class="btn rightAlign" style="
                             color: #fff;
@@ -32,25 +32,30 @@
 
                                 <!-- loggedUser$ | async -->
                                 <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
-                                    <p>{{userAdministrator.administratorId}}</p>
+                                    <!-- <p>{{userAdministrator.administratorId}}</p> -->
+                                    <p>Account Name</p>
                                 </div>
                                 <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
                                     style="background-color: #fff; float: right;">
-                                    <p>{{user.accountName}}</p>
+                                    <!-- <p>{{user.accountName}}</p> -->
+                                    <p>Company Name</p>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
-                                    <p>{{userAdministrator.email}}</p>
+                                    <!-- <p>{{userAdministrator.email}}</p> -->
+                                    <p>Email Address</p>
                                 </div>
                                 <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
                                     style="background-color: #fff; float: right;">
                                     <p>Company Category</p>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
-                                    <p>{{user.accountMobile}}</p>
+                                    <!-- <p>{{user.accountMobile}}</p> -->
+                                    <p>Mobile Number</p>
                                 </div>
                                 <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
                                     style="background-color: #fff; float: right;">
-                                    <p>{{user.countryId}}</p>
+                                    <!-- <p>{{user.countryId}}</p> -->
+                                    <p>Country Name</p>
                                 </div>
                             </div>
                             <div style="clear: both;"></div>
@@ -87,8 +92,8 @@
                 </div>
 
             </div>
-            <button routerLink="/application/viewer">Viewer</button>
-            <button routerLink="/admin-layout/sidebar">ADMIN</button>
+            <!-- <button routerLink="/application/viewer">Viewer</button>
+            <button routerLink="/admin-layout/sidebar">ADMIN</button> -->
         </div>
     </div>
 

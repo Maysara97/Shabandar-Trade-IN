@@ -49,6 +49,7 @@
             </div>
             <div class="col-lg-7 col-md-7 col-sm-12 col-12">
                 <div class="row">
+                    <!-- *ngFor="let product of products" -->
                     <!-- Single Product -->
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of products">
                         <!--To apply search functionality-->
@@ -71,6 +72,7 @@
                                     {{ product.ProductName }}
                                 </p>
                             </div>
+
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
                                 <p>
