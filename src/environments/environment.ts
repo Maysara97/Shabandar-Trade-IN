@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    baseUrl: 'https://localhost:5001/api',
+    base_api_url: 'https://localhost:5001/api/',
+    file_path: 'https://localhost:5001/files/',
 }
 
 /*
