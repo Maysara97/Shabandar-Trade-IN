@@ -10,6 +10,7 @@ import { JwtModule } from '@auth0/angular-jwt'
 import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { CarouselModule } from 'ngx-owl-carousel-o'
 import { FormsModule } from '@angular/forms'
+import { TagInputModule } from 'ngx-chips'
 
 export function tokenGetter() {
     return localStorage.getItem('token')
@@ -34,6 +35,7 @@ export function tokenGetter() {
         Ng2SearchPipeModule,
         CarouselModule,
         FormsModule,
+        TagInputModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

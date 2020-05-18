@@ -10,6 +10,8 @@ import { SellProductComponent } from './components/sell-product/sell-product.com
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms'
+import { TagInputModule } from 'ngx-chips'
+
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -24,6 +26,7 @@ import { FormsModule } from '@angular/forms'
         CarouselModule,
         ReactiveFormsModule,
         FormsModule,
+        TagInputModule,
     ],
 })
 export class ApplicationModule {}

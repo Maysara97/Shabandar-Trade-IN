@@ -7,13 +7,15 @@ import { LoginComponent } from './components/login/login.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms'
 
-import { EditprofileComponent } from './components/editprofile/editprofile.component'
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component'
 
 @NgModule({
     declarations: [
         RegisterationComponent,
         LoginComponent,
         EditprofileComponent,
+        UpdatePasswordComponent,
     ],
     imports: [
         CommonModule,

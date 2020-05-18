@@ -47,6 +47,9 @@ export class EditprofileComponent implements OnInit {
                 this.profileData.accountName,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
+            accountAttachments: [],
+            contactEmail: [],
+            accountWebsite: [],
         })
 
         this.router.events.subscribe((evt) => {

@@ -75,8 +75,11 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label for="productBrand">Brand Name</label>
-                                    <input type="text" class="form-control w-100" id="productBrand"
-                                        formControlName="productBrand" placeholder="Brand Name">
+                                    <!-- <input type="text" class="form-control w-100" id="productBrand"
+                                        formControlName="productBrand" placeholder="Brand Name"> -->
+                                    <tag-input class="brandTags" [(ngModel)]="brandNames" formControlName="productBrand"
+                                        [secondaryPlaceholder]="'Brand Name'" [placeholder]="'Brand Name again'">
+                                    </tag-input>
                                 </div>
                                 <div class="col-6">
                                     <label for="productOrigin">Product Origin</label>
@@ -230,15 +233,7 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-6">
-                                    <label for="furnishiesState">Furnishies Or No</label>
-                                    <select class="form-control" id="furnishiesState" formControlName="furnishiesState">
-                                        <option value="" disabled selected>Choose Furnishies's State</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <label for="finishedOrNot">Finished Or Semi Or Unfinished</label>
                                     <select class="form-control" id="finishedOrNot" formControlName="finishedOrNot">
                                         <option value="" disabled selected>Choose Product's State</option>
@@ -256,7 +251,7 @@
                         </div>
                     </div>
 
-                    <div class="shipping-and-logistics-category" *ngIf="categorySelected == 4">
+                    <div class="shipping-and-logistics-category" *ngIf="categorySelected == 5">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
@@ -266,8 +261,12 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="productCoverage">Coverage</label>
-                                    <input type="text" class="form-control w-100" id="productCoverage"
-                                        formControlName="productCoverage" placeholder="Coverage">
+                                    <!-- <input type="text" class="form-control w-100" id="productCoverage"
+                                        formControlName="productCoverage" placeholder="Coverage"> -->
+                                    <tag-input class="brandTags" [(ngModel)]="coverages"
+                                        formControlName="productCoverage" [secondaryPlaceholder]="'Coverage'"
+                                        [placeholder]="'Coverage again'">
+                                    </tag-input>
                                 </div>
                             </div>
                         </div>
@@ -287,7 +286,7 @@
                         </div>
                     </div>
 
-                    <div class="designers-category" *ngIf="categorySelected == 5">
+                    <div class="designers-category" *ngIf="categorySelected == 4">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
@@ -303,9 +302,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="productSoftwares">Softwares</label>
-                            <input type="text" class="form-control w-100" id="productSoftwares"
-                                formControlName="productSoftwares" placeholder="Softwares">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="productSoftwares">Softwares</label>
+                                    <input type="text" class="form-control w-100" id="productSoftwares"
+                                        formControlName="productSoftwares" placeholder="Softwares">
+                                </div>
+                                <div class="col-6">
+                                    <label for="designerCategory">Designer's Category</label>
+                                    <input type="text" class="form-control w-100" id="designerCategory"
+                                        formControlName="designerCategory" placeholder="Designer's Category">
+                                </div>
+                            </div>
+
                         </div>
                         <div class="form-group">
                             <label for="productDescription">Description</label>
