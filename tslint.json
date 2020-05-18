@@ -55,7 +55,9 @@
         "semicolon": false,
         "no-shadowed-variable": false,
         "no-string-literal": false,
-        "prefer-const": false
+        "prefer-const": false,
+        "no-var-keyword": false,
+        "variable-name": false
     },
     "rulesDirectory": ["codelyzer"]
 }

@@ -26,7 +26,8 @@ h4 {
     background-color: #c0972e;
 }
 
-input {
+input,
+textarea {
     width: 100%;
     border: 1px solid #c0972e;
     border-radius: 5px;
@@ -75,25 +76,25 @@ p a:hover {
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    margin-bottom: 35px;
-    background-position: 50% 50%;
-    // background-image: url('./assets/images/You-Trade-In/student.png');
 }
 
-.hoverable img {
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    margin-bottom: 35px;
+.hoverable .hover-text {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .hoverable .background {
     position: absolute;
-    // display: none;
+    display: none;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
     pointer-events: none;
     border-radius: 50%;
     z-index: 1;
@@ -105,10 +106,54 @@ p a:hover {
 
 .hoverable:hover .background {
     display: block;
-    background-color: rgba(255, 255, 255, 0.5);
 }
 
+.industry-category .brandTags {
+    background-color: #fff;
+    border: 1px solid #c0972e;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    padding: 0 0;
+}
+
+.industry-category .brandTags:focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+}
+.industry-category .brandTags .ng-trigger {
+    background: #428bca;
+    border: 1px solid #357ebd;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.brandTags .tag:focus {
+    background: #c0972e !important;
+    color: #fff;
+    box-shadow: 0 2px 3px 1px #d4d1d1;
+}
+
+.brandTags .ng2-tag-input--focused {
+    border-bottom: none;
+}
+
+.shipping-and-logistics-category .brandTags {
+    background-color: #fff;
+    border: 1px solid #c0972e;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    padding: 0 0;
+}
 .closeBtn {
     background-color: #fff;
     color: #c0972e;
+}
+.image-viewer {
+    border: 1px solid #c0972e;
+}
+.image-viewer img {
+    padding: 10px;
 }

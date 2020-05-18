@@ -17,7 +17,6 @@ export class OwnerComponent implements OnInit {
     isLoggedIn
 
     product: Product[] = []
-    // title = 'angularowlslider'
     customOptions: any = {
         loop: true,
         mouseDrag: true,
@@ -83,8 +82,6 @@ export class OwnerComponent implements OnInit {
         })
         this.userAdministrator = this.auth.accountAdminastratorInfo
         this.user = this.auth.accountInfo
-
-        // this.getProductsByOwner()
     }
 
     // getProductsByOwner() {

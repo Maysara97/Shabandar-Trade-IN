@@ -97,10 +97,7 @@ export class AuthService extends BaseService<any> {
     //     return this.get('Administrator')
     // }
 
-    updatePassword(user: User): Observable<User> {
-        const body = {
-            newPassword: user.primaryAdminPassword,
-        }
+    updatePassword(body): Observable<any> {
         return this.post('Authorization/ChangePassword', body)
     }
 }

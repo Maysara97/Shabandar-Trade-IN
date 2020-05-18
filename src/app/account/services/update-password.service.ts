@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core'
 import { FormBuilder, Validators, FormGroup } from '@angular/forms'
 import { MustMatch } from '../models/matchPassword'
 import { UpdatePassword } from '../models/updatePassword'
+import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Injectable({
     providedIn: 'root',
 })
 export class UpdatePasswordService {
     userPassword: UpdatePassword
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder, private auth: AuthService) {}
     updatePasswordForm = this.fb.group(
         {
-            currentPassword: [],
+            currentPassword: [null, Validators.required],
             newPassword: [
                 null,
                 [

@@ -11,12 +11,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-3 profile-image-edit">
                                     <label class="hoverable" for="fileInput">
-                                        <img src="assets/images/You-Trade-In/student.png" alt="">
-                                        <span class="background"></span>
+                                        <span class="background" [ngStyle]="{'background-image': getImageURL()}"></span>
+                                        <img [src]="imageUrl" alt="">
+
                                     </label>
                                     <br />
-                                    <input #fileInput id="fileInput" type='file' (click)="fileInput.value = null"
-                                        value="" hidden="hidden">
+                                    <input #fileInput id="fileInput" type='file' (click)="fileInput.value"
+                                        (change)="onSelectFile($event)" value="" hidden="hidden">
                                 </div>
                             </div>
                             <div class="row">
@@ -111,9 +112,18 @@
                                 value="" formControlName="accountAttachments">
                         </div>
                         <div class="form-group tm-form-field">
-                            <button type="submit" class="tm-button mt-5">
-                                Submit <b></b>
-                            </button>
+                            <div class="row justify-content-center">
+                                <div class="col-6">
+                                    <button type="submit" class="tm-button mt-2">
+                                        Submit <b></b>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="submit" class="tm-button mt-2 closeBtn" routerLink="/account/owner">
+                                        <a>Close <b></b></a>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
