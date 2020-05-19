@@ -107,3 +107,48 @@ p a:hover {
 .hoverable:hover .background {
     display: block;
 }
+
+.industry-category .brandTags {
+    background-color: #fff;
+    border: 1px solid #c0972e;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    padding: 0 0;
+}
+
+.industry-category .brandTags:focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+}
+.industry-category .brandTags .ng-trigger {
+    background: #428bca;
+    border: 1px solid #357ebd;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.brandTags .tag:focus {
+    background: #c0972e !important;
+    color: #fff;
+    box-shadow: 0 2px 3px 1px #d4d1d1;
+}
+
+.brandTags .ng2-tag-input--focused {
+    border-bottom: none;
+}
+
+.shipping-and-logistics-category .brandTags {
+    background-color: #fff;
+    border: 1px solid #c0972e;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    padding: 0 0;
+}
+
+.closeBtn {
+    background-color: #fff;
+    color: #c0972e;
+}

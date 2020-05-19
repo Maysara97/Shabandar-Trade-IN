@@ -11,12 +11,13 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-3 profile-image-edit">
                                     <label class="hoverable" for="fileInput">
-                                        <img src="assets/images/You-Trade-In/student.png" alt="">
-                                        <span class="background"></span>
+                                        <span class="background" [ngStyle]="{'background-image': getImageURL()}"></span>
+                                        <img [src]="imageUrl" alt="">
+
                                     </label>
                                     <br />
-                                    <input #fileInput id="fileInput" type='file' (click)="fileInput.value = null"
-                                        value="" hidden="hidden">
+                                    <input #fileInput id="fileInput" type='file' (click)="fileInput.value"
+                                        (change)="onSelectFile($event)" value="" hidden="hidden">
                                 </div>
                             </div>
                             <div class="row">
@@ -45,45 +46,84 @@
                             </div>
                         </div>
                         <div class="form-group tm-form-field">
-                            <label for="register-telephone-number">Telephone Number</label>
-                            <br />
-                            <input type="tel" name="telephonenumber" id="register-telephone-number" required="required"
-                                formControlName="telephonenumber" [ngClass]="{
-                                    'is-invalid':
-                                        submitted && f.telephonenumber.errors
-                                }" [(ngModel)]="profileData.accountMobile" />
-                            <div *ngIf="submitted && f.telephonenumber.errors" class="alert alert-danger">
-                                <div *ngIf="f.telephonenumber.errors?.required">
-                                    Telephone Number is required
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="contactEmail">Contact Email</label>
+                                    <br />
+                                    <input type="text" id="contactEmail" name="contactEmail"
+                                        formControlName="contactEmail" />
                                 </div>
-                                <div *ngIf="f.telephonenumber.errors?.email">
-                                    Telephone Number must be a valid number
+                                <div class="col-6">
+                                    <label for="accountWebsite">Account Website</label>
+                                    <br />
+                                    <input type="text" id="accountWebsite" name="accountWebsite"
+                                        formControlName="accountWebsite" />
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group tm-form-field">
-                            <label for="register-company">Company Name</label>
-                            <br />
-                            <input type="text" id="register-company" required="required" formControlName="company"
-                                name="company" />
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="register-company">Company Name</label>
+                                    <br />
+                                    <input type="text" id="register-company" required="required"
+                                        formControlName="company" name="company" />
+                                </div>
+                                <div class="col-6">
+                                    <label for="register-telephone-number">Telephone Number</label>
+                                    <br />
+                                    <input type="tel" name="telephonenumber" id="register-telephone-number"
+                                        required="required" formControlName="telephonenumber" [ngClass]="{
+                                            'is-invalid':
+                                                submitted && f.telephonenumber.errors
+                                        }" [(ngModel)]="profileData.accountMobile" />
+                                    <div *ngIf="submitted && f.telephonenumber.errors" class="alert alert-danger">
+                                        <div *ngIf="f.telephonenumber.errors?.required">
+                                            Telephone Number is required
+                                        </div>
+                                        <div *ngIf="f.telephonenumber.errors?.email">
+                                            Telephone Number must be a valid number
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="form-group tm-form-field">
-                            <label for="register-country">Country</label> <br />
-                            <select class="mdb-select md-form" searchable="Search here..">
-                                <option value="" disabled selected>Choose your country</option>
-                                <option value="1">EGYPT</option>
-                                <option value="2">USA</option>
-                                <option value="3">AUSTRALIA</option>
-                                <option value="4">CHINA</option>
-                                <option value="5">JAPAN</option>
-                            </select>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="register-country">Country</label> <br />
+                                    <select class="mdb-select md-form" searchable="Search here..">
+                                        <option value="" disabled selected>Choose your country</option>
+                                        <option value="1">EGYPT</option>
+                                        <option value="2">USA</option>
+                                        <option value="3">AUSTRALIA</option>
+                                        <option value="4">CHINA</option>
+                                        <option value="5">JAPAN</option>
+                                    </select>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="form-group tm-form-field">
-                            <button type="submit" class="tm-button mt-5">
-                                Submit <b></b>
-                            </button>
+                            <label for="accountAttachments">Attachments</label>
+                            <input #fileInput id="accountAttachments" type='file' (click)="fileInput.value = null"
+                                value="" formControlName="accountAttachments">
+                        </div>
+                        <div class="form-group tm-form-field">
+                            <div class="row justify-content-center">
+                                <div class="col-6">
+                                    <button type="submit" class="tm-button mt-2">
+                                        Submit <b></b>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="submit" class="tm-button mt-2 closeBtn" routerLink="/account/owner">
+                                        <a>Close <b></b></a>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -1,10 +1,10 @@
 export class Product {
-    ProductId?: string
+    productId?: string
     accountId?: string
-    ProductName?: string
-    CategoryId?: string
-    ProductImage?: string
-    Description?: string
+    productName?: string
+    categoryId?: string
+    productImage?: string
+    description?: string
     status?: number
     createdOn?: string
     lastModifiedOn?: string

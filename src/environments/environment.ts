@@ -4,7 +4,9 @@
 
 export const environment = {
     production: false,
-    baseUrl: 'https://localhost:5001/api/',
+    // baseUrl: 'https://api.youtradein.com/api',
+    // file_path: 'https://api.youtradein.com/files/',
+    baseUrl: 'https://localhost:5001/api',
     file_path: 'https://localhost:5001/files/',
 }
 

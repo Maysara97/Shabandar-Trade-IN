@@ -18,6 +18,9 @@ export class AddProductFormComponent implements OnInit {
     product: Product
     addProductForm: FormGroup
 
+    brandNames = []
+    coverages = []
+
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
@@ -68,6 +71,7 @@ export class AddProductFormComponent implements OnInit {
             productAgentsLocation: [],
             // Designers Category
             productSoftwares: [],
+            designerCategory: [],
         })
     }
 

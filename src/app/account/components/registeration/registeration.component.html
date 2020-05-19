@@ -18,6 +18,7 @@
                                         *ngIf="accountService.registerForm.get('primaryAdminFirstlName').touched && accountService.registerForm.get('primaryAdminFirstlName').errors">First
                                         Name is required</label>
 
+
                                 </div>
                                 <div class="col-6">
                                     <label for="register-lastname">Last Name</label>
@@ -70,9 +71,9 @@
                                     <label class="text-danger"
                                         *ngIf="accountService.registerForm.get('primaryAdminPassword').touched && accountService.registerForm.get('primaryAdminPassword').errors?.minLength">Password
                                         must be at least 6 characters</label>
-                                    <!-- <label class="text-danger"
-                                            *ngIf="accountService.registerForm.get('Passwords.primaryAdminPassword').touched && accountService.registerForm.get('Passwords.primaryAdminPassword').errors?.pattern">Password
-                                            must contain at least 1 Uppercase character</label> -->
+                                    <label class="text-danger"
+                                        *ngIf="accountService.registerForm.get('primaryAdminPassword').touched && accountService.registerForm.get('primaryAdminPassword').errors?.pattern">Password
+                                        must start with Uppercase character</label>
                                 </div>
                             </div>
                             <div class="col-6">

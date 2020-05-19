@@ -9,6 +9,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { AuthGuard } from '../shared/guards/auth.guard'
 import { HomepageComponent } from '../application/components/homepage/homepage.component'
 import { SellProductComponent } from '../application/components/sell-product/sell-product.component'
+import { UpdatePasswordComponent } from './components/update-password/update-password.component'
 
 const routes: Routes = [
     {
@@ -33,6 +34,7 @@ const routes: Routes = [
                 canActivate: [AuthGuard],
             },
             { path: 'editprofile', component: EditprofileComponent },
+            { path: 'update-password', component: UpdatePasswordComponent },
         ],
     },
 ]

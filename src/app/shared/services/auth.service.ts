@@ -6,6 +6,7 @@ import { AccountsService } from 'src/app/account/services/accounts.service'
 import { Observable, BehaviorSubject } from 'rxjs'
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { tokenGetter } from 'src/app/app.module'
+import { UpdatePassword } from 'src/app/account/models/updatePassword'
 
 @Injectable({
     providedIn: 'root',
@@ -95,4 +96,8 @@ export class AuthService extends BaseService<any> {
     // getUserData(): Observable<Administrator> {
     //     return this.get('Administrator')
     // }
+
+    updatePassword(body): Observable<any> {
+        return this.post('Authorization/ChangePassword', body)
+    }
 }

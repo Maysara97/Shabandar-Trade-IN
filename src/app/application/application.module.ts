@@ -10,6 +10,9 @@ import { SellProductComponent } from './components/sell-product/sell-product.com
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms'
+import { TagInputModule } from 'ngx-chips';
+import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
+
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -17,6 +20,7 @@ import { FormsModule } from '@angular/forms'
         HomepageComponent,
         SellProductComponent,
         AddProductFormComponent,
+        AddNewRequestFormComponent,
     ],
     imports: [
         CommonModule,
@@ -24,6 +28,7 @@ import { FormsModule } from '@angular/forms'
         CarouselModule,
         ReactiveFormsModule,
         FormsModule,
+        TagInputModule,
     ],
 })
 export class ApplicationModule {}

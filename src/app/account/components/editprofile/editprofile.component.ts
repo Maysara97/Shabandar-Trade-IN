@@ -18,6 +18,7 @@ export class EditprofileComponent implements OnInit {
     data = false
     message: string
     profileData: User
+    imageUrl: string
 
     constructor(
         private formBuilder: FormBuilder,
@@ -47,6 +48,9 @@ export class EditprofileComponent implements OnInit {
                 this.profileData.accountName,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
+            accountAttachments: [],
+            contactEmail: [],
+            accountWebsite: [],
         })
 
         this.router.events.subscribe((evt) => {
@@ -56,10 +60,24 @@ export class EditprofileComponent implements OnInit {
             window.scrollTo(0, 0)
         })
     }
+    getImageURL() {
+        return 'url(./assets/images/You-Trade-In/student2.png)'
+    }
     get f() {
         return this.editProfileForm.controls
     }
+    onSelectFile(event) {
+        // called each time file input changes
+        if (event.target.files && event.target.files[0]) {
+            var reader = new FileReader()
 
+            reader.readAsDataURL(event.target.files[0]) // read file as data url
+
+            reader.onload = (event) => {
+                this.imageUrl = event.target.result.toString()
+            }
+        }
+    }
     onSubmit(form: NgForm) {
         this.submitted = true
         this.auth.updateProfile(form.value).subscribe((result: any) => {

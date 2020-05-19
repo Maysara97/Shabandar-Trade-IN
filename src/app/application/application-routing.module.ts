@@ -6,6 +6,7 @@ import { HomepageComponent } from './components/homepage/homepage.component'
 import { SellProductComponent } from './components/sell-product/sell-product.component'
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component'
 import { ViewerComponent } from './components/viewer/viewer.component'
+import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
 
 const routes: Routes = [
     {
@@ -30,6 +31,10 @@ const routes: Routes = [
             {
                 path: 'viewer',
                 component: ViewerComponent,
+            },
+            {
+                path: 'add-new-request-form',
+                component: AddNewRequestFormComponent,
             },
         ],
     },
