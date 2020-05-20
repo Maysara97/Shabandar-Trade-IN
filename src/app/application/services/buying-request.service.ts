@@ -9,9 +9,20 @@ export class BuyingRequestService extends BaseService<any> {
         super(injector)
     }
 
-    createBuyingRequest(buyingRequest: BuyingRequest) {
-        return this.post('BuyingRequest', buyingRequest)
+    createBuyingRequest(
+        buyingRequest: BuyingRequest
+    ): Observable<BuyingRequest> {
+        const body = {
+            productId: buyingRequest.productId,
+            description: buyingRequest.description,
+            title: buyingRequest.title,
+            images: buyingRequest.images,
+        }
+        return this.post('BuyingRequest', body)
     }
+    // createBuyingRequest(buyingRequest: BuyingRequest) {
+    //     return this.post('BuyingRequest', buyingRequest)
+    // }
     updateBuyingRequest(buyingRequest: BuyingRequest) {
         return this.put('BuyingRequest', buyingRequest)
     }

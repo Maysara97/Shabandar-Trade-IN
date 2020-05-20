@@ -10,8 +10,9 @@ import { SellProductComponent } from './components/sell-product/sell-product.com
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormsModule } from '@angular/forms'
-import { TagInputModule } from 'ngx-chips';
+import { TagInputModule } from 'ngx-chips'
 import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
+import { NgSelectModule } from '@ng-select/ng-select'
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { AddNewRequestFormComponent } from './components/add-new-request-form/ad
         ReactiveFormsModule,
         FormsModule,
         TagInputModule,
+        NgSelectModule,
     ],
 })
 export class ApplicationModule {}
