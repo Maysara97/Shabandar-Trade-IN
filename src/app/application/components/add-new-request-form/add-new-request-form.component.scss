@@ -157,3 +157,24 @@ p a:hover {
 .image-viewer img {
     padding: 10px;
 }
+
+.inputFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputFile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    padding: 10px;
+    color: white;
+    background-color: #c0972e;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}

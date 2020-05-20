@@ -10,7 +10,7 @@
                         <div class="tm-form-field">
                             <label for="login-email">Email</label> <br />
                             <input type="email" name="primaryAdminEmail" formControlName="primaryAdminEmail"
-                                id="login-email" required="required" [ngClass]="{
+                                id="login-email" required="required" placeholder="Enter Your Email Address" [ngClass]="{
                                     'is-invalid': submitted && f.primaryAdminEmail.errors
                                 }" />
 
@@ -23,7 +23,8 @@
                         <div class="tm-form-field">
                             <label for="login-password">Password</label> <br />
                             <input type="password" id="login-password" name="primaryAdminPassword"
-                                formControlName="primaryAdminPassword" required="required" [ngClass]="{
+                                formControlName="primaryAdminPassword" placeholder="Enter Your Password"
+                                required="required" [ngClass]="{
                                     'is-invalid': submitted && f.primaryAdminPassword.errors
                                 }" />
                             <label class="text-danger"

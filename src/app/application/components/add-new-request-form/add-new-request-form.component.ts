@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { Product } from '../../models/product'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms'
 import { Router, NavigationEnd } from '@angular/router'
 import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
+import { BuyingRequest } from '../../models/buying-request'
+import { BuyingRequestService } from '../../services/buying-request.service'
+import { Observable } from 'rxjs'
 
 @Component({
     selector: 'app-add-new-request-form',
@@ -15,18 +18,21 @@ export class AddNewRequestFormComponent implements OnInit {
     submitted = false
     data = false
     message: string
-    product: Product
+    products$: Observable<Product[]>
     addRequestForm: FormGroup
     urls = []
-
+    allProducts: any = []
+    requestProduct: BuyingRequest
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private productService: ProductService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private buyingRequestService: BuyingRequestService
     ) {}
 
     ngOnInit(): void {
+        this.products$ = this.productService.getAllProducts()
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return
@@ -34,12 +40,20 @@ export class AddNewRequestFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.addRequestForm = this.formBuilder.group({
-            accountId: [],
-            buyingRequestId: [],
+            // ownerAccountId: [],
+            // buyingRequestId: [],
             productId: [null, Validators.required],
             title: [null, Validators.required],
             description: [null, Validators.required],
             images: [],
+        })
+    }
+
+    getProducts() {
+        this.allProducts = []
+        this.productService.getAllProducts().subscribe((data: any) => {
+            console.log(data)
+            this.allProducts = data
         })
     }
 
@@ -59,14 +73,16 @@ export class AddNewRequestFormComponent implements OnInit {
         }
     }
 
-    onSubmit(product: Product) {
+    onSubmit(requestProduct) {
         this.submitted = true
-        this.productService.createProduct(product).subscribe((result: any) => {
-            if (result) {
-                this.router.navigate(['/account/owner'])
-            } else {
-                this.toastr.error('Error')
-            }
-        })
+        this.buyingRequestService
+            .createBuyingRequest(requestProduct)
+            .subscribe((result: any) => {
+                if (result) {
+                    this.router.navigate(['/account/owner'])
+                } else {
+                    this.toastr.error('Error')
+                }
+            })
     }
 }

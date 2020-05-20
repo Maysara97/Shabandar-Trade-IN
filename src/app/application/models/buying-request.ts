@@ -1,4 +1,5 @@
 export class BuyingRequest {
+    ownerAccountId?: string
     buyingRequestId?: string
     productId?: string
     title?: string
