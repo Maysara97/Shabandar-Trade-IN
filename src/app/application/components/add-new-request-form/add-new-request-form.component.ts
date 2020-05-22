@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr'
 import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
 @Component({
     selector: 'app-add-new-request-form',
@@ -19,9 +20,11 @@ export class AddNewRequestFormComponent implements OnInit {
     data = false
     message: string
     products$: Observable<Product[]>
+    products: Product[] = []
+    selectedProduct: Product
     addRequestForm: FormGroup
     urls = []
-    allProducts: any = []
+    allProducts = []
     requestProduct: BuyingRequest
     constructor(
         private formBuilder: FormBuilder,
@@ -32,7 +35,32 @@ export class AddNewRequestFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.products$ = this.productService.getAllProducts()
+        this.productService.getAllProducts().subscribe((data: any) => {
+            this.products = data as Product[]
+            // this.products$ = data
+            console.log(data)
+            // debugger
+        })
+        // this.products$ = this.productService.getAllProducts()
+        // debugger
+        // this.productService.getAllProducts().pipe(map(res) => {
+        //     debugger
+        //     this.products$ = res
+        //     console.log(this.products$)
+        // })
+
+        // this.productService.getAllProducts().pipe(
+        //     map((res) => {
+        //         debugger
+        //         if (res.isSucceeded) {
+        //             this.products$ = res.data
+        //             debugger
+        //         } else {
+        //             this.products$ = res.errors
+        //         }
+        //     })
+        // )
+
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return
@@ -50,10 +78,10 @@ export class AddNewRequestFormComponent implements OnInit {
     }
 
     getProducts() {
-        this.allProducts = []
         this.productService.getAllProducts().subscribe((data: any) => {
+            this.products$ = data
             console.log(data)
-            this.allProducts = data
+            // debugger
         })
     }
 

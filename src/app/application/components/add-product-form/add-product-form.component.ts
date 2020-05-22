@@ -4,6 +4,8 @@ import { Product } from '../../models/product'
 import { NavigationEnd, Router } from '@angular/router'
 import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
+import { AccountProductService } from '../../services/accountProduct.service'
+import { AccountProduct } from '../../models/accountProduct'
 
 @Component({
     selector: 'app-add-product-form',
@@ -16,16 +18,18 @@ export class AddProductFormComponent implements OnInit {
     data = false
     message: string
     product: Product
+    accountProduct: AccountProduct
     addProductForm: FormGroup
 
-    brandNames = []
-    coverages = []
-
+    tagNames = []
+    tagCoverage = []
+    agents = []
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private productService: ProductService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private accountProductService: AccountProductService
     ) {}
 
     ngOnInit(): void {
@@ -36,53 +40,82 @@ export class AddProductFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.addProductForm = this.formBuilder.group({
-            accountId: [],
-            productName: [null, [Validators.required]],
-            productPrice: [null, [Validators.required]],
-            country: [null, [Validators.required]],
-            category: [null, [Validators.required]],
+            productId: [null, [Validators.required]],
+            unitePrice: [],
+            price: [null, [Validators.required]],
+            // missed
+            // country: [null, [Validators.required]],
+            categoryId: [null, [Validators.required]],
             // Both
-            productPaymentTerms: [],
-            productSize: [],
-            productDescription: [],
-            productLocation: [],
+            paymentTerms: [],
+            size: [],
+            description: [],
+            location: [],
             // Industry Category
-            productBrand: [],
-            productOrigin: [],
-            productPackingWay: [],
-            productStorage: [],
+            brandName: [],
+            // missed
+            // productOrigin: [],
+            packing: [],
+            storage: [],
+            // missed
             productMaterial: [],
-            productWeight: [],
-            productGrade: [],
-            productCode: [],
-            productMOQ: [],
-            productCertificate: [],
+            wieght: [],
+            type: [],
+            grade: [],
+            code: [],
+            moq: [],
+            certification: [],
             // Touristic Category
-            productDuration: [],
-            productAccomdation: [],
-            productProgram: [],
+            duration: [],
+            accomdationName: [],
+            program: [],
             // Real State Category
-            productSpace: [],
-            furnishiesState: [],
-            finishedOrNot: [],
+            space: [],
+            finishedStatus: [],
             // Shipping and Logistics Category
-            productCoverage: [],
+            coverage: [],
             serviceType: [],
-            productAgentsLocation: [],
+            agentsLocation: [],
             // Designers Category
-            productSoftwares: [],
-            designerCategory: [],
+            softwares: [],
+            tripCategory: [],
         })
     }
 
-    onSubmit(product: Product) {
+    onSubmit(requestProduct) {
         this.submitted = true
-        this.productService.createProduct(product).subscribe((result: any) => {
-            if (result) {
-                this.router.navigate(['/account/owner'])
-            } else {
-                this.toastr.error('Error')
-            }
+        // Tags
+        let tagResult: string[] = []
+        this.tagNames.forEach((element) => {
+            tagResult.push(element.value)
         })
+
+        let coverageResult: string[] = []
+        this.tagCoverage.forEach((element) => {
+            coverageResult.push(element.value)
+        })
+
+        let agentsResult: string[] = []
+        this.agents.forEach((element) => {
+            agentsResult.push(element.value)
+        })
+
+        console.log(this.tagCoverage)
+        console.log(this.agents)
+
+        this.accountProductService
+            .createAccountProduct(
+                requestProduct,
+                tagResult,
+                coverageResult,
+                agentsResult
+            )
+            .subscribe((result: any) => {
+                if (result) {
+                    this.router.navigate(['/account/owner'])
+                } else {
+                    this.toastr.error('Error')
+                }
+            })
     }
 }

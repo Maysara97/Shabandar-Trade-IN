@@ -14,23 +14,25 @@
                                 <!-- <ng-select bindLabel="productName" bindValue="productId" formControlName="productId"
                                     [items]="products$ | async" placeholder="Product Name">
                                 </ng-select> -->
+
+                                <!-- <ul>
+                                    <li *ngFor="let product of products" style="font-weight: bold; color: black;">
+                                        {{product.productName}}</li>
+                                </ul> -->
                                 <select class="form-control" id="productId" formControlName="productId">
                                     <option value="" disabled selected>Choose your Product</option>
-                                    <option *ngFor="let product of products$"
-                                        value="5a1bfc74-813f-436a-b919-c24c895cfd83">Vrasta Limestone Blocks
-                                    </option>
-                                    <option value="5a1bfc74-813f-436a-b919-c24c895cfd83">Mystic Gray Marble Blocks
-                                    </option>
-                                    <option value="5a1bfc74-813f-436a-b919-c24c895cfd83">Green Sukabumi Stone Tiles
-                                    </option>
-                                    <option value="5a1bfc74-813f-436a-b919-c24c895cfd83">Avallon Grey Limestone</option>
-                                </select>
-                                <!-- <select class="form-control" id="productId" formControlName="productId">
-                                    <option value="" disabled selected>Choose your Product</option>
-                                    <option *ngFor="let product of products$ | async" [value]="product.productId">
+                                    <!-- <option *ngFor="let product of products" [value]="product.productId">
                                         {{product.productName}}
+                                    </option> -->
+                                    <!-- value="{{product.productId}}" -->
+                                    <option value="5A1BFC74-813F-436A-B919-C24C895CFD83">Marble Stone
                                     </option>
-                                </select> -->
+                                    <option value="5A1BFC74-813F-436A-B919-C24C895CFD82">Mystic Gray Marble Blocks
+                                    </option>
+                                    <option value="5A1BFC74-813F-436A-B919-C24C895CFD81">Green Sukabumi Stone Tiles
+                                    </option>
+                                    <option value="5A1BFC74-813F-436A-B919-C24C895CFD85">Avallon Grey Limestone</option>
+                                </select>
                                 <label class="text-danger"
                                     *ngIf="addRequestForm.get('productId').touched && addRequestForm.get('productId').errors?.required">
                                     Product Name is Required
