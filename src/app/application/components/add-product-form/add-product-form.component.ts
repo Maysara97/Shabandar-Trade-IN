@@ -6,6 +6,8 @@ import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
 import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
+import { CategoryService } from '../../services/category.service'
+import { Category } from '../../models/category'
 
 @Component({
     selector: 'app-add-product-form',
@@ -24,12 +26,29 @@ export class AddProductFormComponent implements OnInit {
     tagNames = []
     tagCoverage = []
     agents = []
+
+    industryCategorySelected = false
+    touristicCategorySelected = false
+    realEstateCategorySelected = false
+    designersCategorySelected = false
+    shippingCategorySelected = false
+
+    realStateId = '5a1bfc74-813f-436a-b919-c24c895cfd81'
+    touristicId = '5a1bfc74-813f-436a-b919-c24c895cfd82'
+    industryId = '5a1bfc74-813f-436a-b919-c24c895cfd87'
+    designersId = '5a1bfc74-813f-436a-b919-c24c895cfd89'
+    shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
+
+    categories: Category[]
+    products: Product[]
+
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private productService: ProductService,
         private toastr: ToastrService,
-        private accountProductService: AccountProductService
+        private accountProductService: AccountProductService,
+        private categoryService: CategoryService
     ) {}
 
     ngOnInit(): void {
@@ -39,6 +58,16 @@ export class AddProductFormComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
+        // Bind all Categories
+        this.categoryService.getAllCategories().subscribe((result: any) => {
+            this.categories = result.data
+        })
+
+        // Bind all Products
+        this.productService.getAllProducts().subscribe((result: any) => {
+            this.products = result.data
+        })
+
         this.addProductForm = this.formBuilder.group({
             productId: [null, [Validators.required]],
             unitePrice: [],
@@ -117,5 +146,9 @@ export class AddProductFormComponent implements OnInit {
                     this.toastr.error('Error')
                 }
             })
+    }
+
+    categoryChange(value: string) {
+        console.log(value)
     }
 }

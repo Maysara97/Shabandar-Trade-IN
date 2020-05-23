@@ -43,7 +43,7 @@
             <div class="col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="row">
                     <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of products">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of accountProducts">
                         <!--To apply search functionality-->
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
@@ -61,7 +61,7 @@
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    {{ product.ProductName }}
+                                    <!-- {{ product. }} -->
                                 </p>
                             </div>
                             <div class="supplier-name">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
-                                    <p>{{ product.CategoryId }}</p>
+                                    <!-- <p>{{ product.CategoryId }}</p> -->
                                 </div>
                                 <button class="email-btn" style="float: right;">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>

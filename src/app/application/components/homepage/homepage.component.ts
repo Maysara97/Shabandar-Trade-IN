@@ -5,6 +5,8 @@ import { Observable } from 'rxjs'
 import { CategoryService } from '../../services/category.service'
 import { Product } from '../../models/product'
 import { ProductService } from '../../services/product.service'
+import { BuyingRequest } from '../../models/buying-request'
+import { BuyingRequestService } from '../../services/buying-request.service'
 
 @Component({
     selector: 'app-homepage',
@@ -15,48 +17,27 @@ export class HomepageComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
     products$: Observable<Product[]>
-
-    categories = [
-        {
-            categoryName: 'Industry',
-        },
-        {
-            categoryName: 'Tourism',
-        },
-        {
-            categoryName: 'Real Estate',
-        },
-        {
-            categoryName: 'Designers',
-        },
-        {
-            categoryName: 'Shipping & Logistics',
-        },
-    ]
-
-    products = [
-        {
-            ProductName: 'Product One',
-            CategoryId: 'Industry',
-        },
-        {
-            ProductName: 'Product Two',
-            CategoryId: 'Designers',
-        },
-        {
-            ProductName: 'Product Three',
-            CategoryId: 'Tourism',
-        },
-    ]
+    buyingRequestProducts: BuyingRequest[]
+    categories: Category[]
     filteredCategories = []
     constructor(
         private categoryService: CategoryService,
-        private productService: ProductService
+        private productService: ProductService,
+        private buyingRequestService: BuyingRequestService
     ) {}
 
     ngOnInit(): void {
-        this.getAllProducts()
-        this.getAllCategories()
+        this.buyingRequestService
+            .getAllBuyingRequests()
+            .subscribe((response: any) => {
+                this.buyingRequestProducts = response.data
+            })
+
+        this.categoryService.getAllCategories().subscribe((result: any) => {
+            this.categories = result.data
+        })
+
+        // this.buyingRequestProducts$ = this.buyingRequestService.getAllBuyingRequests()
     }
 
     getAllCategories() {

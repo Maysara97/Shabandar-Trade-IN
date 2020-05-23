@@ -34,21 +34,8 @@
                 <div class="single-widget widget-categories">
                     <h5>Categories</h5>
                     <ul>
-                        <li>
-                            <a href="#" data-toggle="popover" title="Popover title"
-                                data-content="And here's some amazing content. It's very engaging. Right?">Industry</a>
-                        </li>
-                        <li>
-                            <a href="#">Tourism</a>
-                        </li>
-                        <li>
-                            <a href="#">Real Estate</a>
-                        </li>
-                        <li>
-                            <a href="#">Designers</a>
-                        </li>
-                        <li>
-                            <a href="#">Shipping & Logistics</a>
+                        <li *ngFor="let category of categories">
+                            <a href="#" data-toggle="popover">{{category.categoryName}}</a>
                         </li>
                     </ul>
                 </div>
@@ -57,7 +44,7 @@
                 <div class="row">
                     <!-- *ngFor="let product of products" -->
                     <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of products">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of buyingRequestProducts">
                         <!--To apply search functionality-->
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
@@ -75,20 +62,20 @@
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    {{ product.ProductName }}
+                                    {{ product.title }}
                                 </p>
                             </div>
 
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
                                 <p>
-                                    Buyer Name
+                                    {{product.ownerAccountId}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
-                                    <p>{{ product.CategoryId }}</p>
+                                    <!-- <p>{{ product.}}</p> -->
                                 </div>
                                 <button class="email-btn" style="float: right;">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -101,13 +88,6 @@
                     <!--// Single Product -->
                 </div>
             </div>
-            <!-- <div class="col-lg-2 col-md-2 col-sm-4 col-12 justify-content-center">
-                <div class="single-widget widget-button">
-                    <a id="scrollUp" href="/home/homepage#top" class="up-btn">
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

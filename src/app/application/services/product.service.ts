@@ -33,7 +33,7 @@ export class ProductService extends BaseService<any> {
     getProductsByOwner() {
         return this.getAll('Product/ProductsByOwner')
     }
-    getProductsByCategory(productId: string) {
-        return this.getById('Product/ProductsByCategory', productId)
+    getProductsByCategory(categoryId: string) {
+        return this.getById('Product/ProductsByCategory', categoryId)
     }
 }
