@@ -26,6 +26,8 @@
         "@ng-select/ng-select": "^4.0.0",
         "bootstrap": "^4.3.1",
         "filepond": "^4.13.6",
+        "filepond-plugin-file-validate-type": "^1.2.5",
+        "filepond-plugin-image-preview": "^4.6.4",
         "jquery": "^3.5.1",
         "ng2-search-filter": "^0.5.1",
         "ngx-chips": "^2.1.0",

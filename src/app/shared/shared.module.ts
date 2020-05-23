@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { UploadFilesComponent } from './components/upload-files/upload-files.component'
+import { registerPlugin, FilePondModule } from 'ngx-filepond'
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 
-const SHARED_COMPONENTS = []
-const SHARED_EXTERNAL_MODULES = []
+registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
+
+const SHARED_COMPONENTS = [UploadFilesComponent]
+const SHARED_EXTERNAL_MODULES = [FilePondModule]
 const SHARED_INTERNAL_MODULES = [FormsModule, ReactiveFormsModule]
 
 @NgModule({

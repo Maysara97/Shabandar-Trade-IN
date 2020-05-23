@@ -4,11 +4,8 @@
             <div class="input-group">
                 <select name="demo" id="productSelect">
                     <option selected="selected" value="one">Products</option>
-                    <option value="1">Marble Stone</option>
-                    <option value="2">Vrasta Limestone Blocks</option>
-                    <option value="3">Mystic Gray Marble Blocks</option>
-                    <option value="4">Green Sukabumi Stone Tiles</option>
-                    <option value="5">Avallon Grey Limestone</option>
+                    <option *ngFor="let product of products" value="{{product.productId}}">
+                        {{product.productName}}</option>
                 </select>
                 <!-- [(ngModel)]="term" -->
                 <input type="text" class="form-control input-search" name="search"
@@ -61,19 +58,19 @@
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    <!-- {{ product. }} -->
+                                    {{ product.productName }}
                                 </p>
                             </div>
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
                                 <p>
-                                    Seller Name
+                                    {{product.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
-                                    <!-- <p>{{ product.CategoryId }}</p> -->
+                                    <p>{{ product.categoryName }}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -86,13 +83,6 @@
                     <!--// Single Product -->
                 </div>
             </div>
-            <!-- <div class="col-lg-2 col-md-2 col-sm-4 col-12 justify-content-center">
-                <div class="single-widget widget-button">
-                    <a id="scrollUp" href="/home/homepage#top" class="up-btn">
-                        <i class="fa fa-angle-up" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

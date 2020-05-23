@@ -99,6 +99,10 @@ p a:hover {
     z-index: 1;
 }
 
+.hoverable .imageUploaded {
+    position: absolute;
+    z-index: 2;
+}
 .hoverable:hover .hover-text {
     display: block;
 }

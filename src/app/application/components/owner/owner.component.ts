@@ -5,6 +5,10 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { Product } from '../../models/product'
 import { ProductService } from '../../services/product.service'
+import { AccountProductService } from '../../services/accountProduct.service'
+import { BuyingRequestService } from '../../services/buying-request.service'
+import { AccountProduct } from '../../models/accountProduct'
+import { BuyingRequest } from '../../models/buying-request'
 @Component({
     selector: 'app-owner',
     templateUrl: './owner.component.html',
@@ -15,6 +19,9 @@ export class OwnerComponent implements OnInit {
     userAdministrator: Administrator
     loggedUser$: Observable<User>
     isLoggedIn
+
+    accountProducts: AccountProduct[]
+    buyingProducts: BuyingRequest[]
 
     product: Product[] = []
     customOptions: any = {
@@ -70,7 +77,8 @@ export class OwnerComponent implements OnInit {
         private router: Router,
         private auth: AuthService,
         private route: ActivatedRoute,
-        private productService: ProductService
+        private accountProductService: AccountProductService,
+        private buyingRequestService: BuyingRequestService
     ) {}
 
     ngOnInit() {
@@ -82,13 +90,17 @@ export class OwnerComponent implements OnInit {
         })
         this.userAdministrator = this.auth.accountAdminastratorInfo
         this.user = this.auth.accountInfo
+
+        this.accountProductService
+            .getAccountProductsByOwner()
+            .subscribe((result: any) => {
+                this.accountProducts = result.data
+            })
+
+        this.buyingRequestService
+            .getBuyingRequestsByOwner()
+            .subscribe((result: any) => {
+                this.buyingProducts = result.data
+            })
     }
-
-    // getProductsByOwner() {
-    //     this.product$ = this.productService.getProductsByOwner()
-    // }
 }
-
-// updateProfile(userId: number) {
-//     this.router.navigate(['/owner/editProfile', userId])
-// }

@@ -60,4 +60,7 @@ export class AccountProductService extends BaseService<any> {
     getAccountProductsByOwner() {
         return this.getAll('AccountProduct/AccountProductsByOwner')
     }
+    getAllAccountProducts() {
+        return this.getAll('AccountProduct/AllAccountProducts')
+    }
 }

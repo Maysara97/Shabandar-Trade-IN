@@ -35,8 +35,8 @@
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input type="text" class="form-control w-100" id="description" formControlName="description"
-                            placeholder="Place Description here">
+                        <textarea class="form-control" id="description" rows="3" formControlName="description"
+                            placeholder="Product Description"></textarea>
                         <label class="text-danger"
                             *ngIf="addRequestForm.get('description').touched && addRequestForm.get('description').errors?.required">
                             Description is Required
@@ -49,10 +49,10 @@
                             (click)="fileInput.value" value="" formControlName="images" multiple>
                         <label for="images">Upload Images</label>
                         <br>
-                        <div class="image-viewer mt-3">
+                        <div class="image-viewer 
+                        -3">
                             <img *ngFor='let url of urls' [src]="url" height="150">
                         </div>
-
                     </div>
 
 

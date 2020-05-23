@@ -12,12 +12,15 @@
                                 <div class="col-md-3 profile-image-edit">
                                     <label class="hoverable" for="fileInput">
                                         <span class="background" [ngStyle]="{'background-image': getImageURL()}"></span>
-                                        <img [src]="imageUrl" alt="">
+                                        <img class="imageUploaded" [src]="imageUrl" alt="">
 
                                     </label>
                                     <br />
                                     <input #fileInput id="fileInput" type='file' (click)="fileInput.value"
                                         (change)="onSelectFile($event)" value="" hidden="hidden">
+                                    <!-- <app-upload-files (onFileUpload)="handleImageUpload($event)" [isCircle]="true"
+                                        [files]="images">
+                                    </app-upload-files> -->
                                 </div>
                             </div>
                             <div class="row">
