@@ -57,7 +57,8 @@
         "no-string-literal": false,
         "prefer-const": false,
         "no-var-keyword": false,
-        "variable-name": false
+        "variable-name": false,
+        "no-debugger": false
     },
     "rulesDirectory": ["codelyzer"]
 }

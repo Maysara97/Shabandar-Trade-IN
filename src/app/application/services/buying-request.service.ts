@@ -20,9 +20,6 @@ export class BuyingRequestService extends BaseService<any> {
         }
         return this.post('BuyingRequest', body)
     }
-    // createBuyingRequest(buyingRequest: BuyingRequest) {
-    //     return this.post('BuyingRequest', buyingRequest)
-    // }
     updateBuyingRequest(buyingRequest: BuyingRequest) {
         return this.put('BuyingRequest', buyingRequest)
     }

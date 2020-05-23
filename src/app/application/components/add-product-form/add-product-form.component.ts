@@ -4,6 +4,10 @@ import { Product } from '../../models/product'
 import { NavigationEnd, Router } from '@angular/router'
 import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
+import { AccountProductService } from '../../services/accountProduct.service'
+import { AccountProduct } from '../../models/accountProduct'
+import { CategoryService } from '../../services/category.service'
+import { Category } from '../../models/category'
 
 @Component({
     selector: 'app-add-product-form',
@@ -16,16 +20,35 @@ export class AddProductFormComponent implements OnInit {
     data = false
     message: string
     product: Product
+    accountProduct: AccountProduct
     addProductForm: FormGroup
 
-    brandNames = []
-    coverages = []
+    tagNames = []
+    tagCoverage = []
+    agents = []
+
+    industryCategorySelected = false
+    touristicCategorySelected = false
+    realEstateCategorySelected = false
+    designersCategorySelected = false
+    shippingCategorySelected = false
+
+    realStateId = '5a1bfc74-813f-436a-b919-c24c895cfd81'
+    touristicId = '5a1bfc74-813f-436a-b919-c24c895cfd82'
+    industryId = '5a1bfc74-813f-436a-b919-c24c895cfd87'
+    designersId = '5a1bfc74-813f-436a-b919-c24c895cfd89'
+    shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
+
+    categories: Category[]
+    products: Product[]
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private productService: ProductService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private accountProductService: AccountProductService,
+        private categoryService: CategoryService
     ) {}
 
     ngOnInit(): void {
@@ -35,54 +58,97 @@ export class AddProductFormComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
+        // Bind all Categories
+        this.categoryService.getAllCategories().subscribe((result: any) => {
+            this.categories = result.data
+        })
+
+        // Bind all Products
+        this.productService.getAllProducts().subscribe((result: any) => {
+            this.products = result.data
+        })
+
         this.addProductForm = this.formBuilder.group({
-            accountId: [],
-            productName: [null, [Validators.required]],
-            productPrice: [null, [Validators.required]],
-            country: [null, [Validators.required]],
-            category: [null, [Validators.required]],
+            productId: [null, [Validators.required]],
+            unitePrice: [],
+            price: [null, [Validators.required]],
+            // missed
+            // country: [null, [Validators.required]],
+            categoryId: [null, [Validators.required]],
             // Both
-            productPaymentTerms: [],
-            productSize: [],
-            productDescription: [],
-            productLocation: [],
+            paymentTerms: [],
+            size: [],
+            description: [],
+            location: [],
             // Industry Category
-            productBrand: [],
-            productOrigin: [],
-            productPackingWay: [],
-            productStorage: [],
+            brandName: [],
+            // missed
+            // productOrigin: [],
+            packing: [],
+            storage: [],
+            // missed
             productMaterial: [],
-            productWeight: [],
-            productGrade: [],
-            productCode: [],
-            productMOQ: [],
-            productCertificate: [],
+            wieght: [],
+            type: [],
+            grade: [],
+            code: [],
+            moq: [],
+            certification: [],
             // Touristic Category
-            productDuration: [],
-            productAccomdation: [],
-            productProgram: [],
+            duration: [],
+            accomdationName: [],
+            program: [],
             // Real State Category
-            productSpace: [],
-            furnishiesState: [],
-            finishedOrNot: [],
+            space: [],
+            finishedStatus: [],
             // Shipping and Logistics Category
-            productCoverage: [],
+            coverage: [],
             serviceType: [],
-            productAgentsLocation: [],
+            agentsLocation: [],
             // Designers Category
-            productSoftwares: [],
-            designerCategory: [],
+            softwares: [],
+            tripCategory: [],
         })
     }
 
-    onSubmit(product: Product) {
+    onSubmit(requestProduct) {
         this.submitted = true
-        this.productService.createProduct(product).subscribe((result: any) => {
-            if (result) {
-                this.router.navigate(['/account/owner'])
-            } else {
-                this.toastr.error('Error')
-            }
+        // Tags
+        let tagResult: string[] = []
+        this.tagNames.forEach((element) => {
+            tagResult.push(element.value)
         })
+
+        let coverageResult: string[] = []
+        this.tagCoverage.forEach((element) => {
+            coverageResult.push(element.value)
+        })
+
+        let agentsResult: string[] = []
+        this.agents.forEach((element) => {
+            agentsResult.push(element.value)
+        })
+
+        console.log(this.tagCoverage)
+        console.log(this.agents)
+
+        this.accountProductService
+            .createAccountProduct(
+                requestProduct,
+                tagResult,
+                coverageResult,
+                agentsResult
+            )
+            .subscribe((result: any) => {
+                if (result) {
+                    this.router.navigate(['/account/owner'])
+                } else {
+                    this.toastr.error('Error')
+                }
+            })
+    }
+
+    categoryChange(value: string) {
+        console.log(value)
     }
 }

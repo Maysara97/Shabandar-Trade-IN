@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr'
 import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
 @Component({
     selector: 'app-add-new-request-form',
@@ -19,9 +20,11 @@ export class AddNewRequestFormComponent implements OnInit {
     data = false
     message: string
     products$: Observable<Product[]>
+    products: Product[]
+    selectedProduct: Product
     addRequestForm: FormGroup
     urls = []
-    allProducts: any = []
+    allProducts = []
     requestProduct: BuyingRequest
     constructor(
         private formBuilder: FormBuilder,
@@ -32,7 +35,10 @@ export class AddNewRequestFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.products$ = this.productService.getAllProducts()
+        this.productService.getAllProducts().subscribe((result: any) => {
+            this.products = result.data
+        })
+
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
                 return
@@ -50,10 +56,10 @@ export class AddNewRequestFormComponent implements OnInit {
     }
 
     getProducts() {
-        this.allProducts = []
         this.productService.getAllProducts().subscribe((data: any) => {
+            this.products$ = data
             console.log(data)
-            this.allProducts = data
+            // debugger
         })
     }
 

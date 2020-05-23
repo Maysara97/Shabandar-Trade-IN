@@ -11,26 +11,11 @@
                         <div class="row">
                             <div class="col-6">
                                 <label for="productId">Product Name</label>
-                                <!-- <ng-select bindLabel="productName" bindValue="productId" formControlName="productId"
-                                    [items]="products$ | async" placeholder="Product Name">
-                                </ng-select> -->
                                 <select class="form-control" id="productId" formControlName="productId">
                                     <option value="" disabled selected>Choose your Product</option>
-                                    <option *ngFor="let product of products$"
-                                        value="5a1bfc74-813f-436a-b919-c24c895cfd83">Vrasta Limestone Blocks
-                                    </option>
-                                    <option value="5a1bfc74-813f-436a-b919-c24c895cfd83">Mystic Gray Marble Blocks
-                                    </option>
-                                    <option value="5a1bfc74-813f-436a-b919-c24c895cfd83">Green Sukabumi Stone Tiles
-                                    </option>
-                                    <option value="5a1bfc74-813f-436a-b919-c24c895cfd83">Avallon Grey Limestone</option>
+                                    <option *ngFor="let product of products" value="{{product.productId}}">
+                                        {{product.productName}}</option>
                                 </select>
-                                <!-- <select class="form-control" id="productId" formControlName="productId">
-                                    <option value="" disabled selected>Choose your Product</option>
-                                    <option *ngFor="let product of products$ | async" [value]="product.productId">
-                                        {{product.productName}}
-                                    </option>
-                                </select> -->
                                 <label class="text-danger"
                                     *ngIf="addRequestForm.get('productId').touched && addRequestForm.get('productId').errors?.required">
                                     Product Name is Required

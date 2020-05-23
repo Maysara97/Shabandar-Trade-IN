@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms'
 import { TagInputModule } from 'ngx-chips'
 import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
 import { NgSelectModule } from '@ng-select/ng-select'
-
+import { MatSelectModule } from '@angular/material/select'
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -31,6 +31,7 @@ import { NgSelectModule } from '@ng-select/ng-select'
         FormsModule,
         TagInputModule,
         NgSelectModule,
+        MatSelectModule,
     ],
 })
 export class ApplicationModule {}

@@ -3,6 +3,8 @@ import { CategoryService } from '../../services/category.service'
 import { Observable } from 'rxjs'
 import { Category } from '../../models/category'
 import { Router, NavigationEnd } from '@angular/router'
+import { AccountProductService } from '../../services/accountProduct.service'
+import { AccountProduct } from '../../models/accountProduct'
 
 @Component({
     selector: 'app-sell-product',
@@ -12,43 +14,14 @@ import { Router, NavigationEnd } from '@angular/router'
 export class SellProductComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
+    categories: Category[]
+    accountProducts: AccountProduct[]
 
-    categories = [
-        {
-            categoryName: 'Industry',
-        },
-        {
-            categoryName: 'Tourism',
-        },
-        {
-            categoryName: 'Real Estate',
-        },
-        {
-            categoryName: 'Designers',
-        },
-        {
-            categoryName: 'Shipping & Logistics',
-        },
-    ]
-
-    products = [
-        {
-            ProductName: 'Product One',
-            CategoryId: 'Industry',
-        },
-        {
-            ProductName: 'Product Two',
-            CategoryId: 'Designers',
-        },
-        {
-            ProductName: 'Product Three',
-            CategoryId: 'Tourism',
-        },
-    ]
     filteredCategories = []
     constructor(
         private categoryService: CategoryService,
-        private router: Router
+        private router: Router,
+        private accountProductService: AccountProductService
     ) {}
 
     ngOnInit(): void {
@@ -58,6 +31,16 @@ export class SellProductComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
+
+        this.categoryService.getAllCategories().subscribe((result: any) => {
+            this.categories = result.data
+        })
+
+        this.accountProductService
+            .getAccountProductsByOwner()
+            .subscribe((result: any) => {
+                this.accountProducts = result.data
+            })
     }
 
     getAllCategories() {

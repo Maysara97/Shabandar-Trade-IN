@@ -9,8 +9,14 @@ export class ProductService extends BaseService<any> {
         super(injector)
     }
 
-    createProduct(product: Product) {
-        return this.post('Product', product)
+    createProduct(product: Product): Observable<Product> {
+        const body = {
+            productId: product.productId,
+            // categoryId: product.categoryId,
+            // productImage: product.productImage,
+            // attachments: product.attachments,
+        }
+        return this.post('Product', body)
     }
     updateProduct(product: Product) {
         return this.put('Product', product)
@@ -27,7 +33,7 @@ export class ProductService extends BaseService<any> {
     getProductsByOwner() {
         return this.getAll('Product/ProductsByOwner')
     }
-    getProductsByCategory(productId: string) {
-        return this.getById('Product/ProductsByCategory', productId)
+    getProductsByCategory(categoryId: string) {
+        return this.getById('Product/ProductsByCategory', categoryId)
     }
 }
