@@ -23,7 +23,6 @@ export function tokenGetter() {
         BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
-        SharedModule,
         ToastrModule.forRoot(),
         JwtModule.forRoot({
             config: {

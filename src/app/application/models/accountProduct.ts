@@ -1,6 +1,10 @@
 export class AccountProduct {
     accountProductId?: string
     productId?: string
+    accountId?: string
+    productName?: string
+    categoryName?: string
+    accountName?: string
     location?: number
     size?: string
     wieght?: string

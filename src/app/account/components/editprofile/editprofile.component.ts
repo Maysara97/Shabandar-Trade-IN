@@ -6,6 +6,7 @@ import { User } from '../../models/register'
 import { AccountsService } from '../../services/accounts.service'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { MustMatch } from '../../models/matchPassword'
+import { FileImage } from 'src/app/shared/models/file'
 
 @Component({
     selector: 'app-editprofile',
@@ -20,6 +21,7 @@ export class EditprofileComponent implements OnInit {
     profileData: User
     imageUrl: string
 
+    images: string[]
     constructor(
         private formBuilder: FormBuilder,
         private accountService: AccountsService,
@@ -31,6 +33,7 @@ export class EditprofileComponent implements OnInit {
     ngOnInit(): void {
         this.profileData = this.auth.accountInfo
         this.editProfileForm = this.formBuilder.group({
+            accountImage: [],
             firstname: [
                 this.profileData.primaryAdminFirstlName,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
@@ -52,6 +55,8 @@ export class EditprofileComponent implements OnInit {
             contactEmail: [],
             accountWebsite: [],
         })
+
+        this.images.push(this.profileData.accountImage)
 
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
@@ -77,6 +82,12 @@ export class EditprofileComponent implements OnInit {
                 this.imageUrl = event.target.result.toString()
             }
         }
+    }
+
+    handleImageUpload(files: FileImage[]) {
+        this.editProfileForm.patchValue({
+            accountImage: files[0].imageFile,
+        })
     }
     onSubmit(form: NgForm) {
         this.submitted = true

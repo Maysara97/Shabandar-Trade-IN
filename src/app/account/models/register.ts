@@ -10,6 +10,7 @@ export class User {
     accountMobile?: string
     countryId?: 0
     role: Role
+    accountImage?: string
 }
 
 export class Administrator {

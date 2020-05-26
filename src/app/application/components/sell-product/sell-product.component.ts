@@ -5,6 +5,8 @@ import { Category } from '../../models/category'
 import { Router, NavigationEnd } from '@angular/router'
 import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
+import { ProductService } from '../../services/product.service'
+import { Product } from '../../models/product'
 
 @Component({
     selector: 'app-sell-product',
@@ -16,12 +18,13 @@ export class SellProductComponent implements OnInit {
     categories$: Observable<Category[]>
     categories: Category[]
     accountProducts: AccountProduct[]
-
+    products: Product[]
     filteredCategories = []
     constructor(
         private categoryService: CategoryService,
         private router: Router,
-        private accountProductService: AccountProductService
+        private accountProductService: AccountProductService,
+        private productService: ProductService
     ) {}
 
     ngOnInit(): void {
@@ -32,18 +35,21 @@ export class SellProductComponent implements OnInit {
             window.scrollTo(0, 0)
         })
 
+        // Bind all Categories
         this.categoryService.getAllCategories().subscribe((result: any) => {
             this.categories = result.data
         })
 
+        // Bind all Account Products
         this.accountProductService
-            .getAccountProductsByOwner()
+            .getAllAccountProducts()
             .subscribe((result: any) => {
                 this.accountProducts = result.data
             })
-    }
 
-    getAllCategories() {
-        this.categories$ = this.categoryService.getAllCategories()
+        // Bind all Products
+        this.productService.getAllProducts().subscribe((result: any) => {
+            this.products = result.data
+        })
     }
 }

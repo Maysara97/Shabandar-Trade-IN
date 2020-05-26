@@ -19,6 +19,7 @@ export class HomepageComponent implements OnInit {
     products$: Observable<Product[]>
     buyingRequestProducts: BuyingRequest[]
     categories: Category[]
+    products: Product[]
     filteredCategories = []
     constructor(
         private categoryService: CategoryService,
@@ -27,24 +28,21 @@ export class HomepageComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
+        // Bind all Buying Requests
         this.buyingRequestService
             .getAllBuyingRequests()
             .subscribe((response: any) => {
                 this.buyingRequestProducts = response.data
             })
 
+        // Bind all Categories
         this.categoryService.getAllCategories().subscribe((result: any) => {
             this.categories = result.data
         })
 
-        // this.buyingRequestProducts$ = this.buyingRequestService.getAllBuyingRequests()
-    }
-
-    getAllCategories() {
-        this.categories$ = this.categoryService.getAllCategories()
-    }
-
-    getAllProducts() {
-        this.products$ = this.productService.getAllProducts()
+        // Bind all Products
+        this.productService.getAllProducts().subscribe((result: any) => {
+            this.products = result.data
+        })
     }
 }

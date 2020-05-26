@@ -35,7 +35,7 @@ export class BuyingRequestService extends BaseService<any> {
     getAllBuyingRequests(): Observable<BuyingRequest[]> {
         return this.getAll('BuyingRequest/AllBuyingRequests')
     }
-    getBuyingRequestsByOwner(accountId: string) {
-        return this.getById('BuyingRequest/BuyingRequestsByOwner', accountId)
+    getBuyingRequestsByOwner(): Observable<BuyingRequest[]> {
+        return this.getAll('BuyingRequest/BuyingRequestsByOwner')
     }
 }

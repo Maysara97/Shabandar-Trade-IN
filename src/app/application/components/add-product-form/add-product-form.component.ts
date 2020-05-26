@@ -8,6 +8,7 @@ import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { CategoryService } from '../../services/category.service'
 import { Category } from '../../models/category'
+import { FileImage } from 'src/app/shared/models/file'
 
 @Component({
     selector: 'app-add-product-form',
@@ -22,7 +23,7 @@ export class AddProductFormComponent implements OnInit {
     product: Product
     accountProduct: AccountProduct
     addProductForm: FormGroup
-
+    images: string[] = []
     tagNames = []
     tagCoverage = []
     agents = []
@@ -108,6 +109,13 @@ export class AddProductFormComponent implements OnInit {
             // Designers Category
             softwares: [],
             tripCategory: [],
+            // productImages: [],
+        })
+    }
+
+    handleImageUpload(files: FileImage[]) {
+        this.addProductForm.patchValue({
+            productImages: files.map((file) => file.imageFile),
         })
     }
 
