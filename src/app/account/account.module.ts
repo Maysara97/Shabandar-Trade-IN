@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms'
 
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
 import { UpdatePasswordComponent } from './components/update-password/update-password.component'
+import { SharedModule } from '../shared/shared.module'
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
         AccountRoutingModule,
         ReactiveFormsModule,
         FormsModule,
+        SharedModule,
     ],
 })
 export class AccountModule {}

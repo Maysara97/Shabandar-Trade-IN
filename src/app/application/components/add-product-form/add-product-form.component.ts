@@ -8,7 +8,7 @@ import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { CategoryService } from '../../services/category.service'
 import { Category } from '../../models/category'
-import { FileImage } from 'src/app/shared/models/file'
+import { FileImage, FilePond } from 'src/app/shared/models/file'
 
 @Component({
     selector: 'app-add-product-form',
@@ -24,6 +24,8 @@ export class AddProductFormComponent implements OnInit {
     accountProduct: AccountProduct
     addProductForm: FormGroup
     images: string[] = []
+    files: string[] = []
+
     tagNames = []
     tagCoverage = []
     agents = []
@@ -78,6 +80,8 @@ export class AddProductFormComponent implements OnInit {
             categoryId: [null, [Validators.required]],
             // Both
             paymentTerms: [],
+            productImages: [null],
+            attachments: [null],
             size: [],
             description: [],
             location: [],
@@ -109,13 +113,30 @@ export class AddProductFormComponent implements OnInit {
             // Designers Category
             softwares: [],
             tripCategory: [],
-            // productImages: [],
         })
     }
 
+    // Upload Images
     handleImageUpload(files: FileImage[]) {
         this.addProductForm.patchValue({
             productImages: files.map((file) => file.imageFile),
+        })
+    }
+    handleImageRemove(files: FileImage[]) {
+        this.addProductForm.patchValue({
+            productImages: files.map((file) => file.imageFile),
+        })
+    }
+
+    // Upload Files
+    handleFileUpload(files: FileImage[]) {
+        this.addProductForm.patchValue({
+            attachments: files.map((file) => file.imageFile),
+        })
+    }
+    handleFileRemove(files: FileImage[]) {
+        this.addProductForm.patchValue({
+            attachments: files.map((file) => file.imageFile),
         })
     }
 

@@ -24,7 +24,7 @@ export class UploadFilesComponent implements OnInit {
     >()
     @Output() onFileRemove = new EventEmitter()
 
-    pondOptions: FilePondOptionProps = {}
+    pondOptions: any = {}
 
     @Input() multiple: boolean
     @Input() isCircle: boolean
@@ -48,25 +48,25 @@ export class UploadFilesComponent implements OnInit {
             labelIdle: `Drag & Drop your file or <span class="filepond--label-action">Browse</span>`,
             server: {
                 process: {
-                    url: `${environment.baseUrl}file`,
+                    url: `${environment.baseUrl}/file`,
                     headers: {
                         Authorization: `Bearer ${tokenGetter()}`,
                     },
                 },
                 load: {
-                    url: `${environment.baseUrl}file/`,
+                    url: `${environment.baseUrl}/file/`,
                     headers: {
                         Authorization: `Bearer ${tokenGetter()}`,
                     },
                 },
                 fetch: {
-                    url: `${environment.baseUrl}file/`,
+                    url: `${environment.baseUrl}/file/`,
                     headers: {
                         Authorization: `Bearer ${tokenGetter()}`,
                     },
                 },
                 revert: {
-                    url: `${environment.baseUrl}file`,
+                    url: `${environment.baseUrl}/file`,
                     headers: {
                         Authorization: `Bearer ${tokenGetter()}`,
                     },
@@ -78,7 +78,7 @@ export class UploadFilesComponent implements OnInit {
             styleButtonProcessItemPosition: 'right bottom',
         }
         if (this.isCircle) {
-            this.pondOptions.stylePanelLayout = 'circle'
+            this.pondOptions.stylePanelLayout = 'compact circle'
         }
     }
 
