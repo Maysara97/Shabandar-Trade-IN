@@ -59,7 +59,8 @@
         "no-var-keyword": false,
         "variable-name": false,
         "no-debugger": false,
-        "no-output-on-prefix": false
+        "no-output-on-prefix": false,
+        "object-literal-shorthand": false
     },
     "rulesDirectory": ["codelyzer"]
 }

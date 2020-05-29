@@ -21,7 +21,7 @@ export class EditprofileComponent implements OnInit {
     profileData: User
     imageUrl: string
 
-    images: string[]
+    images: string[] = []
     constructor(
         private formBuilder: FormBuilder,
         private accountService: AccountsService,
@@ -35,20 +35,20 @@ export class EditprofileComponent implements OnInit {
         this.editProfileForm = this.formBuilder.group({
             accountImage: [],
             firstname: [
-                this.profileData.primaryAdminFirstlName,
+                null,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
             lastname: [
-                this.profileData.primaryAdminLastName,
+                null,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
 
             telephonenumber: [
-                this.profileData.accountMobile,
+                null,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
             company: [
-                this.profileData.accountName,
+                null,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
             accountAttachments: [],
@@ -56,7 +56,13 @@ export class EditprofileComponent implements OnInit {
             accountWebsite: [],
         })
 
-        this.images.push(this.profileData.accountImage)
+        if (this.profileData) {
+            this.editProfileForm.patchValue(this.profileData)
+        }
+        console.log(this.profileData)
+        if (this.profileData.accountImage) {
+            this.images.push(this.profileData.accountImage)
+        }
 
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {

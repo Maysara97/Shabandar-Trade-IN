@@ -10,17 +10,17 @@
                         <div class="form-group tm-form-field">
                             <div class="row justify-content-center">
                                 <div class="col-md-3 profile-image-edit">
-                                    <label class="hoverable" for="fileInput">
+                                    <!-- <label class="hoverable" for="fileInput">
                                         <span class="background" [ngStyle]="{'background-image': getImageURL()}"></span>
                                         <img class="imageUploaded" [src]="imageUrl" alt="">
 
                                     </label>
                                     <br />
                                     <input #fileInput id="fileInput" type='file' (click)="fileInput.value"
-                                        (change)="onSelectFile($event)" value="" hidden="hidden">
-                                    <!-- <app-upload-files (onFileUpload)="handleImageUpload($event)" [isCircle]="true"
+                                        (change)="onSelectFile($event)" value="" hidden="hidden"> -->
+                                    <app-upload-files (onFileUpload)="handleImageUpload($event)" [isCircle]="true"
                                         [files]="images">
-                                    </app-upload-files> -->
+                                    </app-upload-files>
                                 </div>
                             </div>
                             <div class="row">
@@ -79,7 +79,7 @@
                                         required="required" formControlName="telephonenumber" [ngClass]="{
                                             'is-invalid':
                                                 submitted && f.telephonenumber.errors
-                                        }" [(ngModel)]="profileData.accountMobile" />
+                                        }" />
                                     <div *ngIf="submitted && f.telephonenumber.errors" class="alert alert-danger">
                                         <div *ngIf="f.telephonenumber.errors?.required">
                                             Telephone Number is required

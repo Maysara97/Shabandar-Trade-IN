@@ -43,7 +43,7 @@
                         </label>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Images</label> <br>
                         <input class="inputFile" #fileInput id="images" type='file' (change)="onSelectFile($event)"
                             (click)="fileInput.value" value="" formControlName="images" multiple>
@@ -53,8 +53,14 @@
                         -3">
                             <img *ngFor='let url of urls' [src]="url" height="150">
                         </div>
-                    </div>
+                    </div> -->
 
+                    <div class="form-group">
+                        <label>Request Images</label>
+                        <app-upload-files (onFileUpload)="handleImageUpload($event)"
+                            (onFileRemove)="handleImageRemove($event)" [multiple]="true" [files]="images">
+                        </app-upload-files>
+                    </div>
 
                     <div class="form-group">
                         <div class="row justify-content-center">
@@ -69,7 +75,6 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </form>
             </div>
@@ -77,6 +82,8 @@
     </div>
 </div>
 <!--// Register Area -->
+
+
 
 <script>
     // Material Select Initialization

@@ -8,6 +8,7 @@ import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
+import { FileImage } from 'src/app/shared/models/file'
 
 @Component({
     selector: 'app-add-new-request-form',
@@ -24,6 +25,7 @@ export class AddNewRequestFormComponent implements OnInit {
     selectedProduct: Product
     addRequestForm: FormGroup
     urls = []
+    images: string[] = []
     allProducts = []
     requestProduct: BuyingRequest
     constructor(
@@ -77,6 +79,18 @@ export class AddNewRequestFormComponent implements OnInit {
                 reader.readAsDataURL(event.target.files[i])
             }
         }
+    }
+
+    // Upload Images
+    handleImageUpload(files: FileImage[]) {
+        this.addRequestForm.patchValue({
+            images: files.map((file) => file.imageFile),
+        })
+    }
+    handleImageRemove(files: FileImage[]) {
+        this.addRequestForm.patchValue({
+            images: files.map((file) => file.imageFile),
+        })
     }
 
     onSubmit(requestProduct) {
