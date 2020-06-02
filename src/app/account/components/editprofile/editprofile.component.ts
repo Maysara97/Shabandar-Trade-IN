@@ -7,6 +7,8 @@ import { AccountsService } from '../../services/accounts.service'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { MustMatch } from '../../models/matchPassword'
 import { FileImage } from 'src/app/shared/models/file'
+import { CountryService } from 'src/app/application/services/country.service'
+import { Country } from 'src/app/application/models/country'
 
 @Component({
     selector: 'app-editprofile',
@@ -20,40 +22,42 @@ export class EditprofileComponent implements OnInit {
     message: string
     profileData: User
     imageUrl: string
-
+    files: string[] = []
     images: string[] = []
+    countries: Country[]
     constructor(
         private formBuilder: FormBuilder,
         private accountService: AccountsService,
         private router: Router,
         private auth: AuthService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private countryService: CountryService
     ) {}
 
     ngOnInit(): void {
+        // Bind all Countries
+        this.countryService.getAllCountries().subscribe((result: any) => {
+            this.countries = result.data
+        })
+
         this.profileData = this.auth.accountInfo
         this.editProfileForm = this.formBuilder.group({
             accountImage: [],
-            firstname: [
+            accountMobile: [
                 null,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
-            lastname: [
-                null,
-                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-            ],
-
-            telephonenumber: [
-                null,
-                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-            ],
-            company: [
+            accountName: [
                 null,
                 [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
             ],
             accountAttachments: [],
             contactEmail: [],
             accountWebsite: [],
+            countryId: [null, Validators.required],
+            mission: [],
+            vission: [],
+            description: [],
         })
 
         if (this.profileData) {
@@ -95,10 +99,24 @@ export class EditprofileComponent implements OnInit {
             accountImage: files[0].imageFile,
         })
     }
-    onSubmit(form: NgForm) {
+
+    // Upload Files
+    handleFileUpload(files: FileImage[]) {
+        this.editProfileForm.patchValue({
+            accountAttachments: files.map((file) => file.imageFile),
+        })
+    }
+    handleFileRemove(files: FileImage[]) {
+        this.editProfileForm.patchValue({
+            accountAttachments: files.map((file) => file.imageFile),
+        })
+    }
+
+    onSubmit(form) {
         this.submitted = true
-        this.auth.updateProfile(form.value).subscribe((result: any) => {
+        this.auth.updateProfile(form).subscribe((result: any) => {
             if (result) {
+                debugger
                 this.router.navigate(['/account/owner'])
             } else {
                 this.toastr.error('Error')

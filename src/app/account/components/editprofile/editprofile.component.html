@@ -10,43 +10,12 @@
                         <div class="form-group tm-form-field">
                             <div class="row justify-content-center">
                                 <div class="col-md-3 profile-image-edit">
-                                    <!-- <label class="hoverable" for="fileInput">
-                                        <span class="background" [ngStyle]="{'background-image': getImageURL()}"></span>
-                                        <img class="imageUploaded" [src]="imageUrl" alt="">
-
-                                    </label>
-                                    <br />
-                                    <input #fileInput id="fileInput" type='file' (click)="fileInput.value"
-                                        (change)="onSelectFile($event)" value="" hidden="hidden"> -->
                                     <app-upload-files (onFileUpload)="handleImageUpload($event)" [isCircle]="true"
                                         [files]="images">
                                     </app-upload-files>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="register-firstname">First Name</label>
-                                    <br />
-                                    <input type="text" id="register-firstname" required name="firstname"
-                                        formControlName="firstname" />
-                                    <div *ngIf="submitted && f.firstname.errors" class="alert alert-danger">
-                                        <div *ngIf="f.firstname.errors?.required">
-                                            First Name is required
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label for="register-lastname">Last Name</label>
-                                    <br />
-                                    <input type="text" id="register-lastname" required name="lastname"
-                                        formControlName="lastname" />
-                                    <div *ngIf="submitted && f.lastname.errors" class="alert alert-danger">
-                                        <div *ngIf="f.lastname.errors?.required">
-                                            Last Name is required
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="form-group tm-form-field">
                             <div class="row">
@@ -54,66 +23,79 @@
                                     <label for="contactEmail">Contact Email</label>
                                     <br />
                                     <input type="text" id="contactEmail" name="contactEmail"
-                                        formControlName="contactEmail" />
+                                        formControlName="contactEmail" placeholder="Contact Email" />
                                 </div>
                                 <div class="col-6">
                                     <label for="accountWebsite">Account Website</label>
                                     <br />
                                     <input type="text" id="accountWebsite" name="accountWebsite"
-                                        formControlName="accountWebsite" />
+                                        formControlName="accountWebsite" placeholder="Account Website" />
                                 </div>
                             </div>
                         </div>
                         <div class="form-group tm-form-field">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="register-company">Company Name</label>
+                                    <label for="accountName">Company Name</label>
                                     <br />
-                                    <input type="text" id="register-company" required="required"
-                                        formControlName="company" name="company" />
+                                    <input type="text" id="accountName" formControlName="accountName" name="accountName"
+                                        placeholder="Account Name" />
+
                                 </div>
                                 <div class="col-6">
-                                    <label for="register-telephone-number">Telephone Number</label>
+                                    <label for="accountMobile">Account Mobile</label>
                                     <br />
-                                    <input type="tel" name="telephonenumber" id="register-telephone-number"
-                                        required="required" formControlName="telephonenumber" [ngClass]="{
-                                            'is-invalid':
-                                                submitted && f.telephonenumber.errors
-                                        }" />
-                                    <div *ngIf="submitted && f.telephonenumber.errors" class="alert alert-danger">
-                                        <div *ngIf="f.telephonenumber.errors?.required">
-                                            Telephone Number is required
-                                        </div>
-                                        <div *ngIf="f.telephonenumber.errors?.email">
-                                            Telephone Number must be a valid number
-                                        </div>
-                                    </div>
+                                    <input type="tel" name="accountMobile" id="accountMobile"
+                                        formControlName="accountMobile" placeholder="Account Mobile" />
+
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="form-group tm-form-field">
                             <div class="row">
                                 <div class="col-12">
-                                    <label for="register-country">Country</label> <br />
-                                    <select class="mdb-select md-form" searchable="Search here..">
+                                    <label for="countryId">Country</label> <br />
+                                    <select class="mdb-select md-form" formControlName="countryId"
+                                        style="text-transform: uppercase;">
                                         <option value="" disabled selected>Choose your country</option>
-                                        <option value="1">EGYPT</option>
-                                        <option value="2">USA</option>
-                                        <option value="3">AUSTRALIA</option>
-                                        <option value="4">CHINA</option>
-                                        <option value="5">JAPAN</option>
+                                        <option *ngFor="let country of countries" value="{{country.id}}">
+                                            {{country.name}}</option>
+
                                     </select>
+
                                 </div>
                             </div>
 
                         </div>
                         <div class="form-group tm-form-field">
-                            <label for="accountAttachments">Attachments</label>
-                            <input #fileInput id="accountAttachments" type='file' (click)="fileInput.value = null"
-                                value="" formControlName="accountAttachments">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="mission">Mission</label>
+                                    <br />
+                                    <input type="text" id="mission" formControlName="mission" name="mission"
+                                        placeholder="Mission" />
+                                </div>
+                                <div class="col-6">
+                                    <label for="vission">Vision</label>
+                                    <br />
+                                    <input type="text" name="vission" id="vission" formControlName="vission"
+                                        placeholder="Vision" />
+                                </div>
+                            </div>
                         </div>
+                        <div class="form-group tm-form-field">
+                            <label for="accountAttachments">Account Attachments</label>
+                            <app-upload-files (onFileUpload)="handleFileUpload($event)"
+                                (onFileRemove)="handleFileRemove($event)" [multiple]="true" [files]="files">
+                            </app-upload-files>
+                        </div>
+                        <div class="form-group tm-form-field">
+                            <label for="description">Account Description</label>
+                            <textarea class="form-control" id="description" rows="3" formControlName="description"
+                                placeholder="Add a Description"></textarea>
+                        </div>
+
                         <div class="form-group tm-form-field">
                             <div class="row justify-content-center">
                                 <div class="col-6">

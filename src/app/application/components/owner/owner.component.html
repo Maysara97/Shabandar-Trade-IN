@@ -67,6 +67,15 @@
                                     <!-- <p>{{user.countryId}}</p> -->
                                     <p>Country Name</p>
                                 </div>
+                                <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
+                                    <!-- <p>{{user.accountMobile}}</p> -->
+                                    <p>Mission</p>
+                                </div>
+                                <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
+                                    style="background-color: #fff; float: right;">
+                                    <!-- <p>{{user.countryId}}</p> -->
+                                    <p>Vision</p>
+                                </div>
                             </div>
                             <div style="clear: both;"></div>
                         </div>
@@ -100,10 +109,10 @@
                         ipsum dolor sit amet.
                     </p>
                 </div>
-
+                <div class="col-12 mt-3">
+                    <h6 class="text-left">Account Attachment</h6>
+                </div>
             </div>
-            <!-- <button routerLink="/application/viewer">Viewer</button>
-            <button routerLink="/admin-layout/sidebar">ADMIN</button> -->
         </div>
     </div>
 
@@ -132,8 +141,8 @@
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
                             <div class="tm-blog-image">
-                                <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                                <!-- <img [src]="product.productImages[0]" alt="product image" /> -->
+                                <!-- <img src="assets/images/You-Trade-In/white.jpg" alt="product image" /> -->
+                                <img [src]="getFilePath(product.productImages[0])" alt="{{product.productName}}" />
 
                             </div>
                         </div>
@@ -176,8 +185,9 @@
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
                             <div class="tm-blog-image">
-                                <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                                <!-- <img [src]="requestProduct.images[0]" alt="product image" /> -->
+                                <!-- <img src="assets/images/You-Trade-In/white.jpg" alt="product image" /> -->
+                                <img [src]="getFilePath(requestProduct.images[0])"
+                                    alt="{{requestProduct.productName}}" />
                             </div>
                         </div>
                         <div>

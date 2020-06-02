@@ -14,13 +14,10 @@
                 <button class="btn searchButton" type="button">
                     Search
                 </button>
-                <select name="demo" id="countrySelect">
-                    <option selected="selected" value="one">Country</option>
-                    <option value="1">EGYPT</option>
-                    <option value="2">USA</option>
-                    <option value="3">AUSTRALIA</option>
-                    <option value="4">CHINA</option>
-                    <option value="5">JAPAN</option>
+                <select name="demo" id="countrySelect" style="text-transform: uppercase;">
+                    <option selected="selected" style="text-transform: capitalize;">Country</option>
+                    <option *ngFor="let country of countries" value="{{country.id}}">
+                        {{country.name}}</option>
                 </select>
                 <h6 class="text-center m-3">Find Your Needs</h6>
             </div>
@@ -41,13 +38,17 @@
                 <div class="row">
                     <!-- *ngFor="let product of products" -->
                     <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of buyingRequestProducts">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
+                        *ngFor="let requestProduct of buyingRequestProducts">
                         <!--To apply search functionality-->
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
                             <div class="tm-product-image">
                                 <a class="tm-product-imagelink" href="#">
-                                    <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                                    <!-- <img src="assets/images/You-Trade-In/white.jpg" alt="product image" /> -->
+                                    <img [src]="getFilePath(requestProduct.images[0])"
+                                        alt="{{requestProduct.productName}}" />
+
                                 </a>
                                 <ul class="tm-product-actions">
                                     <li>
@@ -59,20 +60,20 @@
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    {{ product.title }}
+                                    {{ requestProduct.title }}
                                 </p>
                             </div>
 
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
                                 <p>
-                                    {{product.accountName}}
+                                    {{requestProduct.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
-                                    <p>{{ product.categoryName}}</p>
+                                    <p>{{ requestProduct.categoryName}}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
