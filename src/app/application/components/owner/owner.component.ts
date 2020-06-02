@@ -9,6 +9,8 @@ import { AccountProductService } from '../../services/accountProduct.service'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { BuyingRequest } from '../../models/buying-request'
+import { environment } from 'src/environments/environment'
+
 @Component({
     selector: 'app-owner',
     templateUrl: './owner.component.html',
@@ -73,13 +75,16 @@ export class OwnerComponent implements OnInit {
         },
         nav: true,
     }
+    env: any
     constructor(
         private router: Router,
         private auth: AuthService,
         private route: ActivatedRoute,
         private accountProductService: AccountProductService,
         private buyingRequestService: BuyingRequestService
-    ) {}
+    ) {
+        this.env = environment
+    }
 
     ngOnInit() {
         this.router.events.subscribe((evt) => {
@@ -102,5 +107,9 @@ export class OwnerComponent implements OnInit {
             .subscribe((result: any) => {
                 this.buyingProducts = result.data
             })
+    }
+
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }

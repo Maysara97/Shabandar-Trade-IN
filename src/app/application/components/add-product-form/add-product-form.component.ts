@@ -9,6 +9,7 @@ import { AccountProduct } from '../../models/accountProduct'
 import { CategoryService } from '../../services/category.service'
 import { Category } from '../../models/category'
 import { FileImage, FilePond } from 'src/app/shared/models/file'
+import { Observable } from 'rxjs'
 
 @Component({
     selector: 'app-add-product-form',
@@ -44,6 +45,7 @@ export class AddProductFormComponent implements OnInit {
 
     categories: Category[]
     products: Product[]
+    products$: Observable<Product[]>
 
     constructor(
         private formBuilder: FormBuilder,
@@ -138,6 +140,19 @@ export class AddProductFormComponent implements OnInit {
         this.addProductForm.patchValue({
             attachments: files.map((file) => file.imageFile),
         })
+    }
+
+    handleOnCategoryChange(category: Category) {
+        // this.productService
+        //     .getProductsByCategory(categoryId)
+        //     .subscribe((result: any) => {
+        //         debugger
+        //         this.products = result.data
+        //     })
+        debugger
+        this.products$ = this.productService.getProductsByCategory(
+            category.categoryId
+        )
     }
 
     onSubmit(requestProduct) {

@@ -89,8 +89,19 @@ export class AuthService extends BaseService<any> {
         return this.post('Account', body)
     }
 
-    updateProfile(model: User) {
-        return this.put('Administrator', model)
+    updateProfile(user: User): Observable<any> {
+        const body = {
+            accountName: user.accountName,
+            accountMobile: user.accountMobile,
+            countryId: user.countryId,
+            accountImage: user.accountImage,
+            mission: user.mission,
+            vission: user.vission,
+            description: user.description,
+            accountWebsite: user.accountWebsite,
+            accountAttachments: user.accountAttachments,
+        }
+        return this.put('Account', body)
     }
 
     // getUserData(): Observable<Administrator> {

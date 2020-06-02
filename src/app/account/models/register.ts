@@ -11,6 +11,11 @@ export class User {
     countryId?: 0
     role: Role
     accountImage?: string
+    mission?: string
+    vission?: string
+    description?: string
+    accountWebsite?: string
+    accountAttachments?: string[] = []
 }
 
 export class Administrator {

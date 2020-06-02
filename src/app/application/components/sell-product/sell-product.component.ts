@@ -1,3 +1,4 @@
+import { Country } from './../../../../../.history/src/app/shared/models/country_20200602143056'
 import { Component, OnInit } from '@angular/core'
 import { CategoryService } from '../../services/category.service'
 import { Observable } from 'rxjs'
@@ -7,6 +8,8 @@ import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { ProductService } from '../../services/product.service'
 import { Product } from '../../models/product'
+import { CountryService } from '../../services/country.service'
+import { environment } from 'src/environments/environment'
 
 @Component({
     selector: 'app-sell-product',
@@ -19,13 +22,18 @@ export class SellProductComponent implements OnInit {
     categories: Category[]
     accountProducts: AccountProduct[]
     products: Product[]
+    countries: Country[]
     filteredCategories = []
+    env: any
     constructor(
         private categoryService: CategoryService,
         private router: Router,
         private accountProductService: AccountProductService,
-        private productService: ProductService
-    ) {}
+        private productService: ProductService,
+        private countryService: CountryService
+    ) {
+        this.env = environment
+    }
 
     ngOnInit(): void {
         this.router.events.subscribe((evt) => {
@@ -51,5 +59,14 @@ export class SellProductComponent implements OnInit {
         this.productService.getAllProducts().subscribe((result: any) => {
             this.products = result.data
         })
+
+        // Bind all Countries
+        this.countryService.getAllCountries().subscribe((result: any) => {
+            this.countries = result.data
+        })
+    }
+
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }

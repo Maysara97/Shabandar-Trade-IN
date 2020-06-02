@@ -7,6 +7,8 @@ import { Product } from '../../models/product'
 import { ProductService } from '../../services/product.service'
 import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
+import { CountryService } from '../../services/country.service'
+import { Country } from '../../models/country'
 
 @Component({
     selector: 'app-homepage',
@@ -20,11 +22,13 @@ export class HomepageComponent implements OnInit {
     buyingRequestProducts: BuyingRequest[]
     categories: Category[]
     products: Product[]
+    countries: Country[]
     filteredCategories = []
     constructor(
         private categoryService: CategoryService,
         private productService: ProductService,
-        private buyingRequestService: BuyingRequestService
+        private buyingRequestService: BuyingRequestService,
+        private countryService: CountryService
     ) {}
 
     ngOnInit(): void {
@@ -43,6 +47,11 @@ export class HomepageComponent implements OnInit {
         // Bind all Products
         this.productService.getAllProducts().subscribe((result: any) => {
             this.products = result.data
+        })
+
+        // Bind all Countries
+        this.countryService.getAllCountries().subscribe((result: any) => {
+            this.countries = result.data
         })
     }
 }
