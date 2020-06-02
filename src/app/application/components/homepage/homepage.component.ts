@@ -9,6 +9,7 @@ import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { CountryService } from '../../services/country.service'
 import { Country } from '../../models/country'
+import { environment } from 'src/environments/environment'
 
 @Component({
     selector: 'app-homepage',
@@ -24,12 +25,16 @@ export class HomepageComponent implements OnInit {
     products: Product[]
     countries: Country[]
     filteredCategories = []
+
+    env: any
     constructor(
         private categoryService: CategoryService,
         private productService: ProductService,
         private buyingRequestService: BuyingRequestService,
         private countryService: CountryService
-    ) {}
+    ) {
+        this.env = environment
+    }
 
     ngOnInit(): void {
         // Bind all Buying Requests
@@ -53,5 +58,8 @@ export class HomepageComponent implements OnInit {
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
         })
+    }
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }

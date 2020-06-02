@@ -185,8 +185,9 @@
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
                             <div class="tm-blog-image">
-                                <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                                <!-- <img [src]="requestProduct.images[0]" alt="product image" /> -->
+                                <!-- <img src="assets/images/You-Trade-In/white.jpg" alt="product image" /> -->
+                                <img [src]="getFilePath(requestProduct.images[0])"
+                                    alt="{{requestProduct.productName}}" />
                             </div>
                         </div>
                         <div>
