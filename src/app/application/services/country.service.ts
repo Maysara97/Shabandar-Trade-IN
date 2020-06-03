@@ -1,6 +1,7 @@
 import { BaseService } from 'src/app/shared/core/base.service'
 import { Injectable, Injector } from '@angular/core'
 import { Observable } from 'rxjs'
+import { Country } from '../models/country'
 
 @Injectable({ providedIn: 'root' })
 export class CountryService extends BaseService<any> {
