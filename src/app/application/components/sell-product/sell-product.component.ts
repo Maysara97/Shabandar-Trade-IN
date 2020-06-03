@@ -1,4 +1,3 @@
-import { Country } from './../../../../../.history/src/app/shared/models/country_20200602143056'
 import { Component, OnInit } from '@angular/core'
 import { CategoryService } from '../../services/category.service'
 import { Observable } from 'rxjs'
@@ -10,6 +9,7 @@ import { ProductService } from '../../services/product.service'
 import { Product } from '../../models/product'
 import { CountryService } from '../../services/country.service'
 import { environment } from 'src/environments/environment'
+import { Country } from '../../models/country'
 
 @Component({
     selector: 'app-sell-product',
