@@ -1,7 +1,7 @@
 import { BaseService } from './../core/base.service'
 import { Injectable, Injector } from '@angular/core'
 import { map } from 'rxjs/operators'
-import { User, Administrator } from 'src/app/account/models/register'
+import { User, Administrator, Account } from 'src/app/account/models/register'
 import { AccountsService } from 'src/app/account/services/accounts.service'
 import { Observable, BehaviorSubject } from 'rxjs'
 import { JwtHelperService } from '@auth0/angular-jwt'
@@ -89,17 +89,17 @@ export class AuthService extends BaseService<any> {
         return this.post('Account', body)
     }
 
-    updateProfile(user: User): Observable<any> {
+    updateProfile(account: Account): Observable<any> {
         const body = {
-            accountName: user.accountName,
-            accountMobile: user.accountMobile,
-            countryId: user.countryId,
-            accountImage: user.accountImage,
-            mission: user.mission,
-            vission: user.vission,
-            description: user.description,
-            accountWebsite: user.accountWebsite,
-            accountAttachments: user.accountAttachments,
+            accountName: account.accountName,
+            accountMobile: account.accountMobile,
+            countryId: account.countryId,
+            accountImage: account.accountImage,
+            mission: account.mission,
+            vission: account.vission,
+            description: account.description,
+            accountWebsite: account.accountWebsite,
+            accountAttachments: account.accountAttachments,
         }
         return this.put('Account', body)
     }
