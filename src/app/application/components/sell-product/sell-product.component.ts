@@ -25,6 +25,7 @@ export class SellProductComponent implements OnInit {
     countries: Country[]
     filteredCategories = []
     env: any
+
     constructor(
         private categoryService: CategoryService,
         private router: Router,
