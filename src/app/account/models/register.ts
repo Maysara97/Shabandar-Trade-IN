@@ -1,7 +1,7 @@
 import { Role } from './role'
 
 export class User {
-    accountId?: string
+    // accountId?: string
     accountName?: string
     primaryAdminEmail?: string
     primaryAdminFirstlName?: string
@@ -9,13 +9,13 @@ export class User {
     primaryAdminPassword?: string
     accountMobile?: string
     countryId?: 0
-    role: Role
-    accountImage?: string
-    mission?: string
-    vission?: string
-    description?: string
-    accountWebsite?: string
-    accountAttachments?: string[] = []
+    // role: Role
+    // accountImage?: string
+    // mission?: string
+    // vission?: string
+    // description?: string
+    // accountWebsite?: string
+    // accountAttachments?: string[] = []
 }
 
 export class Administrator {
@@ -24,4 +24,17 @@ export class Administrator {
     email?: string
     firstName?: string
     lastName?: string
+}
+
+export class Account {
+    accountId?: string
+    accountName?: string
+    accountMobile?: string
+    countryId?: 0
+    accountImage?: string
+    mission?: string
+    vission?: string
+    description?: string
+    accountWebsite?: string
+    accountAttachments?: string[] = []
 }
