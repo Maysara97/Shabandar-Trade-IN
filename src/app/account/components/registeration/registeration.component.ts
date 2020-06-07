@@ -49,10 +49,10 @@ export class RegisterationComponent implements OnInit {
     onSubmit(user) {
         this.submitted = true
         this.auth.register(user).subscribe((result: any) => {
-            if (result) {
+            if (result.isSucceeded) {
                 this.router.navigate(['/account/login'])
             } else {
-                this.toastr.error('Error')
+                this.toastr.error(result.errors)
             }
         })
     }

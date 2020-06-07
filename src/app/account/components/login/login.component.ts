@@ -56,12 +56,12 @@ export class LoginComponent implements OnInit {
         this.auth
             .login(this.email.value, this.password.value)
             .subscribe((result: any) => {
-                if (result) {
+                if (result.isSucceeded) {
                     // this.toastr.success('Success')
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.loginForm.reset()
-                    this.toastr.error('Invalid Email and/or Password')
+                    this.toastr.error('Invalid login credentials')
                 }
             })
     }
