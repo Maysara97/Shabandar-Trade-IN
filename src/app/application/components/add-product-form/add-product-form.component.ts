@@ -10,6 +10,8 @@ import { CategoryService } from '../../services/category.service'
 import { Category } from '../../models/category'
 import { FileImage, FilePond } from 'src/app/shared/models/file'
 import { Observable } from 'rxjs'
+import { CountryService } from '../../services/country.service'
+import { Country } from '../../models/country'
 
 @Component({
     selector: 'app-add-product-form',
@@ -45,6 +47,7 @@ export class AddProductFormComponent implements OnInit {
 
     categories: Category[]
     products: Product[]
+    countries: Country[]
     products$: Observable<Product[]>
 
     constructor(
@@ -53,7 +56,8 @@ export class AddProductFormComponent implements OnInit {
         private productService: ProductService,
         private toastr: ToastrService,
         private accountProductService: AccountProductService,
-        private categoryService: CategoryService
+        private categoryService: CategoryService,
+        private countryService: CountryService
     ) {}
 
     ngOnInit(): void {
@@ -73,6 +77,10 @@ export class AddProductFormComponent implements OnInit {
             this.products = result.data
         })
 
+        // Bind all Countries
+        this.countryService.getAllCountries().subscribe((result: any) => {
+            this.countries = result.data
+        })
         this.addProductForm = this.formBuilder.group({
             productId: [null, [Validators.required]],
             unitePrice: [],

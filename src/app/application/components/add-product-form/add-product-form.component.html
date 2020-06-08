@@ -42,13 +42,11 @@
                         <div class="row">
                             <div class="col-6">
                                 <label for="location">Country</label>
-                                <select class="form-control" id="countries" formControlName="location">
+                                <select class="form-control" id="countries" formControlName="location"
+                                    style="text-transform: capitalize;">
                                     <option value="" disabled selected>Choose Product's Country</option>
-                                    <option value="1">EGYPT</option>
-                                    <option value="2">USA</option>
-                                    <option value="3">AUSTRALIA</option>
-                                    <option value="4">CHINA</option>
-                                    <option value="5">JAPAN</option>
+                                    <option *ngFor="let country of countries" value="{{country.id}}">
+                                        {{country.name}}</option>
                                 </select>
                                 <label class="text-danger"
                                     *ngIf="addProductForm.get('location').touched && addProductForm.get('location').errors?.required">
