@@ -38,4 +38,12 @@ export class BuyingRequestService extends BaseService<any> {
     getBuyingRequestsByOwner(): Observable<BuyingRequest[]> {
         return this.getAll('BuyingRequest/BuyingRequestsByOwner')
     }
+
+    // Need from Developers api same as Webmaster /api/WebSite/AllWebSites/{pageSize}/{pageNumber}
+
+    // getBuyingRequests(pageSize: number, pageNumber: number, search: string) {
+    //     return this.getAllResult(
+    //         `Form/GetByWebSiteId/${pageSize}/${pageNumber}?search=${search}`
+    //     )
+    // }
 }

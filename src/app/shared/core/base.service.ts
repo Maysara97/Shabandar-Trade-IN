@@ -18,6 +18,11 @@ export class BaseService<T> {
             .get(`${this.baseUrl}/${url}`)
             .pipe(map((data: T[]) => data))
     }
+    getAllResult(url): Observable<T[]> {
+        return this.http
+            .get(`${this.baseUrl}/${url}`)
+            .pipe(map((data: T[]) => data))
+    }
     getById(url: string, id: string) {
         return this.get(`${url}/${id}`)
     }

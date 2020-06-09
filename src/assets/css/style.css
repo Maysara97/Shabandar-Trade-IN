@@ -6715,7 +6715,7 @@ button.tm-videobutton:hover span {
 .tm-portfoliodetails-info {
     padding: 30px;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(239, 233, 233, 0.87);
 }
 
 .tm-portfoliodetails-info > ul {
@@ -6766,6 +6766,7 @@ button.tm-videobutton:hover span {
 .tm-portfoliodetails-description h3 {
     font-weight: 700;
     margin-top: -6px;
+    color: #c0972e;
 }
 
 .tm-portfoliodetails-description ul {

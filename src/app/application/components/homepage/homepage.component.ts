@@ -10,6 +10,7 @@ import { BuyingRequestService } from '../../services/buying-request.service'
 import { CountryService } from '../../services/country.service'
 import { Country } from '../../models/country'
 import { environment } from 'src/environments/environment'
+import { PageEvent } from '@angular/material/paginator'
 
 @Component({
     selector: 'app-homepage',
@@ -27,6 +28,12 @@ export class HomepageComponent implements OnInit {
     filteredCategories = []
 
     env: any
+
+    pageNumber = 1
+    pageSize = 8
+    search = ''
+    totalCount = 0
+    pageSizeOptions: number[] = [8, 16, 24, 32, 40]
     constructor(
         private categoryService: CategoryService,
         private productService: ProductService,
@@ -62,4 +69,22 @@ export class HomepageComponent implements OnInit {
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
+    // handleOnPageChange(pageEvent: PageEvent) {
+    //     this.getRequestedProducts(
+    //         pageEvent.pageSize,
+    //         pageEvent.pageIndex,
+    //         this.search
+    //     )
+    // }
+    // getRequestedProducts(pageSize, pageNumber, search) {
+    //     this.buyingRequestService
+    //         .getBuyingRequests(pageSize, pageNumber, search)
+    //         .subscribe((res) => {
+    //             if (res.isSucceeded) {
+    //                 this.buyingRequestProducts = res.data
+
+    //                 // this.totalCount = res.totalRecords
+    //             }
+    //         })
+    // }
 }
