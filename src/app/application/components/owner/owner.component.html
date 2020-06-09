@@ -25,8 +25,8 @@
                     " routerLink="/account/update-password">
                             Update Password
                         </a>
-                        <a routerLink="/admin-layout/sidebar"><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        </a>
+                        <!-- <a routerLink="/admin-layout/sidebar"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </a> -->
                     </div>
                     <div style="clear: both;"></div>
                 </div>
@@ -138,20 +138,22 @@
                 </div>
             </div>
 
-            <owl-carousel-o [options]="customOptions" style="width: 100px !important;">
+            <owl-carousel-o [options]="customOptions">
                 <ng-template carouselSlide *ngFor="let product of accountProducts">
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
-                            <div class="tm-blog-image">
+                            <div class="tm-blog-image" style="max-width: 500px; max-height: 500px;">
                                 <!-- <img src="assets/images/You-Trade-In/white.jpg" alt="product image" /> -->
-                                <img [src]="getFilePath(product.productImages[0])" alt="{{product.productName}}" />
-
+                                <img style="height: 300px;" [src]="getFilePath(product.productImages[0])"
+                                    alt="{{product.productName}}" />
                             </div>
                         </div>
-                        <div>
-                            <h4>{{product.productName}}</h4>
+                        <div class="product-details">
+                            <a routerLink="/application/product-details">
+                                <h4>{{product.productName}}</h4>
+                            </a>
                             <p style="color: #fff;">
-                                {{product.description}}
+                                {{product.description | slice : 0 : 100}}
                             </p>
                         </div>
                     </div>
@@ -186,16 +188,19 @@
                 <ng-template carouselSlide *ngFor="let requestProduct of buyingProducts">
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
-                            <div class="tm-blog-image">
-                                <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                            <div class="tm-blog-image" style="max-width: 500px; max-height: 500px;">
+                                <img style="height: 300px;" src="assets/images/You-Trade-In/white.jpg"
+                                    alt="product image" />
                                 <!-- <img [src]="getFilePath(requestProduct.images[0])"
                                     alt="{{requestProduct.productName}}" /> -->
                             </div>
                         </div>
-                        <div>
-                            <h4>{{requestProduct.productName}}</h4>
+                        <div class="product-details">
+                            <a>
+                                <h4>{{requestProduct.productName}}</h4>
+                            </a>
                             <p style="color: #fff;">
-                                {{requestProduct.description}}
+                                {{requestProduct.description | slice : 0 : 100}}
                             </p>
                         </div>
                     </div>
@@ -313,147 +318,7 @@
 
                     </div>
                 </ng-template>
-                <ng-template carouselSlide>
-                    <div class="col">
-                        <div class="tm-portfoliodetails-info">
-                            <div class="tm-blog">
-                                <div class="tm-blog-image m-3">
-                                    <img src="assets/images/You-Trade-In/2030EgyptVisionLogo.png" alt="product image" />
-                                </div>
-                            </div>
-                            <ul class="text-left">
-                                <li>
-                                    <b>Intra Contractors Ltd. <span>-</span></b>
-                                    Construction
-                                </li>
-                                <li>
-                                    <b>Mobilo Sans Co. <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Step Over Agency <span>-</span></b> Advertising
-                                    Agency
-                                </li>
-                                <li>
-                                    <b>Castro Leathers <span>-</span></b> Leather Goods
-                                </li>
-                                <li>
-                                    <b>Décor Weavers <span>-</span></b> Carpets
-                                </li>
-                                <li>
-                                    <b>Steel Iron Co. <span>-</span></b> Steel/Iron
-                                </li>
-                                <li>
-                                    <b>Health Clinic <span>-</span></b> Health/Medical
-                                </li>
-                                <li>
-                                    <b>Mobile Servico <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Stansan Co. <span>-</span></b> Real Estate
-                                </li>
-                                <li>
-                                    <b>Chemico <span>-</span></b> Chemicals
-                                </li>
-                            </ul>
-                        </div>
 
-
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="col">
-                        <div class="tm-portfoliodetails-info">
-                            <div class="tm-blog">
-                                <div class="tm-blog-image m-3">
-                                    <img src="assets/images/You-Trade-In/2030EgyptVisionLogo.png" alt="product image" />
-                                </div>
-                            </div>
-                            <ul class="text-left">
-                                <li>
-                                    <b>Intra Contractors Ltd. <span>-</span></b>
-                                    Construction
-                                </li>
-                                <li>
-                                    <b>Mobilo Sans Co. <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Step Over Agency <span>-</span></b> Advertising
-                                    Agency
-                                </li>
-                                <li>
-                                    <b>Castro Leathers <span>-</span></b> Leather Goods
-                                </li>
-                                <li>
-                                    <b>Décor Weavers <span>-</span></b> Carpets
-                                </li>
-                                <li>
-                                    <b>Steel Iron Co. <span>-</span></b> Steel/Iron
-                                </li>
-                                <li>
-                                    <b>Health Clinic <span>-</span></b> Health/Medical
-                                </li>
-                                <li>
-                                    <b>Mobile Servico <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Stansan Co. <span>-</span></b> Real Estate
-                                </li>
-                                <li>
-                                    <b>Chemico <span>-</span></b> Chemicals
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="col">
-                        <div class="tm-portfoliodetails-info">
-                            <div class="tm-blog">
-                                <div class="tm-blog-image m-3">
-                                    <img src="assets/images/You-Trade-In/2030EgyptVisionLogo.png" alt="product image" />
-                                </div>
-                            </div>
-                            <ul class="text-left">
-                                <li>
-                                    <b>Intra Contractors Ltd. <span>-</span></b>
-                                    Construction
-                                </li>
-                                <li>
-                                    <b>Mobilo Sans Co. <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Step Over Agency <span>-</span></b> Advertising
-                                    Agency
-                                </li>
-                                <li>
-                                    <b>Castro Leathers <span>-</span></b> Leather Goods
-                                </li>
-                                <li>
-                                    <b>Décor Weavers <span>-</span></b> Carpets
-                                </li>
-                                <li>
-                                    <b>Steel Iron Co. <span>-</span></b> Steel/Iron
-                                </li>
-                                <li>
-                                    <b>Health Clinic <span>-</span></b> Health/Medical
-                                </li>
-                                <li>
-                                    <b>Mobile Servico <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Stansan Co. <span>-</span></b> Real Estate
-                                </li>
-                                <li>
-                                    <b>Chemico <span>-</span></b> Chemicals
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                </ng-template>
             </owl-carousel-o>
         </div>
         <!--// Products Area -->

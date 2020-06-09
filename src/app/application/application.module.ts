@@ -14,7 +14,9 @@ import { TagInputModule } from 'ngx-chips'
 import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { MatSelectModule } from '@angular/material/select'
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared/shared.module';
+import { ProductDetailsComponent } from './components/product-details/product-details.component'
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,7 @@ import { SharedModule } from '../shared/shared.module'
         SellProductComponent,
         AddProductFormComponent,
         AddNewRequestFormComponent,
+        ProductDetailsComponent,
     ],
     imports: [
         CommonModule,
@@ -35,6 +38,7 @@ import { SharedModule } from '../shared/shared.module'
         NgSelectModule,
         MatSelectModule,
         SharedModule,
+        MatPaginatorModule
     ],
 })
 export class ApplicationModule {}

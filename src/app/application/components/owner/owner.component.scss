@@ -418,6 +418,11 @@
     }
 }
 
-// #carouselSlide .slide {
-//     width: 100px !important;
-// }
+.product-details a:hover {
+    text-decoration: none;
+}
+
+.product-details a:hover h4 {
+    color: #fff;
+    text-decoration: none;
+}

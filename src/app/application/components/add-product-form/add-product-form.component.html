@@ -1,4 +1,3 @@
-<!-- Register Area -->
 <div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0e1234;">
     <div class="container">
         <div class="row d-flex justify-content-center mt-5">
@@ -72,6 +71,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div [ngSwitch]="categorySelected">
 
                         <div class="industry-category" *ngSwitchCase="industryId">
@@ -264,8 +264,6 @@
                         </div> -->
                     </div>
 
-
-
                     <!-- Common -->
                     <div class="form-group">
                         <div class="row">
@@ -277,12 +275,12 @@
                         </div>
 
                     </div>
+
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea class="form-control" id="description" rows="3" formControlName="description"
                             placeholder="Product Description"></textarea>
                     </div>
-
 
                     <div class="form-group">
                         <label for="productImages">Product Images</label>
@@ -319,7 +317,6 @@
         </div>
     </div>
 </div>
-<!--// Register Area -->
 
 <script>
     // Material Select Initialization

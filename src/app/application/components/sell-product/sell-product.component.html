@@ -44,8 +44,9 @@
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
                             <div class="tm-product-image">
-                                <a class="tm-product-imagelink">
-                                    <img [src]="getFilePath(product.productImages[0])" alt="{{product.productName}}" />
+                                <a class="tm-product-imagelink" href="#">
+                                    <img style="width: 270px; height: 250px;"
+                                        [src]="getFilePath(product.productImages[0])" alt="{{product.productName}}" />
                                 </a>
                                 <ul class="tm-product-actions">
                                     <li>
