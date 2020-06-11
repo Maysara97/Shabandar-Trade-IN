@@ -112,4 +112,10 @@ export class OwnerComponent implements OnInit {
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
+
+    goToProductDetails(accountProductId: string) {
+        this.router.navigateByUrl(
+            `/application/product-details/${accountProductId}`
+        )
+    }
 }

@@ -37,7 +37,7 @@ export class AccountProductService extends BaseService<any> {
             tripCategory: accountProduct.tripCategory,
             space: accountProduct.space,
             finishedStatus: accountProduct.finishedStatus,
-            coverage: null,
+            coverage: coverageResult,
             serviceType: accountProduct.serviceType,
             agentsLocation: agentsResult,
             softwares: accountProduct.softwares,
@@ -62,5 +62,8 @@ export class AccountProductService extends BaseService<any> {
     }
     getAllAccountProducts() {
         return this.getAll('AccountProduct/AllAccountProducts')
+    }
+    getAccountProductById(accountProductId: string) {
+        return this.getById('AccountProduct', accountProductId)
     }
 }

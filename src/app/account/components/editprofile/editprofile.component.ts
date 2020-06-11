@@ -117,7 +117,7 @@ export class EditprofileComponent implements OnInit {
         this.submitted = true
         this.auth.updateProfile(form).subscribe((result: any) => {
             if (result) {
-                debugger
+                // debugger
                 this.router.navigate(['/account/owner'])
             } else {
                 this.toastr.error('Error')

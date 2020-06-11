@@ -49,6 +49,9 @@ export class AddProductFormComponent implements OnInit {
     products: Product[]
     countries: Country[]
     products$: Observable<Product[]>
+    public coverage: Country
+    public localFields: Object = { text: 'name', value: 'id' }
+    public localWaterMark: string = 'Select Multiple Coverages'
 
     constructor(
         private formBuilder: FormBuilder,
@@ -188,7 +191,7 @@ export class AddProductFormComponent implements OnInit {
             .createAccountProduct(
                 requestProduct,
                 tagResult,
-                coverageResult,
+                this.tagCoverage,
                 agentsResult
             )
             .subscribe((result: any) => {

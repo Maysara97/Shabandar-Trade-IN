@@ -6,6 +6,7 @@ export class AccountProduct {
     categoryName?: string
     accountName?: string
     location?: number
+    countryName?: string
     size?: string
     wieght?: string
     packing?: string

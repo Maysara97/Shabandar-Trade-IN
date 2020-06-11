@@ -60,7 +60,9 @@
         "variable-name": false,
         "no-debugger": false,
         "no-output-on-prefix": false,
-        "object-literal-shorthand": false
+        "object-literal-shorthand": false,
+        "no-inferrable-types": false,
+        "ban-types": false
     },
     "rulesDirectory": ["codelyzer"]
 }
