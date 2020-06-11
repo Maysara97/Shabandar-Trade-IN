@@ -48,8 +48,6 @@ export class AddNewRequestFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.addRequestForm = this.formBuilder.group({
-            // ownerAccountId: [],
-            // buyingRequestId: [],
             productId: [null, Validators.required],
             title: [null, Validators.required],
             description: [null, Validators.required],

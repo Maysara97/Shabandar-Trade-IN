@@ -148,8 +148,11 @@
                                     alt="{{product.productName}}" />
                             </div>
                         </div>
+                        <!-- [routerLink]="['/application/product-details', product.accountProductId]" -->
+                        <!-- routerLink="/application/product-details/{{product.accountProductId}}" -->
                         <div class="product-details">
-                            <a routerLink="/application/product-details">
+                            <a [routerLink]="['/application/product-details', product.accountProductId]"
+                                routerLinkActive="active">
                                 <h4>{{product.productName}}</h4>
                             </a>
                             <p style="color: #fff;">

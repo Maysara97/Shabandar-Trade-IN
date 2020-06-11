@@ -225,13 +225,10 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="coverage">Coverage</label>
-                                        <select formControlName="coverage" multiple>
-                                            <option value="1">EGYPT</option>
-                                            <option value="2">USA</option>
-                                            <option value="3">AUSTRALIA</option>
-                                            <option value="4">CHINA</option>
-                                            <option value="5">JAPAN</option>
-                                        </select>
+                                        <ejs-multiselect [dataSource]='countries' [fields]='localFields'
+                                            [placeholder]='localWaterMark' formControlName="coverage"
+                                            [(ngModel)]="tagCoverage">
+                                        </ejs-multiselect>
                                     </div>
                                 </div>
                             </div>

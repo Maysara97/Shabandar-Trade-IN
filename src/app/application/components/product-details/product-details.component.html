@@ -1,20 +1,12 @@
 <!-- Portfolio Details Area -->
 <div class="tm-section portfolio-details-area tm-padding-section" style="background-color: #0e1234;">
     <div class="container">
-        <div class="tm-portfoliodetails">
-            <div class="tm-portfoliodetails-image">
-                <a href="#">
-                    <img style="width: 250px; height: 250px;" src="assets/images/You-Trade-In/student.png"
-                        alt="portfolio details">
-                </a>
-                <a href="#">
-                    <img style="width: 250px; height: 250px;" src="assets/images/You-Trade-In/GrandMuseum.png"
-                        alt="portfolio details">
-                </a>
-                <a href="#">
-                    <img style="width: 250px; height: 250px;" src="assets/images/You-Trade-In/GrandMuseum.png"
-                        alt="portfolio details">
-                </a>
+        <div class="tm-portfoliodetails" *ngIf="accountProductDetails">
+            <div class="tm-portfoliodetails-image" style="margin-left: 15%;">
+
+                <img *ngFor="let image of accountProductDetails.productImages"
+                    style="width: 250px; height: 250px; padding: 10px;" [src]="getFilePath(image)"
+                    alt="{{accountProductDetails.productName}}">
             </div>
             <div class="tm-portfoliodetails-content tm-padding-section-sm-top">
                 <div class="row">
@@ -22,50 +14,82 @@
                         <div class="tm-portfoliodetails-info" style="background-color: #fff;">
                             <ul>
                                 <!-- must make ngIf (say) Sofware not equal null show this field here and so on-->
-                                <li><b>Product Name :</b> </li>
-                                <li><b>Category Name :</b> </li>
-                                <li><b>Account Name :</b> </li>
-                                <li><b>Size :</b> </li>
-                                <li><b>Wieght :</b> </li>
-                                <li><b>Packing Way :</b> </li>
-                                <li><b>Certification :</b> </li>
-                                <li><b>Type :</b> </li>
-                                <li><b>Grade :</b> </li>
-                                <li><b>Storage :</b> </li>
-                                <li><b>Brand Names :</b> </li>
-                                <li><b>Code :</b> </li>
-                                <li><b>MOQ :</b> </li>
-                                <li><b>Payment Terms :</b> </li>
-                                <li><b>Price :</b> </li>
-                                <li><b>Unite Price :</b> </li>
-                                <li><b>Duration :</b> </li>
-                                <li><b>Accomdation Name :</b> </li>
-                                <li><b>Program :</b> </li>
-                                <li><b>Trip Category :</b> </li>
-                                <li><b>Space :</b> </li>
-                                <li><b>Finished Status :</b> </li>
-                                <li><b>Coverage :</b> </li>
-                                <li><b>Agents Locations :</b> </li>
-                                <li><b>Softwares :</b> </li>
+                                <li><b>Product Name :</b> {{accountProductDetails.productName}}</li>
+                                <li><b>Category Name :</b> {{accountProductDetails.categoryName}}</li>
+                                <li><b>Account Name :</b> {{accountProductDetails.accountName}}</li>
+                                <li><b>Country Name :</b> {{accountProductDetails.countryName}}</li>
+                                <li *ngIf="accountProductDetails.size"><b>Size :</b>{{accountProductDetails.size}}
+                                </li>
+                                <li *ngIf="accountProductDetails.wieght"><b>Wieght :</b>
+                                    {{accountProductDetails.wieght}}</li>
+                                <li *ngIf="accountProductDetails.packing"><b>Packing Way
+                                        :</b>{{accountProductDetails.packing}} </li>
+                                <li *ngIf="accountProductDetails.certification"><b>Certification
+                                        :</b>{{accountProductDetails.certification}} </li>
+                                <li *ngIf="accountProductDetails.type"><b>Type :</b>{{accountProductDetails.type}}
+                                </li>
+                                <li *ngIf="accountProductDetails.grade"><b>Grade
+                                        :</b>{{accountProductDetails.grade}}
+                                </li>
+                                <li *ngIf="accountProductDetails.storage"><b>Storage
+                                        :</b>{{accountProductDetails.storage}} </li>
+                                <li *ngIf="accountProductDetails.brandName.length > 0"><b>Brand Names
+                                        :</b>
+                                    <div style="display: inline-block;"
+                                        *ngFor="let brand of accountProductDetails.brandName">&nbsp; {{brand}}
+                                    </div>
+                                </li>
+                                <li *ngIf="accountProductDetails.code"><b>Code :</b>{{accountProductDetails.code}}
+                                </li>
+                                <li *ngIf="accountProductDetails.moq"><b>MOQ :</b>{{accountProductDetails.moq}}
+                                </li>
+                                <li *ngIf="accountProductDetails.paymentTerms"><b>Payment Terms
+                                        :</b>{{accountProductDetails.paymentTerms}} </li>
+                                <li *ngIf="accountProductDetails.price"><b>Price
+                                        :</b>{{accountProductDetails.price}}
+                                </li>
+                                <li *ngIf="accountProductDetails.unitePrice"><b>Unite Price
+                                        :</b>{{accountProductDetails.unitePrice}} </li>
+                                <li *ngIf="accountProductDetails.duration"><b>Duration :</b>
+                                    {{accountProductDetails.duration}}</li>
+                                <li *ngIf="accountProductDetails.accomdationName"><b>Accomdation Name
+                                        :</b>{{accountProductDetails.accomdationName}} </li>
+                                <li *ngIf="accountProductDetails.program"><b>Program
+                                        :</b>{{accountProductDetails.program}} </li>
+                                <li *ngIf="accountProductDetails.tripCategory"><b>Trip Category
+                                        :</b>{{accountProductDetails.tripCategory}} </li>
+                                <li *ngIf="accountProductDetails.space"><b>Space
+                                        :</b>{{accountProductDetails.space}}
+                                </li>
+                                <li *ngIf="accountProductDetails.finishedStatus"><b>Finished Status
+                                        :</b>{{accountProductDetails.finishedStatus}} </li>
+                                <li *ngIf="accountProductDetails.coverage.length > 0"><b>Coverage
+                                        :</b>
+                                    <div style="display: inline-block;"
+                                        *ngFor="let coverage of accountProductDetails.coverage">&nbsp; {{coverage}}
+                                    </div>
+                                </li>
+                                <li *ngIf="accountProductDetails.agentsLocation.length > 0"><b>Agents Locations
+                                        :</b>
+                                    <div style="display: inline-block;"
+                                        *ngFor="let agent of accountProductDetails.agentsLocation">&nbsp; {{agent}}
+                                    </div>
+                                </li>
+                                <li *ngIf="accountProductDetails.softwares"><b>Softwares
+                                        :</b>{{accountProductDetails.softwares}} </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7">
                         <div class="tm-portfoliodetails-description">
                             <h3>Product Description</h3>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the
-                                majority
-                                have suffered alteration in some form, by injected humour, or randomised
-                                words
-                                which don't look even slightly believable. If you are going to use a
-                                passage of
-                                Lorem Ipsum you need to be sure there isn't anything embarrassing hidden in
-                                the
-                                middle of text.</p>
-                            <p>Magnam repudiandae cumque ut exercitationem eos dolor consequatur voluptas
-                                beatae. Voluptas dolore nobis delectus alias eum rem. Et minus sed.
-                                Voluptas inventore ut inventore. Occaecati est et temporibus.</p>
-                            <h3>Product Attachments</h3>
+                            <p>{{accountProductDetails.description}}</p>
+
+                            <h3 class="mb-3">Product Attachments</h3>
+                            <a *ngFor="let attachment of accountProductDetails.attachments" [href]="attachment"
+                                alt="Product Attachments" target="_blank">
+                                &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -14,9 +14,10 @@ import { TagInputModule } from 'ngx-chips'
 import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { MatSelectModule } from '@angular/material/select'
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module'
 import { ProductDetailsComponent } from './components/product-details/product-details.component'
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         NgSelectModule,
         MatSelectModule,
         SharedModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MultiSelectAllModule,
     ],
 })
 export class ApplicationModule {}

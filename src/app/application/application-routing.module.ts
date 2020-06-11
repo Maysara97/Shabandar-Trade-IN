@@ -38,7 +38,7 @@ const routes: Routes = [
                 component: AddNewRequestFormComponent,
             },
             {
-                path: 'product-details',
+                path: 'product-details/:accountProductId',
                 component: ProductDetailsComponent,
             },
         ],
