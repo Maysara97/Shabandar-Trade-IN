@@ -2,19 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <select name="demo" id="productSelect">
+                <select name="demo" id="productSelect" style="width: 12%;">
                     <option selected="selected" value="one">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
                 </select>
                 <!-- [(ngModel)]="term" -->
-                <input type="text" class="form-control input-search" name="search"
-                    placeholder="What are you looking for?" aria-label="What are you looking for?"
+                <input type="text" class="form-control input-search" name="search" (keyup)="applyFilter()"
+                    [(ngModel)]="search" placeholder="What are you looking for?" aria-label="What are you looking for?"
                     aria-describedby="basic-addon2" />
                 <button class="btn searchButton" type="button">
                     Search
                 </button>
-                <select name="demo" id="countrySelect" style="text-transform: uppercase;">
+                <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;">
                     <option selected="selected">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
@@ -84,5 +84,10 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="d-flex justify-content-end p-2 w-100">
+            <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                (page)="handleOnPageChange($event)">
+            </mat-paginator>
+        </div> -->
     </div>
 </div>

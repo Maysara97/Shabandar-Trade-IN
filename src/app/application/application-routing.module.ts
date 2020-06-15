@@ -8,6 +8,7 @@ import { AddProductFormComponent } from './components/add-product-form/add-produ
 import { ViewerComponent } from './components/viewer/viewer.component'
 import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
 import { ProductDetailsComponent } from './components/product-details/product-details.component'
+import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
 
 const routes: Routes = [
     {
@@ -40,6 +41,10 @@ const routes: Routes = [
             {
                 path: 'product-details/:accountProductId',
                 component: ProductDetailsComponent,
+            },
+            {
+                path: 'buying-product-details/:buyingRequestId',
+                component: BuyingProductDetailsComponent,
             },
         ],
     },

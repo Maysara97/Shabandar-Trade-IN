@@ -45,8 +45,8 @@
                         <div class="tm-product">
                             <div class="tm-product-image">
                                 <a class="tm-product-imagelink" href="#">
-                                    <img style="width: 270px; height: 250px;" src="assets/images/You-Trade-In/white.jpg"
-                                        alt="product image" />
+                                    <img [src]="getFilePath(requestProduct.image)"
+                                        alt="{{requestProduct.productName}}" />
                                     <!-- <img [src]="getFilePath(requestProduct.images[0])"
                                         alt="{{requestProduct.productName}}" /> -->
 
@@ -82,7 +82,6 @@
             </div>
         </div>
         <!-- <div fxFlex fxlayout="row" fxlayout.lt-md="column">
-
             <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
                 (page)="handleOnPageChange($event)">
             </mat-paginator>

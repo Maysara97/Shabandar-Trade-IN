@@ -148,8 +148,6 @@
                                     alt="{{product.productName}}" />
                             </div>
                         </div>
-                        <!-- [routerLink]="['/application/product-details', product.accountProductId]" -->
-                        <!-- routerLink="/application/product-details/{{product.accountProductId}}" -->
                         <div class="product-details">
                             <a [routerLink]="['/application/product-details', product.accountProductId]"
                                 routerLinkActive="active">
@@ -192,16 +190,16 @@
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
                             <div class="tm-blog-image" style="max-width: 500px; max-height: 500px;">
-                                <img style="height: 300px;" src="assets/images/You-Trade-In/white.jpg"
-                                    alt="product image" />
-                                <!-- <img [src]="getFilePath(requestProduct.images[0])"
-                                    alt="{{requestProduct.productName}}" /> -->
+                                <img style="height: 300px;" [src]="getFilePath(requestProduct.image)"
+                                    alt="{{requestProduct.productName}}" />
                             </div>
                         </div>
                         <div class="product-details">
-                            <a>
+                            <a [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]"
+                                routerLinkActive="active">
                                 <h4>{{requestProduct.productName}}</h4>
                             </a>
+
                             <p style="color: #fff;">
                                 {{requestProduct.description | slice : 0 : 100}}
                             </p>

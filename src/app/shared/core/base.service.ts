@@ -23,6 +23,7 @@ export class BaseService<T> {
             .get(`${this.baseUrl}/${url}`)
             .pipe(map((data: T[]) => data))
     }
+
     getById(url: string, id: string) {
         return this.get(`${url}/${id}`)
     }

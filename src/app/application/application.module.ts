@@ -17,7 +17,8 @@ import { MatSelectModule } from '@angular/material/select'
 import { SharedModule } from '../shared/shared.module'
 import { ProductDetailsComponent } from './components/product-details/product-details.component'
 import { MatPaginatorModule } from '@angular/material/paginator'
-import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
+import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
         AddProductFormComponent,
         AddNewRequestFormComponent,
         ProductDetailsComponent,
+        BuyingProductDetailsComponent,
     ],
     imports: [
         CommonModule,

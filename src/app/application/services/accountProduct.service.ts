@@ -2,6 +2,7 @@ import { BaseService } from 'src/app/shared/core/base.service'
 import { Injectable, Injector } from '@angular/core'
 import { AccountProduct } from '../models/accountProduct'
 import { Observable } from 'rxjs'
+import { SearchAccountProduct } from '../models/accountProduct-search'
 
 @Injectable({ providedIn: 'root' })
 export class AccountProductService extends BaseService<any> {
@@ -65,5 +66,16 @@ export class AccountProductService extends BaseService<any> {
     }
     getAccountProductById(accountProductId: string) {
         return this.getById('AccountProduct', accountProductId)
+    }
+
+    getAccountProducts(
+        pageSize: number,
+        pageNumber: number,
+        searchAccountProduct: SearchAccountProduct
+    ) {
+        return this.post(
+            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}`,
+            searchAccountProduct
+        )
     }
 }

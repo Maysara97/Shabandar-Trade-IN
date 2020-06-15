@@ -88,23 +88,16 @@ export class AddProductFormComponent implements OnInit {
             productId: [null, [Validators.required]],
             unitePrice: [],
             price: [null, [Validators.required]],
-            // missed
-            // country: [null, [Validators.required]],
             categoryId: [null, [Validators.required]],
-            // Both
             paymentTerms: [],
             productImages: [null],
             attachments: [null],
             size: [],
             description: [],
             location: [],
-            // Industry Category
             brandName: [],
-            // missed
-            // productOrigin: [],
             packing: [],
             storage: [],
-            // missed
             productMaterial: [],
             wieght: [],
             type: [],
@@ -112,18 +105,14 @@ export class AddProductFormComponent implements OnInit {
             code: [],
             moq: [],
             certification: [],
-            // Touristic Category
             duration: [],
             accomdationName: [],
             program: [],
-            // Real State Category
             space: [],
             finishedStatus: [],
-            // Shipping and Logistics Category
             coverage: [],
             serviceType: [],
             agentsLocation: [],
-            // Designers Category
             softwares: [],
             tripCategory: [],
         })
@@ -144,12 +133,12 @@ export class AddProductFormComponent implements OnInit {
     // Upload Files
     handleFileUpload(files: FileImage[]) {
         this.addProductForm.patchValue({
-            attachments: files.map((file) => file.imageFile),
+            attachments: files.map((file) => file.title),
         })
     }
     handleFileRemove(files: FileImage[]) {
         this.addProductForm.patchValue({
-            attachments: files.map((file) => file.imageFile),
+            attachments: files.map((file) => file.title),
         })
     }
 
@@ -166,7 +155,7 @@ export class AddProductFormComponent implements OnInit {
         )
     }
 
-    onSubmit(requestProduct) {
+    onSubmit(accountProduct) {
         this.submitted = true
         // Tags
         let tagResult: string[] = []
@@ -189,7 +178,7 @@ export class AddProductFormComponent implements OnInit {
 
         this.accountProductService
             .createAccountProduct(
-                requestProduct,
+                accountProduct,
                 tagResult,
                 this.tagCoverage,
                 agentsResult
