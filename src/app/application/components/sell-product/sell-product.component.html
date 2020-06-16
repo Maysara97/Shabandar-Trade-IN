@@ -9,19 +9,21 @@
                 </select>
                 <!-- [(ngModel)]="term" -->
                 <input type="text" class="form-control input-search" name="search" (keyup)="applyFilter()"
-                    [(ngModel)]="searchKeyWord" placeholder="What are you looking for?"
+                    [(ngModel)]="searchKeyWord" placeholder="What are you looking for?" style="width: 30%;"
                     aria-label="What are you looking for?" aria-describedby="basic-addon2" />
                 <button class="btn searchButton" type="button">
                     Search
                 </button>
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;"
                     [(ngModel)]="countryId">
-                    <option disabled selected="selected">Country</option>
+                    <option selected="selected">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
-
-
+                <input type="text" placeholder="Date From" class="form-control dateFrom" bsDatepicker
+                    [(ngModel)]="dateFrom">
+                <input type="text" placeholder="Date To" class="form-control dateFrom" bsDatepicker
+                    [(ngModel)]="dateTo">
                 <h6 class="text-center m-3">Find Your Needs</h6>
             </div>
         </div>

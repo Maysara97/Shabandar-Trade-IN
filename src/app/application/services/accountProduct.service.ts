@@ -84,8 +84,8 @@ export class AccountProductService extends BaseService<any> {
         searchKeyWord: string,
         categoryId: number,
         countryId: number,
-        dateFrom: Date,
-        dateTo: Date
+        dateFrom: string,
+        dateTo: string
     ) {
         return this.getAllResult(
             `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}/${searchKeyWord}/${categoryId}/${countryId}/${dateFrom}/${dateTo}`

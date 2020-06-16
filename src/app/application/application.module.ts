@@ -20,6 +20,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
 import { NgxPaginationModule } from 'ngx-pagination'
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import { NgxPaginationModule } from 'ngx-pagination'
         // MatPaginatorModule,
         MultiSelectAllModule,
         NgxPaginationModule,
+        BsDatepickerModule.forRoot(),
     ],
 })
 export class ApplicationModule {}
