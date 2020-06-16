@@ -27,10 +27,15 @@ export class SellProductComponent implements OnInit {
     countries: Country[]
     filteredCategories = []
     env: any
+    page: number = 1
 
     pageNumber = 1
     pageSize = 6
-    search = ''
+    searchKeyWord = ''
+    categoryId = ''
+    countryId = ''
+    dateFrom = ''
+    dateTo = ''
     totalCount = 0
     pageEvent: PageEvent
     pageSizeOptions: number[] = [6, 12]
@@ -79,7 +84,11 @@ export class SellProductComponent implements OnInit {
         this.getAccountProducts(
             this.pageSize,
             this.pageNumber,
-            this.searchAccountProduct
+            this.searchKeyWord,
+            this.countryId,
+            this.categoryId,
+            this.dateFrom,
+            this.dateTo
         )
     }
 
@@ -91,19 +100,44 @@ export class SellProductComponent implements OnInit {
         this.getAccountProducts(
             pageEvent.pageSize,
             pageEvent.pageIndex,
-            this.searchAccountProduct
+            this.searchKeyWord,
+            this.countryId,
+            this.categoryId,
+            this.dateFrom,
+            this.dateTo
         )
     }
     applyFilter() {
         this.getAccountProducts(
             this.pageSize,
-            this.pageNumber,
-            this.searchAccountProduct
+            this.page,
+            this.searchKeyWord,
+            this.categoryId,
+            this.countryId,
+            this.dateFrom,
+            this.dateTo
         )
     }
-    getAccountProducts(pageSize, pageNumber, searchAccountProduct) {
+
+    getAccountProducts(
+        pageSize,
+        pageNumber,
+        searchKeyWord,
+        categoryId,
+        countryId,
+        dateFrom,
+        dateTo
+    ) {
         this.accountProductService
-            .getAccountProducts(pageSize, pageNumber, searchAccountProduct)
+            .getAccountProductSearch(
+                pageSize,
+                pageNumber,
+                searchKeyWord,
+                categoryId,
+                countryId,
+                dateFrom,
+                dateTo
+            )
             .subscribe((res: any) => {
                 if (res) {
                     this.accountProducts = res.data

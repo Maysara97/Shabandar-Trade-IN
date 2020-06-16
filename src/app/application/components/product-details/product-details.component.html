@@ -25,7 +25,9 @@
                                 <li *ngIf="accountProductDetails.packing"><b>Packing Way
                                         :</b>{{accountProductDetails.packing}} </li>
                                 <li *ngIf="accountProductDetails.certification"><b>Certification
-                                        :</b>{{accountProductDetails.certification}} </li>
+                                        :</b><a [href]="getFilePath(accountProductDetails.certification)"
+                                        target="_blank">{{accountProductDetails.certification}}
+                                    </a></li>
                                 <li *ngIf="accountProductDetails.type"><b>Type :</b>{{accountProductDetails.type}}
                                 </li>
                                 <li *ngIf="accountProductDetails.grade"><b>Grade
@@ -86,8 +88,8 @@
                             <p>{{accountProductDetails.description}}</p>
 
                             <h3 class="mb-3">Product Attachments</h3>
-                            <a *ngFor="let attachment of accountProductDetails.attachments" [href]="attachment"
-                                alt="Product Attachments" target="_blank">
+                            <a *ngFor="let attachment of accountProductDetails.attachments"
+                                [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
                                 &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
                             </a>
                         </div>

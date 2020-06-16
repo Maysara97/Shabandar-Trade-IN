@@ -204,3 +204,11 @@
 mat-form-field {
     margin-right: 12px;
 }
+
+.my-paginator {
+    display: inline-flex;
+    float: right;
+}
+.my-paginator::ng-deep .ngx-pagination .current {
+    background-color: #c0972e !important;
+}

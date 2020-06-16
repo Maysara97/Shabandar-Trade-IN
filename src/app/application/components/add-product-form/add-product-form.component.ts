@@ -28,7 +28,7 @@ export class AddProductFormComponent implements OnInit {
     addProductForm: FormGroup
     images: string[] = []
     files: string[] = []
-
+    certifications: string[] = []
     tagNames = []
     tagCoverage = []
     agents = []
@@ -76,9 +76,9 @@ export class AddProductFormComponent implements OnInit {
         })
 
         // Bind all Products
-        this.productService.getAllProducts().subscribe((result: any) => {
-            this.products = result.data
-        })
+        // this.productService.getAllProducts().subscribe((result: any) => {
+        //     this.products = result.data
+        // })
 
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
@@ -133,26 +133,32 @@ export class AddProductFormComponent implements OnInit {
     // Upload Files
     handleFileUpload(files: FileImage[]) {
         this.addProductForm.patchValue({
-            attachments: files.map((file) => file.title),
+            attachments: files.map((file) => file.imageFile),
         })
     }
     handleFileRemove(files: FileImage[]) {
         this.addProductForm.patchValue({
-            attachments: files.map((file) => file.title),
+            attachments: files.map((file) => file.imageFile),
         })
     }
-
-    handleOnCategoryChange(category: Category) {
-        // this.productService
-        //     .getProductsByCategory(categoryId)
-        //     .subscribe((result: any) => {
-        //         debugger
-        //         this.products = result.data
-        //     })
-        debugger
-        this.products$ = this.productService.getProductsByCategory(
-            category.categoryId
-        )
+    // Upload Certifications
+    handleCertificationsUpload(files: FileImage[]) {
+        this.addProductForm.patchValue({
+            certification: files[0].imageFile,
+        })
+    }
+    handleCertificationsRemove(files: FileImage[]) {
+        this.addProductForm.patchValue({
+            certification: files[0].imageFile,
+        })
+    }
+    handleOnCategoryChange() {
+        // Bind Products by Category
+        this.productService
+            .getProductsByCategory(this.categorySelected)
+            .subscribe((result: any) => {
+                this.products = result.data
+            })
     }
 
     onSubmit(accountProduct) {
@@ -184,15 +190,12 @@ export class AddProductFormComponent implements OnInit {
                 agentsResult
             )
             .subscribe((result: any) => {
-                if (result) {
+                if (result.isSucceeded) {
+                    console.log(result.data)
                     this.router.navigate(['/account/owner'])
                 } else {
-                    this.toastr.error('Error')
+                    this.toastr.error(result.errors)
                 }
             })
-    }
-
-    categoryChange(value: string) {
-        console.log(value)
     }
 }

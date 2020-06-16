@@ -24,7 +24,9 @@
                                 <li *ngIf="buyingRequestDetails.packing"><b>Packing Way
                                         :</b>{{buyingRequestDetails.packing}} </li>
                                 <li *ngIf="buyingRequestDetails.certification"><b>Certification
-                                        :</b>{{buyingRequestDetails.certification}} </li>
+                                        :</b><a [href]="getFilePath(buyingRequestDetails.certification)"
+                                        target="_blank">{{buyingRequestDetails.certification}}
+                                    </a></li>
                                 <li *ngIf="buyingRequestDetails.type"><b>Type :</b>{{buyingRequestDetails.type}}
                                 </li>
                                 <li *ngIf="buyingRequestDetails.grade"><b>Grade

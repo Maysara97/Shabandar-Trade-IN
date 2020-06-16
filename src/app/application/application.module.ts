@@ -16,9 +16,10 @@ import { NgSelectModule } from '@ng-select/ng-select'
 import { MatSelectModule } from '@angular/material/select'
 import { SharedModule } from '../shared/shared.module'
 import { ProductDetailsComponent } from './components/product-details/product-details.component'
-import { MatPaginatorModule } from '@angular/material/paginator'
-import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
+// import { MatPaginatorModule } from '@angular/material/paginator'
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
     declarations: [
@@ -41,8 +42,9 @@ import { BuyingProductDetailsComponent } from './components/buying-product-detai
         NgSelectModule,
         MatSelectModule,
         SharedModule,
-        MatPaginatorModule,
+        // MatPaginatorModule,
         MultiSelectAllModule,
+        NgxPaginationModule,
     ],
 })
 export class ApplicationModule {}

@@ -12,7 +12,6 @@ import { environment } from 'src/environments/environment'
 })
 export class ProductDetailsComponent implements OnInit {
     accountProductDetails: AccountProduct
-
     accountProductId
     env: any
     constructor(
@@ -35,4 +34,5 @@ export class ProductDetailsComponent implements OnInit {
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
+
 }

@@ -68,14 +68,27 @@ export class AccountProductService extends BaseService<any> {
         return this.getById('AccountProduct', accountProductId)
     }
 
-    getAccountProducts(
+    // getAccountProducts(
+    //     pageSize: number,
+    //     pageNumber: number,
+    //     searchAccountProduct: SearchAccountProduct
+    // ) {
+    //     return this.post(
+    //         `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}`,
+    //         searchAccountProduct
+    //     )
+    // }
+    getAccountProductSearch(
         pageSize: number,
         pageNumber: number,
-        searchAccountProduct: SearchAccountProduct
+        searchKeyWord: string,
+        categoryId: number,
+        countryId: number,
+        dateFrom: Date,
+        dateTo: Date
     ) {
-        return this.post(
-            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}`,
-            searchAccountProduct
+        return this.getAllResult(
+            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}/${searchKeyWord}/${categoryId}/${countryId}/${dateFrom}/${dateTo}`
         )
     }
 }

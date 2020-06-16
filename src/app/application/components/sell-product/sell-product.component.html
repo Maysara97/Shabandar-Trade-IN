@@ -9,13 +9,14 @@
                 </select>
                 <!-- [(ngModel)]="term" -->
                 <input type="text" class="form-control input-search" name="search" (keyup)="applyFilter()"
-                    [(ngModel)]="search" placeholder="What are you looking for?" aria-label="What are you looking for?"
-                    aria-describedby="basic-addon2" />
+                    [(ngModel)]="searchKeyWord" placeholder="What are you looking for?"
+                    aria-label="What are you looking for?" aria-describedby="basic-addon2" />
                 <button class="btn searchButton" type="button">
                     Search
                 </button>
-                <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;">
-                    <option selected="selected">Country</option>
+                <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;"
+                    [(ngModel)]="countryId">
+                    <option disabled selected="selected">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
@@ -39,7 +40,8 @@
             <div class="col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="row">
                     <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of accountProducts">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
+                        *ngFor="let product of accountProducts | paginate: { itemsPerPage: 6, currentPage: page }">
                         <!--To apply search functionality-->
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
@@ -64,7 +66,8 @@
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
                                 <p>
-                                    {{product.accountName}}
+                                    <i class="fa fa-building" aria-hidden="true"></i>
+                                    &nbsp; {{product.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
@@ -73,8 +76,8 @@
                                     <p>{{ product.categoryName }}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    Send Email
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                    &nbsp; Send Message
                                 </button>
                                 <div style="clear: both;"></div>
                             </div>
@@ -84,6 +87,8 @@
                 </div>
             </div>
         </div>
+        <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls>
+
         <!-- <div class="d-flex justify-content-end p-2 w-100">
             <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
                 (page)="handleOnPageChange($event)">

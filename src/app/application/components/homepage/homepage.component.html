@@ -39,7 +39,7 @@
                     <!-- *ngFor="let product of products" -->
                     <!-- Single Product -->
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
-                        *ngFor="let requestProduct of buyingRequestProducts">
+                        *ngFor="let requestProduct of buyingRequestProducts | paginate: { itemsPerPage: 6, currentPage: page }">
                         <!--To apply search functionality-->
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
@@ -70,8 +70,8 @@
                                     <p>{{ requestProduct.categoryName}}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    Send Email
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    &nbsp; Send Message
                                 </button>
                                 <div style="clear: both;"></div>
                             </div>
@@ -81,6 +81,8 @@
                 </div>
             </div>
         </div>
+        <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls>
+
         <!-- <div fxFlex fxlayout="row" fxlayout.lt-md="column">
             <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
                 (page)="handleOnPageChange($event)">

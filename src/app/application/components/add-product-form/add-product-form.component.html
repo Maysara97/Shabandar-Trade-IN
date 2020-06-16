@@ -11,8 +11,8 @@
                             <div class="col-6">
                                 <label for="categoryId">Product Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId" #mySelect
-                                    [(ngModel)]="categorySelected">
-                                    <option value="" disabled selected>Choose Product's Category</option>
+                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
+                                    <option value="" disabled selected="selected">Choose Product's Category</option>
                                     <option *ngFor="let category of categories" value={{category.categoryId}}>
                                         {{category.categoryName}}</option>
                                 </select>
@@ -24,14 +24,14 @@
                             <div class="col-6">
                                 <label for="productId">Product Name</label>
                                 <select class="form-control" id="productId" formControlName="productId">
-                                    <option value="" disabled selected>Choose your Product</option>
+                                    <option value="" disabled selected="selected">Choose your Product</option>
                                     <option *ngFor="let product of products" value="{{product.productId}}">
                                         {{product.productName}}</option>
                                 </select>
-                                <label class="text-danger"
+                                <!-- <label class="text-danger"
                                     *ngIf="addProductForm.get('productId').touched && addProductForm.get('productId').errors?.required">
                                     Product Name is Required
-                                </label>
+                                </label> -->
                             </div>
 
                         </div>
@@ -43,7 +43,7 @@
                                 <label for="location">Country</label>
                                 <select class="form-control" id="countries" formControlName="location"
                                     style="text-transform: capitalize;">
-                                    <option value="" disabled selected>Choose Product's Country</option>
+                                    <option value="" disabled selected="selected">Choose Product's Country</option>
                                     <option *ngFor="let country of countries" value="{{country.id}}">
                                         {{country.name}}</option>
                                 </select>
@@ -64,7 +64,7 @@
                             <div class="col-3">
                                 <label for="unitePrice">Unite Price</label>
                                 <select class="form-control" id="unitePrice" formControlName="unitePrice">
-                                    <option value="" disabled selected>Choose Unite Price</option>
+                                    <option value="" disabled selected="selected">Choose Unite Price</option>
                                     <option value="1">$</option>
                                     <option value="2">EGY</option>
                                 </select>
@@ -77,16 +77,26 @@
                         <div class="industry-category" *ngSwitchCase="industryId">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <label for="brandName">Brand Name</label>
+                                    <div class="col-12">
+                                        <label for="brandName">Brand Names</label>
                                         <tag-input class="brandTags" [(ngModel)]="tagNames" formControlName="brandName"
                                             [secondaryPlaceholder]="'Brand Name'" [placeholder]="'Brand Name again'">
                                         </tag-input>
                                     </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
                                     <div class="col-6">
                                         <label for="packing">Packing Way</label>
                                         <input type="text" class="form-control w-100" id="packing"
                                             formControlName="packing" placeholder="Packing Way">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="moq">MOQ</label>
+                                        <input type="text" class="form-control w-100" id="moq" formControlName="moq"
+                                            placeholder="MOQ">
                                     </div>
                                 </div>
                             </div>
@@ -130,15 +140,14 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <label for="moq">MOQ</label>
-                                        <input type="text" class="form-control w-100" id="moq" formControlName="moq"
-                                            placeholder="MOQ">
-                                    </div>
-                                    <div class="col-6">
+
+                                    <div class="col-12">
                                         <label for="certification">Certifications</label>
-                                        <input #fileInput id="certification" type='file'
-                                            (click)="fileInput.value = null" value="" formControlName="certification">
+                                        <app-upload-files (onFileUpload)="handleCertificationsUpload($event)"
+                                            (onFileRemove)="handleCertificationsRemove($event)"
+                                            [files]="certifications">
+                                        </app-upload-files>
+
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +212,8 @@
                                         <label for="finishedStatus">Finished Or Semi Or Unfinished</label>
                                         <select class="form-control" id="finishedStatus"
                                             formControlName="finishedStatus">
-                                            <option value="" disabled selected>Choose Product's State</option>
+                                            <option value="" disabled selected="selected">Choose Product's State
+                                            </option>
                                             <option value="Finished">Finished</option>
                                             <option value="No">Semi</option>
                                             <option value="Unfinished">Unfinished</option>
