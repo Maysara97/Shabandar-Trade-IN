@@ -20,7 +20,7 @@
                             <div class="col-4">
                                 <label for="categoryId">Product Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId"
-                                    [(ngModel)]="categorySelected">
+                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
                                     <option value="" disabled selected="selected">Choose Product's Category</option>
                                     <option *ngFor="let category of categories" value="{{category.categoryId}}">
                                         {{category.categoryName}}</option>

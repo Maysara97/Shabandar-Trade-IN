@@ -1,6 +1,6 @@
 <!-- Register Area -->
 <div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0e1234;">
-    <div class="container">
+    <div class="container" *ngIf="updateUserData">
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-lg-8">
                 <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit(editProfileForm.value)"
@@ -23,13 +23,14 @@
                                     <label for="contactEmail">Contact Email</label>
                                     <br />
                                     <input type="text" id="contactEmail" name="contactEmail"
-                                        formControlName="contactEmail" placeholder="Contact Email" />
+                                        [(ngModel)]="updateUserData.accountAdministrators[0].email"
+                                        formControlName="contactEmail" />
                                 </div>
                                 <div class="col-6">
                                     <label for="accountWebsite">Account Website</label>
                                     <br />
                                     <input type="text" id="accountWebsite" name="accountWebsite"
-                                        formControlName="accountWebsite" placeholder="Account Website" />
+                                        [(ngModel)]="updateUserData.accountWebsite" formControlName="accountWebsite" />
                                 </div>
                             </div>
                         </div>
@@ -38,15 +39,15 @@
                                 <div class="col-6">
                                     <label for="accountName">Company Name</label>
                                     <br />
-                                    <input type="text" id="accountName" formControlName="accountName" name="accountName"
-                                        placeholder="Account Name" />
+                                    <input type="text" id="accountName" formControlName="accountName"
+                                        [(ngModel)]="updateUserData.accountName" name="accountName" />
 
                                 </div>
                                 <div class="col-6">
                                     <label for="accountMobile">Account Mobile</label>
                                     <br />
                                     <input type="tel" name="accountMobile" id="accountMobile"
-                                        formControlName="accountMobile" placeholder="Account Mobile" />
+                                        [(ngModel)]="updateUserData.accountMobile" formControlName="accountMobile" />
 
                                 </div>
                             </div>
@@ -57,7 +58,7 @@
                                 <div class="col-12">
                                     <label for="countryId">Country</label> <br />
                                     <select class="mdb-select md-form" formControlName="countryId"
-                                        style="text-transform: uppercase;">
+                                        style="text-transform: uppercase;" [(ngModel)]="updateUserData.countryId">
                                         <option value="" disabled selected>Choose your country</option>
                                         <option *ngFor="let country of countries" value="{{country.id}}">
                                             {{country.name}}</option>
@@ -74,13 +75,13 @@
                                     <label for="mission">Mission</label>
                                     <br />
                                     <input type="text" id="mission" formControlName="mission" name="mission"
-                                        placeholder="Mission" />
+                                        [(ngModel)]="updateUserData.mission" />
                                 </div>
                                 <div class="col-6">
                                     <label for="vission">Vision</label>
                                     <br />
                                     <input type="text" name="vission" id="vission" formControlName="vission"
-                                        placeholder="Vision" />
+                                        [(ngModel)]="updateUserData.vission" />
                                 </div>
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                         <div class="form-group tm-form-field">
                             <label for="description">Account Description</label>
                             <textarea class="form-control" id="description" rows="3" formControlName="description"
-                                placeholder="Add a Description"></textarea>
+                                [(ngModel)]="updateUserData.description"></textarea>
                         </div>
 
                         <div class="form-group tm-form-field">

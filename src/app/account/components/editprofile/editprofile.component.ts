@@ -41,21 +41,19 @@ export class EditprofileComponent implements OnInit {
             this.countries = result.data
         })
 
-        this.profileData = this.auth.accountInfo
+        // Get Account Data
+        this.auth.getAccountDetails().subscribe((result: any) => {
+            this.updateUserData = result.data
+        })
+
         this.editProfileForm = this.formBuilder.group({
             accountImage: [],
-            accountMobile: [
-                null,
-                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-            ],
-            accountName: [
-                null,
-                [Validators.required, Validators.pattern('^[a-zA-Z]+$')],
-            ],
+            accountMobile: [],
+            accountName: [],
             accountAttachments: [],
             contactEmail: [],
             accountWebsite: [],
-            countryId: [null, Validators.required],
+            countryId: [],
             mission: [],
             vission: [],
             description: [],

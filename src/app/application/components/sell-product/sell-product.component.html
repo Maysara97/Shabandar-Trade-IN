@@ -3,20 +3,19 @@
         <div class="row">
             <div class="input-group">
                 <select name="demo" id="productSelect" style="width: 12%;">
-                    <option selected="selected" value="one">Products</option>
+                    <option selected="selected" value="">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
                 </select>
-                <!-- [(ngModel)]="term" -->
-                <input type="text" class="form-control input-search" name="search" (keyup)="applyFilter()"
-                    [(ngModel)]="searchKeyWord" placeholder="What are you looking for?" style="width: 30%;"
-                    aria-label="What are you looking for?" aria-describedby="basic-addon2" />
-                <button class="btn searchButton" type="button">
+                <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
+                    placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
+                    aria-describedby="basic-addon2" />
+                <button class="btn searchButton" type="button" (click)="applyFilter()">
                     Search
                 </button>
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;"
                     [(ngModel)]="countryId">
-                    <option selected="selected">Country</option>
+                    <option selected="selected" disabled="disabled" value="">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
@@ -42,13 +41,12 @@
             <div class="col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="row">
                     <!-- Single Product -->
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
-                        *ngFor="let product of accountProducts | paginate: { itemsPerPage: 6, currentPage: page }">
-                        <!--To apply search functionality-->
-                        <!-- *ngFor="let item of filterData | filter: term" -->
+                    <!-- | paginate: { itemsPerPage: 6, currentPage: page }" -->
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of accountProducts">
                         <div class="tm-product">
                             <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
+                                <a class="tm-product-imagelink"
+                                    [routerLink]="['/application/product-details', product.accountProductId]">
                                     <img style="width: 270px; height: 250px;"
                                         [src]="getFilePath(product.productImages[0])" alt="{{product.productName}}" />
                                 </a>
@@ -73,6 +71,9 @@
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
+                            <div class="product-desc">
+                                <p>{{product.description | slice : 0 : 80}}</p>
+                            </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ product.categoryName }}</p>
@@ -89,12 +90,14 @@
                 </div>
             </div>
         </div>
-        <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls>
+        <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
 
-        <!-- <div class="d-flex justify-content-end p-2 w-100">
-            <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-                (page)="handleOnPageChange($event)">
-            </mat-paginator>
-        </div> -->
+        <div class="d-flex justify-content-end p-2 w-100">
+            <mat-toolbar-row>
+                <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                    (page)="handleOnPageChange($event)">
+                </mat-paginator>
+            </mat-toolbar-row>
+        </div>
+
     </div>
-</div>

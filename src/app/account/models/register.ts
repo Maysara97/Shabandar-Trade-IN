@@ -37,4 +37,8 @@ export class Account {
     description?: string
     accountWebsite?: string
     accountAttachments?: string[] = []
+    isFavorite?: boolean
+    favoriteId?: string
+    status?: number
+    accountAdministrators: Administrator[]
 }

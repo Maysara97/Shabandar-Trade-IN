@@ -20,6 +20,8 @@ import { Country } from '../../models/country'
 })
 export class AddProductFormComponent implements OnInit {
     categorySelected
+    productSelected
+    countrySelected
     submitted = false
     data = false
     message: string
@@ -80,6 +82,9 @@ export class AddProductFormComponent implements OnInit {
         //     this.products = result.data
         // })
 
+        this.categorySelected = -1
+        this.productSelected = -1
+        this.countrySelected = -1
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data

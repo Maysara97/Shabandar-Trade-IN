@@ -16,10 +16,11 @@ import { NgSelectModule } from '@ng-select/ng-select'
 import { MatSelectModule } from '@angular/material/select'
 import { SharedModule } from '../shared/shared.module'
 import { ProductDetailsComponent } from './components/product-details/product-details.component'
-// import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatToolbarModule } from '@angular/material/toolbar'
 import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
-import { NgxPaginationModule } from 'ngx-pagination'
+// import { NgxPaginationModule } from 'ngx-pagination'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 
 @NgModule({
@@ -43,9 +44,10 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
         NgSelectModule,
         MatSelectModule,
         SharedModule,
-        // MatPaginatorModule,
+        MatPaginatorModule,
         MultiSelectAllModule,
-        NgxPaginationModule,
+        // NgxPaginationModule,
+        MatToolbarModule,
         BsDatepickerModule.forRoot(),
     ],
 })

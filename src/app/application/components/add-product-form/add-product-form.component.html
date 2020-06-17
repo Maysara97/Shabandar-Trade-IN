@@ -12,7 +12,9 @@
                                 <label for="categoryId">Product Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId" #mySelect
                                     [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
-                                    <option value="" disabled selected="selected">Choose Product's Category</option>
+                                    <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Product's
+                                        Category
+                                    </option>
                                     <option *ngFor="let category of categories" value={{category.categoryId}}>
                                         {{category.categoryName}}</option>
                                 </select>
@@ -23,8 +25,9 @@
                             </div>
                             <div class="col-6">
                                 <label for="productId">Product Name</label>
-                                <select class="form-control" id="productId" formControlName="productId">
-                                    <option value="" disabled selected="selected">Choose your Product</option>
+                                <select class="form-control" id="productId" formControlName="productId"
+                                    [(ngModel)]="productSelected">
+                                    <option [ngValue]="-1" disabled selected="selected">Choose your Product</option>
                                     <option *ngFor="let product of products" value="{{product.productId}}">
                                         {{product.productName}}</option>
                                 </select>
@@ -42,8 +45,9 @@
                             <div class="col-6">
                                 <label for="location">Country</label>
                                 <select class="form-control" id="countries" formControlName="location"
-                                    style="text-transform: capitalize;">
-                                    <option value="" disabled selected="selected">Choose Product's Country</option>
+                                    style="text-transform: capitalize;" [(ngModel)]="countrySelected">
+                                    <option [ngValue]="-1" disabled selected="selected">Choose Product's Country
+                                    </option>
                                     <option *ngFor="let country of countries" value="{{country.id}}">
                                         {{country.name}}</option>
                                 </select>

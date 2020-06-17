@@ -111,4 +111,8 @@ export class AuthService extends BaseService<any> {
     updatePassword(body): Observable<any> {
         return this.post('Authorization/ChangePassword', body)
     }
+
+    getAccountDetails(): Observable<Account> {
+        return this.get('Account/GetMyAccount')
+    }
 }

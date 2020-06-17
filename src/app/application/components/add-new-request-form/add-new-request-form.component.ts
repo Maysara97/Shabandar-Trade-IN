@@ -64,9 +64,9 @@ export class AddNewRequestFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.productService.getAllProducts().subscribe((result: any) => {
-            this.products = result.data
-        })
+        // this.productService.getAllProducts().subscribe((result: any) => {
+        //     this.products = result.data
+        // })
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
@@ -125,6 +125,15 @@ export class AddNewRequestFormComponent implements OnInit {
         this.addBuyingRequestForm.patchValue({
             image: files[0].imageFile,
         })
+    }
+
+    handleOnCategoryChange() {
+        // Bind Products by Category
+        this.productService
+            .getProductsByCategory(this.categorySelected)
+            .subscribe((result: any) => {
+                this.products = result.data
+            })
     }
 
     onSubmit(requestProduct) {

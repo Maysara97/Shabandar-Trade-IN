@@ -3,7 +3,7 @@
         <div class="row">
             <div class="input-group">
                 <select name="demo" id="productSelect">
-                    <option selected="selected" value="one">Products</option>
+                    <option selected="selected" value="">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
                 </select>
@@ -15,7 +15,7 @@
                     Search
                 </button>
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;">
-                    <option selected="selected" style="text-transform: capitalize;">Country</option>
+                    <option selected="selected" value="" style="text-transform: capitalize;">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
@@ -38,14 +38,16 @@
                 <div class="row">
                     <!-- *ngFor="let product of products" -->
                     <!-- Single Product -->
+                    <!-- | paginate: { itemsPerPage: 6, currentPage: page } -->
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
-                        *ngFor="let requestProduct of buyingRequestProducts | paginate: { itemsPerPage: 6, currentPage: page }">
+                        *ngFor="let requestProduct of buyingRequestProducts">
                         <!--To apply search functionality-->
                         <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
                             <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img [src]="getFilePath(requestProduct.image)"
+                                <a class="tm-product-imagelink"
+                                    [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]">
+                                    <img style="width: 270px; height: 250px;" [src]="getFilePath(requestProduct.image)"
                                         alt="{{requestProduct.productName}}" />
                                     <!-- <img [src]="getFilePath(requestProduct.images[0])"
                                         alt="{{requestProduct.productName}}" /> -->
@@ -65,6 +67,9 @@
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
+                            <div class="product-desc">
+                                <p>{{requestProduct.description | slice : 0 : 80}}</p>
+                            </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ requestProduct.categoryName}}</p>
@@ -81,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls>
+        <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
 
         <!-- <div fxFlex fxlayout="row" fxlayout.lt-md="column">
             <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"

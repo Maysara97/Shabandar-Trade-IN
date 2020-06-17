@@ -32,7 +32,7 @@ export class SellProductComponent implements OnInit {
     pageNumber = 1
     pageSize = 6
     searchKeyWord = ''
-    categoryId = ''
+    categoryId = '00000000-0000-0000-0000-000000000000'
     countryId = ''
     dateFrom = ''
     dateTo = ''
@@ -84,11 +84,11 @@ export class SellProductComponent implements OnInit {
         this.getAccountProducts(
             this.pageSize,
             this.pageNumber,
-            this.searchKeyWord,
-            this.countryId,
-            this.categoryId,
-            this.dateFrom,
-            this.dateTo
+            '',
+            '',
+            '',
+            '',
+            ''
         )
     }
 

@@ -87,8 +87,8 @@ export class AccountProductService extends BaseService<any> {
         dateFrom: string,
         dateTo: string
     ) {
-        return this.getAllResult(
-            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}/${searchKeyWord}/${categoryId}/${countryId}/${dateFrom}/${dateTo}`
+        return this.getAll(
+            `AccountProduct/AccountProductsSearch/?searchKeyWord=${searchKeyWord}/${categoryId}/${countryId}/${dateFrom}/${dateTo}/${pageSize}/${pageNumber}`
         )
     }
 }
