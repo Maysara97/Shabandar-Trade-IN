@@ -74,21 +74,22 @@
                                 <div class="col-6">
                                     <label for="mission">Mission</label>
                                     <br />
-                                    <input type="text" id="mission" formControlName="mission" name="mission"
-                                        [(ngModel)]="updateUserData.mission" />
+                                    <textarea class="form-control" id="mission" rows="3" formControlName="mission"
+                                        [(ngModel)]="updateUserData.mission"></textarea>
                                 </div>
                                 <div class="col-6">
                                     <label for="vission">Vision</label>
                                     <br />
-                                    <input type="text" name="vission" id="vission" formControlName="vission"
-                                        [(ngModel)]="updateUserData.vission" />
+                                    <textarea class="form-control" id="vission" rows="3" formControlName="vission"
+                                        [(ngModel)]="updateUserData.vission"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group tm-form-field">
                             <label for="accountAttachments">Account Attachments</label>
                             <app-upload-files (onFileUpload)="handleFileUpload($event)"
-                                (onFileRemove)="handleFileRemove($event)" [multiple]="true" [files]="files">
+                                (onFileRemove)="handleFileRemove($event)" [multiple]="true" [files]="files"
+                                [(ngModel)]="updateUserData.accountAttachments">
                             </app-upload-files>
                         </div>
                         <div class="form-group tm-form-field">

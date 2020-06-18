@@ -36,21 +36,14 @@
             </div>
             <div class="col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="row">
-                    <!-- *ngFor="let product of products" -->
-                    <!-- Single Product -->
-                    <!-- | paginate: { itemsPerPage: 6, currentPage: page } -->
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
                         *ngFor="let requestProduct of buyingRequestProducts">
-                        <!--To apply search functionality-->
-                        <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
                             <div class="tm-product-image">
                                 <a class="tm-product-imagelink"
                                     [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]">
                                     <img style="width: 270px; height: 250px;" [src]="getFilePath(requestProduct.image)"
                                         alt="{{requestProduct.productName}}" />
-                                    <!-- <img [src]="getFilePath(requestProduct.images[0])"
-                                        alt="{{requestProduct.productName}}" /> -->
 
                                 </a>
                             </div>
@@ -62,12 +55,12 @@
 
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
-                                <p>
-                                    {{requestProduct.accountName}}
+                                <p> <i class="fa fa-building" aria-hidden="true"></i>
+                                    &nbsp; {{requestProduct.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
-                            <div class="product-desc">
+                            <div class="product-desc" *ngIf="requestProduct.description">
                                 <p>{{requestProduct.description | slice : 0 : 80}}</p>
                             </div>
                             <div class="buttons mt-3">
@@ -75,7 +68,7 @@
                                     <p>{{ requestProduct.categoryName}}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
-                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
                                     &nbsp; Send Message
                                 </button>
                                 <div style="clear: both;"></div>
@@ -88,10 +81,13 @@
         </div>
         <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
 
-        <!-- <div fxFlex fxlayout="row" fxlayout.lt-md="column">
-            <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-                (page)="handleOnPageChange($event)">
-            </mat-paginator>
+        <!-- <div class="d-flex justify-content-end p-2 w-100 mt-5">
+            <mat-toolbar-row>
+                <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                    (page)="handleOnPageChange($event)">
+                </mat-paginator>
+            </mat-toolbar-row>
         </div> -->
+
     </div>
 </div>

@@ -10,9 +10,7 @@
                 <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
                     placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
                     aria-describedby="basic-addon2" />
-                <button class="btn searchButton" type="button" (click)="applyFilter()">
-                    Search
-                </button>
+
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;"
                     [(ngModel)]="countryId">
                     <option selected="selected" disabled="disabled" value="">Country</option>
@@ -23,6 +21,9 @@
                     [(ngModel)]="dateFrom">
                 <input type="text" placeholder="Date To" class="form-control dateFrom" bsDatepicker
                     [(ngModel)]="dateTo">
+                <button class="btn searchButton" type="button" (click)="applyFilter()">
+                    Search
+                </button>
                 <h6 class="text-center m-3">Find Your Needs</h6>
             </div>
         </div>
@@ -38,7 +39,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-7 col-sm-12 col-12">
+            <div class="col-lg-9 col-md-7 col-sm-12 col-12" *ngIf="accountProducts.length">
                 <div class="row">
                     <!-- Single Product -->
                     <!-- | paginate: { itemsPerPage: 6, currentPage: page }" -->
@@ -71,14 +72,14 @@
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
-                            <div class="product-desc">
+                            <div class="product-desc" *ngIf="product.description">
                                 <p>{{product.description | slice : 0 : 80}}</p>
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ product.categoryName }}</p>
                                 </div>
-                                <button class="email-btn" style="float: right;">
+                                <button class="email-btn" style="float: right;" (click)="favorite()">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     &nbsp; Send Message
                                 </button>
@@ -92,7 +93,7 @@
         </div>
         <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
 
-        <div class="d-flex justify-content-end p-2 w-100">
+        <div class="d-flex justify-content-end p-2 w-100 mt-5" *ngIf="accountProducts.length">
             <mat-toolbar-row>
                 <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
                     (page)="handleOnPageChange($event)">

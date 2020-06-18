@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment'
 import { Country } from '../../models/country'
 import { PageEvent } from '@angular/material/paginator'
 import { SearchAccountProduct } from '../../models/accountProduct-search'
+import { AccountData } from 'src/app/account/models/register'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
     selector: 'app-sell-product',
@@ -29,16 +31,18 @@ export class SellProductComponent implements OnInit {
     env: any
     page: number = 1
 
+    account: AccountData
+    // isFavorite = false
     pageNumber = 1
-    pageSize = 6
+    pageSize = 3
     searchKeyWord = ''
-    categoryId = '00000000-0000-0000-0000-000000000000'
+    categoryId = ''
     countryId = ''
     dateFrom = ''
     dateTo = ''
     totalCount = 0
     pageEvent: PageEvent
-    pageSizeOptions: number[] = [6, 12]
+    pageSizeOptions: number[] = [3, 6, 12, 18, 24]
 
     searchAccountProduct: SearchAccountProduct
     constructor(
@@ -46,7 +50,8 @@ export class SellProductComponent implements OnInit {
         private router: Router,
         private accountProductService: AccountProductService,
         private productService: ProductService,
-        private countryService: CountryService
+        private countryService: CountryService,
+        private toastr: ToastrService
     ) {
         this.env = environment
     }
@@ -139,10 +144,14 @@ export class SellProductComponent implements OnInit {
                 dateTo
             )
             .subscribe((res: any) => {
-                if (res) {
+                if (res.isSucceeded) {
                     this.accountProducts = res.data
                     this.totalCount = res.totalRecords
                 }
             })
+    }
+
+    favorite() {
+        this.account.isFavorite = true
     }
 }

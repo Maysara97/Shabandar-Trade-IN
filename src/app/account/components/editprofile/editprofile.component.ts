@@ -2,7 +2,7 @@ import { ToastrService } from 'ngx-toastr'
 import { Component, OnInit } from '@angular/core'
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { NavigationEnd, Router } from '@angular/router'
-import { User, Account } from '../../models/register'
+import { User, AccountData } from '../../models/register'
 import { AccountsService } from '../../services/accounts.service'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { MustMatch } from '../../models/matchPassword'
@@ -21,7 +21,7 @@ export class EditprofileComponent implements OnInit {
     data = false
     message: string
     profileData: User
-    updateUserData: Account
+    updateUserData: AccountData
     imageUrl: string
     files: string[] = []
     images: string[] = []

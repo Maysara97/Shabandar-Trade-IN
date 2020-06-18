@@ -1,0 +1,29 @@
+@media (max-width: 768px) {
+    .tm-contact-content .form-control {
+        margin: 5px;
+        margin-left: 0px;
+    }
+    .widget-newsletter-form button,
+    .widget-newsletter-form [type='submit'] {
+        height: 50%;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+}
+@media (min-width: 768px) {
+    .tm-contact-content .form-control {
+        margin: 10px;
+    }
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #c0972e;
+}
+
+input {
+    color: #c0972e;
+}

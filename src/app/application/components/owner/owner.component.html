@@ -48,7 +48,7 @@
                                         <li><b>Email :</b> {{userDetails.accountAdministrators[0].email}}</li>
                                         <li><b>Account Name :</b> {{userDetails.accountName}}</li>
                                         <li><b>Account Mobile :</b> {{userDetails.accountMobile}}</li>
-                                        <li><b>Country Name :</b> {{userDetails.countryId}}</li>
+                                        <li><b>Country Name :</b> {{userDetails.countryName}}</li>
                                         <li><b>Account Website :</b> <a target="_blank"
                                                 [href]="userDetails.accountWebsite">{{userDetails.accountWebsite}}</a>
                                         </li>
@@ -70,7 +70,7 @@
                     </p>
                 </div>
                 <div class="col-12 mt-3">
-                    <h6 class="text-left">Account Attachment</h6>
+                    <h6 class="text-left mb-3">Account Attachment</h6>
                     <a *ngFor="let attachment of userDetails.accountAttachments" [href]="getFilePath(attachment) "
                         alt="Product Attachments" target="_blank">
                         &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
