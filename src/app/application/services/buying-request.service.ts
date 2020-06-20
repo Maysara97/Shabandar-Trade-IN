@@ -10,14 +10,43 @@ export class BuyingRequestService extends BaseService<any> {
     }
 
     createBuyingRequest(
-        buyingRequest: BuyingRequest
+        buyingRequest: BuyingRequest,
+        tagResult,
+        coverageResult,
+        agentsResult
     ): Observable<BuyingRequest> {
         const body = {
             productId: buyingRequest.productId,
-            description: buyingRequest.description,
+            categoryId: buyingRequest.categoryId,
             title: buyingRequest.title,
-            images: buyingRequest.images,
+            image: buyingRequest.image,
+            location: buyingRequest.location,
+            size: buyingRequest.size,
+            wieght: buyingRequest.wieght,
+            packing: buyingRequest.packing,
+            certification: buyingRequest.certification,
+            type: buyingRequest.type,
+            grade: buyingRequest.grade,
+            storage: buyingRequest.storage,
+            brandName: tagResult,
+            code: buyingRequest.code,
+            moq: buyingRequest.moq,
+            paymentTerms: buyingRequest.paymentTerms,
+            unitePrice: buyingRequest.unitePrice,
+            price: buyingRequest.price,
+            duration: buyingRequest.duration,
+            accomdationName: buyingRequest.accomdationName,
+            program: buyingRequest.program,
+            tripCategory: buyingRequest.tripCategory,
+            space: buyingRequest.space,
+            finishedStatus: buyingRequest.finishedStatus,
+            coverage: coverageResult,
+            serviceType: buyingRequest.serviceType,
+            agentsLocation: agentsResult,
+            softwares: buyingRequest.softwares,
+            description: buyingRequest.description,
         }
+        console.log(body)
         return this.post('BuyingRequest', body)
     }
     updateBuyingRequest(buyingRequest: BuyingRequest) {
@@ -32,18 +61,13 @@ export class BuyingRequestService extends BaseService<any> {
     restoreBuyingRequest(buyingRequestId: string) {
         return this.remove('BuyingRequest/Restore', buyingRequestId)
     }
-    getAllBuyingRequests(): Observable<BuyingRequest[]> {
+    getAllBuyingRequests() {
         return this.getAll('BuyingRequest/AllBuyingRequests')
     }
-    getBuyingRequestsByOwner(): Observable<BuyingRequest[]> {
+    getBuyingRequestsByOwner() {
         return this.getAll('BuyingRequest/BuyingRequestsByOwner')
     }
-
-    // Need from Developers api same as Webmaster /api/WebSite/AllWebSites/{pageSize}/{pageNumber}
-
-    // getBuyingRequests(pageSize: number, pageNumber: number, search: string) {
-    //     return this.getAllResult(
-    //         `Form/GetByWebSiteId/${pageSize}/${pageNumber}?search=${search}`
-    //     )
-    // }
+    getBuyingRequestById(buyingRequestId: string) {
+        return this.getById('BuyingRequest', buyingRequestId)
+    }
 }

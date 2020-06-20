@@ -62,7 +62,8 @@
         "no-output-on-prefix": false,
         "object-literal-shorthand": false,
         "no-inferrable-types": false,
-        "ban-types": false
+        "ban-types": false,
+        "max-line-length": false
     },
     "rulesDirectory": ["codelyzer"]
 }

@@ -26,15 +26,20 @@ export class Administrator {
     lastName?: string
 }
 
-export class Account {
+export class AccountData {
     accountId?: string
     accountName?: string
     accountMobile?: string
     countryId?: 0
+    countryName?: string
     accountImage?: string
     mission?: string
     vission?: string
     description?: string
     accountWebsite?: string
     accountAttachments?: string[] = []
+    isFavorite?: boolean
+    favoriteId?: string
+    status?: number
+    accountAdministrators: Administrator[]
 }

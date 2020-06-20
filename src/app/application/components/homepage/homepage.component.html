@@ -3,7 +3,7 @@
         <div class="row">
             <div class="input-group">
                 <select name="demo" id="productSelect">
-                    <option selected="selected" value="one">Products</option>
+                    <option selected="selected" value="">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
                 </select>
@@ -15,7 +15,7 @@
                     Search
                 </button>
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;">
-                    <option selected="selected" style="text-transform: capitalize;">Country</option>
+                    <option selected="selected" value="" style="text-transform: capitalize;">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
@@ -36,19 +36,14 @@
             </div>
             <div class="col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="row">
-                    <!-- *ngFor="let product of products" -->
-                    <!-- Single Product -->
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
                         *ngFor="let requestProduct of buyingRequestProducts">
-                        <!--To apply search functionality-->
-                        <!-- *ngFor="let item of filterData | filter: term" -->
                         <div class="tm-product">
                             <div class="tm-product-image">
-                                <a class="tm-product-imagelink" href="#">
-                                    <img style="width: 270px; height: 250px;" src="assets/images/You-Trade-In/white.jpg"
-                                        alt="product image" />
-                                    <!-- <img [src]="getFilePath(requestProduct.images[0])"
-                                        alt="{{requestProduct.productName}}" /> -->
+                                <a class="tm-product-imagelink"
+                                    [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]">
+                                    <img style="width: 270px; height: 250px;" [src]="getFilePath(requestProduct.image)"
+                                        alt="{{requestProduct.productName}}" />
 
                                 </a>
                             </div>
@@ -60,18 +55,21 @@
 
                             <div class="supplier-name">
                                 <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
-                                <p>
-                                    {{requestProduct.accountName}}
+                                <p> <i class="fa fa-building" aria-hidden="true"></i>
+                                    &nbsp; {{requestProduct.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
+                            </div>
+                            <div class="product-desc" *ngIf="requestProduct.description">
+                                <p>{{requestProduct.description | slice : 0 : 80}}</p>
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ requestProduct.categoryName}}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    Send Email
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                    &nbsp; Send Message
                                 </button>
                                 <div style="clear: both;"></div>
                             </div>
@@ -81,11 +79,15 @@
                 </div>
             </div>
         </div>
-        <!-- <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
 
-            <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-                (page)="handleOnPageChange($event)">
-            </mat-paginator>
+        <!-- <div class="d-flex justify-content-end p-2 w-100 mt-5">
+            <mat-toolbar-row>
+                <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                    (page)="handleOnPageChange($event)">
+                </mat-paginator>
+            </mat-toolbar-row>
         </div> -->
+
     </div>
 </div>

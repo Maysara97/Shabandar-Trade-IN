@@ -426,3 +426,54 @@
     color: #fff;
     text-decoration: none;
 }
+
+.avatar-data .tm-portfoliodetails-description p {
+    color: #fff;
+}
+.avatar-data .tm-portfoliodetails-description a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.avatar-data .tm-portfoliodetails-description a:hover {
+    color: #0e1234;
+}
+
+.avatar-data .tm-portfoliodetails-info li {
+    color: #c0972e;
+    font-weight: 600;
+}
+
+.avatar-data .tm-portfoliodetails-info li b {
+    color: #000;
+}
+.avatar-data .tm-portfoliodetails-description a {
+    background-color: #c0972e;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.avatar-des a {
+    color: #fff;
+}
+.avatar-des a:hover {
+    color: #0e1234;
+    text-decoration: none;
+}
+
+.avatar-img {
+    background-color: #c0972e;
+    /* padding-left: 80px; */
+    padding-top: 120px;
+    border-radius: 50%;
+    height: 350px;
+    text-align: center;
+    border: 4px solid #fff;
+}
+
+.avatar-des a {
+    background-color: #c0972e;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}

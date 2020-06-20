@@ -1,0 +1,95 @@
+<!-- Portfolio Details Area -->
+<div class="tm-section portfolio-details-area tm-padding-section" style="background-color: #0e1234;">
+    <div class="container">
+        <div class="tm-portfoliodetails" *ngIf="buyingRequestDetails">
+            <div class="tm-portfoliodetails-image" style="margin-left: 15%;">
+
+                <img style="width: 250px; height: 250px; padding: 10px;" [src]="getFilePath(buyingRequestDetails.image)"
+                    alt="{{buyingRequestDetails.productName}}">
+            </div>
+            <div class="tm-portfoliodetails-content tm-padding-section-sm-top">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="tm-portfoliodetails-info" style="background-color: #fff;">
+                            <ul>
+                                <li><b>Product Name :</b> {{buyingRequestDetails.productName}}</li>
+                                <li><b>Title :</b> {{buyingRequestDetails.title}}</li>
+                                <li><b>Category Name :</b> {{buyingRequestDetails.categoryName}}</li>
+                                <li><b>Account Name :</b> {{buyingRequestDetails.accountName}}</li>
+                                <li><b>Country Name :</b> {{buyingRequestDetails.countryName}}</li>
+                                <li *ngIf="buyingRequestDetails.size"><b>Size :</b>{{buyingRequestDetails.size}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.wieght"><b>Wieght :</b>
+                                    {{buyingRequestDetails.wieght}}</li>
+                                <li *ngIf="buyingRequestDetails.packing"><b>Packing Way
+                                        :</b>{{buyingRequestDetails.packing}} </li>
+                                <li *ngIf="buyingRequestDetails.certification"><b>Certification
+                                        :</b><a [href]="getFilePath(buyingRequestDetails.certification)"
+                                        target="_blank">{{buyingRequestDetails.certification}}
+                                    </a></li>
+                                <li *ngIf="buyingRequestDetails.type"><b>Type :</b>{{buyingRequestDetails.type}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.grade"><b>Grade
+                                        :</b>{{buyingRequestDetails.grade}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.storage"><b>Storage
+                                        :</b>{{buyingRequestDetails.storage}} </li>
+                                <li *ngIf="buyingRequestDetails.brandName.length > 0"><b>Brand Names
+                                        :</b>
+                                    <div style="display: inline-block;"
+                                        *ngFor="let brand of buyingRequestDetails.brandName">&nbsp; {{brand}}
+                                    </div>
+                                </li>
+                                <li *ngIf="buyingRequestDetails.code"><b>Code :</b>{{buyingRequestDetails.code}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.moq"><b>MOQ :</b>{{buyingRequestDetails.moq}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.paymentTerms"><b>Payment Terms
+                                        :</b>{{buyingRequestDetails.paymentTerms}} </li>
+                                <li *ngIf="buyingRequestDetails.price"><b>Price
+                                        :</b>{{buyingRequestDetails.price}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.unitePrice"><b>Unite Price
+                                        :</b>{{buyingRequestDetails.unitePrice}} </li>
+                                <li *ngIf="buyingRequestDetails.duration"><b>Duration :</b>
+                                    {{buyingRequestDetails.duration}}</li>
+                                <li *ngIf="buyingRequestDetails.accomdationName"><b>Accomdation Name
+                                        :</b>{{buyingRequestDetails.accomdationName}} </li>
+                                <li *ngIf="buyingRequestDetails.program"><b>Program
+                                        :</b>{{buyingRequestDetails.program}} </li>
+                                <li *ngIf="buyingRequestDetails.tripCategory"><b>Trip Category
+                                        :</b>{{buyingRequestDetails.tripCategory}} </li>
+                                <li *ngIf="buyingRequestDetails.space"><b>Space
+                                        :</b>{{buyingRequestDetails.space}}
+                                </li>
+                                <li *ngIf="buyingRequestDetails.finishedStatus"><b>Finished Status
+                                        :</b>{{buyingRequestDetails.finishedStatus}} </li>
+                                <li *ngIf="buyingRequestDetails.coverage.length > 0"><b>Coverage
+                                        :</b>
+                                    <div style="display: inline-block;"
+                                        *ngFor="let coverage of buyingRequestDetails.coverage">&nbsp; {{coverage}}
+                                    </div>
+                                </li>
+                                <li *ngIf="buyingRequestDetails.agentsLocation.length > 0"><b>Agents Locations
+                                        :</b>
+                                    <div style="display: inline-block;"
+                                        *ngFor="let agent of buyingRequestDetails.agentsLocation">&nbsp; {{agent}}
+                                    </div>
+                                </li>
+                                <li *ngIf="buyingRequestDetails.softwares"><b>Softwares
+                                        :</b>{{buyingRequestDetails.softwares}} </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="tm-portfoliodetails-description">
+                            <h3>Product Description</h3>
+                            <p>{{buyingRequestDetails.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// Portfolio Details Area -->

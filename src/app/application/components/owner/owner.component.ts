@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { User, Administrator } from 'src/app/account/models/register'
+import {
+    User,
+    Administrator,
+    AccountData,
+} from 'src/app/account/models/register'
 import { Observable } from 'rxjs'
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
@@ -18,13 +22,11 @@ import { environment } from 'src/environments/environment'
 })
 export class OwnerComponent implements OnInit {
     user: User
-    userAdministrator: Administrator
-    loggedUser$: Observable<User>
-    isLoggedIn
 
+    userDetails: AccountData
     accountProducts: AccountProduct[]
     buyingProducts: BuyingRequest[]
-
+    env: any
     product: Product[] = []
     customOptions: any = {
         loop: true,
@@ -75,7 +77,7 @@ export class OwnerComponent implements OnInit {
         },
         nav: true,
     }
-    env: any
+
     constructor(
         private router: Router,
         private auth: AuthService,
@@ -93,9 +95,10 @@ export class OwnerComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
-        this.userAdministrator = this.auth.accountAdminastratorInfo
-        this.user = this.auth.accountInfo
 
+        this.auth.getAccountDetails().subscribe((result: any) => {
+            this.userDetails = result.data
+        })
         this.accountProductService
             .getAccountProductsByOwner()
             .subscribe((result: any) => {

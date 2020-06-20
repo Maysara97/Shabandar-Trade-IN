@@ -1,7 +1,11 @@
 import { BaseService } from './../core/base.service'
 import { Injectable, Injector } from '@angular/core'
 import { map } from 'rxjs/operators'
-import { User, Administrator, Account } from 'src/app/account/models/register'
+import {
+    User,
+    Administrator,
+    AccountData,
+} from 'src/app/account/models/register'
 import { AccountsService } from 'src/app/account/services/accounts.service'
 import { Observable, BehaviorSubject } from 'rxjs'
 import { JwtHelperService } from '@auth0/angular-jwt'
@@ -89,7 +93,7 @@ export class AuthService extends BaseService<any> {
         return this.post('Account', body)
     }
 
-    updateProfile(account: Account): Observable<any> {
+    updateProfile(account: AccountData): Observable<any> {
         const body = {
             accountName: account.accountName,
             accountMobile: account.accountMobile,
@@ -110,5 +114,9 @@ export class AuthService extends BaseService<any> {
 
     updatePassword(body): Observable<any> {
         return this.post('Authorization/ChangePassword', body)
+    }
+
+    getAccountDetails(): Observable<AccountData> {
+        return this.get('Account/GetMyAccount')
     }
 }

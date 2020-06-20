@@ -33,4 +33,9 @@ export class AccountProduct {
     description?: string
     productImages?: string[] = []
     attachments?: string[] = []
+    createdOn?: string
+    lastModifiedOn?: string
+    createdBy?: string
+    lastModifiedBy?: string
+    isDeleted?: string
 }

@@ -26,7 +26,7 @@ export class HomepageComponent implements OnInit {
     products: Product[]
     countries: Country[]
     filteredCategories = []
-
+    page: number = 1
     env: any
 
     pageNumber = 1

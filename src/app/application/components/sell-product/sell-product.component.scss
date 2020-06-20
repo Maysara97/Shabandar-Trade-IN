@@ -24,7 +24,7 @@
 .searchButton {
     background-color: #c0972e;
     color: #fff;
-    margin-right: 5px;
+    margin-left: 5px;
     height: 45px;
 }
 #countrySelect {
@@ -203,4 +203,55 @@
 
 mat-form-field {
     margin-right: 12px;
+}
+
+.my-paginator {
+    display: inline-flex;
+    float: right;
+}
+.my-paginator::ng-deep .ngx-pagination .current {
+    background-color: #c0972e !important;
+}
+
+.input-group > .form-control:not(:first-child),
+.input-group > .custom-select:not(:first-child) {
+    border-radius: 5px;
+    /* border-bottom-left-radius: 5px; */
+    border: 1px solid #c0972e;
+    background: #0e1234;
+    color: #fff !important;
+    height: 45px;
+}
+
+.dateFrom::placeholder {
+    color: #fff;
+}
+
+// .bsDatepicker::ng-deep .theme-green .bs-datepicker-head {
+//     background-color: #c0972e !important;
+// }
+::ng-deep .bs-datepicker-container .bs-datepicker-head {
+    background-color: #c0972e !important;
+}
+::ng-deep .bs-datepicker-container .bs-datepicker-head * {
+    color: #fff !important;
+}
+::ng-deep .theme-green .bs-datepicker-body table td.week span {
+    color: #c0972e;
+}
+
+::ng-deep .theme-green .bs-datepicker-body table td span.selected,
+.theme-green .bs-datepicker-body table td.selected span,
+.theme-green .bs-datepicker-body table td span[class*='select-']:after,
+.theme-green .bs-datepicker-body table td[class*='select-'] span:after {
+    background-color: #c0972e;
+}
+
+.product-desc {
+    font-size: 13px;
+    text-align: center;
+    color: #0e1234;
+    border: 1px solid #c0972e;
+    border-radius: 5px;
+    padding: 5px;
 }
