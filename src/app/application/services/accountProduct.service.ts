@@ -68,16 +68,6 @@ export class AccountProductService extends BaseService<any> {
         return this.getById('AccountProduct', accountProductId)
     }
 
-    // getAccountProducts(
-    //     pageSize: number,
-    //     pageNumber: number,
-    //     searchAccountProduct: SearchAccountProduct
-    // ) {
-    //     return this.post(
-    //         `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}`,
-    //         searchAccountProduct
-    //     )
-    // }
     getAccountProductSearch(
         pageSize: number,
         pageNumber: number,
@@ -88,7 +78,7 @@ export class AccountProductService extends BaseService<any> {
         dateTo: string
     ) {
         return this.getAll(
-            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}/?CategoryId=${categoryId}/?CountryId=${countryId}/?DateFrom=${dateFrom}/?DateTo=${dateTo}`
+            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
         )
     }
 }

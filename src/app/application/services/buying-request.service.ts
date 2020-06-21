@@ -18,6 +18,7 @@ export class BuyingRequestService extends BaseService<any> {
         const body = {
             productId: buyingRequest.productId,
             categoryId: buyingRequest.categoryId,
+            productName: buyingRequest.productName,
             title: buyingRequest.title,
             image: buyingRequest.image,
             location: buyingRequest.location,
@@ -69,5 +70,19 @@ export class BuyingRequestService extends BaseService<any> {
     }
     getBuyingRequestById(buyingRequestId: string) {
         return this.getById('BuyingRequest', buyingRequestId)
+    }
+
+    getBuyingRequestSearch(
+        pageSize: number,
+        pageNumber: number,
+        searchKeyWord: string,
+        categoryId: number,
+        countryId: number,
+        dateFrom: string,
+        dateTo: string
+    ) {
+        return this.getAll(
+            `BuyingRequest/BuyingRequestSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
+        )
     }
 }

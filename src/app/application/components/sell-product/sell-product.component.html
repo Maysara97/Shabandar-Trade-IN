@@ -18,7 +18,7 @@
                         {{country.name}}</option>
                 </select>
                 <input type="text" placeholder="Date From" class="form-control dateFrom" bsDatepicker
-                    [(ngModel)]="dateFrom">
+                    [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="dateFrom">
                 <input type="text" placeholder="Date To" class="form-control dateFrom" bsDatepicker
                     [(ngModel)]="dateTo">
                 <button class="btn searchButton" type="button" (click)="applyFilter()">
@@ -34,7 +34,7 @@
                     <h5>Categories</h5>
                     <ul>
                         <li *ngFor="let category of categories">
-                            <a href="#">{{ category.categoryName }}</a>
+                            <a (click)="onChooseCategory(category.categoryId)">{{ category.categoryName }}</a>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +79,7 @@
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ product.categoryName }}</p>
                                 </div>
-                                <button class="email-btn" style="float: right;" (click)="favorite()">
+                                <button class="email-btn" style="float: right;" (click)="favorite(isFavorite)">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     &nbsp; Send Message
                                 </button>

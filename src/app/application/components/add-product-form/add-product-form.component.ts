@@ -22,6 +22,9 @@ export class AddProductFormComponent implements OnInit {
     categorySelected
     productSelected
     countrySelected
+    unitePriceSelected
+    finishedStatusSelected
+
     submitted = false
     data = false
     message: string
@@ -85,6 +88,9 @@ export class AddProductFormComponent implements OnInit {
         this.categorySelected = -1
         this.productSelected = -1
         this.countrySelected = -1
+        this.unitePriceSelected = -1
+        this.finishedStatusSelected = -1
+
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
