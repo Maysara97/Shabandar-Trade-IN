@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
     products$: Observable<Product[]>
-    buyingRequestProducts: BuyingRequest[]
+    buyingRequestProducts: BuyingRequest[] = []
     categories: Category[]
     products: Product[]
     countries: Country[]
@@ -30,10 +30,16 @@ export class HomepageComponent implements OnInit {
     env: any
 
     pageNumber = 1
-    pageSize = 8
-    search = ''
+    pageSize = 6
+    searchKeyWord = ''
+    categoryId = ''
+    countryId = ''
+    dateFrom = ''
+    dateTo = ''
     totalCount = 0
-    pageSizeOptions: number[] = [8, 16, 24, 32, 40]
+    pageEvent: PageEvent
+    pageSizeOptions: number[] = [6, 9, 12, 15]
+
     constructor(
         private categoryService: CategoryService,
         private productService: ProductService,
@@ -65,26 +71,78 @@ export class HomepageComponent implements OnInit {
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
         })
+
+        // Get all Buying Requests when using Search Function
+        this.getBuyingRequests(
+            this.pageSize,
+            this.pageNumber,
+            '',
+            '',
+            '',
+            '',
+            ''
+        )
+
+        // Take the ID from Category on select
+        this.onChooseCategory(this.categoryId)
     }
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
-    // handleOnPageChange(pageEvent: PageEvent) {
-    //     this.getRequestedProducts(
-    //         pageEvent.pageSize,
-    //         pageEvent.pageIndex,
-    //         this.search
-    //     )
-    // }
-    // getRequestedProducts(pageSize, pageNumber, search) {
-    //     this.buyingRequestService
-    //         .getBuyingRequests(pageSize, pageNumber, search)
-    //         .subscribe((res) => {
-    //             if (res.isSucceeded) {
-    //                 this.buyingRequestProducts = res.data
 
-    //                 // this.totalCount = res.totalRecords
-    //             }
-    //         })
-    // }
+    handleOnPageChange(pageEvent: PageEvent) {
+        this.getBuyingRequests(
+            pageEvent.pageSize,
+            pageEvent.pageIndex + 1,
+            this.searchKeyWord,
+            this.countryId,
+            this.categoryId,
+            this.dateFrom,
+            this.dateTo
+        )
+        console.log(pageEvent)
+    }
+    applyFilter() {
+        this.getBuyingRequests(
+            this.pageSize,
+            this.page,
+            this.searchKeyWord,
+            this.categoryId,
+            this.countryId,
+            this.dateFrom,
+            this.dateTo
+        )
+    }
+
+    getBuyingRequests(
+        pageSize,
+        pageNumber,
+        searchKeyWord,
+        categoryId,
+        countryId,
+        dateFrom,
+        dateTo
+    ) {
+        this.buyingRequestService
+            .getBuyingRequestSearch(
+                pageSize,
+                pageNumber,
+                searchKeyWord,
+                categoryId,
+                countryId,
+                dateFrom,
+                dateTo
+            )
+            .subscribe((res: any) => {
+                if (res.isSucceeded) {
+                    this.buyingRequestProducts = res.data
+                    this.totalCount = res.totalRecords
+                }
+            })
+    }
+
+    onChooseCategory(category) {
+        this.categoryId = category
+        this.applyFilter()
+    }
 }

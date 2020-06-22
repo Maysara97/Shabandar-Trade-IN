@@ -82,7 +82,7 @@ export class BuyingRequestService extends BaseService<any> {
         dateTo: string
     ) {
         return this.getAll(
-            `BuyingRequest/BuyingRequestSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
+            `BuyingRequest/BuyingRequestSearch/${pageSize}/${pageNumber}?SearchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
         )
     }
 }

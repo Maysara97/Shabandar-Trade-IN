@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { HomeLayoutComponent } from '../home/home-layout/home-layout.component'
 import { SidebarComponent } from './sidebar/sidebar.component'
-import { AllProductsComponent } from './all-products/all-products.component'
-import { AllCategoriesComponent } from './all-categories/all-categories.component'
+import { InboxComponent } from './inbox/inbox.component'
+import { OutboxComponent } from './outbox/outbox.component'
+import { ArchivedComponent } from './archived/archived.component'
 
 const routes: Routes = [
     {
@@ -15,12 +16,16 @@ const routes: Routes = [
                 component: SidebarComponent,
                 children: [
                     {
-                        path: 'all-products',
-                        component: AllProductsComponent,
+                        path: 'inbox',
+                        component: InboxComponent,
                     },
                     {
-                        path: 'all-categories',
-                        component: AllCategoriesComponent,
+                        path: 'outbox',
+                        component: OutboxComponent,
+                    },
+                    {
+                        path: 'archived',
+                        component: ArchivedComponent,
                     },
                 ],
             },
@@ -32,4 +37,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class AdminLayoutRoutingModule {}
+export class MessageingRoutingModule {}

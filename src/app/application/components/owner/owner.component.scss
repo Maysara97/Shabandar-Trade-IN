@@ -306,17 +306,17 @@
     margin-bottom: 0;
 }
 
-.interests-area .tm-portfoliodetails-info > ul > li {
+.interests-area .tm-portfoliodetails-info li {
     list-style: none;
     font-size: 16px;
     color: #fff;
 }
 
-.interests-area .tm-portfoliodetails-info > ul > li:not(:last-child) {
+.interests-area .tm-portfoliodetails-info li:not(:last-child) {
     margin-bottom: 15px;
 }
 
-.interests-area .tm-portfoliodetails-info > ul > li b {
+.interests-area .tm-portfoliodetails-info li b {
     font-weight: 700;
     margin-right: 10px;
 }
@@ -445,6 +445,7 @@
 }
 
 .avatar-data .tm-portfoliodetails-info li b {
+    font-weight: 700;
     color: #000;
 }
 .avatar-data .tm-portfoliodetails-description a {
@@ -476,4 +477,22 @@
     padding: 5px;
     border-radius: 5px;
     margin-right: 10px;
+}
+
+.tm-portfoliodetails-info a {
+    color: #c0972e;
+}
+.tm-portfoliodetails-info a:hover {
+    color: #c0972e;
+}
+
+.messaging {
+    color: #c0972e;
+}
+.messaging:hover {
+    color: #ffffff;
+}
+
+.col-8 li {
+    list-style: none;
 }
