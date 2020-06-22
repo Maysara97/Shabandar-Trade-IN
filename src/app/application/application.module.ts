@@ -22,6 +22,7 @@ import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
 // import { NgxPaginationModule } from 'ngx-pagination'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
+import { MatTabsModule } from '@angular/material/tabs'
 
 @NgModule({
     declarations: [
@@ -49,6 +50,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
         // NgxPaginationModule,
         MatToolbarModule,
         BsDatepickerModule.forRoot(),
+        MatTabsModule,
     ],
 })
 export class ApplicationModule {}

@@ -14,6 +14,7 @@ import { PageEvent } from '@angular/material/paginator'
 import { SearchAccountProduct } from '../../models/accountProduct-search'
 import { AccountData } from 'src/app/account/models/register'
 import { ToastrService } from 'ngx-toastr'
+import { FavoriteService } from '../../services/favorite.service'
 
 @Component({
     selector: 'app-sell-product',
@@ -32,9 +33,9 @@ export class SellProductComponent implements OnInit {
     page: number = 1
 
     account: AccountData
-    // isFavorite = false
+    isFavorite = false
     pageNumber = 1
-    pageSize = 3
+    pageSize = 6
     searchKeyWord = ''
     categoryId = ''
     countryId = ''
@@ -42,7 +43,7 @@ export class SellProductComponent implements OnInit {
     dateTo = ''
     totalCount = 0
     pageEvent: PageEvent
-    pageSizeOptions: number[] = [3, 6, 12, 18, 24]
+    pageSizeOptions: number[] = [6, 9, 12, 15]
 
     searchAccountProduct: SearchAccountProduct
     constructor(
@@ -51,7 +52,8 @@ export class SellProductComponent implements OnInit {
         private accountProductService: AccountProductService,
         private productService: ProductService,
         private countryService: CountryService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private favoriteService: FavoriteService
     ) {
         this.env = environment
     }
@@ -95,6 +97,8 @@ export class SellProductComponent implements OnInit {
             '',
             ''
         )
+
+        this.onChooseCategory(this.categoryId)
     }
 
     getFilePath(fileName: string): string {
@@ -104,13 +108,14 @@ export class SellProductComponent implements OnInit {
     handleOnPageChange(pageEvent: PageEvent) {
         this.getAccountProducts(
             pageEvent.pageSize,
-            pageEvent.pageIndex,
+            pageEvent.pageIndex + 1,
             this.searchKeyWord,
             this.countryId,
             this.categoryId,
             this.dateFrom,
             this.dateTo
         )
+        console.log(pageEvent)
     }
     applyFilter() {
         this.getAccountProducts(
@@ -151,7 +156,13 @@ export class SellProductComponent implements OnInit {
             })
     }
 
-    favorite() {
-        this.account.isFavorite = true
+    favorite(isFavorite) {
+        this.favoriteService.createFavorite(isFavorite).subscribe((res) => {
+            this.account.isFavorite = true
+        })
+    }
+
+    onChooseCategory(category) {
+        this.categoryId = category
     }
 }

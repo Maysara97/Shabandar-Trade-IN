@@ -21,6 +21,12 @@ import { CountryService } from '../../services/country.service'
 })
 export class AddNewRequestFormComponent implements OnInit {
     categorySelected
+    productSelected
+    countrySelected
+    unitePriceSelected
+    finishedStatusSelected
+    anotherProductSelected
+
     submitted = false
     data = false
     message: string
@@ -82,8 +88,9 @@ export class AddNewRequestFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.addBuyingRequestForm = this.formBuilder.group({
-            productId: [null, [Validators.required]],
+            productId: [],
             title: [null, [Validators.required]],
+            productName: [],
             unitePrice: [null],
             image: [null],
             price: [null, [Validators.required]],
@@ -113,6 +120,12 @@ export class AddNewRequestFormComponent implements OnInit {
             softwares: [],
             tripCategory: [],
         })
+
+        this.productSelected = -1
+        this.categorySelected = -1
+        this.countrySelected = -1
+        this.unitePriceSelected = -1
+        this.finishedStatusSelected = -1
     }
 
     // Upload Image
@@ -134,6 +147,7 @@ export class AddNewRequestFormComponent implements OnInit {
             .subscribe((result: any) => {
                 this.products = result.data
             })
+        this.productSelected = -1
     }
 
     onSubmit(requestProduct) {
@@ -167,5 +181,9 @@ export class AddNewRequestFormComponent implements OnInit {
                     this.toastr.error(result.errors)
                 }
             })
+    }
+
+    selectProductSelectHandler(event: any) {
+        this.productSelected = event.target.value
     }
 }

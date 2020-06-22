@@ -151,3 +151,8 @@ p a:hover {
     background-color: #fff;
     color: #c0972e;
 }
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #c0972e;
+}

@@ -67,8 +67,10 @@
                             </div>
                             <div class="col-3">
                                 <label for="unitePrice">Unite Price</label>
-                                <select class="form-control" id="unitePrice" formControlName="unitePrice">
-                                    <option value="" disabled selected="selected">Choose Unite Price</option>
+                                <select class="form-control" id="unitePrice" formControlName="unitePrice"
+                                    [(ngModel)]="unitePriceSelected">
+                                    <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Unite Price
+                                    </option>
                                     <option value="1">$</option>
                                     <option value="2">EGY</option>
                                 </select>
@@ -215,8 +217,9 @@
                                     <div class="col-12">
                                         <label for="finishedStatus">Finished Or Semi Or Unfinished</label>
                                         <select class="form-control" id="finishedStatus"
-                                            formControlName="finishedStatus">
-                                            <option value="" disabled selected="selected">Choose Product's State
+                                            formControlName="finishedStatus" [(ngModel)]="finishedStatusSelected">
+                                            <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Product's
+                                                State
                                             </option>
                                             <option value="Finished">Finished</option>
                                             <option value="No">Semi</option>
