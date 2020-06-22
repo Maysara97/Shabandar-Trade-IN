@@ -2,23 +2,29 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <select name="demo" id="productSelect">
+                <select name="demo" id="productSelect" style="width: 12%;">
                     <option selected="selected" value="">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
                 </select>
                 <!-- [(ngModel)]="term" -->
-                <input type="text" class="form-control input-search" name="search"
-                    placeholder="What are you looking for?" aria-label="What are you looking for?"
-                    aria-describedby="basic-addon2" />
-                <button class="btn searchButton" type="button">
-                    Search
-                </button>
-                <select name="demo" id="countrySelect" style="text-transform: uppercase;">
+                <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
+                    placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
+                    aria-describedby="basic-addon2" (keyup)="applyFilter()" />
+                <select name="demo" id="countrySelect" style="text-transform: uppercase; width: 12%;"
+                    [(ngModel)]="countryId" (click)="applyFilter()">
                     <option selected="selected" value="" style="text-transform: capitalize;">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
+                <input type="text" placeholder="Date From" class="form-control dateFrom" bsDatepicker
+                    [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="dateFrom">
+                <input type="text" placeholder="Date To" class="form-control dateFrom" bsDatepicker
+                    [(ngModel)]="dateTo">
+
+                <button class="btn searchButton" type="button" (click)="applyFilter()">
+                    Search
+                </button>
                 <h6 class="text-center m-3">Find Your Needs</h6>
             </div>
         </div>
@@ -29,12 +35,12 @@
                     <h5>Categories</h5>
                     <ul>
                         <li *ngFor="let category of categories">
-                            <a href="#" data-toggle="popover">{{category.categoryName}}</a>
+                            <a (click)="onChooseCategory(category.categoryId)">{{category.categoryName}}</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-7 col-sm-12 col-12">
+            <div class="col-lg-9 col-md-7 col-sm-12 col-12" *ngIf="buyingRequestProducts.length">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
                         *ngFor="let requestProduct of buyingRequestProducts">
@@ -54,9 +60,11 @@
                             </div>
 
                             <div class="supplier-name">
-                                <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
-                                <p> <i class="fa fa-building" aria-hidden="true"></i>
-                                    &nbsp; {{requestProduct.accountName}}
+                                <!-- Country name -->
+                                <!-- <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" /> -->
+                                <p style="float: left; color: #0e1234;"><i class="fa fa-globe"
+                                        aria-hidden="true"></i>&nbsp;{{requestProduct.countryName}}</p>
+                                <p> {{requestProduct.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>
@@ -79,15 +87,15 @@
                 </div>
             </div>
         </div>
-        <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
 
-        <!-- <div class="d-flex justify-content-end p-2 w-100 mt-5">
+        <div class="d-flex justify-content-end p-2 w-100 mt-5" *ngIf="buyingRequestProducts.length">
             <mat-toolbar-row>
                 <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
                     (page)="handleOnPageChange($event)">
                 </mat-paginator>
             </mat-toolbar-row>
-        </div> -->
+        </div>
+
 
     </div>
 </div>

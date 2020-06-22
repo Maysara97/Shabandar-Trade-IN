@@ -38,13 +38,13 @@ export class OwnerComponent implements OnInit {
         navText: ['Prev', 'Next'],
         responsive: {
             0: {
-                items: 3,
+                items: 1,
             },
             400: {
                 items: 2,
             },
             740: {
-                items: 3,
+                items: 2,
             },
             940: {
                 items: 4,

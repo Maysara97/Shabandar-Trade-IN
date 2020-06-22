@@ -9,79 +9,306 @@
             </div>
             <div class="tm-portfoliodetails-content tm-padding-section-sm-top">
                 <div class="row">
-                    <div class="col-xl-5 col-lg-6">
+                    <div class="col-xl-6 col-lg-7">
                         <div class="tm-portfoliodetails-info" style="background-color: #fff;">
-                            <ul>
-                                <li><b>Product Name :</b> {{buyingRequestDetails.productName}}</li>
-                                <li><b>Title :</b> {{buyingRequestDetails.title}}</li>
-                                <li><b>Category Name :</b> {{buyingRequestDetails.categoryName}}</li>
-                                <li><b>Account Name :</b> {{buyingRequestDetails.accountName}}</li>
-                                <li><b>Country Name :</b> {{buyingRequestDetails.countryName}}</li>
-                                <li *ngIf="buyingRequestDetails.size"><b>Size :</b>{{buyingRequestDetails.size}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.wieght"><b>Wieght :</b>
-                                    {{buyingRequestDetails.wieght}}</li>
-                                <li *ngIf="buyingRequestDetails.packing"><b>Packing Way
-                                        :</b>{{buyingRequestDetails.packing}} </li>
-                                <li *ngIf="buyingRequestDetails.certification"><b>Certification
-                                        :</b><a [href]="getFilePath(buyingRequestDetails.certification)"
-                                        target="_blank">{{buyingRequestDetails.certification}}
-                                    </a></li>
-                                <li *ngIf="buyingRequestDetails.type"><b>Type :</b>{{buyingRequestDetails.type}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.grade"><b>Grade
-                                        :</b>{{buyingRequestDetails.grade}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.storage"><b>Storage
-                                        :</b>{{buyingRequestDetails.storage}} </li>
-                                <li *ngIf="buyingRequestDetails.brandName.length > 0"><b>Brand Names
-                                        :</b>
-                                    <div style="display: inline-block;"
-                                        *ngFor="let brand of buyingRequestDetails.brandName">&nbsp; {{brand}}
-                                    </div>
-                                </li>
-                                <li *ngIf="buyingRequestDetails.code"><b>Code :</b>{{buyingRequestDetails.code}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.moq"><b>MOQ :</b>{{buyingRequestDetails.moq}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.paymentTerms"><b>Payment Terms
-                                        :</b>{{buyingRequestDetails.paymentTerms}} </li>
-                                <li *ngIf="buyingRequestDetails.price"><b>Price
-                                        :</b>{{buyingRequestDetails.price}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.unitePrice"><b>Unite Price
-                                        :</b>{{buyingRequestDetails.unitePrice}} </li>
-                                <li *ngIf="buyingRequestDetails.duration"><b>Duration :</b>
-                                    {{buyingRequestDetails.duration}}</li>
-                                <li *ngIf="buyingRequestDetails.accomdationName"><b>Accomdation Name
-                                        :</b>{{buyingRequestDetails.accomdationName}} </li>
-                                <li *ngIf="buyingRequestDetails.program"><b>Program
-                                        :</b>{{buyingRequestDetails.program}} </li>
-                                <li *ngIf="buyingRequestDetails.tripCategory"><b>Trip Category
-                                        :</b>{{buyingRequestDetails.tripCategory}} </li>
-                                <li *ngIf="buyingRequestDetails.space"><b>Space
-                                        :</b>{{buyingRequestDetails.space}}
-                                </li>
-                                <li *ngIf="buyingRequestDetails.finishedStatus"><b>Finished Status
-                                        :</b>{{buyingRequestDetails.finishedStatus}} </li>
-                                <li *ngIf="buyingRequestDetails.coverage.length > 0"><b>Coverage
-                                        :</b>
-                                    <div style="display: inline-block;"
-                                        *ngFor="let coverage of buyingRequestDetails.coverage">&nbsp; {{coverage}}
-                                    </div>
-                                </li>
-                                <li *ngIf="buyingRequestDetails.agentsLocation.length > 0"><b>Agents Locations
-                                        :</b>
-                                    <div style="display: inline-block;"
-                                        *ngFor="let agent of buyingRequestDetails.agentsLocation">&nbsp; {{agent}}
-                                    </div>
-                                </li>
-                                <li *ngIf="buyingRequestDetails.softwares"><b>Softwares
-                                        :</b>{{buyingRequestDetails.softwares}} </li>
-                            </ul>
+                            <div class="row" *ngIf="buyingRequestDetails.productName">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Product Name :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.productName">
+                                        {{buyingRequestDetails.productName}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.categoryName">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Category Name :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.categoryName">
+                                        {{buyingRequestDetails.categoryName}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.accountName">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Account Name :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.accountName">
+                                        {{buyingRequestDetails.accountName}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.countryName">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Country Name :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.countryName">
+                                        {{buyingRequestDetails.countryName}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.size">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Size :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.size">
+                                        {{buyingRequestDetails.size}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.wieght">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Wieght :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.wieght">
+                                        {{buyingRequestDetails.wieght}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.packing">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Packing Way :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.packing">
+                                        {{buyingRequestDetails.packing}}
+                                    </li>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.certification">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Certification :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.certification">
+                                        <a [href]="getFilePath(buyingRequestDetails.certification)"
+                                            target="_blank">{{buyingRequestDetails.certification}}
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.type">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Type :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.type">
+                                        {{buyingRequestDetails.type}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.grade">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Grade :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.grade">
+                                        {{buyingRequestDetails.grade}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.storage">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Storage :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.storage">
+                                        {{buyingRequestDetails.storage}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.brandName.length > 0">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Brand Names :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.brandName.length > 0">
+                                        <div style="display: inline-block;"
+                                            *ngFor="let brand of buyingRequestDetails.brandName">&nbsp; {{brand}}
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.code">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Code :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.code">
+                                        {{buyingRequestDetails.code}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.moq">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>MOQ :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.moq">
+                                        {{buyingRequestDetails.moq}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.paymentTerms">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Payment Terms :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.paymentTerms">
+                                        {{buyingRequestDetails.paymentTerms}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.price">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Price :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.price">
+                                        {{buyingRequestDetails.price}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.unitePrice">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Unite Price :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.unitePrice">
+                                        {{buyingRequestDetails.unitePrice}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.duration">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Duration :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.duration">
+                                        {{buyingRequestDetails.duration}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.accomdationName">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Accomdation Name :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.accomdationName">
+                                        {{buyingRequestDetails.accomdationName}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.program">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Program :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.program">
+                                        {{buyingRequestDetails.program}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.tripCategory">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Trip Category :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.tripCategory">
+                                        {{buyingRequestDetails.tripCategory}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.space">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Space :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.space">
+                                        {{buyingRequestDetails.space}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.finishedStatus != -1">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Finished Status :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.finishedStatus">
+                                        {{buyingRequestDetails.finishedStatus}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.coverage.length > 0">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Coverage :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.coverage">
+                                        <div style="display: inline-block;"
+                                            *ngFor="let coverage of buyingRequestDetails.coverage">&nbsp; {{coverage}}
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.agentsLocation.length > 0">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Agents Locations :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.agentsLocation">
+                                        <div style="display: inline-block;"
+                                            *ngFor="let agent of buyingRequestDetails.agentsLocation">&nbsp; {{agent}}
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="buyingRequestDetails.softwares">
+                                <div class="col-5">
+                                    <li style="color: #000000;">
+                                        <b>Softwares :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="buyingRequestDetails.softwares">
+                                        {{buyingRequestDetails.softwares}}
+                                    </li>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xl-7 col-lg-6">
+                    <div class="col-xl-6 col-lg-5">
                         <div class="tm-portfoliodetails-description">
                             <h3>Product Description</h3>
                             <p>{{buyingRequestDetails.description}}</p>

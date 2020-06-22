@@ -25,10 +25,10 @@ const routes: Routes = [
             ),
     },
     {
-        path: 'admin-layout',
+        path: 'messageing',
         loadChildren: () =>
-            import('./admin-layout/admin-layout.module').then(
-                (m) => m.AdminLayoutModule
+            import('./messageing/messageing.module').then(
+                (m) => m.MessageingModule
             ),
     },
 ]

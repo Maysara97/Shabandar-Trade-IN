@@ -9,10 +9,10 @@
                 </select>
                 <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
                     placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
-                    aria-describedby="basic-addon2" />
+                    aria-describedby="basic-addon2" (keyup)="applyFilter()" />
 
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;"
-                    [(ngModel)]="countryId">
+                    [(ngModel)]="countryId" (click)="applyFilter()">
                     <option selected="selected" disabled="disabled" value="">Country</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
@@ -65,10 +65,11 @@
                                 </p>
                             </div>
                             <div class="supplier-name">
-                                <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" />
-                                <p>
-                                    <i class="fa fa-building" aria-hidden="true"></i>
-                                    &nbsp; {{product.accountName}}
+
+                                <p style="float: left; color: #0e1234;"><i class="fa fa-globe"
+                                        aria-hidden="true"></i>&nbsp;{{product.countryName}} </p>
+                                <!-- <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" /> -->
+                                <p> {{product.accountName}}
                                 </p>
                                 <div style="clear: both;"></div>
                             </div>

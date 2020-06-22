@@ -1,0 +1,31 @@
+<div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0e1234;">
+
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="single-widget widget-categories">
+                <ul>
+                    <li>
+                        <a routerLink="/messageing/sidebar/inbox"> &nbsp;<span class="iconify"
+                                data-icon="mdi:inbox-arrow-down" data-inline="false"></span>
+                            &nbsp;Inbox</a>
+                    </li>
+                    <li>
+                        <a routerLink="/messageing/sidebar/outbox"> &nbsp;<span class="iconify"
+                                data-icon="mdi:inbox-arrow-up" data-inline="false"></span>
+                            &nbsp;Outbox</a>
+                    </li>
+                    <li>
+                        <a routerLink="/messageing/sidebar/archived"> &nbsp;<span class="iconify"
+                                data-icon="mdi:archive-arrow-up" data-inline="false"></span>
+                            &nbsp;Archived</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-content-container">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

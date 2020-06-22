@@ -164,5 +164,6 @@ export class SellProductComponent implements OnInit {
 
     onChooseCategory(category) {
         this.categoryId = category
+        this.applyFilter()
     }
 }
