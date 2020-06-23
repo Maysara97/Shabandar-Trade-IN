@@ -3,6 +3,7 @@ import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { ActivatedRoute } from '@angular/router'
 import { environment } from 'src/environments/environment'
+import { FinishedStatusTypeMapping } from '../../models/enum'
 
 @Component({
     selector: 'app-buying-product-details',
@@ -14,6 +15,7 @@ export class BuyingProductDetailsComponent implements OnInit {
 
     buyingRequestId
     env: any
+    public FinishedStatusTypeMapping = FinishedStatusTypeMapping
     constructor(
         private buyingRequestService: BuyingRequestService,
         private route: ActivatedRoute

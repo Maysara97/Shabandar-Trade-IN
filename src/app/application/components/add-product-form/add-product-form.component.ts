@@ -12,6 +12,10 @@ import { FileImage, FilePond } from 'src/app/shared/models/file'
 import { Observable } from 'rxjs'
 import { CountryService } from '../../services/country.service'
 import { Country } from '../../models/country'
+import {
+    FinishedStatusTypeMapping,
+    FinishedStatusType,
+} from '../../models/enum'
 
 @Component({
     selector: 'app-add-product-form',
@@ -57,6 +61,12 @@ export class AddProductFormComponent implements OnInit {
     public coverage: Country
     public localFields: Object = { text: 'name', value: 'id' }
     public localWaterMark: string = 'Select Multiple Coverages'
+
+    public FinishedStatusTypeMapping = FinishedStatusTypeMapping
+    public finishedType = Object.values(FinishedStatusType)
+    public stateTypes = Object.values(FinishedStatusType).filter(
+        (value) => typeof value === 'number'
+    )
 
     constructor(
         private formBuilder: FormBuilder,
