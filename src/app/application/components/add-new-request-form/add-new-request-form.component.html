@@ -231,9 +231,12 @@
                                             <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's
                                                 State
                                             </option>
-                                            <option value="Finished">Finished</option>
-                                            <option value="No">Semi</option>
-                                            <option value="Unfinished">Unfinished</option>
+                                            <option *ngFor="let finishedType of stateTypes" [value]="finishedType">
+                                                {{FinishedStatusTypeMapping[finishedType]}}
+                                            </option>
+                                            <!-- <option value="1">Finished</option>
+                                            <option value="2">Semi</option>
+                                            <option value="3">Unfinished</option> -->
                                         </select>
                                     </div>
                                 </div>

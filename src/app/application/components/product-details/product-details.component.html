@@ -266,7 +266,12 @@
                                 </div>
                                 <div class="col-7">
                                     <li *ngIf="accountProductDetails.finishedStatus">
-                                        {{accountProductDetails.finishedStatus}}
+                                        <div *ngIf="accountProductDetails.finishedStatus == 1">
+                                            {{FinishedStatusTypeMapping[1]}}</div>
+                                        <div *ngIf="accountProductDetails.finishedStatus == 2">
+                                            {{FinishedStatusTypeMapping[2]}}</div>
+                                        <div *ngIf="accountProductDetails.finishedStatus == 3">
+                                            {{FinishedStatusTypeMapping[3]}}</div>
                                     </li>
                                 </div>
                             </div>

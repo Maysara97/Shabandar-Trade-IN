@@ -4,6 +4,10 @@ import { AccountProduct } from '../../models/accountProduct'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment'
+import {
+    FinishedStatusType,
+    FinishedStatusTypeMapping,
+} from '../../models/enum'
 
 @Component({
     selector: 'app-product-details',
@@ -14,6 +18,12 @@ export class ProductDetailsComponent implements OnInit {
     accountProductDetails: AccountProduct
     accountProductId
     env: any
+
+    public FinishedStatusTypeMapping = FinishedStatusTypeMapping
+    // public finishedType = Object.values(FinishedStatusType)
+    // public stateTypes = Object.values(FinishedStatusType).filter(
+    //     (value) => typeof value === 'number'
+    // )
     constructor(
         private accountProductService: AccountProductService,
         private route: ActivatedRoute
@@ -34,5 +44,4 @@ export class ProductDetailsComponent implements OnInit {
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
-
 }

@@ -13,6 +13,10 @@ import { Category } from '../../models/category'
 import { Country } from '../../models/country'
 import { CategoryService } from '../../services/category.service'
 import { CountryService } from '../../services/country.service'
+import {
+    FinishedStatusTypeMapping,
+    FinishedStatusType,
+} from '../../models/enum'
 
 @Component({
     selector: 'app-add-new-request-form',
@@ -58,6 +62,12 @@ export class AddNewRequestFormComponent implements OnInit {
     public coverage: Country
     public localFields: Object = { text: 'name', value: 'id' }
     public localWaterMark: string = 'Select Multiple Coverages'
+
+    public FinishedStatusTypeMapping = FinishedStatusTypeMapping
+    public finishedType = Object.values(FinishedStatusType)
+    public stateTypes = Object.values(FinishedStatusType).filter(
+        (value) => typeof value === 'number'
+    )
 
     constructor(
         private formBuilder: FormBuilder,

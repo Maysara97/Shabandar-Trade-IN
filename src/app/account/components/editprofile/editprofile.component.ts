@@ -9,6 +9,7 @@ import { MustMatch } from '../../models/matchPassword'
 import { FileImage } from 'src/app/shared/models/file'
 import { CountryService } from 'src/app/application/services/country.service'
 import { Country } from 'src/app/application/models/country'
+import { environment } from 'src/environments/environment'
 
 @Component({
     selector: 'app-editprofile',
@@ -26,6 +27,7 @@ export class EditprofileComponent implements OnInit {
     files: string[] = []
     images: string[] = []
     countries: Country[]
+    env: any
     constructor(
         private formBuilder: FormBuilder,
         private accountService: AccountsService,
@@ -33,7 +35,9 @@ export class EditprofileComponent implements OnInit {
         private auth: AuthService,
         private toastr: ToastrService,
         private countryService: CountryService
-    ) {}
+    ) {
+        this.env = environment
+    }
 
     ngOnInit(): void {
         // Bind all Countries
@@ -62,7 +66,7 @@ export class EditprofileComponent implements OnInit {
         if (this.profileData) {
             this.editProfileForm.patchValue(this.profileData)
         }
-        console.log(this.profileData)
+        // console.log(this.profileData)
         if (this.updateUserData.accountImage) {
             this.images.push(this.updateUserData.accountImage)
         }
@@ -121,5 +125,9 @@ export class EditprofileComponent implements OnInit {
                 this.toastr.error('Error')
             }
         })
+    }
+
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }
