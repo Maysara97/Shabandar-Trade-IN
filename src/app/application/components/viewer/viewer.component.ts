@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core'
-import { Router, NavigationEnd } from '@angular/router'
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router'
+import { AuthService } from 'src/app/shared/services/auth.service'
+import { AccountData } from 'src/app/account/models/register'
+import { environment } from 'src/environments/environment'
+import { AccountProductService } from '../../services/accountProduct.service'
+import { AccountProduct } from '../../models/accountProduct'
+import { BuyingRequest } from '../../models/buying-request'
+import { BuyingRequestService } from '../../services/buying-request.service'
 
 @Component({
     selector: 'app-viewer',
@@ -7,6 +14,11 @@ import { Router, NavigationEnd } from '@angular/router'
     styleUrls: ['./viewer.component.scss'],
 })
 export class ViewerComponent implements OnInit {
+    TargetAccountId
+    targetAccountDetails: AccountData
+    accountProducts: AccountProduct[]
+    buyingProducts: BuyingRequest[]
+    env: any
     customOptions: any = {
         loop: true,
         mouseDrag: true,
@@ -56,7 +68,16 @@ export class ViewerComponent implements OnInit {
         },
         nav: true,
     }
-    constructor(private router: Router) {}
+    constructor(
+        private router: Router,
+        private authService: AuthService,
+        private route: ActivatedRoute,
+        private accountProductService: AccountProductService,
+        private buyingRequestService: BuyingRequestService
+    ) {
+        this.TargetAccountId = route.snapshot.params['TargetAccountId']
+        this.env = environment
+    }
 
     ngOnInit(): void {
         this.router.events.subscribe((evt) => {
@@ -65,5 +86,26 @@ export class ViewerComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
+
+        this.authService
+            .getTargetUserProfile(this.TargetAccountId)
+            .subscribe((result: any) => {
+                this.targetAccountDetails = result.data
+            })
+
+        this.accountProductService
+            .getAccountProductsByOwner()
+            .subscribe((result: any) => {
+                this.accountProducts = result.data
+            })
+
+        this.buyingRequestService
+            .getBuyingRequestsByOwner()
+            .subscribe((result: any) => {
+                this.buyingProducts = result.data
+            })
+    }
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }

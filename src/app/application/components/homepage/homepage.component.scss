@@ -87,6 +87,17 @@
     right: 0;
     top: 0;
 }
+@media (max-width: 414px) {
+    .homepage-area .tm-product-image {
+        position: relative;
+        overflow: hidden;
+        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: block;
+        width: 70%;
+        margin-left: 15%;
+    }
+}
 .homepage-area .tm-product-imagelink::before {
     content: '';
     position: absolute;
@@ -130,17 +141,27 @@
 .homepage-area .supplier-name {
     margin-top: 10px;
 }
-.homepage-area .supplier-name p {
+.homepage-area .supplier-name a {
     float: right;
     font-size: 13px;
     color: #c0972e;
 }
+.homepage-area .supplier-name p {
+    float: right;
+    font-size: 13px;
+    color: #0e1234;
+}
 @media (max-width: 768px) {
-    .homepage-area .supplier-name p {
+    .homepage-area .supplier-name a {
         float: right;
-        font-size: 20px;
+        font-size: 15px;
         color: #c0972e;
         margin-top: 5px;
+    }
+    .homepage-area .supplier-name p {
+        float: right;
+        font-size: 15px;
+        color: #0e1234;
     }
 }
 .homepage-area .buttons button {
@@ -256,4 +277,22 @@
 .theme-green .bs-datepicker-body table td span[class*='select-']:after,
 .theme-green .bs-datepicker-body table td[class*='select-'] span:after {
     background-color: #c0972e;
+}
+
+.icon {
+    padding: 8px;
+    background: #ffffff;
+    margin-right: 4px;
+    border-radius: 50%;
+    color: #c0972e;
+}
+.icon-btn {
+    // padding: 1px 15px 3px 2px;
+    border-radius: 50px;
+    background-color: #0e1234;
+    color: #fff;
+}
+.icon-btn:hover {
+    background-color: #c0972e;
+    color: #fff;
 }

@@ -56,8 +56,8 @@ export class BuyingRequestService extends BaseService<any> {
     getBuyingRequestIdById(buyingRequestId: string) {
         return this.getById('BuyingRequest', buyingRequestId)
     }
-    deleteBuyingRequest(buyingRequestId: string) {
-        return this.remove('BuyingRequest', buyingRequestId)
+    deleteBuyingRequest(BuyingRequestId: string) {
+        return this.remove('BuyingRequest', BuyingRequestId)
     }
     restoreBuyingRequest(buyingRequestId: string) {
         return this.remove('BuyingRequest/Restore', buyingRequestId)

@@ -47,7 +47,7 @@ export class BaseService<T> {
 
     protected remove(url: string, id: string | number): Observable<T> {
         return this.http
-            .delete(`${this.baseUrl}/${url}${url}/${id}`)
+            .delete(`${this.baseUrl}/${url}/${id}`)
             .pipe(map((data: T) => data))
     }
 

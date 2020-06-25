@@ -25,7 +25,7 @@
                             <div class="row mt-3" *ngIf="buyingRequestDetails.categoryName">
                                 <div class="col-5">
                                     <li style="color: #000000;">
-                                        <b>Category Name :</b></li>
+                                        <b>Category :</b></li>
                                 </div>
                                 <div class="col-7">
                                     <li *ngIf="buyingRequestDetails.categoryName">
@@ -36,18 +36,20 @@
                             <div class="row mt-3" *ngIf="buyingRequestDetails.accountName">
                                 <div class="col-5">
                                     <li style="color: #000000;">
-                                        <b>Account Name :</b></li>
+                                        <b>Company Name :</b></li>
                                 </div>
                                 <div class="col-7">
                                     <li *ngIf="buyingRequestDetails.accountName">
-                                        {{buyingRequestDetails.accountName}}
+                                        <a [routerLink]="['/application/viewer', buyingRequestDetails.ownerAccountId]">
+                                            {{buyingRequestDetails.accountName}}</a>
+
                                     </li>
                                 </div>
                             </div>
                             <div class="row mt-3" *ngIf="buyingRequestDetails.countryName">
                                 <div class="col-5">
                                     <li style="color: #000000;">
-                                        <b>Country Name :</b></li>
+                                        <b>Country :</b></li>
                                 </div>
                                 <div class="col-7">
                                     <li *ngIf="buyingRequestDetails.countryName">

@@ -119,4 +119,8 @@ export class AuthService extends BaseService<any> {
     getAccountDetails(): Observable<AccountData> {
         return this.get('Account/GetMyAccount')
     }
+
+    getTargetUserProfile(TargetAccountId: string) {
+        return this.getById('Account', TargetAccountId)
+    }
 }

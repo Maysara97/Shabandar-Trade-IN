@@ -31,7 +31,7 @@ const routes: Routes = [
                 component: AddProductFormComponent,
             },
             {
-                path: 'viewer',
+                path: 'viewer/:TargetAccountId',
                 component: ViewerComponent,
             },
             {

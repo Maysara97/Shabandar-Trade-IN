@@ -1,10 +1,10 @@
 <div class="page-section tm-section viewer-area tm-padding-section" style="background-color: #0e1234;">
-    <div class="container">
+    <div class="container" *ngIf="targetAccountDetails">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="mb-5">
                     <h2 style="color: #c0972e; float: left;" class="leftAlign">
-                        TradeIn User
+                        {{targetAccountDetails.accountName}}'s Profile
                     </h2>
                     <button type="button" class="btn rightAlign" style="
                             color: #fff;
@@ -22,32 +22,106 @@
             <div class="col-lg-12 col-xs-12 col-sm-6 col-md-6">
                 <div class="well well-sm">
                     <div class="row justify-content-center">
-                        <div class="col-sm-6 col-md-4 col-12 justify-content-left avatar-img">
-                            <img src="assets/images/You-Trade-In/student.png" alt="" class="img-rounded img-responsive"
+                        <div class="col-lg-4 col-sm-4 col-xs-8 col-md-8 col-12 avatar-img">
+                            <img [src]="getFilePath(targetAccountDetails.accountImage)"
+                                alt={{targetAccountDetails.accountName}} class="img-rounded img-responsive"
                                 width="70%" />
                         </div>
-                        <div class="col-lg-6 col-sm-6 col-md-8 justify-content-right data"
-                            data-bgimage="assets/background-end.png">
-                            <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
-                                <p>Name</p>
-                            </div>
-                            <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: right;">
-                                <p>Company Name</p>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
-                                <p>Email</p>
-                            </div>
-                            <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: right;">
-                                <p>Company Category</p>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-12 mt-3" style="background-color: #fff; float: left;">
-                                <p>Mobile</p>
-                            </div>
-                            <div class="offset-1 col-lg-5 col-md-5 col-12 mt-3"
-                                style="background-color: #fff; float: right;">
-                                <p>Country</p>
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="tm-portfoliodetails-info" style="background-color: #fff;border-radius: 10px;">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <li style="color: #000000;"
+                                            *ngIf="targetAccountDetails.accountAdministrators[0].firstName && targetAccountDetails.accountAdministrators[0].lastName">
+                                            <b>User Name :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li
+                                            *ngIf="targetAccountDetails.accountAdministrators[0].firstName && targetAccountDetails.accountAdministrators[0].lastName">
+                                            {{targetAccountDetails.accountAdministrators[0].firstName}}
+                                            {{targetAccountDetails.accountAdministrators[0].lastName}}
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;"
+                                            *ngIf="targetAccountDetails.accountAdministrators[0].email">
+                                            <b>Email :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.accountAdministrators[0].email">
+                                            {{targetAccountDetails.accountAdministrators[0].email}}
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;" *ngIf="targetAccountDetails.accountName">
+                                            <b>Account Name :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.accountName">
+                                            {{targetAccountDetails.accountName}}
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;" *ngIf="targetAccountDetails.accountMobile">
+                                            <b>Account Mobile :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.accountMobile">
+                                            {{targetAccountDetails.accountMobile}}
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;" *ngIf="targetAccountDetails.countryName">
+                                            <b>Country Name :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.countryName">
+                                            {{targetAccountDetails.countryName}}
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;" *ngIf="targetAccountDetails.accountWebsite">
+                                            <b>Account Website :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.accountWebsite">
+                                            <a target="_blank"
+                                                [href]="targetAccountDetails.accountWebsite">{{targetAccountDetails.accountWebsite}}</a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;" *ngIf="targetAccountDetails.mission">
+                                            <b>Mission :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.mission">
+                                            {{targetAccountDetails.mission}}
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li style="color: #000000;" *ngIf="targetAccountDetails.vission">
+                                            <b>Vision :</b></li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li *ngIf="targetAccountDetails.vission">
+                                            {{targetAccountDetails.vission}}
+                                        </li>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div style="clear: both;"></div>
@@ -59,28 +133,15 @@
             <div class="col-lg-12 col-12">
                 <h6 class="text-left">Profile Description</h6>
                 <p class="text-left">
-                    <b>This is the profile description,</b> consetetur
-                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At
-                    vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At
-                    vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At
-                    vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At
-                    vero eos et accusam et justo duo dolores et ea rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit amet.
+                    <b>This is the profile description,</b> {{targetAccountDetails.description}}
                 </p>
+            </div>
+            <div class="col-12 mt-3">
+                <h6 class="text-left mb-3">Account Attachment</h6>
+                <a *ngFor="let attachment of targetAccountDetails.accountAttachments" [href]="getFilePath(attachment)"
+                    alt="Product Attachments" target="_blank">
+                    &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
+                </a>
             </div>
         </div>
     </div>
@@ -100,86 +161,21 @@
         </div>
 
         <owl-carousel-o [options]="customOptions" style="width: 100px !important;">
-            <!-- <ng-template carouselSlide *ngFor="let pro of product">
+            <ng-template carouselSlide *ngFor="let product of accountProducts">
                 <div class="col-lg-12 col-md-8 col-12">
                     <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="{{pro.ProductImage}}" alt="product image" />
+                        <div class="tm-blog-image" style="max-width: 500px; max-height: 500px;">
+                            <img style="height: 300px;" [src]="getFilePath(product.productImages[0])"
+                                alt="{{product.productName}}" />
                         </div>
                     </div>
-                    <div>
-                        <h4>{{pro.ProductName}}</h4>
+                    <div class="product-details">
+                        <a [routerLink]="['/application/product-details', product.accountProductId]"
+                            routerLinkActive="active">
+                            <h4>{{product.productName}}</h4>
+                        </a>
                         <p style="color: #fff;">
-                            <b>This is the product description,</b> {{pro.Description}}
-                        </p>
-                    </div>
-                </div>
-            </ng-template> -->
-            <ng-template carouselSlide id="carouselSlide">
-                <div class="col-lg-12 col-md-8 col-12">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-
-            <ng-template carouselSlide>
-                <div class="col-lg-12 col-md-8 col-12">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="col-lg-12 col-md-8 col-12">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="col-lg-12 col-md-8 col-12">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
+                            {{product.description | slice : 0 : 100}}
                         </p>
                     </div>
                 </div>
@@ -203,87 +199,22 @@
         </div>
 
         <owl-carousel-o [options]="customOptions">
-            <ng-template carouselSlide>
-                <div class="col">
+            <ng-template carouselSlide *ngFor="let requestProduct of buyingProducts">
+                <div class="col-lg-12 col-md-8 col-12">
                     <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
+                        <div class="tm-blog-image" style="max-width: 500px; max-height: 500px;">
+                            <img style="height: 300px;" [src]="getFilePath(requestProduct.image)"
+                                alt="{{requestProduct.productName}}" />
                         </div>
                     </div>
-                    <div>
-                        <h4>Product Title</h4>
+                    <div class="product-details">
+                        <a [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]"
+                            routerLinkActive="active">
+                            <h4>{{requestProduct.productName}}</h4>
+                        </a>
+
                         <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="col">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="col">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="col">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide>
-                <div class="col">
-                    <div class="tm-blog">
-                        <div class="tm-blog-image">
-                            <img src="assets/images/You-Trade-In/white.jpg" alt="product image" />
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Product Title</h4>
-                        <p style="color: #fff;">
-                            <b>This is the product description,</b> consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna
+                            {{requestProduct.description | slice : 0 : 100}}
                         </p>
                     </div>
                 </div>

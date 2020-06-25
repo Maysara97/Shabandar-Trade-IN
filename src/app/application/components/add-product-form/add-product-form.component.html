@@ -8,7 +8,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="categoryId">Product Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId" #mySelect
                                     [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
@@ -23,7 +23,7 @@
                                     You Must choose the Product's Category
                                 </label>
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="productId">Product Name</label>
                                 <select class="form-control" id="productId" formControlName="productId"
                                     [(ngModel)]="productSelected">
@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="location">Country</label>
                                 <select class="form-control" id="countries" formControlName="location"
                                     style="text-transform: capitalize;" [(ngModel)]="countrySelected">
@@ -56,7 +56,7 @@
                                     You Must choose the Product's Country
                                 </label>
                             </div>
-                            <div class="col-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
                                 <label for="price">Product Price</label>
                                 <input type="text" class="form-control w-100" id="price" formControlName="price"
                                     placeholder="Product Price">
@@ -65,7 +65,7 @@
                                     Product Price is Required
                                 </label>
                             </div>
-                            <div class="col-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
                                 <label for="unitePrice">Unite Price</label>
                                 <select class="form-control" id="unitePrice" formControlName="unitePrice"
                                     [(ngModel)]="unitePriceSelected">
@@ -94,12 +94,12 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="packing">Packing Way</label>
                                         <input type="text" class="form-control w-100" id="packing"
                                             formControlName="packing" placeholder="Packing Way">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="moq">MOQ</label>
                                         <input type="text" class="form-control w-100" id="moq" formControlName="moq"
                                             placeholder="MOQ">
@@ -108,17 +108,17 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="type">Type</label>
                                         <input type="text" class="form-control w-100" id="type" formControlName="type"
                                             placeholder="Type">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="wieght">Wieght</label>
                                         <input type="text" class="form-control w-100" id="wieght"
                                             formControlName="wieght" placeholder="Wieght">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="size">Product Size</label>
                                         <input type="text" class="form-control w-100" id="size" formControlName="size"
                                             placeholder="Product Size">
@@ -127,17 +127,17 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="storage">Storage</label>
                                         <input type="text" class="form-control w-100" id="storage"
                                             formControlName="storage" placeholder="Storage">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="grade">Grade</label>
                                         <input type="text" class="form-control w-100" id="grade" formControlName="grade"
                                             placeholder="Grade">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="code">Code</label>
                                         <input type="text" class="form-control w-100" id="code" formControlName="code"
                                             placeholder="Code">
@@ -163,12 +163,12 @@
                         <div class="touristic-category" *ngSwitchCase="touristicId">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="tripCategory">Trip Category</label>
                                         <input type="text" class="form-control w-100" id="tripCategory"
                                             formControlName="tripCategory" placeholder="Trip Category">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="duration">Duration</label>
                                         <input type="text" class="form-control w-100" id="duration"
                                             formControlName="duration" placeholder="Duration">
@@ -177,12 +177,12 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="accomdationName">Accomdation Name</label>
                                         <input type="text" class="form-control w-100" id="accomdationName"
                                             formControlName="accomdationName" placeholder="Accomdation Name">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="program">Program</label>
                                         <input type="text" class="form-control w-100" id="program"
                                             formControlName="program" placeholder="Program">
@@ -195,17 +195,17 @@
                         <div class="real-state-category" *ngSwitchCase="realStateId">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="space">Space</label>
                                         <input type="text" class="form-control w-100" id="space" formControlName="space"
                                             placeholder="Space">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="size">Product Size</label>
                                         <input type="text" class="form-control w-100" id="size" formControlName="size"
                                             placeholder="Product Size">
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="type">Type</label>
                                         <input type="text" class="form-control w-100" id="type" formControlName="type"
                                             placeholder="Type">
@@ -235,14 +235,14 @@
                         <div class="shipping-and-logistics-category" *ngSwitchCase="shippingId">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="agentsLocation">Agents Location</label>
                                         <tag-input class="brandTags" [(ngModel)]="agents"
                                             formControlName="agentsLocation" [secondaryPlaceholder]="'Agents Location'"
                                             [placeholder]="'Agents Location again'">
                                         </tag-input>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="coverage">Coverage</label>
                                         <ejs-multiselect [dataSource]='countries' [fields]='localFields'
                                             [placeholder]='localWaterMark' formControlName="coverage"
