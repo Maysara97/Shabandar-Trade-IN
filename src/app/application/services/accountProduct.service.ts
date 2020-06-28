@@ -49,8 +49,44 @@ export class AccountProductService extends BaseService<any> {
         console.log(body)
         return this.post('AccountProduct', body)
     }
-    updateAccountProduct(accountProduct: AccountProduct) {
-        return this.put('AccountProduct', accountProduct)
+    updateAccountProduct(
+        accountProduct: AccountProduct,
+        tagResult,
+        coverageResult,
+        agentsResult
+    ): Observable<AccountProduct> {
+        const body = {
+            accountProductId: accountProduct.accountProductId,
+            productId: accountProduct.productId,
+            location: accountProduct.location,
+            size: accountProduct.size,
+            wieght: accountProduct.wieght,
+            packing: accountProduct.packing,
+            certification: accountProduct.certification,
+            type: accountProduct.type,
+            grade: accountProduct.grade,
+            storage: accountProduct.storage,
+            brandName: tagResult,
+            code: accountProduct.code,
+            moq: accountProduct.moq,
+            paymentTerms: accountProduct.paymentTerms,
+            unitePrice: accountProduct.unitePrice,
+            price: accountProduct.price,
+            duration: accountProduct.duration,
+            accomdationName: accountProduct.accomdationName,
+            program: accountProduct.program,
+            tripCategory: accountProduct.tripCategory,
+            space: accountProduct.space,
+            finishedStatus: accountProduct.finishedStatus,
+            coverage: coverageResult,
+            serviceType: accountProduct.serviceType,
+            agentsLocation: agentsResult,
+            softwares: accountProduct.softwares,
+            description: accountProduct.description,
+            productImages: accountProduct.productImages,
+            attachments: accountProduct.attachments,
+        }
+        return this.put('AccountProduct', body)
     }
     deleteAccountProduct(AccountProductId: string) {
         return this.remove('AccountProduct', AccountProductId)

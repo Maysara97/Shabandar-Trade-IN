@@ -14,7 +14,7 @@
 
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 12%;"
                     [(ngModel)]="countryId" (click)="applyFilter()">
-                    <option selected="selected" disabled="disabled" value="">Country</option>
+                    <option selected="selected" disabled="disabled" value="">All Countries</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>

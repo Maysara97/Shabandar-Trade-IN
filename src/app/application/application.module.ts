@@ -23,7 +23,8 @@ import { BuyingProductDetailsComponent } from './components/buying-product-detai
 // import { NgxPaginationModule } from 'ngx-pagination'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 import { MatTabsModule } from '@angular/material/tabs'
-
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
+import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component'
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -34,6 +35,8 @@ import { MatTabsModule } from '@angular/material/tabs'
         AddNewRequestFormComponent,
         ProductDetailsComponent,
         BuyingProductDetailsComponent,
+        EditProductFormComponent,
+        EditBuyingRequestComponent,
     ],
     imports: [
         CommonModule,

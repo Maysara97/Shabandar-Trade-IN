@@ -9,6 +9,8 @@ import { ViewerComponent } from './components/viewer/viewer.component'
 import { AddNewRequestFormComponent } from './components/add-new-request-form/add-new-request-form.component'
 import { ProductDetailsComponent } from './components/product-details/product-details.component'
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component'
+import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component'
 
 const routes: Routes = [
     {
@@ -45,6 +47,14 @@ const routes: Routes = [
             {
                 path: 'buying-product-details/:buyingRequestId',
                 component: BuyingProductDetailsComponent,
+            },
+            {
+                path: 'edit-product-form/:accountProductId',
+                component: EditProductFormComponent,
+            },
+            {
+                path: 'edit-buying-request/:buyingRequestId',
+                component: EditBuyingRequestComponent,
             },
         ],
     },

@@ -13,7 +13,7 @@
                     aria-describedby="basic-addon2" (keyup)="applyFilter()" />
                 <select name="demo" id="countrySelect" style="text-transform: uppercase; width: 12%;"
                     [(ngModel)]="countryId" (click)="applyFilter()">
-                    <option selected="selected" value="" style="text-transform: capitalize;">Country</option>
+                    <option selected="selected" value="" style="text-transform: capitalize;">All Countries</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
