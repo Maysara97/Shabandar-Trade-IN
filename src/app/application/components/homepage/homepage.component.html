@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <select name="demo" id="productSelect" style="width: 12%;">
+                <!-- <select name="demo" id="productSelect" style="width: 12%;">
                     <option selected="selected" value="">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
-                </select>
+                </select> -->
                 <!-- [(ngModel)]="term" -->
                 <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
                     placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
@@ -26,6 +26,8 @@
                     Search
                 </button>
                 <h6 class="text-center m-3">Find Your Needs</h6>
+                <a class="btn icon-btn" routerLink="/application/add-new-request-form"><i class="fa fa-plus icon"
+                        aria-hidden="true"></i>Add Buying Request!</a>
             </div>
         </div>
 
@@ -34,6 +36,7 @@
                 <div class="single-widget widget-categories">
                     <h5>Categories</h5>
                     <ul>
+                        <li><a (click)="allProductWithoutSearch()">All</a></li>
                         <li *ngFor="let category of categories">
                             <a (click)="onChooseCategory(category.categoryId)">{{category.categoryName}}</a>
                         </li>
@@ -55,7 +58,7 @@
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    {{ requestProduct.title }}
+                                    {{ requestProduct.productName }}
                                 </p>
                             </div>
 
@@ -64,8 +67,9 @@
                                 <!-- <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" /> -->
                                 <p style="float: left; color: #0e1234;"><i class="fa fa-globe"
                                         aria-hidden="true"></i>&nbsp;{{requestProduct.countryName}}</p>
-                                <p> {{requestProduct.accountName}}
-                                </p>
+                                <a [routerLink]="['/application/viewer', requestProduct.ownerAccountId]">
+                                    {{requestProduct.accountName}}
+                                </a>
                                 <div style="clear: both;"></div>
                             </div>
                             <div class="product-desc" *ngIf="requestProduct.description">

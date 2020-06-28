@@ -145,4 +145,22 @@ export class HomepageComponent implements OnInit {
         this.categoryId = category
         this.applyFilter()
     }
+
+    allProductWithoutSearch() {
+        this.buyingRequestService
+            .getAllBuyingRequests()
+            .subscribe((response: any) => {
+                this.buyingRequestProducts = response.data
+            })
+
+        this.getBuyingRequests(
+            this.pageSize,
+            this.pageNumber,
+            '',
+            '',
+            '',
+            '',
+            ''
+        )
+    }
 }

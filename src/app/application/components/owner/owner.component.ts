@@ -28,7 +28,31 @@ export class OwnerComponent implements OnInit {
     buyingProducts: BuyingRequest[]
     env: any
     product: Product[] = []
-    customOptions: any = {
+    productSlider: any = {
+        loop: true,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
+        dots: false,
+        navSpeed: 700,
+        navText: ['Prev', 'Next'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            400: {
+                items: 2,
+            },
+            740: {
+                items: 2,
+            },
+            940: {
+                items: 4,
+            },
+        },
+        nav: true,
+    }
+    requestsSlider: any = {
         loop: true,
         mouseDrag: true,
         touchDrag: true,
@@ -72,7 +96,7 @@ export class OwnerComponent implements OnInit {
                 items: 2,
             },
             940: {
-                items: 3,
+                items: 4,
             },
         },
         nav: true,
@@ -99,17 +123,9 @@ export class OwnerComponent implements OnInit {
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.userDetails = result.data
         })
-        this.accountProductService
-            .getAccountProductsByOwner()
-            .subscribe((result: any) => {
-                this.accountProducts = result.data
-            })
+        this.getAllAccountProduct()
 
-        this.buyingRequestService
-            .getBuyingRequestsByOwner()
-            .subscribe((result: any) => {
-                this.buyingProducts = result.data
-            })
+        this.getAllBuyingRequests()
     }
 
     getFilePath(fileName: string): string {
@@ -120,5 +136,31 @@ export class OwnerComponent implements OnInit {
         this.router.navigateByUrl(
             `/application/product-details/${accountProductId}`
         )
+    }
+
+    getAllAccountProduct() {
+        this.accountProductService
+            .getAccountProductsByOwner()
+            .subscribe((result: any) => {
+                this.accountProducts = result.data
+            })
+    }
+    getAllBuyingRequests() {
+        this.buyingRequestService
+            .getBuyingRequestsByOwner()
+            .subscribe((result: any) => {
+                this.buyingProducts = result.data
+            })
+    }
+    deleteAccountProduct(AccountProductId: string) {
+        this.accountProductService
+            .deleteAccountProduct(AccountProductId)
+            .subscribe((res) => this.getAllAccountProduct())
+    }
+
+    deleteBuyingRequest(BuyingRequest: string) {
+        this.buyingRequestService
+            .deleteBuyingRequest(BuyingRequest)
+            .subscribe((res) => this.getAllBuyingRequests())
     }
 }

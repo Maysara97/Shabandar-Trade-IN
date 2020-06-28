@@ -2,11 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <select name="demo" id="productSelect" style="width: 12%;">
+                <!-- <select name="demo" id="productSelect" style="width: 12%;">
                     <option selected="selected" value="">Products</option>
                     <option *ngFor="let product of products" value="{{product.productId}}">
                         {{product.productName}}</option>
-                </select>
+                </select> -->
+
                 <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
                     placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
                     aria-describedby="basic-addon2" (keyup)="applyFilter()" />
@@ -25,6 +26,8 @@
                     Search
                 </button>
                 <h6 class="text-center m-3">Find Your Needs</h6>
+                <a class="btn icon-btn" routerLink="/application/add-product-form"><i class="fa fa-plus icon"
+                        aria-hidden="true"></i>Add Product!</a>
             </div>
         </div>
 
@@ -33,6 +36,7 @@
                 <div class="single-widget widget-categories">
                     <h5>Categories</h5>
                     <ul>
+                        <li><a (click)="allProductWithoutSearch()">All</a></li>
                         <li *ngFor="let category of categories">
                             <a (click)="onChooseCategory(category.categoryId)">{{ category.categoryName }}</a>
                         </li>
@@ -66,11 +70,10 @@
                             </div>
                             <div class="supplier-name">
 
-                                <p style="float: left; color: #0e1234;"><i class="fa fa-globe"
-                                        aria-hidden="true"></i>&nbsp;{{product.countryName}} </p>
+                                <p><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{product.countryName}} </p>
                                 <!-- <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" /> -->
-                                <p> {{product.accountName}}
-                                </p>
+                                <a [routerLink]="['/application/viewer', product.accountId]">
+                                    {{product.accountName}}</a>
                                 <div style="clear: both;"></div>
                             </div>
                             <div class="product-desc" *ngIf="product.description">

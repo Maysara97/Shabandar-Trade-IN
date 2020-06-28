@@ -52,8 +52,8 @@ export class AccountProductService extends BaseService<any> {
     updateAccountProduct(accountProduct: AccountProduct) {
         return this.put('AccountProduct', accountProduct)
     }
-    deleteAccountProduct(accountProductId: string) {
-        return this.remove('AccountProduct', accountProductId)
+    deleteAccountProduct(AccountProductId: string) {
+        return this.remove('AccountProduct', AccountProductId)
     }
     restoreAccountProduct(accountProductId: string) {
         return this.remove('AccountProduct/Restore', accountProductId)

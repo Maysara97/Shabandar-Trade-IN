@@ -34,23 +34,23 @@
                 </div>
             </div>
             <div class="row mt-5 avatar-data">
-                <div class="col-lg-12 col-xs-12 col-sm-6 col-md-6">
+                <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
                     <div class="well well-sm">
                         <div class="row justify-content-center">
-                            <div class="col-sm-4 col-md-4 col-12 justify-content-left avatar-img"
+                            <div class="col-lg-4 col-sm-4 col-xs-8 col-md-8 col-12 avatar-img"
                                 *ngIf="userDetails.accountImage">
                                 <img [src]="getFilePath(userDetails.accountImage)" alt="{{userDetails.accountName}}"
-                                    class="img-rounded img-responsive" width="70%" />
+                                    class="img-rounded img-responsive" />
 
                             </div>
-                            <div class="col-sm-4 col-md-4 col-12 justify-content-left"
+                            <div class="col-lg-4 col-sm-4 col-xs-8 col-md-8 col-12 justify-content-left avatar-no-image"
                                 *ngIf="!userDetails.accountImage">
                                 <img src="assets/images/You-Trade-In/student.png" alt="" width="70%"
                                     class="img-rounded img-responsive">
                             </div>
                             <div class="col-xl-8 col-lg-8">
                                 <div class="tm-portfoliodetails-info"
-                                    style="background-color: #fff;border-radius: 10px;">
+                                    style="background-color: #0e1234;border-radius: 10px;">
                                     <!-- <ul>
                                         <li><b>User Name :</b>
                                             {{userDetails.accountAdministrators[0].firstName}}
@@ -69,12 +69,12 @@
                                     </ul> -->
 
                                     <div class="row">
-                                        <div class="col-4">
-                                            <li style="color: #000000;"
+                                        <div class="col-5">
+                                            <li style="color: #fff;"
                                                 *ngIf="userDetails.accountAdministrators[0].firstName && userDetails.accountAdministrators[0].lastName">
                                                 <b>User Name :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li
                                                 *ngIf="userDetails.accountAdministrators[0].firstName && userDetails.accountAdministrators[0].lastName">
                                                 {{userDetails.accountAdministrators[0].firstName}}
@@ -83,56 +83,55 @@
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;"
-                                                *ngIf="userDetails.accountAdministrators[0].email">
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.accountAdministrators[0].email">
                                                 <b>Email :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.accountAdministrators[0].email">
                                                 {{userDetails.accountAdministrators[0].email}}
                                             </li>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;" *ngIf="userDetails.accountName">
-                                                <b>Account Name :</b></li>
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.accountName">
+                                                <b>Company Name :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.accountName">
                                                 {{userDetails.accountName}}
                                             </li>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;" *ngIf="userDetails.accountMobile">
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.accountMobile">
                                                 <b>Account Mobile :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.accountMobile">
                                                 {{userDetails.accountMobile}}
                                             </li>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;" *ngIf="userDetails.countryName">
-                                                <b>Country Name :</b></li>
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.countryName">
+                                                <b>Country :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.countryName">
                                                 {{userDetails.countryName}}
                                             </li>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;" *ngIf="userDetails.accountWebsite">
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.accountWebsite">
                                                 <b>Account Website :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.accountWebsite">
                                                 <a target="_blank"
                                                     [href]="userDetails.accountWebsite">{{userDetails.accountWebsite}}</a>
@@ -140,22 +139,22 @@
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;" *ngIf="userDetails.mission">
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.mission">
                                                 <b>Mission :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.mission">
                                                 {{userDetails.mission}}
                                             </li>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-4">
-                                            <li style="color: #000000;" *ngIf="userDetails.vission">
+                                        <div class="col-5">
+                                            <li style="color: #fff;" *ngIf="userDetails.vission">
                                                 <b>Vision :</b></li>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-7">
                                             <li *ngIf="userDetails.vission">
                                                 {{userDetails.vission}}
                                             </li>
@@ -206,7 +205,7 @@
                 </div>
             </div>
 
-            <owl-carousel-o [options]="customOptions">
+            <owl-carousel-o [options]="productSlider">
                 <ng-template carouselSlide *ngFor="let product of accountProducts">
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
@@ -223,6 +222,16 @@
                             <p style="color: #fff;">
                                 {{product.description | slice : 0 : 100}}
                             </p>
+                        </div>
+                        <div class="product-actions">
+                            <a class="btn icon-btn edit-mode" style="float: left;"><i class="fa fa-wrench edit-icon"
+                                    aria-hidden="true"></i>
+                                Edit</a>
+                            <a class="btn icon-btn btn-danger" style="float: right;"
+                                (click)="deleteAccountProduct(product.accountProductId)"><i
+                                    class="fa fa-trash delete-icon" aria-hidden="true"></i>
+                                Delete</a>
+                            <div style="clear: both;"></div>
                         </div>
                     </div>
                 </ng-template>
@@ -252,7 +261,7 @@
                 </div>
             </div>
 
-            <owl-carousel-o [options]="customOptions">
+            <owl-carousel-o [options]="requestsSlider">
                 <ng-template carouselSlide *ngFor="let requestProduct of buyingProducts">
                     <div class="col-lg-12 col-md-8 col-12">
                         <div class="tm-blog">
@@ -270,6 +279,16 @@
                             <p style="color: #fff;">
                                 {{requestProduct.description | slice : 0 : 100}}
                             </p>
+                        </div>
+                        <div class="product-actions">
+                            <a class="btn icon-btn edit-mode" style="float: left;"><i class="fa fa-wrench edit-icon"
+                                    aria-hidden="true"></i>
+                                Edit</a>
+                            <a class="btn icon-btn btn-danger" style="float: right;"
+                                (click)="deleteBuyingRequest(requestProduct.buyingRequestId)"><i
+                                    class="fa fa-trash delete-icon" aria-hidden="true"></i>
+                                Delete</a>
+                            <div style="clear: both;"></div>
                         </div>
                     </div>
                 </ng-template>

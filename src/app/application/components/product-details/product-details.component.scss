@@ -15,9 +15,21 @@
     font-weight: 600;
 }
 
+@media (max-width: 414px) {
+    .tm-portfoliodetails-info li {
+        font-size: 10px;
+    }
+}
+
 .tm-portfoliodetails-info li b {
     color: #000;
     font-weight: 700;
+}
+.tm-portfoliodetails-info li a:hover {
+    color: #c0972e;
+}
+.tm-portfoliodetails-info li a {
+    color: #c0972e;
 }
 .tm-portfoliodetails-description a {
     background-color: #c0972e;

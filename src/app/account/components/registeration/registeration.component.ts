@@ -21,6 +21,7 @@ export class RegisterationComponent implements OnInit {
     message: string
     userData: User
     countries: Country[]
+    countrySelected
     constructor(
         private formBuilder: FormBuilder,
         public accountService: AccountsService,
@@ -41,6 +42,7 @@ export class RegisterationComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
+        this.countrySelected = -1
     }
     get f() {
         return this.accountService.registerForm.controls

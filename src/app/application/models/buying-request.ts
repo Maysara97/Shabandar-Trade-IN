@@ -1,5 +1,5 @@
 export class BuyingRequest {
-    // ownerAccountId?: string
+    ownerAccountId?: string
     buyingRequestId?: string
     productId?: string
     categoryId?: string

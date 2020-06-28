@@ -166,4 +166,21 @@ export class SellProductComponent implements OnInit {
         this.categoryId = category
         this.applyFilter()
     }
+
+    allProductWithoutSearch() {
+        this.accountProductService
+            .getAllAccountProducts()
+            .subscribe((response: any) => {
+                this.accountProducts = response.data
+            })
+        this.getAccountProducts(
+            this.pageSize,
+            this.pageNumber,
+            '',
+            '',
+            '',
+            '',
+            ''
+        )
+    }
 }
