@@ -224,8 +224,9 @@
                             </p>
                         </div>
                         <div class="product-actions">
-                            <a class="btn icon-btn edit-mode" style="float: left;"><i class="fa fa-wrench edit-icon"
-                                    aria-hidden="true"></i>
+                            <a class="btn icon-btn edit-mode" style="float: left;"
+                                [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
+                                    class="fa fa-wrench edit-icon" aria-hidden="true"></i>
                                 Edit</a>
                             <a class="btn icon-btn btn-danger" style="float: right;"
                                 (click)="deleteAccountProduct(product.accountProductId)"><i
@@ -281,8 +282,9 @@
                             </p>
                         </div>
                         <div class="product-actions">
-                            <a class="btn icon-btn edit-mode" style="float: left;"><i class="fa fa-wrench edit-icon"
-                                    aria-hidden="true"></i>
+                            <a class="btn icon-btn edit-mode" style="float: left;"
+                                [routerLink]="['/application/edit-buying-request', requestProduct.buyingRequestId]"><i
+                                    class="fa fa-wrench edit-icon" aria-hidden="true"></i>
                                 Edit</a>
                             <a class="btn icon-btn btn-danger" style="float: right;"
                                 (click)="deleteBuyingRequest(requestProduct.buyingRequestId)"><i

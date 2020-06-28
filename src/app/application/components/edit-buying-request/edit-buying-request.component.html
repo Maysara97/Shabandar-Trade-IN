@@ -1,0 +1,336 @@
+<div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0e1234;">
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-lg-10" *ngIf="buyingRequestDetails">
+                <form [formGroup]="editBuyingRequestForm" (submit)="onSubmit(editBuyingRequestForm.value)"
+                    class="p-3 tm-form tm-register-form tm-form-bordered bg-white">
+                    <h4 class="m-5">Edit Buying Request</h4>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <!-- (change)="handleOnCategoryChange()" -->
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="categoryId">Product Category</label>
+                                <select class="form-control" id="categoryId" formControlName="categoryId" #mySelect
+                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
+                                    <option [disabled]="true">Choose Product's
+                                        Category
+                                    </option>
+                                    <option *ngFor="let category of categories" value={{category.categoryId}}>
+                                        {{category.categoryName}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="productId">Product Name</label>
+                                <select class="form-control" id="productId" formControlName="productId"
+                                    [(ngModel)]="buyingRequestDetails.productId">
+                                    <option disabled>Choose your Product</option>
+                                    <option *ngFor="let product of products" value='{{product.productId}}'>
+                                        {{product.productName}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="location">Country</label>
+                                <select class="form-control" id="countries" formControlName="location"
+                                    style="text-transform: capitalize;" [(ngModel)]="countrySelected">
+                                    <option disabled>Choose Product's Country
+                                    </option>
+                                    <option *ngFor="let country of countries" value="{{country.id}}">
+                                        {{country.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <label for="price">Product Price</label>
+                                <input type="text" class="form-control w-100" id="price" formControlName="price"
+                                    placeholder="Product Price" [(ngModel)]="buyingRequestDetails.price">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <label for="unitePrice">Unite Price</label>
+                                <select class="form-control" id="unitePrice" formControlName="unitePrice"
+                                    [(ngModel)]="unitePriceSelected">
+                                    <option [disabled]="true">Choose Unite Price
+                                    </option>
+                                    <option value="1">$</option>
+                                    <option value="2">EGY</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div [ngSwitch]="categorySelected">
+
+                        <div class="industry-category" *ngSwitchCase="industryId">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="brandName">Brand Names</label>
+                                        <tag-input class="brandTags" [(ngModel)]="tagNames" formControlName="brandName"
+                                            [secondaryPlaceholder]="'Brand Name'" [placeholder]="'Brand Name again'">
+                                        </tag-input>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="packing">Packing Way</label>
+                                        <input type="text" class="form-control w-100" id="packing"
+                                            formControlName="packing" placeholder="Packing Way"
+                                            [(ngModel)]="buyingRequestDetails.packing">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="moq">MOQ</label>
+                                        <input type="text" class="form-control w-100" id="moq" formControlName="moq"
+                                            placeholder="MOQ" [(ngModel)]="buyingRequestDetails.moq">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="type">Type</label>
+                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
+                                            placeholder="Type" [(ngModel)]="buyingRequestDetails.type">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="wieght">Wieght</label>
+                                        <input type="text" class="form-control w-100" id="wieght"
+                                            formControlName="wieght" placeholder="Wieght"
+                                            [(ngModel)]="buyingRequestDetails.wieght">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="size">Product Size</label>
+                                        <input type="text" class="form-control w-100" id="size" formControlName="size"
+                                            placeholder="Product Size" [(ngModel)]="buyingRequestDetails.size">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="storage">Storage</label>
+                                        <input type="text" class="form-control w-100" id="storage"
+                                            formControlName="storage" placeholder="Storage"
+                                            [(ngModel)]="buyingRequestDetails.storage">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="grade">Grade</label>
+                                        <input type="text" class="form-control w-100" id="grade" formControlName="grade"
+                                            placeholder="Grade" [(ngModel)]="buyingRequestDetails.grade">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="code">Code</label>
+                                        <input type="text" class="form-control w-100" id="code" formControlName="code"
+                                            placeholder="Code" [(ngModel)]="buyingRequestDetails.code">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <label for="certification">Certifications</label>
+                                        <app-upload-files (onFileUpload)="handleCertificationsUpload($event)"
+                                            (onFileRemove)="handleCertificationsRemove($event)"
+                                            [files]="certifications">
+                                        </app-upload-files>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="touristic-category" *ngSwitchCase="touristicId">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="tripCategory">Trip Category</label>
+                                        <input type="text" class="form-control w-100" id="tripCategory"
+                                            formControlName="tripCategory" placeholder="Trip Category"
+                                            [(ngModel)]="buyingRequestDetails.tripCategory">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="duration">Duration</label>
+                                        <input type="text" class="form-control w-100" id="duration"
+                                            formControlName="duration" placeholder="Duration"
+                                            [(ngModel)]="buyingRequestDetails.duration">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="accomdationName">Accomdation Name</label>
+                                        <input type="text" class="form-control w-100" id="accomdationName"
+                                            formControlName="accomdationName" placeholder="Accomdation Name"
+                                            [(ngModel)]="buyingRequestDetails.accomdationName">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="program">Program</label>
+                                        <input type="text" class="form-control w-100" id="program"
+                                            formControlName="program" placeholder="Program"
+                                            [(ngModel)]="buyingRequestDetails.program">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="real-state-category" *ngSwitchCase="realStateId">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="space">Space</label>
+                                        <input type="text" class="form-control w-100" id="space" formControlName="space"
+                                            placeholder="Space" [(ngModel)]="buyingRequestDetails.space">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="size">Product Size</label>
+                                        <input type="text" class="form-control w-100" id="size" formControlName="size"
+                                            placeholder="Product Size" [(ngModel)]="buyingRequestDetails.size">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label for="type">Type</label>
+                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
+                                            placeholder="Type" [(ngModel)]="buyingRequestDetails.type">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="finishedStatus">Finished Or Semi Or Unfinished</label>
+                                        <select class="form-control" id="finishedStatus"
+                                            formControlName="finishedStatus" [(ngModel)]="finishedStatusSelected">
+                                            <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Product's
+                                                State
+                                            </option>
+                                            <option *ngFor="let finishedType of stateTypes" [value]="finishedType">
+                                                {{FinishedStatusTypeMapping[finishedType]}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="shipping-and-logistics-category" *ngSwitchCase="shippingId">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="agentsLocation">Agents Location</label>
+                                        <tag-input class="brandTags" [(ngModel)]="agents"
+                                            formControlName="agentsLocation" [secondaryPlaceholder]="'Agents Location'"
+                                            [placeholder]="'Agents Location again'">
+                                        </tag-input>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <label for="coverage">Coverage</label>
+                                        <ejs-multiselect [dataSource]='countries' [fields]='localFields'
+                                            [placeholder]='localWaterMark' formControlName="coverage"
+                                            [(ngModel)]="tagCoverage">
+                                        </ejs-multiselect>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="serviceType">Service Type</label>
+                                        <input type="number" class="form-control w-100" id="serviceType"
+                                            formControlName="serviceType" placeholder="Service Type"
+                                            [(ngModel)]="buyingRequestDetails.serviceType">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="designers-category" *ngSwitchCase="designersId">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="softwares">Softwares</label>
+                                        <input type="text" class="form-control w-100" id="softwares"
+                                            formControlName="softwares" placeholder="Softwares"
+                                            [(ngModel)]="buyingRequestDetails.softwares">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div *ngSwitchDefault>
+                            <p>test</p>
+                        </div> -->
+                    </div>
+
+                    <!-- Common -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="paymentTerms">Payment Terms</label>
+                                <input type="text" class="form-control w-100" id="paymentTerms"
+                                    formControlName="paymentTerms" placeholder="Payment Terms"
+                                    [(ngModel)]="buyingRequestDetails.paymentTerms">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3" formControlName="description"
+                            placeholder="Product Description" [(ngModel)]="buyingRequestDetails.description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImages">Product Images</label>
+                        <app-upload-files (onFileUpload)="handleImageUpload($event)"
+                            (onFileRemove)="handleImageRemove($event)" [multiple]="true" [files]="images">
+                        </app-upload-files>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachments">Product Attachments</label>
+                        <app-upload-files (onFileUpload)="handleFileUpload($event)"
+                            (onFileRemove)="handleFileRemove($event)" [multiple]="true" [files]="files">
+                        </app-upload-files>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <button type="submit" class="tm-button mt-2">
+                                    Submit <b></b>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="submit" class="tm-button mt-2 closeBtn" routerLink="/account/owner">
+                                    <a>Close <b></b></a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Material Select Initialization
+    $(document).ready(function () {
+        $('.mdb-select').materialSelect()
+    })
+</script>

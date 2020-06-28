@@ -4,6 +4,7 @@ export class AccountProduct {
     accountId?: string
     productName?: string
     categoryName?: string
+    categoryId?: string
     accountName?: string
     location?: number
     countryName?: string

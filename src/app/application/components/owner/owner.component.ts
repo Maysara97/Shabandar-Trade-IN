@@ -158,6 +158,10 @@ export class OwnerComponent implements OnInit {
             .subscribe((res) => this.getAllAccountProduct())
     }
 
+    // editAccountProduct(AccountProductId: AccountProduct) {
+
+    // }
+
     deleteBuyingRequest(BuyingRequest: string) {
         this.buyingRequestService
             .deleteBuyingRequest(BuyingRequest)
