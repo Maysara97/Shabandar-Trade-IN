@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.loginForm.reset()
-                    this.toastr.error('Invalid login credentials')
+                    this.toastr.error(result.errors)
                 }
             })
     }

@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr'
 import { CategoryService } from '../../services/category.service'
 import { CountryService } from '../../services/country.service'
 import { FileImage } from 'src/app/shared/models/file'
+import { environment } from 'src/environments/environment'
 
 @Component({
     selector: 'app-edit-product-form',
@@ -40,10 +41,11 @@ export class EditProductFormComponent implements OnInit {
     editAccountProductForm: FormGroup
     images: string[] = []
     files: string[] = []
-    certifications: string[] = []
+    certifications: string
     tagNames = []
     tagCoverage = []
     agents = []
+    env: any
 
     industryCategorySelected = false
     touristicCategorySelected = false
@@ -82,6 +84,8 @@ export class EditProductFormComponent implements OnInit {
         private countryService: CountryService
     ) {
         this.accountProductId = route.snapshot.params['accountProductId']
+
+        this.env = environment
     }
 
     ngOnInit(): void {
@@ -97,6 +101,9 @@ export class EditProductFormComponent implements OnInit {
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
 
+                this.images = this.accountProductDetails.productImages
+                this.files = this.accountProductDetails.attachments
+                this.certifications = this.accountProductDetails.certification
                 this.productService
                     .getProductsByCategory(
                         this.accountProductDetails.categoryId
@@ -239,5 +246,8 @@ export class EditProductFormComponent implements OnInit {
                     this.toastr.error(result.errors)
                 }
             })
+    }
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }

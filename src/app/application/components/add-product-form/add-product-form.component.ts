@@ -200,8 +200,8 @@ export class AddProductFormComponent implements OnInit {
             agentsResult.push(element.value)
         })
 
-        console.log(this.tagCoverage)
-        console.log(this.agents)
+        // console.log(this.tagCoverage)
+        // console.log(this.agents)
 
         this.accountProductService
             .createAccountProduct(

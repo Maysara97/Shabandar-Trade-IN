@@ -44,6 +44,7 @@ export class AddNewRequestFormComponent implements OnInit {
     tagNames = []
     tagCoverage = []
     agents = []
+    certifications: string[] = []
 
     industryCategorySelected = false
     touristicCategorySelected = false
@@ -146,7 +147,19 @@ export class AddNewRequestFormComponent implements OnInit {
     }
     handleImageRemove(files: FileImage[]) {
         this.addBuyingRequestForm.patchValue({
-            image: files[0].imageFile,
+            image: files.map((file) => file.imageFile),
+        })
+    }
+
+    // Upload Certifications
+    handleCertificationsUpload(files: FileImage[]) {
+        this.addBuyingRequestForm.patchValue({
+            certification: files[0].imageFile,
+        })
+    }
+    handleCertificationsRemove(files: FileImage[]) {
+        this.addBuyingRequestForm.patchValue({
+            certification: files.map((file) => file.imageFile),
         })
     }
 

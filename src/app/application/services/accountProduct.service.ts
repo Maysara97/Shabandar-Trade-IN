@@ -117,4 +117,11 @@ export class AccountProductService extends BaseService<any> {
             `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
         )
     }
+
+    getAccountProductByOwnerID(accountId: string) {
+        return this.getById(
+            'AccountProduct/AccountProductsByAccountId',
+            accountId
+        )
+    }
 }

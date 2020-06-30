@@ -123,4 +123,11 @@ export class BuyingRequestService extends BaseService<any> {
             `BuyingRequest/BuyingRequestSearch/${pageSize}/${pageNumber}?SearchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
         )
     }
+
+    getBuyingRequestsByOwnerID(accountId: string) {
+        return this.getById(
+            'BuyingRequest/BuyingRequestsByAccountId',
+            accountId
+        )
+    }
 }

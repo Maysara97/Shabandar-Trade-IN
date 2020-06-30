@@ -223,12 +223,12 @@
                                 {{product.description | slice : 0 : 100}}
                             </p>
                         </div>
-                        <div class="product-actions">
-                            <a class="btn icon-btn edit-mode" style="float: left;"
+                        <div class="product-actions ">
+                            <a class="btn icon-btn edit-mode"
                                 [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
                                     class="fa fa-wrench edit-icon" aria-hidden="true"></i>
                                 Edit</a>
-                            <a class="btn icon-btn btn-danger" style="float: right;"
+                            <a class="btn icon-btn btn-danger"
                                 (click)="deleteAccountProduct(product.accountProductId)"><i
                                     class="fa fa-trash delete-icon" aria-hidden="true"></i>
                                 Delete</a>
@@ -282,11 +282,11 @@
                             </p>
                         </div>
                         <div class="product-actions">
-                            <a class="btn icon-btn edit-mode" style="float: left;"
+                            <a class="btn icon-btn edit-mode"
                                 [routerLink]="['/application/edit-buying-request', requestProduct.buyingRequestId]"><i
                                     class="fa fa-wrench edit-icon" aria-hidden="true"></i>
                                 Edit</a>
-                            <a class="btn icon-btn btn-danger" style="float: right;"
+                            <a class="btn icon-btn btn-danger"
                                 (click)="deleteBuyingRequest(requestProduct.buyingRequestId)"><i
                                     class="fa fa-trash delete-icon" aria-hidden="true"></i>
                                 Delete</a>

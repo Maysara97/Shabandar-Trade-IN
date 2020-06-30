@@ -162,8 +162,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="certification">Certifications</label>
-                                        <input #fileInput id="certification" type='file'
-                                            (click)="fileInput.value = null" value="" formControlName="certification">
+                                        <app-upload-files (onFileUpload)="handleCertificationsUpload($event)"
+                                            (onFileRemove)="handleCertificationsRemove($event)"
+                                            [files]="certifications">
+                                        </app-upload-files>
                                     </div>
                                 </div>
                             </div>

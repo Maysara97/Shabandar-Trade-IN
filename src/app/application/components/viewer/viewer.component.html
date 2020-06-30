@@ -6,13 +6,21 @@
                     <h2 style="color: #c0972e; float: left;" class="leftAlign">
                         {{targetAccountDetails.accountName}}'s Profile
                     </h2>
-                    <button type="button" class="btn rightAlign" style="
+                    <button *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn rightAlign" style="
+                            color: #fff;
+                            float: right;
+                            background-color: #c0972e;
+                        " (click)="addFavorite(favoriteId)">
+                        Add Interest
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </button>
+                    <button *ngIf="targetAccountDetails.isFavorite" type="button" class="btn rightAlign" style="
                             color: #fff;
                             float: right;
                             background-color: #c0972e;
                         ">
-                        Add Interest
-                        <i class="fa fa-star" aria-hidden="true"></i>
+                        Remove Interest
+                        <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div style="clear: both;"></div>
@@ -28,10 +36,11 @@
                                 width="70%" />
                         </div>
                         <div class="col-xl-8 col-lg-8">
-                            <div class="tm-portfoliodetails-info" style="background-color: #fff;border-radius: 10px;">
+                            <div class="tm-portfoliodetails-info"
+                                style="background-color: #0e1234;border-radius: 10px;">
                                 <div class="row">
                                     <div class="col-5">
-                                        <li style="color: #000000;"
+                                        <li style="color: #fff;"
                                             *ngIf="targetAccountDetails.accountAdministrators[0].firstName && targetAccountDetails.accountAdministrators[0].lastName">
                                             <b>User Name :</b></li>
                                     </div>
@@ -45,7 +54,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;"
+                                        <li style="color: #fff;"
                                             *ngIf="targetAccountDetails.accountAdministrators[0].email">
                                             <b>Email :</b></li>
                                     </div>
@@ -57,7 +66,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;" *ngIf="targetAccountDetails.accountName">
+                                        <li style="color: #fff;" *ngIf="targetAccountDetails.accountName">
                                             <b>Account Name :</b></li>
                                     </div>
                                     <div class="col-7">
@@ -68,7 +77,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;" *ngIf="targetAccountDetails.accountMobile">
+                                        <li style="color: #fff;" *ngIf="targetAccountDetails.accountMobile">
                                             <b>Account Mobile :</b></li>
                                     </div>
                                     <div class="col-7">
@@ -79,7 +88,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;" *ngIf="targetAccountDetails.countryName">
+                                        <li style="color: #fff;" *ngIf="targetAccountDetails.countryName">
                                             <b>Country Name :</b></li>
                                     </div>
                                     <div class="col-7">
@@ -90,7 +99,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;" *ngIf="targetAccountDetails.accountWebsite">
+                                        <li style="color: #fff;" *ngIf="targetAccountDetails.accountWebsite">
                                             <b>Account Website :</b></li>
                                     </div>
                                     <div class="col-7">
@@ -102,7 +111,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;" *ngIf="targetAccountDetails.mission">
+                                        <li style="color: #fff;" *ngIf="targetAccountDetails.mission">
                                             <b>Mission :</b></li>
                                     </div>
                                     <div class="col-7">
@@ -113,7 +122,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-5">
-                                        <li style="color: #000000;" *ngIf="targetAccountDetails.vission">
+                                        <li style="color: #fff;" *ngIf="targetAccountDetails.vission">
                                             <b>Vision :</b></li>
                                     </div>
                                     <div class="col-7">

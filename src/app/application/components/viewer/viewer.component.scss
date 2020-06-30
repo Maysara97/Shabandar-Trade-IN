@@ -7,8 +7,9 @@
         background-position: bottom;
         background-size: 100%;
     }
-    .viewer-area .avatar-img {
+    .viewer-area .avatar-no-image {
         text-align: center;
+        margin-left: 15%;
     }
 }
 .viewer-area .profileData {
@@ -29,7 +30,7 @@
     font-weight: 700;
 }
 .viewer-area .avatar-des p {
-    color: #fff !important;
+    color: #fff;
     font-size: 15px;
 }
 
@@ -417,6 +418,11 @@
         width: 250px !important;
     }
 }
+@media (max-width: 414px) {
+    .avatar-data .tm-portfoliodetails-info li {
+        font-size: 10px;
+    }
+}
 
 .product-details a:hover {
     text-decoration: none;
@@ -446,7 +452,7 @@
 
 .avatar-data .tm-portfoliodetails-info li b {
     font-weight: 700;
-    color: #000;
+    color: #fff;
 }
 .avatar-data .tm-portfoliodetails-description a {
     background-color: #c0972e;
@@ -462,14 +468,15 @@
     text-decoration: none;
 }
 
-.avatar-img {
+.avatar-img img {
     background-color: #c0972e;
     /* padding-left: 80px; */
-    padding-top: 120px;
-    border-radius: 50%;
-    height: 350px;
+    // padding-top: 120px;
+    border-radius: 25%;
+    height: 250px;
+    width: 100%;
     text-align: center;
-    border: 4px solid #fff;
+    border: 4px solid #c0972e;
 }
 
 .avatar-des a {
@@ -497,8 +504,36 @@
     list-style: none;
 }
 
-@media (max-width: 414px) {
-    .avatar-data .tm-portfoliodetails-info li {
-        font-size: 10px;
-    }
+.delete-icon {
+    padding: 8px;
+    background: #ffffff;
+    margin-right: 4px;
+    border-radius: 50%;
+    color: #dc3545;
+}
+.icon-btn {
+    // padding: 1px 15px 3px 2px;
+    border-radius: 50px;
+    color: #fff !important;
+}
+// .icon-btn:hover {
+//     background-color: #c0972e;
+//     color: #fff;
+// }
+
+.edit-mode {
+    background-color: #fff;
+    color: #0e1234 !important;
+}
+
+.edit-icon {
+    padding: 8px;
+    background: #0e1234;
+    margin-right: 4px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.product-actions {
+    margin-top: 20%;
 }

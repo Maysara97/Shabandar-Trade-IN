@@ -7,6 +7,8 @@ import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
+import { FavoriteService } from '../../services/favorite.service'
+import { Favorite } from '../../models/favorite'
 
 @Component({
     selector: 'app-viewer',
@@ -15,10 +17,14 @@ import { BuyingRequestService } from '../../services/buying-request.service'
 })
 export class ViewerComponent implements OnInit {
     TargetAccountId
+    accountProductID
     targetAccountDetails: AccountData
     accountProducts: AccountProduct[]
     buyingProducts: BuyingRequest[]
     env: any
+    favorite: Favorite
+    favoriteId
+    isFavorite
     customOptions: any = {
         loop: true,
         mouseDrag: true,
@@ -29,13 +35,13 @@ export class ViewerComponent implements OnInit {
         navText: ['Prev', 'Next'],
         responsive: {
             0: {
-                items: 3,
+                items: 1,
             },
             400: {
                 items: 2,
             },
             740: {
-                items: 3,
+                items: 2,
             },
             940: {
                 items: 4,
@@ -63,7 +69,7 @@ export class ViewerComponent implements OnInit {
                 items: 2,
             },
             940: {
-                items: 3,
+                items: 4,
             },
         },
         nav: true,
@@ -73,7 +79,8 @@ export class ViewerComponent implements OnInit {
         private authService: AuthService,
         private route: ActivatedRoute,
         private accountProductService: AccountProductService,
-        private buyingRequestService: BuyingRequestService
+        private buyingRequestService: BuyingRequestService,
+        private isFavoriteService: FavoriteService
     ) {
         this.TargetAccountId = route.snapshot.params['TargetAccountId']
         this.env = environment
@@ -94,18 +101,30 @@ export class ViewerComponent implements OnInit {
             })
 
         this.accountProductService
-            .getAccountProductsByOwner()
+            .getAccountProductByOwnerID(this.TargetAccountId)
             .subscribe((result: any) => {
                 this.accountProducts = result.data
             })
 
         this.buyingRequestService
-            .getBuyingRequestsByOwner()
+            .getBuyingRequestsByOwnerID(this.TargetAccountId)
             .subscribe((result: any) => {
                 this.buyingProducts = result.data
             })
     }
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
+    }
+
+    addFavorite(favorite) {
+        // this.targetAccountDetails.isFavorite = this.isFavorite
+        this.isFavoriteService
+            .createFavorite(favorite)
+            .subscribe((result: any) => {
+                if (result.isSucceeded) {
+                    this.targetAccountDetails.isFavorite = true
+                    this.favorite.favoriteItemId = this.TargetAccountId
+                }
+            })
     }
 }
