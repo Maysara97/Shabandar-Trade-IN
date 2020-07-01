@@ -48,6 +48,7 @@ export class EditprofileComponent implements OnInit {
         // Get Account Data
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.updateUserData = result.data
+            this.files = this.updateUserData.accountAttachments
         })
 
         this.editProfileForm = this.formBuilder.group({

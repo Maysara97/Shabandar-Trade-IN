@@ -25,17 +25,17 @@
                             <a routerLink="/home/home-main" fragment="default"
                                 (click)="navigateToSection('default')">Home</a>
                         </li>
-                        <li><a routerLink="/application/homepage">Buying Request</a></li>
+                        <li><a routerLink="/application/homepage" routerLinkActive="active">Buying Request</a></li>
 
                         <li class="navigation__link">
-                            <a routerLink="/application/sell-product">Find Products</a>
+                            <a routerLink="/application/sell-product" routerLinkActive="active">Find Products</a>
                         </li>
 
                         <li class="navigation__link">
                             <a routerLink="/home/home-main">Contact</a>
                         </li>
                         <li class="navigation__link">
-                            <a routerLink="/home/home-main" fragment="egypt" (click)="navigateToSection('egypt')">Egypt
+                            <a [routerLink]="['/home/home-main']" fragment="egypt">Egypt
                                 2030</a>
                         </li>
 

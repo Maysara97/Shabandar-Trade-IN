@@ -9,7 +9,11 @@ export class FavoriteService extends BaseService<any> {
         super(injector)
     }
 
-    createFavorite(favorite: Favorite) {
+    createFavorite(favorite: Favorite): Observable<Favorite> {
+        // const body = {
+        //     isFavorite: favorite.favoriteId,
+        //     favoriteItemId: favorite.favoriteItemId,
+        // }
         return this.post('Favorite', favorite)
     }
     deleteFavorite(favoriteId: string) {

@@ -13,7 +13,11 @@ export class HomeHeaderComponent implements OnInit {
     isLoggedIn
     currentUser: User
     // tslint:disable-next-line:variable-name
-    constructor(public _route: Router, private auth: AuthService) {}
+    constructor(
+        public _route: Router,
+        private auth: AuthService,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
         this.auth.isAuthed.subscribe((result) => {
@@ -36,18 +40,10 @@ export class HomeHeaderComponent implements OnInit {
     }
 
     openProfile() {
-        // // Here Check if admin or Regular User
-        // if (this.currentUser.role === Role.User) {
-        //     this._route.navigateByUrl('/account/owner')
-        // } else if (this.currentUser.role === Role.Admin) {
-        //     // this._route.navigateByUrl('/admin-panel/dashboard')
-        // }
-
         this._route.navigateByUrl('/account/owner')
     }
 
     logout() {
         this.auth.logout()
-        // this._route.navigateByUrl('login')
     }
 }

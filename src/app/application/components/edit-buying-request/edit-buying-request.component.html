@@ -8,29 +8,50 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <!-- (change)="handleOnCategoryChange()" -->
                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="title">Product Title</label>
+                                <input type="text" class="form-control w-100" id="title" formControlName="title"
+                                    placeholder="Product Title" [(ngModel)]="title">
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <!-- (change)="handleOnCategoryChange()" -->
                                 <label for="categoryId">Product Category</label>
-                                <select class="form-control" id="categoryId" formControlName="categoryId" #mySelect
+                                <select class="form-control" id="categoryId" formControlName="categoryId"
                                     [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
-                                    <option [disabled]="true">Choose Product's
-                                        Category
+                                    <option [disabled]="true">Choose Product's Category
                                     </option>
-                                    <option *ngFor="let category of categories" value={{category.categoryId}}>
+                                    <option *ngFor="let category of categories" value="{{category.categoryId}}">
                                         {{category.categoryName}}</option>
                                 </select>
-                            </div>
 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="productId">Product Name</label>
+                                <label for="productId">Product</label>
                                 <select class="form-control" id="productId" formControlName="productId"
                                     [(ngModel)]="buyingRequestDetails.productId">
-                                    <option disabled>Choose your Product</option>
-                                    <option *ngFor="let product of products" value='{{product.productId}}'>
+                                    <option [disabled]="true">Choose your Product
+                                    </option>
+                                    <option *ngFor="let product of products" value="{{product.productId}}">
                                         {{product.productName}}</option>
+                                    <option value="">New Product</option>
                                 </select>
+                                <!-- <label class="text-danger"
+                                    *ngIf="editBuyingRequestForm.get('productId').touched && editBuyingRequestForm.get('productId').errors?.required">
+                                    Product Name is Required
+                                </label> -->
                             </div>
-
+                            <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="buyingRequestDetails.productId == ''">
+                                <label for="productName">Product Name</label>
+                                <input type="text" class="form-control w-100" id="productName"
+                                    formControlName="productName" placeholder="Product Name"
+                                    [(ngModel)]="buyingRequestDetails.productName">
+                            </div>
                         </div>
                     </div>
 
@@ -293,17 +314,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="productImages">Product Images</label>
+                        <label for="productImages">Buying Request Image</label>
                         <app-upload-files (onFileUpload)="handleImageUpload($event)"
-                            (onFileRemove)="handleImageRemove($event)" [multiple]="true" [files]="images">
-                        </app-upload-files>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="attachments">Product Attachments</label>
-                        <app-upload-files (onFileUpload)="handleFileUpload($event)"
-                            (onFileRemove)="handleFileRemove($event)" [multiple]="true" [files]="files">
+                            (onFileRemove)="handleImageRemove($event)" [multiple]="false" [files]="images">
                         </app-upload-files>
 
                     </div>

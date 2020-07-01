@@ -1,17 +1,23 @@
-import { Component, OnInit, HostBinding } from "@angular/core";
+import { Component, OnInit, HostBinding } from '@angular/core'
+import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Component({
-  selector: "app-slider",
-  templateUrl: "./slider.component.html",
-  styleUrls: ["./slider.component.scss"]
+    selector: 'app-slider',
+    templateUrl: './slider.component.html',
+    styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  myBackgroundImageUrl = "./assets/images/You-Trade-In/Header.png";
-  constructor() {}
+    isLoggedIn
+    myBackgroundImageUrl = './assets/images/You-Trade-In/Header.png'
+    constructor(private auth: AuthService) {}
 
-  ngOnInit() {}
-  @HostBinding("style.backgroundImage")
-  getBackgroundImageUrl() {
-    return `url(${this.myBackgroundImageUrl})`;
-  }
+    ngOnInit() {
+        this.auth.isAuthed.subscribe((result) => {
+            this.isLoggedIn = result
+        })
+    }
+    @HostBinding('style.backgroundImage')
+    getBackgroundImageUrl() {
+        return `url(${this.myBackgroundImageUrl})`
+    }
 }

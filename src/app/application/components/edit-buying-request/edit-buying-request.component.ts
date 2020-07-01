@@ -9,7 +9,6 @@ import {
     FinishedStatusTypeMapping,
     FinishedStatusType,
 } from '../../models/enum'
-import { AccountProductService } from '../../services/accountProduct.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
@@ -60,6 +59,7 @@ export class EditBuyingRequestComponent implements OnInit {
     shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
 
     categoryId
+    title
     categories: Category[]
     products: Product[]
     countries: Country[]
@@ -94,10 +94,14 @@ export class EditBuyingRequestComponent implements OnInit {
 
                 this.categorySelected = this.buyingRequestDetails.categoryId
                 this.countrySelected = this.buyingRequestDetails.location
+
                 this.unitePriceSelected = this.buyingRequestDetails.unitePrice
                 this.finishedStatusSelected = this.buyingRequestDetails.finishedStatus
                 this.tagNames = this.buyingRequestDetails.brandName
                 this.tagCoverage = this.buyingRequestDetails.coverage
+                this.title = this.buyingRequestDetails.title
+                this.images[0] = this.buyingRequestDetails.image
+                this.certifications[0] = this.buyingRequestDetails.certification
 
                 this.productService
                     .getProductsByCategory(this.buyingRequestDetails.categoryId)
@@ -129,12 +133,13 @@ export class EditBuyingRequestComponent implements OnInit {
         this.editBuyingRequestForm = this.formBuilder.group({
             buyingRequestId: [this.buyingRequestId],
             productId: [],
+            title: [],
+            productName: [],
             unitePrice: [],
             price: [],
             categoryId: [],
             paymentTerms: [],
-            productImages: [],
-            attachments: [],
+            image: [],
             size: [],
             description: [],
             location: [],
@@ -173,17 +178,6 @@ export class EditBuyingRequestComponent implements OnInit {
         })
     }
 
-    // Upload Files
-    handleFileUpload(files: FileImage[]) {
-        this.editBuyingRequestForm.patchValue({
-            attachments: files.map((file) => file.imageFile),
-        })
-    }
-    handleFileRemove(files: FileImage[]) {
-        this.editBuyingRequestForm.patchValue({
-            attachments: files.map((file) => file.imageFile),
-        })
-    }
     // Upload Certifications
     handleCertificationsUpload(files: FileImage[]) {
         this.editBuyingRequestForm.patchValue({
@@ -192,7 +186,7 @@ export class EditBuyingRequestComponent implements OnInit {
     }
     handleCertificationsRemove(files: FileImage[]) {
         this.editBuyingRequestForm.patchValue({
-            certification: files[0].imageFile,
+            certification: files.map((file) => file.imageFile),
         })
     }
     handleOnCategoryChange() {
