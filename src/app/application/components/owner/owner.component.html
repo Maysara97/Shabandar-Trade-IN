@@ -1,7 +1,7 @@
 <!-- *ngIf="user" -->
-<div class="owner-profile">
+<div class="owner-profile" *ngIf="userDetails">
     <div class="page-section tm-section owner-area tm-padding-section" style="background-color: #0e1234;">
-        <div class="container" *ngIf="userDetails">
+        <div class="container">
             <div class="row mt-5">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="mb-5">
@@ -312,105 +312,47 @@
                 </div>
             </div>
 
-            <owl-carousel-o [options]="interestsOptions" class="interests-section mt-3" style="width: 400px;">
-                <ng-template carouselSlide>
+            <owl-carousel-o [options]="interestsOptions" class="interests-section mt-3" style="width: 700px;">
+                <ng-template carouselSlide *ngFor="let favorite of userDetails.favorites">
                     <div class="col">
                         <div class="tm-portfoliodetails-info">
                             <div class="tm-blog">
-                                <div class="tm-blog-image m-3">
-                                    <img src="assets/images/You-Trade-In/2030EgyptVisionLogo.png" alt="product image" />
+                                <div class="tm-blog-image ">
+                                    <img [src]="getFilePath(favorite.accountImage)" alt="product image" />
                                 </div>
                             </div>
                             <ul class="text-left">
-                                <li>
-                                    <b>Intra Contractors Ltd. <span>-</span></b>
-                                    Construction
-                                </li>
-                                <li>
-                                    <b>Mobilo Sans Co. <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Step Over Agency <span>-</span></b> Advertising
-                                    Agency
-                                </li>
-                                <li>
-                                    <b>Castro Leathers <span>-</span></b> Leather Goods
-                                </li>
-                                <li>
-                                    <b>Décor Weavers <span>-</span></b> Carpets
-                                </li>
-                                <li>
-                                    <b>Steel Iron Co. <span>-</span></b> Steel/Iron
-                                </li>
-                                <li>
-                                    <b>Health Clinic <span>-</span></b> Health/Medical
-                                </li>
-                                <li>
-                                    <b>Mobile Servico <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Stansan Co. <span>-</span></b> Real Estate
-                                </li>
-                                <li>
-                                    <b>Chemico <span>-</span></b> Chemicals
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="col">
-                        <div class="tm-portfoliodetails-info">
-                            <div class="tm-blog">
-                                <div class="tm-blog-image m-3">
-                                    <img src="assets/images/You-Trade-In/2030EgyptVisionLogo.png" alt="product image" />
+                                <div class="row">
+                                    <div class="col-5">
+                                        <li>
+                                            <b>Company Name <span>:</span></b>
+                                        </li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li>
+                                            <a
+                                                [routerLink]="['/application/viewer', favorite.favoriteItemId]">{{favorite.accountName}}</a>
+                                        </li>
+                                    </div>
                                 </div>
-                            </div>
-                            <ul class="text-left">
-                                <li>
-                                    <b>Intra Contractors Ltd. <span>-</span></b>
-                                    Construction
-                                </li>
-                                <li>
-                                    <b>Mobilo Sans Co. <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Step Over Agency <span>-</span></b> Advertising
-                                    Agency
-                                </li>
-                                <li>
-                                    <b>Castro Leathers <span>-</span></b> Leather Goods
-                                </li>
-                                <li>
-                                    <b>Décor Weavers <span>-</span></b> Carpets
-                                </li>
-                                <li>
-                                    <b>Steel Iron Co. <span>-</span></b> Steel/Iron
-                                </li>
-                                <li>
-                                    <b>Health Clinic <span>-</span></b> Health/Medical
-                                </li>
-                                <li>
-                                    <b>Mobile Servico <span>-</span></b> Mobile
-                                </li>
-                                <li>
-                                    <b>Stansan Co. <span>-</span></b> Real Estate
-                                </li>
-                                <li>
-                                    <b>Chemico <span>-</span></b> Chemicals
-                                </li>
+                                <div class="row mt-3">
+                                    <div class="col-5">
+                                        <li>
+                                            <b>Category Name <span>:</span></b>
+                                        </li>
+                                    </div>
+                                    <div class="col-7">
+                                        <li>
+                                            {{favorite.categoryName}}
+                                        </li>
+                                    </div>
+                                </div>
                             </ul>
                         </div>
-
-
                     </div>
                 </ng-template>
-
             </owl-carousel-o>
         </div>
-        <!--// Products Area -->
     </div>
 
 </div>

@@ -10,7 +10,7 @@
                             color: #fff;
                             float: right;
                             background-color: #c0972e;
-                        " (click)="addFavorite(favoriteId)">
+                        " (click)="addFavorite(TargetAccountId)">
                         Add Interest
                         <i class="fa fa-star" aria-hidden="true"></i>
                     </button>
@@ -18,7 +18,7 @@
                             color: #fff;
                             float: right;
                             background-color: #c0972e;
-                        ">
+                        " (click)="deleteFavorite(targetAccountDetails.favoriteId)">
                         Remove Interest
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
