@@ -3,6 +3,7 @@ import {
     User,
     Administrator,
     AccountData,
+    Favorites,
 } from 'src/app/account/models/register'
 import { Observable } from 'rxjs'
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
@@ -24,6 +25,7 @@ export class OwnerComponent implements OnInit {
     user: User
 
     userDetails: AccountData
+    favorites: Favorites[]
     accountProducts: AccountProduct[]
     buyingProducts: BuyingRequest[]
     env: any

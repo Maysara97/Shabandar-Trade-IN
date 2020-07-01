@@ -1,7 +1,6 @@
 import { Role } from './role'
 
 export class User {
-    // accountId?: string
     accountName?: string
     primaryAdminEmail?: string
     primaryAdminFirstlName?: string
@@ -9,13 +8,6 @@ export class User {
     primaryAdminPassword?: string
     accountMobile?: string
     countryId?: 0
-    // role: Role
-    // accountImage?: string
-    // mission?: string
-    // vission?: string
-    // description?: string
-    // accountWebsite?: string
-    // accountAttachments?: string[] = []
 }
 
 export class Administrator {
@@ -42,4 +34,15 @@ export class AccountData {
     favoriteId?: string
     status?: number
     accountAdministrators: Administrator[]
+    favorites?: Favorites[] = []
+}
+
+export class Favorites {
+    favoriteId: string
+    favoriteAccountId: string
+    favoriteItemId: string
+    accountName: string
+    accountImage: string
+    favoriteItemType: number
+    categoryName: string
 }

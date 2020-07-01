@@ -22,7 +22,6 @@ export class ViewerComponent implements OnInit {
     accountProducts: AccountProduct[]
     buyingProducts: BuyingRequest[]
     env: any
-    favorite: Favorite
     favoriteId
     isFavorite
     customOptions: any = {
@@ -116,14 +115,27 @@ export class ViewerComponent implements OnInit {
         return `${this.env.file_path}${fileName}`
     }
 
-    addFavorite(favorite) {
+    addFavorite(TargetAccountId) {
+        const favorite: Favorite = {
+            favoriteItemId: TargetAccountId,
+        }
         // this.targetAccountDetails.isFavorite = this.isFavorite
         this.isFavoriteService
             .createFavorite(favorite)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
                     this.targetAccountDetails.isFavorite = true
-                    this.favorite.favoriteItemId = this.TargetAccountId
+                    this.targetAccountDetails.favoriteId = result.data
+                }
+            })
+    }
+
+    deleteFavorite(favoriteId) {
+        this.isFavoriteService
+            .deleteFavorite(favoriteId)
+            .subscribe((result: any) => {
+                if (result.isSucceeded) {
+                    this.targetAccountDetails.isFavorite = false
                 }
             })
     }
