@@ -50,17 +50,16 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.submitted = true
         // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return
-        }
+        // if (this.loginForm.invalid) {
+        //     return
+        // }
         this.auth
             .login(this.email.value, this.password.value)
             .subscribe((result: any) => {
-                if (result) {
-                    // this.toastr.success('Success')
+                if (result.isSucceeded) {
                     this.router.navigate(['/account/owner'])
                 } else {
-                    this.loginForm.reset()
+                    debugger
                     this.toastr.error(result.errors)
                 }
             })

@@ -16,6 +16,7 @@ export class Administrator {
     email?: string
     firstName?: string
     lastName?: string
+    emailConfirmed?: string
 }
 
 export class AccountData {

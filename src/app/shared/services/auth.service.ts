@@ -26,37 +26,17 @@ export class AuthService extends BaseService<any> {
         super(injector)
     }
 
-    get accountAdminastratorInfo() {
-        const token = tokenGetter()
-        const isExpired = this.jwtService.isTokenExpired(token)
-        const tokenDecoded = this.jwtService.decodeToken(token)
-        if (!isExpired && tokenDecoded.accountId) {
-            return tokenDecoded as Administrator
-        }
-        return null
-    }
-    get accountInfo() {
-        const token = tokenGetter()
-        const isExpired = this.jwtService.isTokenExpired(token)
-        const tokenDecoded = this.jwtService.decodeToken(token)
-        if (!isExpired && tokenDecoded.accountId) {
-            return tokenDecoded as User
-        }
-        return null
-    }
-
     login(email: string, password: string) {
         return this.post('Authorization/login', { email, password }).pipe(
             map((result: any) => {
                 if (!result.isSucceeded) {
-                    return false
-                }
+                    return result                }
 
                 localStorage.setItem('token', result.data)
                 const currentUser = this.decodeToken(result.data)
                 this.currentUserSubject.next(currentUser) // <-- pump the value in here
                 this.isAuthSubject.next(true)
-                return true
+                return result
             })
         )
     }
@@ -108,10 +88,6 @@ export class AuthService extends BaseService<any> {
         return this.put('Account', body)
     }
 
-    // getUserData(): Observable<Administrator> {
-    //     return this.get('Administrator')
-    // }
-
     updatePassword(body): Observable<any> {
         return this.post('Authorization/ChangePassword', body)
     }
@@ -123,4 +99,9 @@ export class AuthService extends BaseService<any> {
     getTargetUserProfile(TargetAccountId: string) {
         return this.getById('Account', TargetAccountId)
     }
+
+    confirmEmail(email: string, token: string) {
+        return this.post('Authorization/ConfirmEmail', { email, token })
+    }
+
 }
