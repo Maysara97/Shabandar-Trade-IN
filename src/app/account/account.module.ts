@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms'
 
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
 import { UpdatePasswordComponent } from './components/update-password/update-password.component'
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared/shared.module';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component'
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from '../shared/shared.module'
         LoginComponent,
         EditprofileComponent,
         UpdatePasswordComponent,
+        ConfirmationComponent,
     ],
     imports: [
         CommonModule,
