@@ -24,7 +24,9 @@ import { BuyingProductDetailsComponent } from './components/buying-product-detai
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 import { MatTabsModule } from '@angular/material/tabs'
 import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
-import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component'
+import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component';
+import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component';
+import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -37,6 +39,8 @@ import { EditBuyingRequestComponent } from './components/edit-buying-request/edi
         BuyingProductDetailsComponent,
         EditProductFormComponent,
         EditBuyingRequestComponent,
+        ConfirmationSuccessfullComponent,
+        ConfirmationFailedComponent,
     ],
     imports: [
         CommonModule,

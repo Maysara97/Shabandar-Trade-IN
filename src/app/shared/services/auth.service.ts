@@ -30,14 +30,13 @@ export class AuthService extends BaseService<any> {
         return this.post('Authorization/login', { email, password }).pipe(
             map((result: any) => {
                 if (!result.isSucceeded) {
-                    return false
-                }
+                    return result                }
 
                 localStorage.setItem('token', result.data)
                 const currentUser = this.decodeToken(result.data)
                 this.currentUserSubject.next(currentUser) // <-- pump the value in here
                 this.isAuthSubject.next(true)
-                return true
+                return result
             })
         )
     }
@@ -104,4 +103,5 @@ export class AuthService extends BaseService<any> {
     confirmEmail(email: string, token: string) {
         return this.post('Authorization/ConfirmEmail', { email, token })
     }
+
 }

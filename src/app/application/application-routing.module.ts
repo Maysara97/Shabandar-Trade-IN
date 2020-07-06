@@ -11,6 +11,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
 import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component'
 import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component'
+import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component'
+import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
 
 const routes: Routes = [
     {
@@ -56,6 +58,14 @@ const routes: Routes = [
                 path: 'edit-buying-request/:buyingRequestId',
                 component: EditBuyingRequestComponent,
             },
+            {
+                path: 'confirmation-successfull',
+                component: ConfirmationSuccessfullComponent
+            },
+            {
+                path: 'confirmation-failed',
+                component: ConfirmationFailedComponent
+            }
         ],
     },
 ]
