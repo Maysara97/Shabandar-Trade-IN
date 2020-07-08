@@ -8,6 +8,8 @@ export class User {
     primaryAdminPassword?: string
     accountMobile?: string
     countryId?: 0
+    categoryId?: string
+    acceptTerms?: boolean
 }
 
 export class Administrator {
@@ -36,6 +38,7 @@ export class AccountData {
     status?: number
     accountAdministrators: Administrator[]
     favorites?: Favorites[] = []
+    categoryId?: string
 }
 
 export class Favorites {

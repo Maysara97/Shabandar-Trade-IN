@@ -6,11 +6,12 @@ import { registerPlugin, FilePondModule } from 'ngx-filepond'
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import { MatDialogModule } from '@angular/material/dialog'
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
 const SHARED_COMPONENTS = [UploadFilesComponent]
-const SHARED_EXTERNAL_MODULES = [FilePondModule, MatDialogModule]
+const SHARED_EXTERNAL_MODULES = [FilePondModule, MatDialogModule, MatCheckboxModule]
 const SHARED_INTERNAL_MODULES = [FormsModule, ReactiveFormsModule]
 
 @NgModule({

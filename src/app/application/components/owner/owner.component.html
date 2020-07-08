@@ -133,8 +133,8 @@
                                         </div>
                                         <div class="col-7">
                                             <li *ngIf="userDetails.accountWebsite">
-                                                <a target="_blank"
-                                                    [href]="userDetails.accountWebsite">{{userDetails.accountWebsite}}</a>
+                                                <a
+                                                    (click)="goToWebsiteUrl(userDetails.accountWebsite)">{{userDetails.accountWebsite}}</a>
                                             </li>
                                         </div>
                                     </div>

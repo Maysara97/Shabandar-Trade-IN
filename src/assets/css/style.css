@@ -1212,7 +1212,7 @@ input[type='radio']:checked ~ label::before {
 }
 
 #scrollUp {
-    right: 30px;
+    left: 30px;
     bottom: 30px;
     height: 45px;
     width: 70px;
@@ -1224,8 +1224,8 @@ input[type='radio']:checked ~ label::before {
     border-top-right-radius: 15%;
     border-top-left-radius: 15%;
     border: 1px solid #c0972e;
-    -webkit-animation: slideInRight 0.4s ease-in-out 1 both;
-    animation: slideInRight 0.4s ease-in-out 1 both;
+    -webkit-animation: slideInLeft 0.4s ease-in-out 1 both;
+    animation: slideInLeft 0.4s ease-in-out 1 both;
     z-index: 1000 !important;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);

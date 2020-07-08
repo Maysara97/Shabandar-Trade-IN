@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/shared/services/auth.service'
 import { ToastrService } from 'ngx-toastr'
 import { CountryService } from 'src/app/application/services/country.service'
 import { Country } from 'src/app/application/models/country'
+import { CategoryService } from 'src/app/application/services/category.service'
+import { Category } from 'src/app/application/models/category'
 
 @Component({
     selector: 'app-registeration',
@@ -21,20 +23,28 @@ export class RegisterationComponent implements OnInit {
     message: string
     userData: User
     countries: Country[]
+    categories: Category[]
     countrySelected
+    categorySelected
     constructor(
         private formBuilder: FormBuilder,
         public accountService: AccountsService,
         private router: Router,
         private auth: AuthService,
         private toastr: ToastrService,
-        private countryService: CountryService
+        private countryService: CountryService,
+        private categoryService: CategoryService
     ) {}
 
     ngOnInit(): void {
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
+        })
+
+        //  Bind all Categories
+        this.categoryService.getAllCategories().subscribe((result: any) => {
+            this.categories = result.data
         })
         this.router.events.subscribe((evt) => {
             if (!(evt instanceof NavigationEnd)) {
@@ -43,6 +53,7 @@ export class RegisterationComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.countrySelected = -1
+        this.categorySelected = -1
     }
     get f() {
         return this.accountService.registerForm.controls

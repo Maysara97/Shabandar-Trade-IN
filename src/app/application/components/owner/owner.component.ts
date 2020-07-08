@@ -169,4 +169,9 @@ export class OwnerComponent implements OnInit {
             .deleteBuyingRequest(BuyingRequest)
             .subscribe((res) => this.getAllBuyingRequests())
     }
+
+    goToWebsiteUrl(url) {
+        const path = 'http://' + url
+        window.open(path, '_blank')
+    }
 }
