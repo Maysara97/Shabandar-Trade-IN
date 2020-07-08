@@ -223,7 +223,9 @@ export class EditBuyingRequestComponent implements OnInit {
                 buyingRequestId,
                 tagResult,
                 this.tagCoverage,
-                agentsResult
+                agentsResult,
+                this.images,
+                this.certifications
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {

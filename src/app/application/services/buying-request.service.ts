@@ -54,7 +54,10 @@ export class BuyingRequestService extends BaseService<any> {
         buyingRequest: BuyingRequest,
         tagResult,
         coverageResult,
-        agentsResult
+        agentsResult,
+        images,
+        certifications
+        
     ) {
         const body = {
             buyingRequestId: buyingRequest.buyingRequestId,
@@ -62,12 +65,12 @@ export class BuyingRequestService extends BaseService<any> {
             categoryId: buyingRequest.categoryId,
             productName: buyingRequest.productName,
             title: buyingRequest.title,
-            image: buyingRequest.image,
+            image: images[0],
             location: buyingRequest.location,
             size: buyingRequest.size,
             wieght: buyingRequest.wieght,
             packing: buyingRequest.packing,
-            certification: buyingRequest.certification,
+            certification: certifications[0],
             type: buyingRequest.type,
             grade: buyingRequest.grade,
             storage: buyingRequest.storage,
