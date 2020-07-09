@@ -1,26 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-
-export interface PeriodicElement {
-    to: string
-    position: number
-    subject: string
-    message: string
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    {
-        position: 1,
-        to: 'to',
-        subject: 'subject',
-        message: 'Lorem ipsum dolor sit amet,',
-    },
-    {
-        position: 2,
-        to: 'to',
-        subject: 'subject',
-        message: 'Lorem ipsum dolor sit amet, ',
-    },
-]
+import { MessageService } from 'src/app/application/services/message.service'
+import { PageEvent } from '@angular/material/paginator'
+import { Message } from 'src/app/application/models/message'
 
 @Component({
     selector: 'app-outbox',
@@ -28,9 +9,32 @@ const ELEMENT_DATA: PeriodicElement[] = [
     styleUrls: ['./outbox.component.scss'],
 })
 export class OutboxComponent implements OnInit {
-    displayedColumns: string[] = ['position', 'to', 'subject', 'message']
-    dataSource = ELEMENT_DATA
-    constructor() {}
+    page: number = 1
+    pageNumber = 1
+    pageSize = 6
+    totalCount = 0
+    pageEvent: PageEvent
+    pageSizeOptions: number[] = [6, 9, 12, 15]
+    outboxMessages: Message[] = []
+    constructor(private messageService: MessageService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.getOutboxes(this.pageSize, this.pageNumber)
+    }
+    handleOnPageChange(pageEvent: PageEvent) {
+        this.getOutboxes(pageEvent.pageSize, pageEvent.pageIndex + 1)
+    }
+    applyFilter() {
+        this.getOutboxes(this.pageSize, this.page)
+    }
+    getOutboxes(pageSize, pageNumber) {
+        this.messageService
+            .getAllOutboxMessages(pageSize, pageNumber)
+            .subscribe((res: any) => {
+                if (res.isSucceeded) {
+                    this.outboxMessages = res.data
+                    this.totalCount = res.totalRecords
+                }
+            })
+    }
 }

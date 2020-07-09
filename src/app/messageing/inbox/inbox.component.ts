@@ -1,26 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-
-export interface PeriodicElement {
-    from: string
-    position: number
-    subject: string
-    message: string
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    {
-        position: 1,
-        from: 'from',
-        subject: 'subject',
-        message: 'Lorem ipsum dolor sit amet,',
-    },
-    {
-        position: 2,
-        from: 'from',
-        subject: 'subject',
-        message: 'Lorem ipsum dolor sit amet, ',
-    },
-]
+import { PageEvent } from '@angular/material/paginator'
+import { MessageService } from 'src/app/application/services/message.service'
+import { Message } from 'src/app/application/models/message'
 
 @Component({
     selector: 'app-inbox',
@@ -28,9 +9,32 @@ const ELEMENT_DATA: PeriodicElement[] = [
     styleUrls: ['./inbox.component.scss'],
 })
 export class InboxComponent implements OnInit {
-    displayedColumns: string[] = ['position', 'from', 'subject', 'message']
-    dataSource = ELEMENT_DATA
-    constructor() {}
+    page: number = 1
+    pageNumber = 1
+    pageSize = 6
+    totalCount = 0
+    pageEvent: PageEvent
+    pageSizeOptions: number[] = [6, 9, 12, 15]
+    inboxMessages: Message[] = []
+    constructor(private messageService: MessageService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.getInboxes(this.pageSize, this.pageNumber)
+    }
+    handleOnPageChange(pageEvent: PageEvent) {
+        this.getInboxes(pageEvent.pageSize, pageEvent.pageIndex + 1)
+    }
+    applyFilter() {
+        this.getInboxes(this.pageSize, this.page)
+    }
+    getInboxes(pageSize, pageNumber) {
+        this.messageService
+            .getAllInboxMessages(pageSize, pageNumber)
+            .subscribe((res: any) => {
+                if (res.isSucceeded) {
+                    this.inboxMessages = res.data
+                    this.totalCount = res.totalRecords
+                }
+            })
+    }
 }
