@@ -68,3 +68,10 @@ p a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #c0972e !important;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background :focus {
+    background-color: #c0972e !important;
+}

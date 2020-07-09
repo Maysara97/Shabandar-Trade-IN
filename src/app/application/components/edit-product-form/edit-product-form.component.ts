@@ -100,7 +100,6 @@ export class EditProductFormComponent implements OnInit {
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
-
                 this.images = this.accountProductDetails.productImages
                 this.files = this.accountProductDetails.attachments
                 this.certifications = this.accountProductDetails.certification
@@ -228,19 +227,18 @@ export class EditProductFormComponent implements OnInit {
             agentsResult.push(element.value)
         })
 
-        console.log(this.tagCoverage)
-        console.log(this.agents)
-
         this.accountProductService
             .updateAccountProduct(
                 accountProductId,
                 tagResult,
                 this.tagCoverage,
-                agentsResult
+                agentsResult,
+                this.images,
+                this.files,
+                this.certifications
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    console.log(result.data)
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

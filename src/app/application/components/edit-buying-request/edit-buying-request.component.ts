@@ -101,7 +101,9 @@ export class EditBuyingRequestComponent implements OnInit {
                 this.tagCoverage = this.buyingRequestDetails.coverage
                 this.title = this.buyingRequestDetails.title
                 this.images[0] = this.buyingRequestDetails.image
-                this.certifications[0] = this.buyingRequestDetails.certification
+                if (this.certifications[0]) {
+                    this.certifications[0] = this.buyingRequestDetails.certification
+                }
 
                 this.productService
                     .getProductsByCategory(this.buyingRequestDetails.categoryId)
@@ -118,12 +120,6 @@ export class EditBuyingRequestComponent implements OnInit {
         this.productService.getAllProducts().subscribe((result: any) => {
             this.allProducts = result.data
         })
-
-        // this.categorySelected = -1
-        // this.productSelected = -1
-        // this.countrySelected = -1
-        // this.unitePriceSelected = -1
-        // this.finishedStatusSelected = -1
 
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
@@ -215,19 +211,17 @@ export class EditBuyingRequestComponent implements OnInit {
             agentsResult.push(element.value)
         })
 
-        console.log(this.tagCoverage)
-        console.log(this.agents)
-
         this.buyingRequestService
             .updateBuyingRequest(
                 buyingRequestId,
                 tagResult,
                 this.tagCoverage,
-                agentsResult
+                agentsResult,
+                this.images,
+                this.certifications
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    console.log(result.data)
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

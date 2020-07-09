@@ -53,7 +53,10 @@ export class AccountProductService extends BaseService<any> {
         accountProduct: AccountProduct,
         tagResult,
         coverageResult,
-        agentsResult
+        agentsResult,
+        images,
+        files,
+        certifications
     ): Observable<AccountProduct> {
         const body = {
             accountProductId: accountProduct.accountProductId,
@@ -62,7 +65,7 @@ export class AccountProductService extends BaseService<any> {
             size: accountProduct.size,
             wieght: accountProduct.wieght,
             packing: accountProduct.packing,
-            certification: accountProduct.certification,
+            certification: certifications,
             type: accountProduct.type,
             grade: accountProduct.grade,
             storage: accountProduct.storage,
@@ -83,8 +86,8 @@ export class AccountProductService extends BaseService<any> {
             agentsLocation: agentsResult,
             softwares: accountProduct.softwares,
             description: accountProduct.description,
-            productImages: accountProduct.productImages,
-            attachments: accountProduct.attachments,
+            productImages: images,
+            attachments: files,
         }
         return this.put('AccountProduct', body)
     }

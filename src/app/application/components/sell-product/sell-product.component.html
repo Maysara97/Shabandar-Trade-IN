@@ -46,7 +46,6 @@
             <div class="col-lg-9 col-md-7 col-sm-12 col-12" *ngIf="accountProducts.length">
                 <div class="row">
                     <!-- Single Product -->
-                    <!-- | paginate: { itemsPerPage: 6, currentPage: page }" -->
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let product of accountProducts">
                         <div class="tm-product">
                             <div class="tm-product-image">
@@ -55,13 +54,6 @@
                                     <img style="width: 270px; height: 250px;"
                                         [src]="getFilePath(product.productImages[0])" alt="{{product.productName}}" />
                                 </a>
-                                <ul class="tm-product-actions">
-                                    <li>
-                                        <button type="button" data-toggle="modal" data-target="#tm-product-quickview">
-                                            <i class="fa fa-star"></i>
-                                        </button>
-                                    </li>
-                                </ul>
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
@@ -83,10 +75,12 @@
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ product.categoryName }}</p>
                                 </div>
-                                <button class="email-btn" style="float: right;">
+                                <button class="email-btn" style="float: right;"
+                                    [routerLink]="['/application/send-message', product.accountId]">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     &nbsp; Send Message
                                 </button>
+
                                 <div style="clear: both;"></div>
                             </div>
                         </div>
@@ -95,8 +89,6 @@
                 </div>
             </div>
         </div>
-        <!-- <pagination-controls class="my-paginator mt-5" (pageChange)="page = $event"></pagination-controls> -->
-
         <div class="d-flex justify-content-end p-2 w-100 mt-5" *ngIf="accountProducts.length">
             <mat-toolbar-row>
                 <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"

@@ -10,6 +10,8 @@ import { FileImage } from 'src/app/shared/models/file'
 import { CountryService } from 'src/app/application/services/country.service'
 import { Country } from 'src/app/application/models/country'
 import { environment } from 'src/environments/environment'
+import { CategoryService } from 'src/app/application/services/category.service'
+import { Category } from 'src/app/application/models/category'
 
 @Component({
     selector: 'app-editprofile',
@@ -27,14 +29,15 @@ export class EditprofileComponent implements OnInit {
     files: string[] = []
     images: string[] = []
     countries: Country[]
+    categories: Category[]
     env: any
     constructor(
         private formBuilder: FormBuilder,
-        private accountService: AccountsService,
         private router: Router,
         private auth: AuthService,
         private toastr: ToastrService,
-        private countryService: CountryService
+        private countryService: CountryService,
+        private categoryService: CategoryService
     ) {
         this.env = environment
     }
@@ -45,31 +48,38 @@ export class EditprofileComponent implements OnInit {
             this.countries = result.data
         })
 
+        // Bind all Categories
+        this.categoryService.getAllCategories().subscribe((result: any) => {
+            this.categories = result.data
+        })
         // Get Account Data
         this.auth.getAccountDetails().subscribe((result: any) => {
+            debugger
             this.updateUserData = result.data
             this.files = this.updateUserData.accountAttachments
+            this.images[0] = this.updateUserData.accountImage
         })
 
         this.editProfileForm = this.formBuilder.group({
-            accountImage: [],
+            accountImage: [Validators.required],
             accountMobile: [],
             accountName: [],
-            accountAttachments: [],
+            accountAttachments: [Validators.required],
             contactEmail: [],
             accountWebsite: [],
-            countryId: [],
+            countryId: [Validators.required],
             mission: [],
             vission: [],
             description: [],
+            categoryId: [Validators.required],
         })
 
         if (this.profileData) {
             this.editProfileForm.patchValue(this.profileData)
         }
-        // console.log(this.profileData)
+
         if (this.updateUserData.accountImage) {
-            this.images.push(this.updateUserData.accountImage)
+            this.images[0] = this.updateUserData.accountImage
         }
 
         this.router.events.subscribe((evt) => {

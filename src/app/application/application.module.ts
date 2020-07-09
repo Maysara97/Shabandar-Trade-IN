@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-
 import { ApplicationRoutingModule } from './application-routing.module'
 import { OwnerComponent } from './components/owner/owner.component'
 import { ViewerComponent } from './components/viewer/viewer.component'
@@ -20,13 +19,16 @@ import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 import { BuyingProductDetailsComponent } from './components/buying-product-details/buying-product-details.component'
-// import { NgxPaginationModule } from 'ngx-pagination'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 import { MatTabsModule } from '@angular/material/tabs'
-import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
-import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component';
-import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component';
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component'
+import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component'
+import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component'
 import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
+import { MatDialogModule } from '@angular/material/dialog'
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { SendMessageComponent } from './components/send-message/send-message.component'
+
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -41,6 +43,7 @@ import { ConfirmationFailedComponent } from './components/confirmation-failed/co
         EditBuyingRequestComponent,
         ConfirmationSuccessfullComponent,
         ConfirmationFailedComponent,
+        SendMessageComponent,
     ],
     imports: [
         CommonModule,
@@ -58,6 +61,7 @@ import { ConfirmationFailedComponent } from './components/confirmation-failed/co
         MatToolbarModule,
         BsDatepickerModule.forRoot(),
         MatTabsModule,
+        MatDialogModule,
     ],
 })
 export class ApplicationModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { CategoryService } from '../../services/category.service'
 import { Observable } from 'rxjs'
 import { Category } from '../../models/category'
@@ -15,7 +15,10 @@ import { SearchAccountProduct } from '../../models/accountProduct-search'
 import { AccountData } from 'src/app/account/models/register'
 import { ToastrService } from 'ngx-toastr'
 import { FavoriteService } from '../../services/favorite.service'
-
+import { MatDialog } from '@angular/material/dialog'
+import { SendMessageComponent } from '../send-message/send-message.component'
+import { title } from 'process'
+import { Message } from '../../models/message'
 @Component({
     selector: 'app-sell-product',
     templateUrl: './sell-product.component.html',
@@ -46,14 +49,15 @@ export class SellProductComponent implements OnInit {
     pageSizeOptions: number[] = [6, 9, 12, 15]
 
     searchAccountProduct: SearchAccountProduct
+
     constructor(
         private categoryService: CategoryService,
         private router: Router,
         private accountProductService: AccountProductService,
         private productService: ProductService,
         private countryService: CountryService,
-        private toastr: ToastrService,
-        private favoriteService: FavoriteService
+        private favoriteService: FavoriteService,
+        public dialog: MatDialog
     ) {
         this.env = environment
     }
@@ -183,4 +187,23 @@ export class SellProductComponent implements OnInit {
             ''
         )
     }
+
+    sendMessage(accountId): void {
+        const dialogRef = this.dialog.open(SendMessageComponent, {
+            maxWidth: '700px',
+            maxHeight: '800px',
+            data: {
+                title: 'Send Message',
+                model: accountId,
+            },
+        })
+
+        dialogRef.afterClosed().subscribe((result) => {
+            console.log('The dialog was closed')
+            // this.animal = result
+        })
+    }
+    // goToSendMessage() {
+    //     this.router.navigate(['application/send-message'])
+    // }
 }

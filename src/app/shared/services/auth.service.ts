@@ -30,7 +30,8 @@ export class AuthService extends BaseService<any> {
         return this.post('Authorization/login', { email, password }).pipe(
             map((result: any) => {
                 if (!result.isSucceeded) {
-                    return result                }
+                    return result
+                }
 
                 localStorage.setItem('token', result.data)
                 const currentUser = this.decodeToken(result.data)
@@ -69,6 +70,8 @@ export class AuthService extends BaseService<any> {
             primaryAdminPassword: user.primaryAdminPassword,
             accountMobile: user.accountMobile,
             countryId: user.countryId,
+            categoryId: user.categoryId,
+            acceptTerms: user.acceptTerms,
         }
         return this.post('Account', body)
     }
@@ -103,5 +106,4 @@ export class AuthService extends BaseService<any> {
     confirmEmail(email: string, token: string) {
         return this.post('Authorization/ConfirmEmail', { email, token })
     }
-
 }
