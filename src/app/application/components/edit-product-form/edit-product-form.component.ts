@@ -100,7 +100,6 @@ export class EditProductFormComponent implements OnInit {
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
-                 debugger
                 this.images = this.accountProductDetails.productImages
                 this.files = this.accountProductDetails.attachments
                 this.certifications = this.accountProductDetails.certification
@@ -166,7 +165,6 @@ export class EditProductFormComponent implements OnInit {
             softwares: [],
             tripCategory: [],
         })
-        
     }
 
     // Upload Images

@@ -13,6 +13,7 @@ import { EditProductFormComponent } from './components/edit-product-form/edit-pr
 import { EditBuyingRequestComponent } from './components/edit-buying-request/edit-buying-request.component'
 import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component'
 import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
+import { SendMessageComponent } from './components/send-message/send-message.component'
 
 const routes: Routes = [
     {
@@ -60,12 +61,16 @@ const routes: Routes = [
             },
             {
                 path: 'confirmation-successfull',
-                component: ConfirmationSuccessfullComponent
+                component: ConfirmationSuccessfullComponent,
             },
             {
                 path: 'confirmation-failed',
-                component: ConfirmationFailedComponent
-            }
+                component: ConfirmationFailedComponent,
+            },
+            {
+                path: 'send-message/:receiverAccountId',
+                component: SendMessageComponent,
+            },
         ],
     },
 ]
