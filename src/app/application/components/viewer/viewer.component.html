@@ -27,7 +27,7 @@
                             float: right;
                             margin-right: 10px;
                             background-color: #fff;
-                        " (click)="deleteFavorite(targetAccountDetails.favoriteId)">
+                        " [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
                         Send Message
                         <i class="fa fa-comments" aria-hidden="true"></i>
                     </button>

@@ -1,10 +1,4 @@
 import { Component, OnInit, Inject, Input } from '@angular/core'
-import {
-    MatDialog,
-    MatDialogRef,
-    MAT_DIALOG_DATA,
-} from '@angular/material/dialog'
-import { Message } from '../../models/message'
 import { FormGroup, FormBuilder } from '@angular/forms'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { AccountData } from 'src/app/account/models/register'
@@ -26,8 +20,6 @@ export class SendMessageComponent implements OnInit {
     senderAccountId
     receiverAccounName
     constructor(
-        // public dialogRef: MatDialogRef<SendMessageComponent>,
-        // @Inject(MAT_DIALOG_DATA) public messageData: any,
         private fb: FormBuilder,
         private auth: AuthService,
         private messageService: MessageService,
@@ -36,7 +28,6 @@ export class SendMessageComponent implements OnInit {
         private route: ActivatedRoute
     ) {
         this.receiverAccountId = route.snapshot.params['receiverAccountId']
-        // this.senderAccountId = this.senderDetails.accountId
     }
 
     ngOnInit(): void {
@@ -58,14 +49,7 @@ export class SendMessageComponent implements OnInit {
                 this.receiverDetails = result.data
                 this.receiverAccounName = this.receiverDetails.accountName
             })
-
-        // if (this.messageData.model) {
-        //     this.sendMessageForm.patchValue(this.messageData.model)
-        // }
     }
-    // onNoClick(): void {
-    //     this.dialogRef.close()
-    // }
 
     get receiverAccountIdField() {
         return this.sendMessageForm.get('receiverAccountId')
