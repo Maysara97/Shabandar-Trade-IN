@@ -17,6 +17,7 @@ export class SendMessageComponent implements OnInit {
     receiverDetails: AccountData
     isSubmitted = false
     receiverAccountId
+    accountName
     senderAccountId
     receiverAccounName
     constructor(
@@ -28,6 +29,7 @@ export class SendMessageComponent implements OnInit {
         private route: ActivatedRoute
     ) {
         this.receiverAccountId = route.snapshot.params['receiverAccountId']
+        this.accountName = route.snapshot.params['accountName']
     }
 
     ngOnInit(): void {
@@ -42,13 +44,6 @@ export class SendMessageComponent implements OnInit {
             body: [],
             receiverAccountName: [],
         })
-
-        this.auth
-            .getTargetUserProfile(this.receiverAccountId)
-            .subscribe((result: any) => {
-                this.receiverDetails = result.data
-                this.receiverAccounName = this.receiverDetails.accountName
-            })
     }
 
     get receiverAccountIdField() {

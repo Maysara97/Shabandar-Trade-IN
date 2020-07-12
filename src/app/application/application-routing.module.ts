@@ -68,7 +68,7 @@ const routes: Routes = [
                 component: ConfirmationFailedComponent,
             },
             {
-                path: 'send-message/:receiverAccountId',
+                path: 'send-message/:receiverAccountId/:accountName',
                 component: SendMessageComponent,
             },
         ],
