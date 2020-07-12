@@ -76,7 +76,7 @@
                                     <p>{{ product.categoryName }}</p>
                                 </div>
                                 <button class="email-btn" style="float: right;"
-                                    [routerLink]="['/application/send-message', product.accountId]">
+                                    [routerLink]="['/application/send-message', product.accountId,product.accountName]">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     &nbsp; Send Message
                                 </button>
