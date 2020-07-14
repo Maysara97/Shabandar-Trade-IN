@@ -54,7 +54,7 @@ export class EditprofileComponent implements OnInit {
         })
         // Get Account Data
         this.auth.getAccountDetails().subscribe((result: any) => {
-            debugger
+            // debugger
             this.updateUserData = result.data
             this.files = this.updateUserData.accountAttachments
             this.images[0] = this.updateUserData.accountImage
@@ -72,6 +72,8 @@ export class EditprofileComponent implements OnInit {
             vission: [],
             description: [],
             categoryId: [Validators.required],
+            // address: [],
+            // zipCode: []
         })
 
         if (this.profileData) {

@@ -24,30 +24,49 @@
                                     <br />
                                     <input type="text" id="contactEmail" name="contactEmail"
                                         [(ngModel)]="updateUserData.accountAdministrators[0].email"
-                                        formControlName="contactEmail" />
+                                        formControlName="contactEmail" placeholder="Enter your Contact Email" />
                                 </div>
                                 <div class="col-6">
                                     <label for="accountWebsite">Account Website</label>
                                     <br />
                                     <input type="url" id="accountWebsite" name="accountWebsite"
-                                        [(ngModel)]="updateUserData.accountWebsite" formControlName="accountWebsite" />
+                                        [(ngModel)]="updateUserData.accountWebsite" formControlName="accountWebsite"
+                                        placeholder="Enter your Account Website" />
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="form-group tm-form-field">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="address">Address</label>
+                                    <br />
+                                    <input type="text" id="address" name="address" formControlName="address"
+                                        placeholder="Enter your Address" />
+                                </div>
+                                <div class="col-6">
+                                    <label for="zipCode">Zip Code</label>
+                                    <br />
+                                    <input type="number" id="zipCode" name="zipCode" pattern="[0-9]*" formControlName="
+                                        zipCode" placeholder="Enter your Zip Code" />
+                                </div>
+                            </div>
+                        </div> -->
                         <div class="form-group tm-form-field">
                             <div class="row">
                                 <div class="col-6">
                                     <label for="accountName">Company Name</label>
                                     <br />
                                     <input type="text" id="accountName" formControlName="accountName"
-                                        [(ngModel)]="updateUserData.accountName" name="accountName" />
+                                        [(ngModel)]="updateUserData.accountName" name="accountName"
+                                        placeholder="Enter your Company Name" />
 
                                 </div>
                                 <div class="col-6">
-                                    <label for="accountMobile">Account Mobile</label>
+                                    <label for="accountMobile">Phone No.</label>
                                     <br />
                                     <input type="tel" name="accountMobile" id="accountMobile"
-                                        [(ngModel)]="updateUserData.accountMobile" formControlName="accountMobile" />
+                                        [(ngModel)]="updateUserData.accountMobile" formControlName="accountMobile"
+                                        placeholder="Enter your Phone Number" />
 
                                 </div>
                             </div>
@@ -91,13 +110,15 @@
                                     <label for="mission">Mission</label>
                                     <br />
                                     <textarea class="form-control" id="mission" rows="3" formControlName="mission"
-                                        [(ngModel)]="updateUserData.mission"></textarea>
+                                        [(ngModel)]="updateUserData.mission"
+                                        placeholder="Add a Mission about Your Company"></textarea>
                                 </div>
                                 <div class="col-6">
                                     <label for="vission">Vision</label>
                                     <br />
                                     <textarea class="form-control" id="vission" rows="3" formControlName="vission"
-                                        [(ngModel)]="updateUserData.vission"></textarea>
+                                        [(ngModel)]="updateUserData.vission"
+                                        placeholder="Add a Vision about Your Company"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +131,8 @@
                         <div class="form-group tm-form-field">
                             <label for="description">Account Description</label>
                             <textarea class="form-control" id="description" rows="3" formControlName="description"
-                                [(ngModel)]="updateUserData.description"></textarea>
+                                [(ngModel)]="updateUserData.description"
+                                placeholder="Add a Description about your Company"></textarea>
                         </div>
 
                         <div class="form-group tm-form-field">
