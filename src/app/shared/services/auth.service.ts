@@ -87,6 +87,7 @@ export class AuthService extends BaseService<any> {
             description: account.description,
             accountWebsite: account.accountWebsite,
             accountAttachments: account.accountAttachments,
+            categoryId: account.categoryId,
         }
         return this.put('Account', body)
     }
