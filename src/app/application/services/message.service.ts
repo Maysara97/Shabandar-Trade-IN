@@ -15,6 +15,7 @@ export class MessageService extends BaseService<any> {
             receiverAccountId: message.receiverAccountId,
             title: message.title,
             body: message.body,
+            threadId: message.threadId,
         }
         return this.post('Message', messageBody)
     }

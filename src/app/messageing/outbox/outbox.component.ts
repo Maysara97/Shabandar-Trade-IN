@@ -11,10 +11,10 @@ import { Message } from 'src/app/application/models/message'
 export class OutboxComponent implements OnInit {
     page: number = 1
     pageNumber = 1
-    pageSize = 6
+    pageSize = 4
     totalCount = 0
     pageEvent: PageEvent
-    pageSizeOptions: number[] = [6, 9, 12, 15]
+    pageSizeOptions: number[] = [4]
     outboxMessages: Message[] = []
     constructor(private messageService: MessageService) {}
 

@@ -10,19 +10,21 @@
                             <label for="receiverAccountId">To</label>
                             <br />
                             <input type="text" id="receiverAccountName" required="required" name="receiverAccountName"
-                                placeholder="To" [(ngModel)]="accountName" formControlName="receiverAccountName" />
+                                placeholder="To" [(ngModel)]="receiverName" formControlName="receiverAccountName" />
 
                             <input type="hidden" id="receiverAccountId" required="required" name="receiverAccountId"
                                 placeholder="To" formControlName="receiverAccountId" [(ngModel)]="receiverAccountId" />
                             <input type="hidden" id="senderAccountId" required="required" name="senderAccountId"
-                                placeholder="From" formControlName="senderAccountId" [(ngModel)]="senderAccountId" />
+                                placeholder="From" formControlName="senderAccountId" [(ngModel)]="threadId" />
 
                         </div>
-                        <div class=" form-group tm-form-field">
-                            <label for="title">Subject</label>
+
+                        <div class="form-group tm-form-field">
+                            <label for="title">Re.</label>
                             <br />
+
                             <input type="text" id="title" required="required" formControlName="title" name="title"
-                                placeholder="Subject" />
+                                placeholder="Subject" [(ngModel)]="title" />
                         </div>
                         <div class="form-group tm-form-field">
                             <label for="body">Message</label>

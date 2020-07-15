@@ -1,13 +1,14 @@
 <div class="tm-section tm-login-register-area tm-padding-section" style="background-color: #0e1234;">
 
     <div class="page-container">
-        <div class="sidebar">
+        <div class="sidebar col-lg-3 col-md-2 col-sm-2">
             <div class="single-widget widget-categories">
                 <ul>
                     <li>
                         <a routerLink="/messageing/sidebar/inbox"> &nbsp;<span class="iconify"
                                 data-icon="mdi:inbox-arrow-down" data-inline="false"></span>
-                            &nbsp;Inbox</a>
+                            &nbsp;Inbox <span class="badge badge-danger" *ngIf="totalCount != 0">{{totalCount}}
+                                New</span></a>
                     </li>
                     <li>
                         <a routerLink="/messageing/sidebar/outbox"> &nbsp;<span class="iconify"
@@ -23,7 +24,7 @@
             </div>
         </div>
 
-        <div class="page-content-container">
+        <div class="page-content-container col-lg-9 col-md-10 col-sm-10">
             <router-outlet></router-outlet>
         </div>
 
