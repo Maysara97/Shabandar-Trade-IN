@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { HomeLayoutComponent } from '../home/home-layout/home-layout.component'
 import { EditprofileComponent } from '../account/components/editprofile/editprofile.component'
-import { HomepageComponent } from './components/homepage/homepage.component'
 import { SellProductComponent } from './components/sell-product/sell-product.component'
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component'
 import { ViewerComponent } from './components/viewer/viewer.component'
@@ -14,6 +13,8 @@ import { EditBuyingRequestComponent } from './components/edit-buying-request/edi
 import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component'
 import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
 import { SendMessageComponent } from './components/send-message/send-message.component'
+import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
+import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
 
 const routes: Routes = [
     {
@@ -22,8 +23,8 @@ const routes: Routes = [
         children: [
             {
                 // Buying Request
-                path: 'homepage',
-                component: HomepageComponent,
+                path: 'buying-request',
+                component: BuyingRequestComponent,
             },
             {
                 // Selling Product
@@ -70,6 +71,11 @@ const routes: Routes = [
             {
                 path: 'send-message/:receiverAccountId/:accountName',
                 component: SendMessageComponent,
+            },
+            {
+                path:
+                    'reply-message/:threadId/:receiverAccountId/:receiverName/:title',
+                component: ReplyMessageComponent,
             },
         ],
     },

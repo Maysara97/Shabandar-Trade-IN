@@ -14,17 +14,22 @@
                     <tr>
                         <th>Subject</th>
                         <th>Body</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let outbox of outboxMessages">
                         <td>{{outbox.title}}</td>
-                        <td>{{outbox.body}}</td>
+                        <td>{{outbox.body  | slice : 0 : 50}}</td>
+                        <td><a type="button" class="btn btn-primary"
+                                [routerLink]="['/messageing/sidebar/view-message' , outbox.threadId]"><i
+                                    class="far fa-eye"></i></a>
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="d-flex justify-content-center p-2 w-100 mt-5" *ngIf="outboxMessages.length">
+        <div class="d-flex justify-content-center p-2 w-100 mt-3" *ngIf="outboxMessages.length">
             <mat-toolbar-row>
                 <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
                     (page)="handleOnPageChange($event)">

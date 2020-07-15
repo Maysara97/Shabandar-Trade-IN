@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core'
-import { Category } from '../../models/category'
-import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { Observable } from 'rxjs'
-import { CategoryService } from '../../services/category.service'
+import { Category } from '../../models/category'
 import { Product } from '../../models/product'
-import { ProductService } from '../../services/product.service'
 import { BuyingRequest } from '../../models/buying-request'
+import { Country } from '../../models/country'
+import { PageEvent } from '@angular/material/paginator'
+import { CategoryService } from '../../services/category.service'
+import { ProductService } from '../../services/product.service'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { CountryService } from '../../services/country.service'
-import { Country } from '../../models/country'
 import { environment } from 'src/environments/environment'
-import { PageEvent } from '@angular/material/paginator'
 
 @Component({
-    selector: 'app-homepage',
-    templateUrl: './homepage.component.html',
-    styleUrls: ['./homepage.component.scss'],
+    selector: 'app-buying-request',
+    templateUrl: './buying-request.component.html',
+    styleUrls: ['./buying-request.component.scss'],
 })
-export class HomepageComponent implements OnInit {
+export class BuyingRequestComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
     products$: Observable<Product[]>

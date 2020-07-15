@@ -7,8 +7,6 @@ import { LoginComponent } from './components/login/login.component'
 import { OwnerComponent } from '../application/components/owner/owner.component'
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
 import { AuthGuard } from '../shared/guards/auth.guard'
-import { HomepageComponent } from '../application/components/homepage/homepage.component'
-import { SellProductComponent } from '../application/components/sell-product/sell-product.component'
 import { UpdatePasswordComponent } from './components/update-password/update-password.component'
 import { ConfirmationComponent } from './components/confirmation/confirmation.component'
 

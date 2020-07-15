@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common'
 import { ApplicationRoutingModule } from './application-routing.module'
 import { OwnerComponent } from './components/owner/owner.component'
 import { ViewerComponent } from './components/viewer/viewer.component'
-import { HomepageComponent } from './components/homepage/homepage.component'
 import { CarouselModule } from 'ngx-owl-carousel-o'
 import { SellProductComponent } from './components/sell-product/sell-product.component'
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component'
@@ -26,14 +25,15 @@ import { EditBuyingRequestComponent } from './components/edit-buying-request/edi
 import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component'
 import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
 import { MatDialogModule } from '@angular/material/dialog'
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
+import { BuyingRequestComponent } from './components/buying-request/buying-request.component';
+import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
 
 @NgModule({
     declarations: [
         OwnerComponent,
         ViewerComponent,
-        HomepageComponent,
         SellProductComponent,
         AddProductFormComponent,
         AddNewRequestFormComponent,
@@ -44,6 +44,8 @@ import { SendMessageComponent } from './components/send-message/send-message.com
         ConfirmationSuccessfullComponent,
         ConfirmationFailedComponent,
         SendMessageComponent,
+        BuyingRequestComponent,
+        ReplyMessageComponent,
     ],
     imports: [
         CommonModule,

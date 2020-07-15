@@ -1,0 +1,29 @@
+<!-- Card -->
+<div class="card promoting-card" *ngFor="let message of messageDetails">
+    <!-- Card content -->
+    <div class="card-body d-flex flex-row">
+        <div>
+            <h6 class="card-title mb-2">From: <span>{{message.senderName}}</span></h6>
+            <h6 class="card-title mb-2">To: <span>{{message.receiverName}}</span></h6>
+            <p class="card-text"><i class="far fa-clock pr-2"></i>{{message.sentOn | date}} </p>
+        </div>
+    </div>
+    <!-- Card image -->
+    <div class="view overlay">
+        <p>{{message.body}}</p>
+    </div>
+    <!-- Card content -->
+    <div class="card-body">
+
+        <div class="collapse-content">
+            <!-- Button -->
+            <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse"
+                href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
+            <a
+                [routerLink]="['/application/reply-message', message.threadId,message.receiverAccountId, message.receiverName, message.title]">
+                <i class="fa fa-share text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top"
+                    title="Replay" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</div>
+<!-- Card -->

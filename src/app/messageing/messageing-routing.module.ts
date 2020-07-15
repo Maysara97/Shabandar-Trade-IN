@@ -5,6 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component'
 import { InboxComponent } from './inbox/inbox.component'
 import { OutboxComponent } from './outbox/outbox.component'
 import { ArchivedComponent } from './archived/archived.component'
+import { ViewMessageComponent } from './view-message/view-message.component'
 
 const routes: Routes = [
     {
@@ -26,6 +27,10 @@ const routes: Routes = [
                     {
                         path: 'archived',
                         component: ArchivedComponent,
+                    },
+                    {
+                        path: 'view-message/:threadId',
+                        component: ViewMessageComponent,
                     },
                 ],
             },
