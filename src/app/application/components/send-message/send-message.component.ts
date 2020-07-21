@@ -5,6 +5,7 @@ import { AccountData } from 'src/app/account/models/register'
 import { MessageService } from '../../services/message.service'
 import { Router, ActivatedRoute } from '@angular/router'
 import { ToastrService } from 'ngx-toastr'
+import { FileImage } from 'src/app/shared/models/file'
 
 @Component({
     selector: 'app-send-message',
@@ -20,6 +21,8 @@ export class SendMessageComponent implements OnInit {
     accountName
     senderAccountId
     receiverAccounName
+    images: string[] = []
+
     constructor(
         private fb: FormBuilder,
         private auth: AuthService,
@@ -43,6 +46,18 @@ export class SendMessageComponent implements OnInit {
             title: [],
             body: [],
             receiverAccountName: [],
+        })
+    }
+
+    // Upload Image
+    handleImageUpload(files: FileImage[]) {
+        this.sendMessageForm.patchValue({
+            image: files[0].imageFile,
+        })
+    }
+    handleImageRemove(files: FileImage[]) {
+        this.sendMessageForm.patchValue({
+            image: files.map((file) => file.imageFile),
         })
     }
 

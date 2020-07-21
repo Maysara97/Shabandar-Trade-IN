@@ -37,4 +37,12 @@ export class OutboxComponent implements OnInit {
                 }
             })
     }
+
+    deleteMessage(messageId) {
+        this.messageService
+            .deleteMessage(messageId)
+            .subscribe((res) =>
+                this.getOutboxes(this.pageSize, this.pageNumber)
+            )
+    }
 }
