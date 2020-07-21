@@ -24,7 +24,8 @@
                         <td><a type="button" class="btn btn-primary"
                                 [routerLink]="['/messageing/sidebar/view-message' , outbox.threadId]"><i
                                     class="far fa-eye"></i></a>
-                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                            <button type="button" class="btn btn-danger" (click)="deleteMessage(outbox.messageId)"><i
+                                    class="far fa-trash-alt"></i></button></td>
                     </tr>
                 </tbody>
             </table>

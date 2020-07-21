@@ -20,6 +20,7 @@ export class ReplyMessageComponent implements OnInit {
     threadId
     receiverName
     title
+    senderAccountId
     constructor(
         private fb: FormBuilder,
         private auth: AuthService,
@@ -37,7 +38,7 @@ export class ReplyMessageComponent implements OnInit {
     ngOnInit(): void {
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.senderDetails = result.data
-            // this.senderAccountId = this.senderDetails.accountId
+            this.senderAccountId = this.senderDetails.accountId
         })
         this.sendMessageForm = this.fb.group({
             threadId: [],
@@ -60,8 +61,7 @@ export class ReplyMessageComponent implements OnInit {
             .sendMessage(messageForm)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    // console.log(result.data)
-                    this.router.navigate(['/messageing/sidebar/inbox'])
+                    this.router.navigate(['/messageing/sidebar/outbox'])
                 } else {
                     this.toastr.error(result.errors)
                 }
