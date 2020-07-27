@@ -57,7 +57,6 @@ export class BuyingRequestService extends BaseService<any> {
         agentsResult,
         images,
         certifications
-        
     ) {
         const body = {
             buyingRequestId: buyingRequest.buyingRequestId,

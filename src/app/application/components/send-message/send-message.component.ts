@@ -18,10 +18,11 @@ export class SendMessageComponent implements OnInit {
     receiverDetails: AccountData
     isSubmitted = false
     receiverAccountId
+    threadId
     accountName
     senderAccountId
     receiverAccounName
-    images: string[] = []
+    attachments: string[] = []
 
     constructor(
         private fb: FormBuilder,
@@ -46,18 +47,19 @@ export class SendMessageComponent implements OnInit {
             title: [],
             body: [],
             receiverAccountName: [],
+            attachments: [],
         })
     }
 
-    // Upload Image
-    handleImageUpload(files: FileImage[]) {
+    // Upload Attachments
+    handleAttachmentUpload(files: FileImage[]) {
         this.sendMessageForm.patchValue({
-            image: files[0].imageFile,
+            attachments: files.map((file) => file.imageFile),
         })
     }
-    handleImageRemove(files: FileImage[]) {
+    handleAttachmentRemove(files: FileImage[]) {
         this.sendMessageForm.patchValue({
-            image: files.map((file) => file.imageFile),
+            attachments: files.map((file) => file.imageFile),
         })
     }
 

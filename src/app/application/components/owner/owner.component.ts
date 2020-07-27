@@ -78,7 +78,6 @@ export class OwnerComponent implements OnInit {
         },
         nav: true,
     }
-
     interestsOptions: any = {
         loop: true,
         mouseDrag: true,
