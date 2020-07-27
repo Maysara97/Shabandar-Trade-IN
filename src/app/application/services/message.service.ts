@@ -16,6 +16,7 @@ export class MessageService extends BaseService<any> {
             title: message.title,
             body: message.body,
             threadId: message.threadId,
+            attachments: message.attachments,
         }
         return this.post('Message', messageBody)
     }

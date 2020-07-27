@@ -4,6 +4,7 @@ export class Message {
     receiverAccountId: string
     title: string
     body: string
+    attachments: string[] = []
     status: number
     type: number
     threadId: string
