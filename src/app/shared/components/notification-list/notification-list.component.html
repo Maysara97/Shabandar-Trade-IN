@@ -1,0 +1,47 @@
+<section class="notifications-list">
+    <ng-container *ngIf="notifications">
+        <div *ngFor="
+                let notification of notifications
+                    | paginate
+                        : {
+                              itemsPerPage: pageSize,
+                              currentPage: pageNumber,
+                              totalItems: totalItems
+                          };
+                let i = index
+            " class="col-12 notification-card">
+            <div class="card-wrapper col-12 d-flex flex-wrap px-0 py-3">
+                <div class="row">
+                    <div class="col-12 pr-5">
+                        <ul class="list-group">
+                            <li> <a class="d-flex w-100 text-capitalize text-main fw-bold"
+                                    routerLink="{{ notification.notificationRef }}">{{
+                                    notification.body.length > 100
+                                        ? (notification.body | slice: 0:100) + '...'
+                                        : notification.body
+                                }}</a>
+                                <div class="text-dark-gray fz-14">
+                                    Created:
+                                    {{
+                                        notification.createdOn
+                                            | date: 'MMM d, y, h:mm a'
+                                    }}
+                                </div>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-12 my-3">
+            <pagination-controls (pageChange)="pageChanged($event)" class="pagination" responsive="true"
+                autoHide="true">
+            </pagination-controls>
+        </div> -->
+    </ng-container>
+    <p *ngIf="!notifications" class="col-12 text-center text-main fw-semi2">
+        No Notifications
+    </p>
+</section>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import {
     User,
     Administrator,
@@ -15,6 +15,7 @@ import { BuyingRequestService } from '../../services/buying-request.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { BuyingRequest } from '../../models/buying-request'
 import { environment } from 'src/environments/environment'
+import { MatMenuTrigger } from '@angular/material/menu'
 
 @Component({
     selector: 'app-owner',

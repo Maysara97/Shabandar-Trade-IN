@@ -63,7 +63,9 @@
         "object-literal-shorthand": false,
         "no-inferrable-types": false,
         "ban-types": false,
-        "max-line-length": false
+        "max-line-length": false,
+        "no-angle-bracket-type-assertion": false,
+        "whitespace": false
     },
     "rulesDirectory": ["codelyzer"]
 }

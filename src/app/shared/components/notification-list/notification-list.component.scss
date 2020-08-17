@@ -1,0 +1,23 @@
+@import '../../../../styles.scss';
+.notifications-list {
+    .notification-card {
+        .card-wrapper {
+            position: relative;
+            border-bottom: 1px solid gray !important;
+            .remove-link {
+                position: absolute;
+                right: 0.75rem;
+                top: 40%;
+                &.top-0 {
+                    top: 0 !important;
+                }
+            }
+        }
+
+        &:first-of-type {
+            .card-wrapper {
+                padding-top: 0 !important;
+            }
+        }
+    }
+}

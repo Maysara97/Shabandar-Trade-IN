@@ -45,12 +45,13 @@
         "ngx-toastr": "^12.0.1",
         "owl.carousel": "^2.3.4",
         "popper.js": "^1.16.1",
+        "pp-breadcrumbs": "^2.0.0",
         "rxjs": "~6.5.4",
         "tslib": "^1.10.0",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "~0.900.3",
+        "@angular-devkit/build-angular": "^0.1000.6",
         "@angular/cli": "~9.0.3",
         "@angular/compiler-cli": "~9.0.2",
         "@angular/language-service": "~9.0.2",

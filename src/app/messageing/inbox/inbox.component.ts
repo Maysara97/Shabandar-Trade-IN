@@ -14,7 +14,7 @@ export class InboxComponent implements OnInit {
     pageSize = 4
     totalCount = 0
     pageEvent: PageEvent
-    pageSizeOptions: number[] = [4]
+    pageSizeOptions: number[] = [4, 8, 12]
     inboxMessages: Message[] = []
     constructor(private messageService: MessageService) {}
 

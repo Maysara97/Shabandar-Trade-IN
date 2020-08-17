@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { Router } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { User } from 'src/app/account/models/register'
 import { Role } from 'src/app/account/models/role'
+import { MatMenuTrigger } from '@angular/material/menu'
+import { Observable } from 'rxjs'
+import { NotificationsService } from 'src/app/notifications/services/notification.service'
+import { Notifications } from 'src/app/notifications/models/notification'
 
 @Component({
     selector: 'app-home-header',
@@ -12,17 +16,26 @@ import { Role } from 'src/app/account/models/role'
 export class HomeHeaderComponent implements OnInit {
     isLoggedIn
     currentUser: User
+    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
+    // newNotificationCount: number
+    newNotificationCount$: Observable<number>
+    pageSize = 5
+    pageNumber = 1
+    notifications: Notifications[]
     // tslint:disable-next-line:variable-name
     constructor(
         public _route: Router,
         private auth: AuthService,
-        private router: Router
+        private router: Router,
+        private notificationService: NotificationsService
     ) {}
 
     ngOnInit(): void {
         this.auth.isAuthed.subscribe((result) => {
             this.isLoggedIn = result
         })
+        // this.newNotificationCounts()
+        this.allNotifications(this.pageSize, this.pageNumber)
     }
 
     hideNav() {
@@ -45,5 +58,36 @@ export class HomeHeaderComponent implements OnInit {
 
     logout() {
         this.auth.logout()
+    }
+
+    someMethod() {
+        this.trigger.openMenu()
+    }
+
+    newNotificationCounts() {
+        this.notificationService
+            .getNewNotificationsCount()
+            .subscribe((result: any) => {
+                // debugger
+                this.newNotificationCount$ = result.data
+            })
+    }
+
+    allNotifications(pageSize: number, pageNumber: number) {
+        this.notificationService
+            .getAllNotifications(pageSize, pageNumber)
+            .subscribe((result: any) => {
+                // debugger
+                this.notifications = result.data
+            })
+    }
+    showAllNotifications() {
+        this.router.navigateByUrl('/notifications/notifications')
+    }
+
+    get sortNotificationsByDate() {
+        return this.notifications.sort((a, b) => {
+            return <any>new Date(b.createdOn) - <any>new Date(a.createdOn)
+        })
     }
 }

@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
                 if (result.isSucceeded) {
                     this.router.navigate(['/account/owner'])
                 } else {
-                    debugger
+                    // debugger
                     this.toastr.error(result.errors)
                 }
             })
