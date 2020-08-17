@@ -26,14 +26,14 @@ export class MessageService extends BaseService<any> {
     deleteMessage(messageId: string) {
         return this.remove('Message', messageId)
     }
+    archiveMessage(messageId: string) {
+        return this.getById('Message/archive', messageId)
+    }
     getThreadMessageById(messageId: string) {
         return this.getById('Message/thread', messageId)
     }
-    getArchiveMessageById(messageId: string) {
-        return this.getById('Message/archive', messageId)
-    }
     restoreMessage(messageId: string) {
-        return this.remove('Message/Restore', messageId)
+        return this.getById('Message/Restore', messageId)
     }
     getAllInboxMessages(pageSize: number, pageNumber: number) {
         return this.getAll(`Message/inbox/${pageSize}/${pageNumber}`)

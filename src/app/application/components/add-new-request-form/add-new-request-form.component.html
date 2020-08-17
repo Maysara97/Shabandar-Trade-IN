@@ -309,6 +309,10 @@
                         <label for="description">Description</label>
                         <textarea class="form-control" id="description" rows="3" formControlName="description"
                             placeholder="Product Description"></textarea>
+                        <label class="text-danger"
+                            *ngIf="addBuyingRequestForm.get('description').touched && addBuyingRequestForm.get('description').errors?.required">
+                            You Must add a Description for this Buying Request
+                        </label>
                     </div>
 
                     <div class="form-group">

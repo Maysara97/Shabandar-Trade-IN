@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { PageEvent } from '@angular/material/paginator'
-import { MessageService } from 'src/app/application/services/message.service'
-import { Message } from 'src/app/application/models/message'
+import { MessageService } from 'src/app/messageing/services/message.service'
+import { Message } from '../models/message'
 
 @Component({
     selector: 'app-inbox',
@@ -36,5 +36,16 @@ export class InboxComponent implements OnInit {
                     this.totalCount = res.totalRecords
                 }
             })
+    }
+
+    deleteMessage(messageId) {
+        this.messageService
+            .deleteMessage(messageId)
+            .subscribe((res) => this.getInboxes(this.pageSize, this.pageNumber))
+    }
+    archiveMessage(messageId) {
+        this.messageService
+            .archiveMessage(messageId)
+            .subscribe((res) => this.getInboxes(this.pageSize, this.pageNumber))
     }
 }

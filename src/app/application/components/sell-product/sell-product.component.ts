@@ -18,7 +18,6 @@ import { FavoriteService } from '../../services/favorite.service'
 import { MatDialog } from '@angular/material/dialog'
 import { SendMessageComponent } from '../send-message/send-message.component'
 import { title } from 'process'
-import { Message } from '../../models/message'
 @Component({
     selector: 'app-sell-product',
     templateUrl: './sell-product.component.html',

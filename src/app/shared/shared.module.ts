@@ -15,6 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination'
 import { RouterModule } from '@angular/router'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { TooltipModule } from 'ngx-bootstrap/tooltip'
 
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
@@ -39,11 +40,13 @@ const SHARED_INTERNAL_MODULES = [FormsModule, ReactiveFormsModule]
         CommonModule,
         ...SHARED_EXTERNAL_MODULES,
         ...SHARED_INTERNAL_MODULES,
+        TooltipModule.forRoot(),
     ],
     exports: [
         ...SHARED_EXTERNAL_MODULES,
         ...SHARED_INTERNAL_MODULES,
         ...SHARED_COMPONENTS,
+        TooltipModule,
     ],
 })
 export class SharedModule {}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { MessageService } from 'src/app/application/services/message.service'
+import { MessageService } from 'src/app/messageing/services/message.service'
 import { PageEvent } from '@angular/material/paginator'
-import { Message } from 'src/app/application/models/message'
+import { Message } from '../models/message'
 
 @Component({
     selector: 'app-outbox',
@@ -14,7 +14,7 @@ export class OutboxComponent implements OnInit {
     pageSize = 4
     totalCount = 0
     pageEvent: PageEvent
-    pageSizeOptions: number[] = [4]
+    pageSizeOptions: number[] = [4, 8, 12]
     outboxMessages: Message[] = []
     constructor(private messageService: MessageService) {}
 
@@ -45,4 +45,11 @@ export class OutboxComponent implements OnInit {
                 this.getOutboxes(this.pageSize, this.pageNumber)
             )
     }
+    // archiveMessage(messageId) {
+    //     this.messageService
+    //         .archiveMessage(messageId)
+    //         .subscribe((res) =>
+    //             this.getOutboxes(this.pageSize, this.pageNumber)
+    //         )
+    // }
 }

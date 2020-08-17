@@ -291,6 +291,10 @@
                         <textarea class="form-control" id="description" rows="3" formControlName="description"
                             placeholder="Product Description"
                             [(ngModel)]="accountProductDetails.description"></textarea>
+                        <label class="text-danger"
+                            *ngIf="editAccountProductForm.get('description').touched && editAccountProductForm.get('description').errors?.required">
+                            You Must add a Description for this Account Product
+                        </label>
                     </div>
 
                     <div class="form-group">
