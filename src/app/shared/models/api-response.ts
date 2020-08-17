@@ -3,4 +3,5 @@ export interface ApiResponse {
     errors: any
     data: any
     totalRecords: number
+    newNotificationsCount?: number
 }

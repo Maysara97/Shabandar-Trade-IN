@@ -31,6 +31,13 @@ const routes: Routes = [
                 (m) => m.MessageingModule
             ),
     },
+    {
+        path: 'notifications',
+        loadChildren: () =>
+            import('./notifications/notifications.module').then(
+                (m) => m.NotificationsModule
+            ),
+    },
 ]
 
 @NgModule({

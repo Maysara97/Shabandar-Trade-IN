@@ -50,14 +50,63 @@
                             </button>
                         </div>
                         <div *ngIf="isLoggedIn">
-                            <a type="button" class="btn btn-profile" style="color: #fff;" (click)="openProfile()">
+                            <a class="btn messaging" style="font-size: 25px;" routerLink="/messageing/sidebar/inbox"><i
+                                    class="fa fa-comments" aria-hidden="true"></i>
+                            </a>
+                            <a class="btn notifications" [matMenuTriggerFor]="menu" style="font-size: 22px;"
+                                aria-label="Example icon-button with a menu">
+                                <!-- <mat-icon *ngIf="notifications != null">
+                                    notifications
+                                </mat-icon> -->
+                                <mat-icon matBadge=" {{ newNotificationCount$ | async }}" matBadgeColor="warn">
+                                    notifications
+                                </mat-icon>
+                                <!-- <span class="cdk-visually-hidden">
+                                    15
+                                </span> -->
+                            </a>
+                            <mat-menu #menu="matMenu">
+                                <ul class="menu-list">
+                                    <li class="menuitem text-capitalize text-center fw-bold text-main">
+                                        Latest Notifications
+                                    </li>
+                                    <li class="divider dropdown-divider mb-3"></li>
+                                    <ng-container *ngIf="notifications != null">
+                                        <li *ngFor="let notification of sortNotificationsByDate">
+                                            <a class="dropdown-item d-flex flex-wrap"
+                                                [routerLink]="[ notification.notificationRef,notification.changedEntityId]">
+                                                <div class="col-12 fz-14">
+                                                    {{notification?.body?.length > 50 ? (notification.body | slice: 0:50) + '...' : notification.body }}
+                                                </div>
+                                                <div class="col-12 fz-12 date-text">
+                                                    {{notification.createdOn | date: 'MMM d, y, h:mm a' }}
+                                                </div>
+                                            </a>
+                                            <div class="separator w-100"></div>
+                                        </li>
+                                    </ng-container>
+                                    <li *ngIf="notifications == null"
+                                        class="menuitem text-capitalize text-center text-main no-notification mb-3">
+                                        No Notifications!
+                                    </li>
+                                    <li *ngIf="notifications == null" class="divider dropdown-divider mb-3"></li>
+                                    <li class="menuitem col d-flex justify-content-center mt-3">
+                                        <button type="button" class="btn button-secondary"
+                                            (click)="showAllNotifications()">
+                                            See All Notifications
+                                        </button>
+                                    </li>
+                                </ul>
+                            </mat-menu>
+
+                            <a type=" button" class="btn btn-profile" style="color: #fff;" (click)="openProfile()">
                                 <i class="fas fa-user-circle" aria-hidden="true" style="font-size: 25px;"></i>
                             </a>
-
                             <button type="button" class="btn btn-logout" routerLink="/home/home-main"
                                 style="color: #fff;" (click)="logout()">
                                 Log Out
                             </button>
+
                         </div>
                     </ul>
                 </nav>

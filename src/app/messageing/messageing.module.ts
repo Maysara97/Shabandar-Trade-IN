@@ -10,8 +10,10 @@ import { InboxComponent } from './inbox/inbox.component'
 import { OutboxComponent } from './outbox/outbox.component'
 import { ArchivedComponent } from './archived/archived.component'
 import { MatPaginatorModule } from '@angular/material/paginator'
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar'
 import { ViewMessageComponent } from './view-message/view-message.component'
+import { SharedModule } from '../shared/shared.module'
+
 @NgModule({
     declarations: [
         SidebarComponent,
@@ -27,6 +29,7 @@ import { ViewMessageComponent } from './view-message/view-message.component'
         MatIconModule,
         MatPaginatorModule,
         MatToolbarModule,
+        SharedModule,
     ],
 })
 export class MessageingModule {}

@@ -103,6 +103,9 @@
     .btn-profile {
         height: 40%;
     }
+    .messaging {
+        height: 40%;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -115,7 +118,9 @@
 
 @media (max-width: 1024px) {
     .header-bottominner .tm-navigation .nav .btn-profile,
-    .header-bottominner .tm-navigation .nav .btn-logout {
+    .header-bottominner .tm-navigation .nav .btn-logout,
+    .header-bottominner .tm-navigation .nav .messaging,
+    .header-bottominner .tm-navigation .nav .notifications {
         margin-top: 20px;
         margin-bottom: 30px;
     }
@@ -133,4 +138,72 @@
     margin-left: 5px;
     margin-right: 5px;
     border-radius: 5px;
+}
+
+.messaging {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: none;
+    // border-color: #fff;
+    height: 90%;
+    display: inline-flex;
+}
+.messaging:hover {
+    color: #c0972e;
+}
+
+.notifications .mat-icon {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: none;
+    // height: 90%;
+    display: inline;
+}
+.notifications .mat-icon:hover {
+    color: #c0972e;
+}
+.notifications .mat-icon:active {
+    color: #c0972e;
+}
+
+.menu-list {
+    margin-right: 40px;
+}
+.menu-list .text-main {
+    color: #c0972e;
+    font-size: 20px;
+}
+.menu-list li {
+    list-style: none;
+}
+.menu-list li .dropdown-item {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.menu-list .menuitem button {
+    background-color: #c0972e;
+    color: #fff;
+}
+
+.menu-list .no-notification {
+    color: #0e1234;
+    font-size: 15px;
+}
+
+::ng-deep .mat-menu-panel {
+    min-width: 500px !important;
+    max-width: 600px !important;
+    min-height: 200px !important;
+}
+
+.menu-list .date-text {
+    color: #c0972e;
+    font-weight: 500;
+}
+
+::ng-deep .dropdown-item:hover,
+.dropdown-item:focus {
+    color: #0e1234;
+    text-decoration: none;
+    background-color: #c0972e33;
 }
