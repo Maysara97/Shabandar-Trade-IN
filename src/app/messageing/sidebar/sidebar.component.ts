@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { MessageService } from 'src/app/application/services/message.service'
+import { MessageService } from 'src/app/messageing/services/message.service'
 import { PageEvent } from '@angular/material/paginator'
-import { Message } from 'src/app/application/models/message'
+import { Message } from '../models/message'
 
 @Component({
     selector: 'app-sidebar',
@@ -29,6 +29,7 @@ export class SidebarComponent implements OnInit {
                 if (res.isSucceeded) {
                     this.newMessages = res.data
                     this.totalCount = res.totalRecords
+                    res.totalRecords = 0
                 }
             })
     }
