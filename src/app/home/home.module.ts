@@ -13,7 +13,8 @@ import { CategoriesComponent } from './home-main/categories/categories.component
 import { Egypt2030Component } from './home-main/egypt2030/egypt2030.component'
 import { ProductsComponent } from './home-main/products/products.component'
 import { ContactComponent } from './home-main/contact/contact.component'
-import { HomeReadMoreComponent } from './home-read-more/home-read-more.component'
+import { HomeReadMoreComponent } from './home-read-more/home-read-more.component';
+import { CategoryProductsComponent } from './home-main/category-products/category-products.component'
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { HomeReadMoreComponent } from './home-read-more/home-read-more.component
         ProductsComponent,
         ContactComponent,
         HomeReadMoreComponent,
+        CategoryProductsComponent,
     ],
     imports: [CommonModule, HomeRoutingModule, SharedModule],
 })

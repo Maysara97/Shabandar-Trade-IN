@@ -8,7 +8,22 @@ import { AuthService } from 'src/app/shared/services/auth.service'
 })
 export class SliderComponent implements OnInit {
     isLoggedIn
-    myBackgroundImageUrl = './assets/images/You-Trade-In/Header.png'
+    myBackgroundImageUrl = './assets/images/You-Trade-In/slider.png'
+
+    categories: [
+        {
+            name: 'Logistics & Shipping'
+            icon: '/assets/images/You-Trade-In/truck-solid.png'
+        },
+        {
+            name: 'Architectures & Designers'
+            icon: '/assets/images/You-Trade-In/pencil-ruler-solid.png'
+        },
+        {
+            name: 'Equipment Rental'
+            icon: '/assets/images/You-Trade-In/toolbox-solid.png'
+        }
+    ]
     constructor(private auth: AuthService) {}
 
     ngOnInit() {
