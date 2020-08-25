@@ -4,7 +4,7 @@
     text-align: right;
     box-sizing: border-box;
     color: #c0972e !important;
-    font-size: 30px;
+    font-size: 15px;
     display: none;
 }
 
@@ -26,7 +26,7 @@
     .toggle {
         display: block;
         cursor: pointer;
-        margin-top: -70px;
+        margin-top: -60px;
     }
 
     .navigation {
@@ -56,6 +56,14 @@
     }
 }
 
+.header-bottominner .header-logo img {
+    width: 100%;
+    padding: 10px;
+}
+.header-logo-mobile img {
+    width: 50%;
+    padding: 10px;
+}
 .btn-signup {
     color: #0e1234;
     background-color: #fff;

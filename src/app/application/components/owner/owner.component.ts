@@ -1,21 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
-import {
-    User,
-    Administrator,
-    AccountData,
-    Favorites,
-} from 'src/app/account/models/register'
-import { Observable } from 'rxjs'
+import { User, AccountData, Favorites } from 'src/app/account/models/register'
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { Product } from '../../models/product'
-import { ProductService } from '../../services/product.service'
 import { AccountProductService } from '../../services/accountProduct.service'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { BuyingRequest } from '../../models/buying-request'
 import { environment } from 'src/environments/environment'
-import { MatMenuTrigger } from '@angular/material/menu'
+import { NotifierService, NotifierOptions } from 'angular-notifier'
+import { NotificationsService } from 'src/app/notifications/services/notification.service'
+import { Notifications } from 'src/app/notifications/models/notification'
 
 @Component({
     selector: 'app-owner',
@@ -103,6 +98,10 @@ export class OwnerComponent implements OnInit {
         },
         nav: true,
     }
+
+    pageSize = 1
+    pageNumber = 1
+    notifications: Notifications[]
 
     constructor(
         private router: Router,

@@ -2,8 +2,6 @@ import { Injectable, Injector } from '@angular/core'
 import { BaseService } from 'src/app/shared/core/base.service'
 import { Notifications } from '../models/notification'
 import { Observable } from 'rxjs'
-import { ApiResponse } from 'src/app/shared/models/api-response'
-import { map } from 'rxjs/operators'
 
 @Injectable({ providedIn: 'root' })
 export class NotificationsService extends BaseService<any> {
