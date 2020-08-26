@@ -9483,6 +9483,10 @@ a.meanmenu-reveal {
   margin-left: 20px;
 }
 
+.flaticon-whatsapp:before{
+  content: "\f232";
+}
+
 .flaticon-phone-call:before {
   content: "\f100";
 }

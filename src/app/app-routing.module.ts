@@ -39,7 +39,7 @@ const routes: Routes = [
             ),
     },
     {
-        path: 'contact',
+        path: 'contactus',
         loadChildren: () =>
             import('./contact/contact.module').then((m) => m.ContactModule),
     },

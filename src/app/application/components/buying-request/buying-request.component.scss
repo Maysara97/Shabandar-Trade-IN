@@ -297,3 +297,66 @@
     background-color: #f2b414;
     color: #fff;
 }
+
+.sponsored-rectangle {
+    /* height: 28%; */
+    /* width: 80%; */
+    background-color: #0e1234;
+    /* margin-left: 0%; */
+    /* position: absolute; */
+    border-radius: 10px;
+    padding: 10px;
+}
+.sponsored-rectangle img {
+    width: 80%;
+    margin-left: 15px;
+}
+
+.sponsored-rectangle .sponsored-price {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.sponsored-rectangle .sponsored-before-price {
+    font-size: 10px;
+    text-decoration: line-through;
+    margin-bottom: 0;
+    color: #ffffff;
+}
+.sponsored-rectangle .description {
+    font-size: 8px;
+    color: #ffffff;
+}
+
+.tm-padding-section {
+    padding-top: 130px;
+    padding-bottom: 30px;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media (max-width: 414px) {
+    .sponsored-rectangle img {
+        width: 30%;
+        margin-left: 15px;
+    }
+    .sponsored-rectangle .sponsored-price {
+        color: red;
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    .sponsored-rectangle .sponsored-before-price {
+        font-size: 14px;
+        text-decoration: line-through;
+        margin-bottom: 0;
+        color: #ffffff;
+    }
+    .sponsored-rectangle .description {
+        font-size: 15px;
+        color: #ffffff;
+    }
+}

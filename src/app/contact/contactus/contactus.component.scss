@@ -1,0 +1,46 @@
+.contact-us-area .tm-contact-block {
+    // box-shadow: 0 0 10px rgb(255 248 248 / 78%);
+    padding: 40px 15px;
+    background-color: #fff;
+    // border-radius: 20px;
+}
+
+.contact-us-area .tm-contact-icon {
+    background-color: #f2b414;
+    display: inline-block;
+    height: 93px;
+    width: 93px;
+    line-height: 85px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 999px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgb(14 18 52 / 13%);
+    margin-bottom: 25px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.contact-us-area .tm-contact-icon i {
+    color: #0e1234;
+}
+.contact-us-area h4 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.tm-section-title {
+    margin-bottom: 0px;
+    margin-top: 5%;
+}
+
+.tm-contact-block p a {
+    color: #0e1234;
+}
+
+.tm-contact-block p a:hover {
+    color: #f2b414;
+    text-decoration: none;
+}
