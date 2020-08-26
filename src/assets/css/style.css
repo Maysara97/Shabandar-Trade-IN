@@ -6823,8 +6823,8 @@ button.tm-videobutton:hover span {
     display: inline-block;
     height: 93px;
     width: 93px;
-    line-height: 93px;
-    font-size: 40px;
+    line-height: 85px;
+    font-size: 35px;
     text-align: center;
     border-radius: 999px;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
