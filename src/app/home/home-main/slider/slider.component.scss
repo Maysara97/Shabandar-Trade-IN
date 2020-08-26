@@ -39,7 +39,7 @@ button.tm-button {
     font-weight: 600;
     font-size: 18px;
     letter-spacing: 1px;
-    background: #c0972e;
+    background: #f2b414;
     height: 60px;
     line-height: 48px;
     padding: 0px 27px;
@@ -47,7 +47,7 @@ button.tm-button {
     overflow: hidden;
     position: relative;
     color: #ffffff;
-    border: 1px solid #c0972e;
+    border: 1px solid #f2b414;
     border-radius: 5px;
     z-index: 1;
     vertical-align: middle;
@@ -63,6 +63,7 @@ button.tm-button {
     background-position: center;
     margin-top: 5%;
     position: relative;
+    border-bottom: 5px solid #f2b414;
 }
 // .heroslider-area .heroslider-slider-2 {
 
@@ -189,7 +190,7 @@ button.tm-button {
     font-weight: 700;
 }
 
-@media (max-width: 812px) {
+@media (max-width: 414px) {
     .category-rectangle {
         height: 13%;
         width: 80%;
@@ -199,14 +200,14 @@ button.tm-button {
 
     .category-rectangle img {
         margin-left: 10%;
-        margin-top: 5%;
+        margin-top: 2%;
         width: 10%;
     }
 
     .category-rectangle .category-title {
         float: right;
-        font-size: 21px;
-        margin-top: -30px;
+        font-size: 19px;
+        margin-top: -11px;
         color: #08193b;
         font-weight: 600;
     }
@@ -308,4 +309,227 @@ button.tm-button {
         color: #fff;
         font-weight: 700;
     }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1360px) {
+    .sponsored-section .widget-recentpost ul li {
+        display: flex;
+        margin-bottom: 40%;
+    }
+    .widget-recentpost ul li {
+        display: flex;
+        margin-bottom: 35%;
+    }
+    .category-rectangle {
+        height: 12%;
+        width: 80%;
+        margin-left: 30%;
+        position: absolute;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 568px) {
+    .sponsored-rectangle {
+        height: 20%;
+        width: 80%;
+        background-color: #ffffff;
+        margin-left: 5%;
+        position: absolute;
+        border-radius: 10px;
+    }
+    .sponsored-section .widget-recentpost ul li {
+        display: flex;
+        margin-bottom: 60%;
+    }
+}
+
+@media (min-width: 415px) and (max-width: 800px) {
+    .category-rectangle {
+        height: 13%;
+        width: 80%;
+        margin-left: 5%;
+        position: absolute;
+    }
+
+    .category-rectangle img {
+        margin-left: 50%;
+        margin-top: 30%;
+        width: 70%;
+    }
+
+    .category-rectangle .category-title {
+        float: right;
+        font-size: 19px;
+        margin-top: 20px;
+        color: #08193b;
+        font-weight: 600;
+    }
+
+    .widget-recentpost ul li {
+        display: flex;
+        margin-bottom: 25%;
+    }
+
+    .category-rectangle:hover {
+        height: 13%;
+        width: 80%;
+        background-color: #e4aa15;
+        margin-left: 7%;
+        cursor: pointer;
+        transform: scale(1.1);
+        z-index: 100;
+    }
+    .category-rectangle:hover .category-title {
+        font-size: 25px;
+    }
+    .heroslider-area .categories {
+        margin-top: 20%;
+        margin-bottom: 10%;
+        color: #fff;
+        font-size: 40px;
+        font-weight: 700;
+        text-align: center;
+        margin-left: 0px;
+    }
+    .widget-title:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100px;
+        text-align: center;
+        background: #f2b414;
+        left: 35%;
+    }
+
+    .heroslider-singleslider {
+        height: 0;
+    }
+
+    .category-rectangle:hover img {
+        margin-left: 50%;
+        margin-top: 50%;
+        width: 60%;
+    }
+
+    .sponsored-section .widget-title {
+        text-align: center;
+    }
+
+    .sponsored-rectangle {
+        height: 20%;
+        width: 60%;
+        background-color: #ffffff;
+        margin-left: 20%;
+        position: absolute;
+        border-radius: 10px;
+    }
+    .sponsored-section .widget-recentpost ul li {
+        display: flex;
+        margin-bottom: 50%;
+    }
+    .sponsored-rectangle img {
+        width: 30%;
+        margin-left: 15px;
+        float: left;
+    }
+
+    .sponsored-rectangle .sponsored-before-price {
+        font-size: 17px;
+        text-decoration: line-through;
+        margin-bottom: 0;
+        float: right;
+    }
+    .sponsored-rectangle .sponsored-price {
+        color: red;
+        font-size: 20px;
+        margin-bottom: 0;
+        float: right;
+        padding-right: 10px;
+    }
+
+    .sponsored-rectangle .description {
+        font-size: 12px;
+        float: right;
+        padding: 10px;
+    }
+
+    .btn-post-req {
+        background-color: #f2b414;
+        width: 70%;
+        margin-bottom: 4%;
+        margin-top: 5%;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 700;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .category-rectangle img {
+        margin-left: 35%;
+        margin-top: 20%;
+        width: 45%;
+    }
+
+    .category-rectangle .category-title {
+        float: right;
+        font-size: 30px;
+        margin-top: 20px;
+        color: #08193b;
+        font-weight: 600;
+    }
+    .category-rectangle:hover img {
+        margin-left: 50%;
+        margin-top: 15%;
+        width: 50%;
+    }
+    .heroslider-singleslider {
+        height: 660px;
+    }
+    .sponsored-rectangle img {
+        width: 90%;
+        margin-left: 15px;
+        float: left;
+        margin-top: 13%;
+    }
+    .sponsored-rectangle .sponsored-price {
+        margin-top: 5%;
+        color: red;
+        font-size: 25px;
+        margin-bottom: 0;
+        float: right;
+        padding-right: 10px;
+    }
+    .sponsored-rectangle .sponsored-before-price {
+        font-size: 20px;
+        text-decoration: line-through;
+        margin-bottom: 0;
+        float: right;
+        margin-top: 6%;
+        padding-right: 4%;
+    }
+    .sponsored-rectangle {
+        height: 15%;
+        width: 60%;
+        background-color: #ffffff;
+        margin-left: 20%;
+        position: absolute;
+        border-radius: 10px;
+    }
+    .sponsored-section .widget-recentpost ul li {
+        display: flex;
+        margin-bottom: 26%;
+    }
+}
+
+.sponsored-section a:hover {
+    color: #08193b;
+    text-decoration: none;
+}
+.sponsored-section a {
+    color: #08193b;
+    text-decoration: none;
 }

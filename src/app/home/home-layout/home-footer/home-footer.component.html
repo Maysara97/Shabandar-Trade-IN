@@ -1,10 +1,13 @@
 <!-- Footer Area -->
-<footer class="footer" [ngStyle]="{ 'backgroundImage': getBackgroundImageUrl() }">
+<footer class="footer" style="background-color: #0E1234;">
 
     <!-- Footer -->
     <div class="footer-bottomarea">
         <div class="container">
             <div class="row widgets footer-widgets">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <img src="/assets/images/You-Trade-In/footerLogo.png">
+                </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-widget widget-contact">
                         <ul>
@@ -13,11 +16,16 @@
                                     (click)="navigateToSection('default')">Home</a>
                             </li>
                             <li>
-                                <a routerLink="/home/home-main/" fragment="Findproducts"
-                                    (click)="navigateToSection('Findproducts')">Sell Products</a>
+                                <a href="#">About Us</a>
                             </li>
                             <li>
-                                <a href="#">Suppliers</a>
+                                <a href="#">ShahBandar</a>
+                            </li>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">ShahBandar</a>
                             </li>
                         </ul>
                     </div>
@@ -27,27 +35,56 @@
                     <div class="single-widget widget-contact">
                         <ul>
                             <li>
-                                <a routerLink="/home/home-main/" fragment="Findproducts"
-                                    (click)="navigateToSection('Findproducts')">Find Products</a>
+                                <a href="#">About Us</a>
                             </li>
                             <li>
-                                <a routerLink="/home/home-main/" fragment="egypt"
-                                    (click)="navigateToSection('egypt')">Egypt 2030</a>
+                                <a href="#">ShahBandar</a>
                             </li>
                             <li>
-                                <a routerLink="/home/home-main/" fragment="contact"
-                                    (click)="navigateToSection('contact')">Contact</a>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">ShahBandar</a>
                             </li>
                         </ul>
                     </div>
                     <!--// Single Widget (Widget Contact) -->
                 </div>
-
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-widget widget-contact">
+                        <ul>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Find Us</a>
+                            </li>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Find Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--// Single Widget (Widget Contact) -->
+                </div>
             </div>
 
-            <p class="footer-copyright mt-2">
-                © Copyright 2020 <b>Youtradein</b> All Rights Reserved By <a href="https://bebrand.tv/">BeBrand.tv</a>.
+
+            <p class="footer-copyright mt-3">
+                © Copyright 2020 <b>ShahBandar</b> All Rights Reserved By <a href="https://bebrand.tv/">BeBrand.tv</a>.
             </p>
+
+            <div class="row justify-content-center">
+                <ul class="widget-info-social">
+                    <li><a href="#" style="padding-left: 19%;"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" style="padding-left: 19%;"><i class="fab fa-youtube"></i></a></li>
+
+                    <li><a href="#" style="padding-left: 35%;"><i class="fab fa-facebook-f"></i></a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
     <!--// Footer -->
