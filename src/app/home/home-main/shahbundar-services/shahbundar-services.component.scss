@@ -1,0 +1,42 @@
+// .services-area {
+//     border-bottom: 1px solid #f2b414;
+// }
+
+.text-header {
+    background-image: url('/assets/images/You-Trade-In/service-back.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-color: #f2b414;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.text-header h5 {
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.services-area .tm-feature {
+    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 0px 0px;
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+.services-area .tm-feature p {
+    padding: 20px;
+}
+
+@media (max-width: 414px) {
+    .services-area .tm-feature {
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 435px) and (max-width: 991px) {
+    .services-area .tm-feature {
+        margin-bottom: 2%;
+    }
+}

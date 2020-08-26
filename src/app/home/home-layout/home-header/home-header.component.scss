@@ -3,15 +3,15 @@
     padding: 10px 20px;
     text-align: right;
     box-sizing: border-box;
-    color: #c0972e !important;
+    color: #f2b414 !important;
     font-size: 15px;
     display: none;
 }
 
 .toggle button {
-    background: #c0972e;
+    background: #f2b414;
     color: #fff;
-    border: #c0972e;
+    border: #f2b414;
 }
 
 .header-logo-mobile {
@@ -104,7 +104,7 @@
 }
 .btn-profile:hover {
     // background-color: #fff;
-    color: #c0972e !important;
+    color: #f2b414 !important;
 }
 
 @media (max-width: 1024px) {
@@ -135,7 +135,7 @@
 }
 
 .tm-navigation .navigation .active {
-    background-color: #c0972e;
+    background-color: #f2b414;
     display: inline-block;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
@@ -157,7 +157,7 @@
     display: inline-flex;
 }
 .messaging:hover {
-    color: #c0972e;
+    color: #f2b414;
 }
 
 .notifications .mat-icon {
@@ -168,17 +168,17 @@
     display: inline;
 }
 .notifications .mat-icon:hover {
-    color: #c0972e;
+    color: #f2b414;
 }
 .notifications .mat-icon:active {
-    color: #c0972e;
+    color: #f2b414;
 }
 
 .menu-list {
     margin-right: 40px;
 }
 .menu-list .text-main {
-    color: #c0972e;
+    color: #f2b414;
     font-size: 20px;
 }
 .menu-list li {
@@ -189,7 +189,7 @@
 }
 
 .menu-list .menuitem button {
-    background-color: #c0972e;
+    background-color: #f2b414;
     color: #fff;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .menu-list .date-text {
-    color: #c0972e;
+    color: #f2b414;
     font-weight: 500;
 }
 
@@ -213,5 +213,5 @@
 .dropdown-item:focus {
     color: #0e1234;
     text-decoration: none;
-    background-color: #c0972e33;
+    background-color: #f2b41433;
 }

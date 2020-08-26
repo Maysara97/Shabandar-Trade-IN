@@ -1,0 +1,25 @@
+.supplier-area {
+    border-bottom: 1px solid #f2b414;
+}
+
+.supplier-area img {
+    padding: 2%;
+}
+
+@media (max-width: 414px) {
+    .tm-service2 {
+        margin-top: 15%;
+    }
+    .supplier-area h2 {
+        margin-top: 3%;
+    }
+}
+
+@media (min-width: 435px) and (max-width: 991px) {
+    .tm-service2 {
+        margin-top: 15%;
+    }
+    .supplier-area h2 {
+        margin-top: 3%;
+    }
+}

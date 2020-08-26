@@ -22,7 +22,7 @@
 }
 
 .searchButton {
-    background-color: #c0972e;
+    background-color: #f2b414;
     color: #fff;
     margin-left: 5px;
     height: 45px;
@@ -49,7 +49,7 @@
     position: relative;
 }
 .homepage-area .imageContainer img {
-    border: 2px solid #c0972e;
+    border: 2px solid #f2b414;
     border-radius: 5px;
 }
 .homepage-area .imageContainer .plusBtn {
@@ -60,7 +60,7 @@
     left: 20%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: #c0972e;
+    background-color: #f2b414;
     color: white;
     font-size: 12px;
     padding: 0px 10px;
@@ -73,14 +73,14 @@
     border-radius: 5px;
 }
 .homepage-area .tm-product-actions li button:hover {
-    background: #c0972e;
+    background: #f2b414;
     color: #fff;
     border-radius: 5px;
 }
 .homepage-area .tm-product-imagelink {
     display: block;
     width: 100%;
-    border: 2px solid #c0972e;
+    border: 2px solid #f2b414;
     border-radius: 5px;
     position: relative;
     left: 0;
@@ -144,7 +144,7 @@
 .homepage-area .supplier-name a {
     float: right;
     font-size: 13px;
-    color: #c0972e;
+    color: #f2b414;
 }
 .homepage-area .supplier-name p {
     float: right;
@@ -155,7 +155,7 @@
     .homepage-area .supplier-name a {
         float: right;
         font-size: 15px;
-        color: #c0972e;
+        color: #f2b414;
         margin-top: 5px;
     }
     .homepage-area .supplier-name p {
@@ -182,7 +182,7 @@
     line-height: 19px;
 }
 .homepage-area .buttons .email-btn {
-    background-color: #c0972e;
+    background-color: #f2b414;
     color: #fff;
     border-radius: 5px;
     height: 35px;
@@ -199,8 +199,8 @@
     font-size: 20px;
     color: #fff;
     line-height: 10px;
-    background-color: #c0972e;
-    border: 1px solid #c0972e;
+    background-color: #f2b414;
+    border: 1px solid #f2b414;
 }
 @media (min-width: 768px) {
     .homepage-area .buttons .category-btn p {
@@ -215,7 +215,7 @@
         padding: 0 8px;
     }
     .homepage-area .buttons .email-btn {
-        background-color: #c0972e;
+        background-color: #f2b414;
         color: #fff;
         border-radius: 5px;
         /* height: 35px; */
@@ -228,28 +228,28 @@
 }
 
 .my-paginator::ng-deep .ngx-pagination .current {
-    background-color: #c0972e !important;
+    background-color: #f2b414 !important;
 }
 
 .product-desc {
     font-size: 13px;
     text-align: center;
     color: #0e1234;
-    border: 1px solid #c0972e;
+    border: 1px solid #f2b414;
     border-radius: 5px;
     padding: 5px;
 }
 
 .widget-categories a:hover {
     cursor: pointer;
-    color: #c0972e;
+    color: #f2b414;
 }
 
 .input-group > .form-control:not(:first-child),
 .input-group > .custom-select:not(:first-child) {
     border-radius: 5px;
     /* border-bottom-left-radius: 5px; */
-    border: 1px solid #c0972e;
+    border: 1px solid #f2b414;
     background: #0e1234;
     color: #fff !important;
     height: 45px;
@@ -261,23 +261,23 @@
 }
 
 // .bsDatepicker::ng-deep .theme-green .bs-datepicker-head {
-//     background-color: #c0972e !important;
+//     background-color: #F2B414 !important;
 // }
 ::ng-deep .bs-datepicker-container .bs-datepicker-head {
-    background-color: #c0972e !important;
+    background-color: #f2b414 !important;
 }
 ::ng-deep .bs-datepicker-container .bs-datepicker-head * {
     color: #fff !important;
 }
 ::ng-deep .theme-green .bs-datepicker-body table td.week span {
-    color: #c0972e;
+    color: #f2b414;
 }
 
 ::ng-deep .theme-green .bs-datepicker-body table td span.selected,
 .theme-green .bs-datepicker-body table td.selected span,
 .theme-green .bs-datepicker-body table td span[class*='select-']:after,
 .theme-green .bs-datepicker-body table td[class*='select-'] span:after {
-    background-color: #c0972e;
+    background-color: #f2b414;
 }
 
 .icon {
@@ -285,7 +285,7 @@
     background: #ffffff;
     margin-right: 4px;
     border-radius: 50%;
-    color: #c0972e;
+    color: #f2b414;
 }
 .icon-btn {
     // padding: 1px 15px 3px 2px;
@@ -294,6 +294,6 @@
     color: #fff;
 }
 .icon-btn:hover {
-    background-color: #c0972e;
+    background-color: #f2b414;
     color: #fff;
 }
