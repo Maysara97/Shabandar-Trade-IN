@@ -27,8 +27,9 @@ import { ConfirmationFailedComponent } from './components/confirmation-failed/co
 import { MatDialogModule } from '@angular/material/dialog'
 import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
-import { BuyingRequestComponent } from './components/buying-request/buying-request.component';
+import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
+import { SlickCarouselModule } from 'ngx-slick-carousel'
 
 @NgModule({
     declarations: [
@@ -64,6 +65,7 @@ import { ReplyMessageComponent } from './components/reply-message/reply-message.
         BsDatepickerModule.forRoot(),
         MatTabsModule,
         MatDialogModule,
+        SlickCarouselModule,
     ],
 })
 export class ApplicationModule {}

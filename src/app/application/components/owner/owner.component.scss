@@ -578,3 +578,104 @@
 .interests-section .col-7 li {
     color: #f2b414;
 }
+
+::ng-deep .nav-tabs {
+    justify-content: center !important;
+    border-bottom: none;
+}
+
+::ng-deep .nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    color: #ffffff;
+    background-color: #f2b414;
+    border-color: #f2b414;
+}
+
+::ng-deep .nav-tabs .nav-link {
+    /* border: 1px solid transparent; */
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-color: #1494f2;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.content {
+    background-color: #fff;
+    padding: 3%;
+    margin-top: 1.2px;
+}
+
+.about {
+    background-image: url('/assets/images/You-Trade-In/tabs-back.png');
+    background-repeat: no-repeat;
+    background-color: #f2b414;
+    margin-top: 1.3px;
+    background-position: center;
+    background-size: cover;
+}
+.about img {
+    margin-top: 10%;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+.about ul {
+    padding: 0px;
+    text-align: center;
+}
+.about li {
+    list-style: none;
+    display: -webkit-box;
+}
+.content h4 {
+    color: #404f76;
+    float: left;
+    font-size: 20px;
+}
+.content .btn {
+    color: #fff;
+    float: right;
+    background-color: #f2b414;
+    border-radius: 25px;
+    margin-right: 3px;
+}
+
+.content .tm-portfoliodetails-info b {
+    color: #404f76;
+}
+
+.content .tm-portfoliodetails-info .col-5 li {
+    list-style: none;
+}
+
+.content .tm-portfoliodetails-info {
+    padding: 20px;
+    box-shadow: none;
+}
+
+.content .tm-portfoliodetails-info .row {
+    border-bottom: 1px solid #70707052;
+    padding: 1%;
+}
+
+.content .description h4 {
+    color: #404f76;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.content .description p {
+    border: 1px solid #7070708a;
+    padding: 2%;
+    color: #404f76cf;
+}
+.content h2 {
+    float: left;
+    color: #0e1234d4;
+    font-size: 20px;
+}
+.about .title {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+}

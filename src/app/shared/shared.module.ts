@@ -16,6 +16,8 @@ import { RouterModule } from '@angular/router'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { TooltipModule } from 'ngx-bootstrap/tooltip'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { SlickCarouselModule } from 'ngx-slick-carousel'
 
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
@@ -31,8 +33,14 @@ const SHARED_EXTERNAL_MODULES = [
     RouterModule,
     MatPaginatorModule,
     MatToolbarModule,
+    NgbModule,
+    SlickCarouselModule,
 ]
-const SHARED_INTERNAL_MODULES = [FormsModule, ReactiveFormsModule]
+const SHARED_INTERNAL_MODULES = [
+    FormsModule,
+    ReactiveFormsModule,
+    SlickCarouselModule,
+]
 
 @NgModule({
     declarations: [...SHARED_COMPONENTS],

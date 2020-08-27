@@ -39,6 +39,7 @@ export class AccountData {
     accountAdministrators: Administrator[]
     favorites?: Favorites[] = []
     categoryId?: string
+    categoryName?: string
 }
 
 export class Favorites {
