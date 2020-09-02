@@ -29,7 +29,6 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
-import { SlickCarouselModule } from 'ngx-slick-carousel'
 
 @NgModule({
     declarations: [
@@ -65,7 +64,6 @@ import { SlickCarouselModule } from 'ngx-slick-carousel'
         BsDatepickerModule.forRoot(),
         MatTabsModule,
         MatDialogModule,
-        SlickCarouselModule,
     ],
 })
 export class ApplicationModule {}

@@ -15,7 +15,8 @@ import { HomeReadMoreComponent } from './home-read-more/home-read-more.component
 import { CategoryProductsComponent } from './home-main/category-products/category-products.component'
 import { ShahbundarServicesComponent } from './home-main/shahbundar-services/shahbundar-services.component'
 import { SuppliersComponent } from './home-main/suppliers/suppliers.component';
-import { ProfileComponent } from './profile/profile.component'
+import { ProfileComponent } from './profile/profile.component';
+import { PartnersComponent } from './home-main/partners/partners.component'
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import { ProfileComponent } from './profile/profile.component'
         ShahbundarServicesComponent,
         SuppliersComponent,
         ProfileComponent,
+        PartnersComponent,
     ],
     imports: [CommonModule, HomeRoutingModule, SharedModule],
 })

@@ -34,6 +34,7 @@
         "filepond-plugin-image-preview": "^4.6.4",
         "intl-tel-input": "^17.0.3",
         "jquery": "^3.5.1",
+        "mdbootstrap": "^4.19.1",
         "ng-multiselect-dropdown": "^0.2.10",
         "ng2-search-filter": "^0.5.1",
         "ng2-tel-input": "^2.3.0",
@@ -51,6 +52,7 @@
         "pp-breadcrumbs": "^2.0.0",
         "rxjs": "~6.5.4",
         "slick-carousel": "^1.8.1",
+        "swiper": "^6.1.2",
         "tslib": "^1.10.0",
         "zone.js": "~0.10.2"
     },

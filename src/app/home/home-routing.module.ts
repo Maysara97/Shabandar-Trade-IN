@@ -4,7 +4,7 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component'
 import { HomeMainComponent } from './home-main/home-main.component'
 import { HomeReadMoreComponent } from './home-read-more/home-read-more.component'
 import { Egypt2030Component } from './home-main/egypt2030/egypt2030.component'
-import { ProfileComponent } from './profile/profile.component'
+import { ContactComponent } from './home-main/contact/contact.component'
 
 const routes: Routes = [
     {
@@ -28,8 +28,8 @@ const routes: Routes = [
                 component: HomeMainComponent,
             },
             {
-                path: 'profile',
-                component: ProfileComponent,
+                path: 'contact',
+                component: ContactComponent,
             },
         ],
     },

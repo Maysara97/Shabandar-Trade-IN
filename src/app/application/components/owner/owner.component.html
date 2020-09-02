@@ -4,7 +4,7 @@
     <div class="page-section tm-section contact-area tm-padding-section" style="background-color: #0E1234;">
         <div class="container">
             <div class="row d-flex justify-content-center ml-2">
-                <ngb-tabset [destroyOnHide]="false">
+                <!-- <ngb-tabset [destroyOnHide]="false">
                     <ngb-tab>
                         <ng-template ngbTabTitle>Profile</ng-template>
                         <ng-template ngbTabContent>
@@ -120,68 +120,39 @@
                     <ngb-tab>
                         <ng-template ngbTabTitle>Account Products History</ng-template>
                         <ng-template ngbTabContent>
-                            <div class="row">
-                                <!-- <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
-                                    <p class="title">Account Products</p>
-                                </div> -->
-                                <div class="col-12 content">
-                                    <div class="row mb-5">
-                                        <div class="col-lg-12 col-md-12 col-12">
-                                            <div class="mb-5">
-                                                <h2 class="leftAlign">
-                                                    Account Products
-                                                </h2>
-                                                <a type="button" class="btn rightAlign" style="
-                                                    color: #fff;
-                                                    float: right;
-                                                    background-color: #F2B414;
-                                                " routerLink="/application/add-product-form">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                                </a>
+                            <ng-container>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                        <p class="title">Account Products</p>
+                                    </div>
+                                    <div class="col-lg-9 col-md-8 col-12 content">
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="mb-5">
+                                                    <h2 class="leftAlign">
+                                                        Account Products
+                                                    </h2>
+                                                    <a type="button" class="btn rightAlign" style="
+                                                        color: #fff;
+                                                        float: right;
+                                                        background-color: #F2B414;
+                                                    " routerLink="/application/add-product-form">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                                <div style="clear: both;"></div>
                                             </div>
-                                            <div style="clear: both;"></div>
+                                        </div>
+                                        <div class="row">
+
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <owl-carousel-o [options]="productSlider">
-                                            <ng-template carouselSlide *ngFor="let product of accountProducts">
-                                                <div class="col-lg-12 col-md-8 col-12">
-                                                    <div class="tm-blog">
-                                                        <div class="tm-blog-image"
-                                                            style="max-width: 300px; max-height: 200px;">
-                                                            <img style="height: 190px;"
-                                                                [src]="getFilePath(product.productImages[0])"
-                                                                alt="{{product.productName}}" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-details">
-                                                        <a [routerLink]="['/application/product-details', product.accountProductId]"
-                                                            routerLinkActive="active">
-                                                            <h4>{{product.productName}}</h4>
-                                                        </a>
-                                                        <p>
-                                                            {{product.description | slice : 0 : 100}}
-                                                        </p>
-                                                    </div>
-                                                    <div class="product-actions ">
-                                                        <a class="btn icon-btn edit-mode"
-                                                            [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
-                                                                class="fa fa-wrench edit-icon" aria-hidden="true"></i>
-                                                            Edit</a>
-                                                        <a class="btn icon-btn btn-danger"
-                                                            (click)="deleteAccountProduct(product.accountProductId)"><i
-                                                                class="fa fa-trash delete-icon" aria-hidden="true"></i>
-                                                            Delete</a>
-                                                        <div style="clear: both;"></div>
-                                                    </div>
-                                                </div>
-                                            </ng-template>
-                                        </owl-carousel-o>
-                                    </div>
-
                                 </div>
-                            </div>
+                            </ng-container>
+
                         </ng-template>
+
+
                     </ngb-tab>
 
                     <ngb-tab>
@@ -204,341 +175,397 @@
                         </ng-template>
                     </ngb-tab>
 
-                </ngb-tabset>
-            </div>
-        </div>
-    </div>
-
-    <div class="page-section tm-section owner-area tm-padding-section" style="background-color: #0e1234;">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="mb-5">
-                        <h2 style="color: #F2B414; float: left;" class="leftAlign">
-                            Hi {{userDetails.accountName}} !
-                        </h2>
-
-                        <a type="button" class="btn rightAlign" style="
-                            color: #fff;
-                            float: right;
-                            background-color: #F2B414;
-                        " routerLink="/account/editprofile">
-                            Edit Profile
-                        </a>
-                        <a type="button" class="btn rightAlign" style="
-                        color: #F2B414;
-                        float: right;
-                        font-weight: 500;
-                        margin-right: 10px;
-                        background-color: #fff;
-                    " routerLink="/account/update-password">
-                            Update Password
-                        </a>
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
-            </div>
-            <div class="row mt-5 avatar-data">
-                <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
-                    <div class="well well-sm">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 col-sm-4 col-xs-8 col-md-8 col-12 avatar-img"
-                                *ngIf="userDetails.accountImage">
-                                <img [src]="getFilePath(userDetails.accountImage)" alt="{{userDetails.accountName}}"
-                                    class="img-rounded img-responsive" />
-
+                </ngb-tabset> -->
+                <mat-tab-group>
+                    <mat-tab label="Profile">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center avatar-no-image">
+                                    <img src="assets/images/You-Trade-In/student.png" alt="" width="70%"
+                                        class="img-rounded img-responsive">
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <ul>
+                                        <li><i class="fa fa-user" aria-hidden="true"></i> &nbsp;
+                                            <p> {{userDetails.accountAdministrators[0].firstName}}
+                                                {{userDetails.accountAdministrators[0].lastName}}</p>
+                                        </li>
+                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
+                                            <p>{{userDetails.accountAdministrators[0].email}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-lg-4 col-sm-4 col-xs-8 col-md-8 col-12 justify-content-left avatar-no-image"
-                                *ngIf="!userDetails.accountImage">
-                                <img src="assets/images/You-Trade-In/student.png" alt="" width="70%"
-                                    class="img-rounded img-responsive">
-                            </div>
-                            <div class="col-xl-8 col-lg-8">
-                                <div class="tm-portfoliodetails-info"
-                                    style="background-color: #0e1234;border-radius: 10px;">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <li
-                                                *ngIf="userDetails.accountAdministrators[0].firstName && userDetails.accountAdministrators[0].lastName">
-                                                <b>User Name </b></li>
+                            <div class="col-lg-9 col-md-8 col-12 content">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        {{userDetails.accountName}}
+                                    </h4>
+
+                                    <a type="button" class="btn rightAlign" routerLink="/account/editprofile">
+                                        Edit Profile
+                                    </a>
+                                    <a type="button" class="btn rightAlign" routerLink="/account/update-password">
+                                        Update Password
+                                    </a>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row" style="border-top: 2px solid #70707070;">
+                                    <div class="tm-portfoliodetails-info">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.categoryName">
+                                                    <b>Category </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.categoryName">
+                                                    {{userDetails.categoryName}}
+                                                </li>
+                                            </div>
                                         </div>
-                                        <div class="col-7">
-                                            <li
-                                                *ngIf="userDetails.accountAdministrators[0].firstName && userDetails.accountAdministrators[0].lastName">
-                                                {{userDetails.accountAdministrators[0].firstName}}
-                                                {{userDetails.accountAdministrators[0].lastName}}
-                                            </li>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.countryName">
+                                                    <b>Country </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.countryName">
+                                                    {{userDetails.countryName}}
+                                                </li>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.accountAdministrators[0].email">
-                                                <b>Email </b></li>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.accountWebsite">
+                                                    <b>Account Website </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.accountWebsite">
+                                                    <a
+                                                        (click)="goToWebsiteUrl(userDetails.accountWebsite)">{{userDetails.accountWebsite}}</a>
+                                                </li>
+                                            </div>
                                         </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.accountAdministrators[0].email">
-                                                {{userDetails.accountAdministrators[0].email}}
-                                            </li>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.mission">
+                                                    <b>Mission </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.mission">
+                                                    {{userDetails.mission}}
+                                                </li>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.accountName">
-                                                <b>Company Name </b></li>
-                                        </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.accountName">
-                                                {{userDetails.accountName}}
-                                            </li>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.accountMobile">
-                                                <b>Phone No. </b></li>
-                                        </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.accountMobile">
-                                                {{userDetails.accountMobile}}
-                                            </li>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.countryName">
-                                                <b>Country </b></li>
-                                        </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.countryName">
-                                                {{userDetails.countryName}}
-                                            </li>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.accountWebsite">
-                                                <b>Account Website </b></li>
-                                        </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.accountWebsite">
-                                                <a
-                                                    (click)="goToWebsiteUrl(userDetails.accountWebsite)">{{userDetails.accountWebsite}}</a>
-                                            </li>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.mission">
-                                                <b>Mission </b></li>
-                                        </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.mission">
-                                                {{userDetails.mission}}
-                                            </li>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-5">
-                                            <li *ngIf="userDetails.vission">
-                                                <b>Vision </b></li>
-                                        </div>
-                                        <div class="col-7">
-                                            <li *ngIf="userDetails.vission">
-                                                {{userDetails.vission}}
-                                            </li>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.vission">
+                                                    <b>Vision </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.vission">
+                                                    {{userDetails.vission}}
+                                                </li>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div style="clear: both;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-3 avatar-des">
-                <div class="col-lg-12 col-12">
-                    <h6 class="text-left">Profile Description</h6>
-                    <p class="text-left">
-                        <b>This is the profile description,</b> {{userDetails.description}}
-                    </p>
-                </div>
-                <div class="col-12 mt-3">
-                    <h6 class="text-left mb-3">Account Attachment</h6>
-                    <a *ngFor="let attachment of userDetails.accountAttachments" [href]="getFilePath(attachment) "
-                        alt="Product Attachments" target="_blank">
-                        &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="page-section tm-section products-services-area tm-padding-section" style="background-color: #0e1234;">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="mb-5">
-                        <h2 style="color: #F2B414; float: left;" class="leftAlign">
-                            Products/Services
-                        </h2>
-                        <a type="button" class="btn rightAlign" style="
-                            color: #fff;
-                            float: right;
-                            background-color: #F2B414;
-                        " routerLink="/application/add-product-form">
-                            Add New <i class="fa fa-plus" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
-            </div>
-
-            <owl-carousel-o [options]="productSlider">
-                <ng-template carouselSlide *ngFor="let product of accountProducts">
-                    <div class="col-lg-12 col-md-8 col-12">
-                        <div class="tm-blog">
-                            <div class="tm-blog-image" style="max-width: 300px; max-height: 200px;">
-                                <img style="height: 190px;" [src]="getFilePath(product.productImages[0])"
-                                    alt="{{product.productName}}" />
-                            </div>
-                        </div>
-                        <div class="product-details">
-                            <a [routerLink]="['/application/product-details', product.accountProductId]"
-                                routerLinkActive="active">
-                                <h4>{{product.productName}}</h4>
-                            </a>
-                            <p>
-                                {{product.description | slice : 0 : 100}}
-                            </p>
-                        </div>
-                        <div class="product-actions ">
-                            <a class="btn icon-btn edit-mode"
-                                [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
-                                    class="fa fa-wrench edit-icon" aria-hidden="true"></i>
-                                Edit</a>
-                            <a class="btn icon-btn btn-danger"
-                                (click)="deleteAccountProduct(product.accountProductId)"><i
-                                    class="fa fa-trash delete-icon" aria-hidden="true"></i>
-                                Delete</a>
-                            <div style="clear: both;"></div>
-                        </div>
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
-        </div>
-    </div> -->
-
-    <div class="page-section tm-section req-products-services-area tm-padding-section"
-        style="background-color: #0e1234;">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="mb-5">
-                        <h2 style="color: #F2B414; float: left;" class="leftAlign">
-                            Requested Products/Services
-                        </h2>
-                        <a type="button" class="btn rightAlign" style="
-                            color: #fff;
-                            float: right;
-                            background-color: #F2B414;
-                        " routerLink="/application/add-new-request-form">
-                            Add New Request <i class="fa fa-plus" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
-            </div>
-
-            <owl-carousel-o [options]="requestsSlider">
-                <ng-template carouselSlide *ngFor="let requestProduct of buyingProducts">
-                    <div class="col-lg-12 col-md-8 col-12">
-                        <div class="tm-blog">
-                            <div class="tm-blog-image" style="max-width: 500px; max-height: 500px;">
-                                <img style="height: 300px;" [src]="getFilePath(requestProduct.image)"
-                                    alt="{{requestProduct.productName}}" />
-                            </div>
-                        </div>
-                        <div class="product-details">
-                            <a [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]"
-                                routerLinkActive="active">
-                                <h4>{{requestProduct.productName}}</h4>
-                            </a>
-
-                            <p>
-                                {{requestProduct.description | slice : 0 : 100}}
-                            </p>
-                        </div>
-                        <div class="product-actions">
-                            <a class="btn icon-btn edit-mode"
-                                [routerLink]="['/application/edit-buying-request', requestProduct.buyingRequestId]"><i
-                                    class="fa fa-wrench edit-icon" aria-hidden="true"></i>
-                                Edit</a>
-                            <a class="btn icon-btn btn-danger"
-                                (click)="deleteBuyingRequest(requestProduct.buyingRequestId)"><i
-                                    class="fa fa-trash delete-icon" aria-hidden="true"></i>
-                                Delete</a>
-                            <div style="clear: both;"></div>
-                        </div>
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
-        </div>
-        <!--// Products Area -->
-    </div>
-
-    <div class="page-section tm-section interests-area" style="background-color: #0e1234;">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="mb-5 mt-5">
-                        <h2 style="color: #F2B414; float: left;" class="leftAlign">
-                            Interests
-                        </h2>
-                    </div>
-                    <div style="clear: both;"></div>
-                </div>
-            </div>
-
-            <owl-carousel-o [options]="interestsOptions" class="interests-section mt-3" style="width: 700px;">
-                <ng-template carouselSlide *ngFor="let favorite of userDetails.favorites">
-                    <div class="col">
-                        <div class="tm-portfoliodetails-info">
-                            <div class="tm-blog">
-                                <div class="tm-blog-image ">
-                                    <img [src]="getFilePath(favorite.accountImage)" alt="product image" />
+                                <div class="row description">
+                                    <h4>Profile Description </h4>
+                                    <p>
+                                        {{userDetails.description}}
+                                    </p>
+                                    <h4>Attachments</h4>
+                                    <a *ngFor="let attachment of userDetails.accountAttachments"
+                                        [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
+                                        &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
+                                    </a>
                                 </div>
                             </div>
-                            <ul class="text-left">
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Account Products History">
+                        <!-- <div class="row">
+                            <div class="col-lg-12 col-md-12 col-12 content" style="width: 100px;">
+                                <div class="mb-5">
+                                    <h2 class="leftAlign">
+                                        Account Products
+                                    </h2>
+                                    <a type="button" class="btn rightAlign" style="
+                                            color: #fff;
+                                            float: right;
+                                            background-color: #F2B414;
+                                        " routerLink="/application/add-product-form">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <owl-carousel [options]="productSlider"
+                                    [carouselClasses]="['owl-theme','row', 'sliding']">
+                                    <div class="item" *ngFor="let product of accountProducts ;let i = index">
+                                        <div class="col-lg-12">
+                                            <div class="tm-feature text-center">
+                                                <span class="tm-feature-icon">
+                                                    <img [src]="getFilePath(product.productImages[0])" width="152px"
+                                                        height="76px">
+                                                </span>
+                                                <p class="proTitle">{{product.productName}}</p>
+                                                <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                <div class="actions">
+                                                    <a class="edit-btn"
+                                                        [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
+                                                            class="fa fa-wrench" aria-hidden="true"></i>
+                                                        Edit</a>
+                                                    <a class="delete-btn"
+                                                        (click)="deleteAccountProduct(product.accountProductId)"><i
+                                                            class="fa fa-trash" aria-hidden="true"></i>
+                                                        Delete</a>
+                                                    <div style="clear: both;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </owl-carousel>
+
+                            </div>
+                        </div> -->
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>Account Products</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Account Products
+                                    </h4>
+                                    <a type="button" class="btn rightAlign" style="
+                                    color: #fff;
+                                    float: right;
+                                    background-color: #F2B414;
+                                " routerLink="/application/add-product-form">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div style="clear: both;"></div>
                                 <div class="row">
-                                    <div class="col-5">
-                                        <li>
-                                            <b>Company Name <span>:</span></b>
-                                        </li>
-                                    </div>
-                                    <div class="col-7">
-                                        <li>
-                                            <a
-                                                [routerLink]="['/application/viewer', favorite.favoriteItemId]">{{favorite.accountName}}</a>
-                                        </li>
-                                    </div>
+                                    <owl-carousel [options]="productSlider" [items]="accountProducts"
+                                        [carouselClasses]="['owl-theme','row','sliding']">
+                                        <div class="item" *ngFor="let product of accountProducts">
+
+                                            <div class="col-lg-12">
+                                                <div class="tm-feature text-center">
+                                                    <span class="tm-feature-icon">
+                                                        <img [src]="getFilePath(product.productImages[0])" width="152px"
+                                                            height="76px">
+                                                    </span>
+                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                    <div class="actions">
+                                                        <a class="edit-btn"
+                                                            [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
+                                                                class="fa fa-wrench" aria-hidden="true"></i>
+                                                            Edit</a>
+                                                        <a class="delete-btn"
+                                                            (click)="deleteAccountProduct(product.accountProductId)"><i
+                                                                class="fa fa-trash" aria-hidden="true"></i>
+                                                            Delete</a>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </owl-carousel>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-5">
-                                        <li>
-                                            <b>Category Name <span>:</span></b>
-                                        </li>
-                                    </div>
-                                    <div class="col-7">
-                                        <li>
-                                            {{favorite.categoryName}}
-                                        </li>
-                                    </div>
-                                </div>
-                            </ul>
+
+                            </div>
                         </div>
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
+
+                    </mat-tab>
+                    <mat-tab label="Buying Requests History">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>Buying Requests</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Buying Requests
+                                    </h4>
+                                    <a type="button" class="btn rightAlign" style="
+                                    color: #fff;
+                                    float: right;
+                                    background-color: #F2B414;
+                                " routerLink="/application/add-new-request-form">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row">
+                                    <owl-carousel [options]="requestsSlider" [items]="buyingProducts"
+                                        [carouselClasses]="['owl-theme','row','sliding']">
+                                        <div class="item" *ngFor="let product of buyingProducts">
+
+                                            <div class="col-lg-12">
+                                                <div class="tm-feature text-center">
+                                                    <span class="tm-feature-icon">
+                                                        <img [src]="getFilePath(product.image)" width="152px"
+                                                            height="76px">
+                                                    </span>
+                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                    <div class="actions">
+                                                        <a class="edit-btn"
+                                                            [routerLink]="['/application/edit-buying-request', product.buyingRequestId]"><i
+                                                                class="fa fa-wrench" aria-hidden="true"></i>
+                                                            Edit</a>
+                                                        <a class="delete-btn"
+                                                            (click)="deleteBuyingRequest(product.buyingRequestId)"><i
+                                                                class="fa fa-trash" aria-hidden="true"></i>
+                                                            Delete</a>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </owl-carousel>
+                                </div>
+
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Followings">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>Followings</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Followings
+                                    </h4>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row">
+                                    <owl-carousel [options]="interestsOptions" [items]="userDetails.favorites"
+                                        [carouselClasses]="['owl-theme','row','sliding']">
+                                        <div class="item" *ngFor="let interest of userDetails.favorites">
+
+                                            <div class="col-lg-12">
+                                                <div class="tm-feature text-center">
+                                                    <span class="tm-feature-icon">
+                                                        <img [src]="getFilePath(interest.accountImage)" width="152px"
+                                                            height="76px">
+                                                    </span>
+                                                    <p class="proTitle">{{interest.accountName}}</p>
+                                                    <p class="des">{{interest.categoryName | slice : 0 : 60}}</p>
+                                                    <div class="actions">
+                                                        <a class="delete-btn"><i class="fa fa-trash"
+                                                                aria-hidden="true"></i>
+                                                            Delete</a>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </owl-carousel>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </mat-tab>
+                    <mat-tab label="About us">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>About Us</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Company Profile
+                                    </h4>
+
+                                    <a type="button" class="btn rightAlign" routerLink="/account/editprofile">
+                                        Edit Profile
+                                    </a>
+                                    <a type="button" class="btn rightAlign" routerLink="/account/update-password">
+                                        Update Password
+                                    </a>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row" style="border-top: 2px solid #70707070;">
+                                    <div class="tm-portfoliodetails-info" style="width: 100%;">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.accountName">
+                                                    <b>Company Name </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.accountName">
+                                                    {{userDetails.accountName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.countryName">
+                                                    <b>Country </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.countryName">
+                                                    {{userDetails.countryName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.accountMobile">
+                                                    <b>Mobile </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.accountMobile">
+                                                    {{userDetails.accountMobile}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.accountAdministrators[0].email">
+                                                    <b>Contact Email </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.accountAdministrators[0].email">
+                                                    {{userDetails.accountAdministrators[0].email}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li *ngIf="userDetails.accountWebsite">
+                                                    <b>Website </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngIf="userDetails.accountWebsite">
+                                                    {{userDetails.accountWebsite}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
         </div>
     </div>
 </div>

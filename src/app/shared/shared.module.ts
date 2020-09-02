@@ -18,6 +18,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { TooltipModule } from 'ngx-bootstrap/tooltip'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { SlickCarouselModule } from 'ngx-slick-carousel'
+import { MatTabsModule } from '@angular/material/tabs'
+import { OwlModule } from 'ngx-owl-carousel'
 
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
@@ -35,6 +37,7 @@ const SHARED_EXTERNAL_MODULES = [
     MatToolbarModule,
     NgbModule,
     SlickCarouselModule,
+    MatTabsModule,
 ]
 const SHARED_INTERNAL_MODULES = [
     FormsModule,
@@ -49,12 +52,14 @@ const SHARED_INTERNAL_MODULES = [
         ...SHARED_EXTERNAL_MODULES,
         ...SHARED_INTERNAL_MODULES,
         TooltipModule.forRoot(),
+        OwlModule,
     ],
     exports: [
         ...SHARED_EXTERNAL_MODULES,
         ...SHARED_INTERNAL_MODULES,
         ...SHARED_COMPONENTS,
         TooltipModule,
+        OwlModule,
     ],
 })
 export class SharedModule {}
