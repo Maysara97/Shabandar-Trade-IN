@@ -36,37 +36,37 @@
     <!-- <script src="./assets/js/main.js"></script> -->
     <script src="./assets/js/modernizr-3.6.0.min.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/plugins.js"></script>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 
     <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
+        // $(function () {
+        //     $('[data-toggle="popover"]').popover()
+        // })
     </script>
     <script type="text/javascript">
-            (function () {
-                var head = document.getElementsByTagName("head").item(0);
-                var script = document.createElement("script");
-                var src = (document.location.protocol == 'https:'
-                    ? 'https://www.formilla.com/scripts/feedback.js'
-                    : 'http://www.formilla.com/scripts/feedback.js');
-                script.setAttribute("type", "text/javascript");
-                script.setAttribute("src", src); script.setAttribute("async", true);
-                var complete = false;
-                script.onload = script.onreadystatechange = function () {
-                    if (!complete && (!this.readyState
-                        || this.readyState == 'loaded'
-                        || this.readyState == 'complete')) {
-                        complete = true;
-                        Formilla.guid = 'csc0699c-1cd3-48a9-b4a8-039344dfda8b';
-                        Formilla.loadWidgets();
-                    }
-                };
-                head.appendChild(script);
-            })();
+        (function () {
+            var head = document.getElementsByTagName("head").item(0);
+            var script = document.createElement("script");
+            var src = (document.location.protocol == 'https:'
+                ? 'https://www.formilla.com/scripts/feedback.js'
+                : 'http://www.formilla.com/scripts/feedback.js');
+            script.setAttribute("type", "text/javascript");
+            script.setAttribute("src", src); script.setAttribute("async", true);
+            var complete = false;
+            script.onload = script.onreadystatechange = function () {
+                if (!complete && (!this.readyState
+                    || this.readyState == 'loaded'
+                    || this.readyState == 'complete')) {
+                    complete = true;
+                    Formilla.guid = 'csc0699c-1cd3-48a9-b4a8-039344dfda8b';
+                    Formilla.loadWidgets();
+                }
+            };
+            head.appendChild(script);
+        })();
     </script>
 </body>
 

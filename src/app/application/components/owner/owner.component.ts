@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
 import { User, AccountData, Favorites } from 'src/app/account/models/register'
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
@@ -8,8 +8,6 @@ import { BuyingRequestService } from '../../services/buying-request.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { BuyingRequest } from '../../models/buying-request'
 import { environment } from 'src/environments/environment'
-import { NotifierService, NotifierOptions } from 'angular-notifier'
-import { NotificationsService } from 'src/app/notifications/services/notification.service'
 import { Notifications } from 'src/app/notifications/models/notification'
 
 @Component({
@@ -26,14 +24,16 @@ export class OwnerComponent implements OnInit {
     buyingProducts: BuyingRequest[]
     env: any
     product: Product[] = []
+
     productSlider: any = {
-        loop: true,
+        loop: false,
         mouseDrag: true,
         touchDrag: true,
+        autoWidth: true,
         pullDrag: true,
-        dots: false,
+        dots: true,
         navSpeed: 700,
-        navText: ['Prev', 'Next'],
+        navText: ['', ''],
         responsive: {
             0: {
                 items: 1,
@@ -45,63 +45,116 @@ export class OwnerComponent implements OnInit {
                 items: 2,
             },
             940: {
-                items: 4,
-            },
-        },
-        nav: true,
-    }
-    requestsSlider: any = {
-        loop: true,
-        mouseDrag: true,
-        touchDrag: true,
-        pullDrag: true,
-        dots: false,
-        navSpeed: 700,
-        navText: ['Prev', 'Next'],
-        responsive: {
-            0: {
-                items: 1,
-            },
-            400: {
-                items: 2,
-            },
-            740: {
-                items: 2,
-            },
-            940: {
-                items: 4,
-            },
-        },
-        nav: true,
-    }
-    interestsOptions: any = {
-        loop: true,
-        mouseDrag: true,
-        touchDrag: true,
-        pullDrag: true,
-        dots: false,
-        navSpeed: 700,
-        navText: ['Prev', 'Next'],
-        responsive: {
-            0: {
-                items: 1,
-            },
-            400: {
-                items: 2,
-            },
-            740: {
-                items: 2,
-            },
-            940: {
-                items: 4,
+                items: 3,
             },
         },
         nav: true,
     }
 
+    requestsSlider: any = {
+        loop: false,
+        mouseDrag: true,
+        // center: true,
+        touchDrag: true,
+        autoWidth: true,
+        pullDrag: true,
+        // rewind: true,
+        dots: true,
+        navSpeed: 700,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            400: {
+                items: 2,
+            },
+            740: {
+                items: 2,
+            },
+            940: {
+                items: 3,
+            },
+        },
+        nav: false,
+    }
+    interestsOptions: any = {
+        loop: false,
+        mouseDrag: true,
+        touchDrag: true,
+        autoWidth: true,
+        pullDrag: true,
+        dots: true,
+        navSpeed: 700,
+        navText: ['', ''],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            400: {
+                items: 2,
+            },
+            740: {
+                items: 2,
+            },
+            940: {
+                items: 3,
+            },
+        },
+        nav: true,
+    }
+
+    carouselOptions: any = {
+        margin: 0,
+        loop: true,
+        center: true,
+        nav: true,
+        rewind: true,
+        navSpeed: 700,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        autoplaySpeed: 5000,
+        navText: [
+            // tslint:disable-next-line:quotemark
+            "<div class='nav-btn prev-slide'></div>",
+            // tslint:disable-next-line:quotemark
+            "<div class='nav-btn next-slide'></div>",
+        ],
+
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true,
+            },
+            600: {
+                items: 1,
+                nav: true,
+            },
+            1000: {
+                items: 3,
+                nav: true,
+            },
+            1500: {
+                items: 4,
+                nav: true,
+            },
+        },
+    }
+
     pageSize = 1
     pageNumber = 1
     notifications: Notifications[]
+
+    // @ViewChild('owlCarousel', { static: false }) owlElement: OwlCarousel
+
+    // displayDetail(currentDetail: PageData) {
+    //     this.owlElement.to([selectIndex])
+    // }
 
     constructor(
         private router: Router,
@@ -158,10 +211,6 @@ export class OwnerComponent implements OnInit {
             .deleteAccountProduct(AccountProductId)
             .subscribe((res) => this.getAllAccountProduct())
     }
-
-    // editAccountProduct(AccountProductId: AccountProduct) {
-
-    // }
 
     deleteBuyingRequest(BuyingRequest: string) {
         this.buyingRequestService

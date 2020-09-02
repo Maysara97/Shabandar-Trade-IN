@@ -38,11 +38,11 @@ const routes: Routes = [
                 (m) => m.NotificationsModule
             ),
     },
-    {
-        path: 'contactus',
-        loadChildren: () =>
-            import('./contact/contact.module').then((m) => m.ContactModule),
-    },
+    // {
+    //     path: 'contact',
+    //     loadChildren: () =>
+    //         import('./contact/contact.module').then((m) => m.ContactModule),
+    // },
 ]
 
 @NgModule({
