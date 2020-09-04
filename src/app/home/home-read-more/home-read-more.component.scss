@@ -4,3 +4,21 @@
 .admin-area h1 {
     color: #f2b414;
 }
+.w3-table th:first-child,
+.w3-table td:first-child,
+.w3-table-all th:first-child,
+.w3-table-all td:first-child {
+    padding-left: 16px;
+    font-weight: 700;
+    color: #f2b414;
+}
+.w3-table td,
+.w3-table th,
+.w3-table-all td,
+.w3-table-all th {
+    padding: 8px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+    color: #0e1234;
+}

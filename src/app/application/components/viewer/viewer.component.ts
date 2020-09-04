@@ -73,6 +73,59 @@ export class ViewerComponent implements OnInit {
         },
         nav: true,
     }
+
+    productSlider: any = {
+        loop: false,
+        mouseDrag: true,
+        touchDrag: true,
+        autoWidth: true,
+        pullDrag: true,
+        dots: true,
+        navSpeed: 700,
+        navText: ['', ''],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            400: {
+                items: 2,
+            },
+            740: {
+                items: 2,
+            },
+            940: {
+                items: 3,
+            },
+        },
+        nav: true,
+    }
+
+    requestsSlider: any = {
+        loop: false,
+        mouseDrag: true,
+        // center: true,
+        touchDrag: true,
+        autoWidth: true,
+        pullDrag: true,
+        // rewind: true,
+        dots: true,
+        navSpeed: 700,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            400: {
+                items: 2,
+            },
+            740: {
+                items: 2,
+            },
+            940: {
+                items: 3,
+            },
+        },
+        nav: false,
+    }
     constructor(
         private router: Router,
         private authService: AuthService,
@@ -138,5 +191,10 @@ export class ViewerComponent implements OnInit {
                     this.targetAccountDetails.isFavorite = false
                 }
             })
+    }
+
+    goToWebsiteUrl(url) {
+        const path = 'http://' + url
+        window.open(path, '_blank')
     }
 }
