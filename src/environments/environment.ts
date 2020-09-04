@@ -6,9 +6,11 @@ export const environment = {
     production: false,
     // baseUrl: 'https://localhost:5001/api',
     // file_path: 'https://localhost:5001/files/',
+    // notification_url: 'https://localhost:5001/signalr',
 
     baseUrl: 'https://api.youtradein.com/api',
     file_path: 'https://api.youtradein.com/files/',
+    notification_url: 'https://api.youtradein.com/signalr',
 }
 
 /*
