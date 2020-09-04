@@ -537,3 +537,365 @@
 .product-actions {
     margin-top: 20%;
 }
+
+::ng-deep .nav-tabs {
+    justify-content: center !important;
+    border-bottom: none;
+}
+
+::ng-deep .nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    color: #ffffff;
+    background-color: #f2b414;
+    border-color: #f2b414;
+}
+
+::ng-deep .nav-tabs .nav-link {
+    /* border: 1px solid transparent; */
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    background-color: #1494f2;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.content {
+    background-color: #fff;
+    padding: 3%;
+    margin-top: 1.2px;
+}
+
+.about {
+    background-image: url('/assets/images/You-Trade-In/tabs-back.png');
+    background-repeat: no-repeat;
+    background-color: #f2b414;
+    margin-top: 1.3px;
+    background-position: center;
+    background-size: cover;
+}
+.about img {
+    margin-top: 10%;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+.about ul {
+    padding: 0px;
+    text-align: center;
+}
+.about li {
+    list-style: none;
+    display: -webkit-box;
+}
+.content h4 {
+    color: #404f76;
+    float: left;
+    font-size: 20px;
+}
+.content .btn {
+    color: #fff;
+    float: right;
+    background-color: #f2b414;
+    border-radius: 25px;
+    margin-right: 3px;
+}
+
+.content .tm-portfoliodetails-info b {
+    color: #404f76;
+}
+
+.content .tm-portfoliodetails-info .col-5 li {
+    list-style: none;
+}
+
+.content .tm-portfoliodetails-info {
+    padding: 20px;
+    box-shadow: none;
+}
+
+.content .tm-portfoliodetails-info .row {
+    border-bottom: 1px solid #70707052;
+    padding: 1%;
+}
+
+.content .description h4 {
+    color: #404f76;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.content .description p {
+    border: 1px solid #7070708a;
+    padding: 2%;
+    color: #404f76cf;
+}
+.content h2 {
+    float: left;
+    color: #0e1234d4;
+    font-size: 20px;
+}
+.about .title {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+}
+
+.slick-slider {
+    width: 90%;
+    margin: auto;
+}
+
+::ng-deep .mat-tab-group .mat-tab-body-content {
+    height: 100%;
+    overflow: unset;
+}
+
+::ng-deep .mat-tab-group .mat-tab-header-pagination {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-width: 32px;
+    cursor: pointer;
+    z-index: 2;
+    /* -webkit-tap-highlight-color: transparent; */
+    touch-action: none;
+}
+
+::ng-deep .mat-tab-group .mat-tab-label.mat-tab-label-active {
+    height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    color: #fff;
+    background-color: #f2b414;
+    border: 1px solid #f2b414;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 3px;
+}
+
+::ng-deep .mat-tab-group .mat-tab-label {
+    height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    color: #fff;
+    background-color: #1494f2;
+    border: 1px solid #1494f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 3px;
+}
+
+::ng-deep .mat-tab-nav-bar,
+.mat-tab-header {
+    border-bottom: none;
+}
+
+::ng-deep .mat-tab-labels {
+    display: flex;
+    justify-content: center;
+}
+
+.owl-carousel {
+    width: 90% !important;
+    margin: 10% auto;
+}
+
+.owl-carousel .owl-nav {
+    overflow: hidden;
+    height: 0px;
+}
+
+.owl-carousel .nav-btn {
+    height: 47px;
+    position: absolute;
+    width: 26px;
+    cursor: pointer;
+    top: 30% !important;
+}
+
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+.owl-carousel .prev-slide {
+    background-image: url('/assets/images/You-Trade-In/backbtn.png');
+    background-repeat: no-repeat;
+    // backgro: scroll
+    background-position: 0px 0px;
+    left: -33px;
+}
+
+.owl-carousel .next-slide {
+    background-image: url('/assets/images/You-Trade-In/next.png');
+    background-repeat: no-repeat;
+    // backgro: scroll
+    background-position: -24px 0px;
+    right: -33px;
+}
+
+.owl-carousel .prev-slide:hover {
+    background-position: 0px -53px;
+}
+
+.owl-carousel .next-slide:hover {
+    background-position: -24px -53px;
+}
+
+// ::ng-deep .owl-carousel .owl-stage {
+//     position: relative;
+//     touch-action: manipulation;
+//     width: 400px;
+// }
+
+.tm-product-image {
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 130px;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #3f51b500 !important;
+}
+
+.content .tm-feature .actions {
+    margin-top: 10%;
+}
+
+.content .tm-feature .edit-btn {
+    background-color: #0e1234;
+    padding: 10px;
+    border-radius: 40px;
+    color: #fff;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.content .tm-feature .delete-btn {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 40px;
+    font-size: 12px;
+}
+.tm-feature {
+    border: 2px solid #fbfbfb;
+}
+// .owl-stage-outer .owl-stage {
+//     display: flex !important;
+// }
+
+#carouselSlide {
+    position: relative;
+    overflow: hidden;
+    /* margin-bottom: 80px; */ /*This is optional*/
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+::ng-deep .owl-carousel .owl-stage {
+    display: flex !important;
+}
+
+.about .title {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    color: #fff;
+}
+
+.about .title p {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+// .owl-item {
+//     width: 300px !important;
+// }
+
+::ng-deep .owl-theme .owl-dots {
+    text-align: initial;
+    -webkit-tap-highlight-color: transparent;
+    margin-left: 35%;
+}
+
+.tm-feature .des {
+    color: #404f76d4;
+    font-size: 12px;
+    padding: 10%;
+}
+
+.tm-feature .proTitle {
+    color: #404f76;
+    font-weight: 600;
+    font-size: 25px;
+    padding-top: 2%;
+}
+
+.tm-feature {
+    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px 0px;
+    background: #ffffff;
+    border-radius: 40px;
+    height: 450px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+// .owl-carousel {
+//     display: none;
+//     width: 1000px !important;
+//     -webkit-tap-highlight-color: transparent;
+//     position: relative;
+//     z-index: 1;
+// }
+
+.tm-feature-icon {
+    display: inline-block;
+    font-size: 60px;
+    margin-bottom: 0px;
+    margin-top: 10%;
+}
+
+.tm-portfoliodetails-info {
+    width: 100%;
+}

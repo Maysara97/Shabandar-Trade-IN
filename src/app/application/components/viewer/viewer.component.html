@@ -1,4 +1,4 @@
-<div class="page-section tm-section viewer-area tm-padding-section" style="background-color: #0e1234;">
+<!-- <div class="page-section tm-section viewer-area tm-padding-section" style="background-color: #0e1234;">
     <div class="container" *ngIf="targetAccountDetails">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -200,7 +200,6 @@
             </ng-template>
         </owl-carousel-o>
     </div>
-    <!--// Products Area -->
 </div>
 
 <div class="page-section tm-section req-products-services-area tm-padding-section" style="background-color: #0e1234;">
@@ -239,5 +238,321 @@
             </ng-template>
         </owl-carousel-o>
     </div>
-    <!--// Products Area -->
+</div> -->
+
+<div class="owner-profile" *ngIf="targetAccountDetails">
+    <div class="page-section tm-section contact-area tm-padding-section" style="background-color: #0E1234;">
+        <div class="container">
+            <div class="row d-flex justify-content-center ml-2">
+                <mat-tab-group>
+                    <mat-tab label="Profile">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center avatar-no-image">
+                                    <img src="assets/images/You-Trade-In/student.png" alt="" width="70%"
+                                        class="img-rounded img-responsive">
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <ul>
+                                        <li><i class="fa fa-user" aria-hidden="true"></i> &nbsp;
+                                            <p> {{targetAccountDetails.accountAdministrators[0].firstName}}
+                                                {{targetAccountDetails.accountAdministrators[0].lastName}}</p>
+                                        </li>
+                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
+                                            <p>{{targetAccountDetails.accountAdministrators[0].email}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        {{targetAccountDetails.accountName}}
+                                    </h4>
+                                    <a type="button" class="btn rightAlign"
+                                        [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
+                                        Send Message <i class="fa fa-comments" aria-hidden="true"></i>
+                                    </a>
+                                    <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn rightAlign"
+                                        (click)="addFavorite(TargetAccountId)">
+                                        Add Interest <i class="fa fa-star" aria-hidden="true"></i>
+                                    </a>
+                                    <a *ngIf="targetAccountDetails.isFavorite" type="button" class="btn rightAlign"
+                                        (click)="deleteFavorite(targetAccountDetails.favoriteId)">
+                                        Remove Interest <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+
+                                    <!-- <button *ngIf="!targetAccountDetails.isFavorite" type="button"
+                                        class="btn rightAlign" style="
+                                    color: #fff;
+                                    float: right;
+                                    background-color: #F2B414;
+                                " (click)="addFavorite(TargetAccountId)">
+                                        Add Interest
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </button>
+                                    <button *ngIf="targetAccountDetails.isFavorite" type="button" class="btn rightAlign"
+                                        style="
+                                    color: #fff;
+                                    float: right;
+                                    background-color: #F2B414;
+                                " (click)="deleteFavorite(targetAccountDetails.favoriteId)">
+                                        Remove Interest
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn rightAlign" style="
+                                    color: #F2B414;
+                                    float: right;
+                                    margin-right: 10px;
+                                    background-color: #fff;
+                                " [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
+                                        Send Message
+                                        <i class="fa fa-comments" aria-hidden="true"></i>
+                                    </button> -->
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row" style="border-top: 2px solid #70707070;">
+                                    <div class="tm-portfoliodetails-info">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Category </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.categoryName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Country </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.countryName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Account Website </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    <a
+                                                        (click)="goToWebsiteUrl(targetAccountDetails.accountWebsite)">{{targetAccountDetails.accountWebsite}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Mission </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.mission}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Vision </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.vission}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row description">
+                                    <h4>Profile Description </h4>
+                                    <p *ngIf="targetAccountDetails.description">
+                                        {{targetAccountDetails.description}}
+                                    </p>
+                                </div>
+                                <div class="row description">
+                                    <h4>Attachments</h4>
+                                    <a *ngFor="let attachment of targetAccountDetails.accountAttachments"
+                                        [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
+                                        &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Account Products History">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>Account Products</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Account Products
+                                    </h4>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row">
+                                    <owl-carousel [options]="productSlider" [items]="accountProducts"
+                                        [carouselClasses]="['owl-theme','row','sliding']">
+                                        <div class="item" *ngFor="let product of accountProducts">
+
+                                            <div class="col-lg-12">
+                                                <div class="tm-feature text-center">
+                                                    <span class="tm-feature-icon">
+                                                        <img [src]="getFilePath(product.productImages[0])" width="152px"
+                                                            height="76px">
+                                                    </span>
+                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </owl-carousel>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </mat-tab>
+                    <mat-tab label="Buying Requests History">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>Buying Requests</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Buying Requests
+                                    </h4>
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row">
+                                    <owl-carousel [options]="requestsSlider" [items]="buyingProducts"
+                                        [carouselClasses]="['owl-theme','row','sliding']">
+                                        <div class="item" *ngFor="let product of buyingProducts">
+
+                                            <div class="col-lg-12">
+                                                <div class="tm-feature text-center">
+                                                    <span class="tm-feature-icon">
+                                                        <img [src]="getFilePath(product.image)" width="152px"
+                                                            height="76px">
+                                                    </span>
+                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </owl-carousel>
+                                </div>
+
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="About us">
+                        <div class="row" style="width: 1140px;">
+                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                                <div class="row justify-content-center title">
+                                    <p>About Us</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-12 content">
+                                <div class="mb-5">
+                                    <h4 class="leftAlign">
+                                        Company Profile
+                                    </h4>
+
+                                    <a type="button" class="btn rightAlign"
+                                        [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
+                                        Send Message <i class="fa fa-comments" aria-hidden="true"></i>
+                                    </a>
+                                    <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn rightAlign"
+                                        (click)="addFavorite(TargetAccountId)">
+                                        Add Interest <i class="fa fa-star" aria-hidden="true"></i>
+                                    </a>
+                                    <a *ngIf="targetAccountDetails.isFavorite" type="button" class="btn rightAlign"
+                                        (click)="deleteFavorite(targetAccountDetails.favoriteId)">
+                                        Remove Interest <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+
+                                </div>
+                                <div style="clear: both;"></div>
+                                <div class="row" style="border-top: 2px solid #70707070;">
+                                    <div class="tm-portfoliodetails-info" style="width: 100%;">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Company Name </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.accountName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Country </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.countryName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Mobile </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.accountMobile}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Contact Email </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.accountAdministrators[0].email}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Website </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.accountWebsite}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
 </div>
