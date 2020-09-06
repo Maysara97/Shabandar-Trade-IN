@@ -35,22 +35,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="form-group tm-form-field">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="address">Address</label>
-                                    <br />
-                                    <input type="text" id="address" name="address" formControlName="address"
-                                        placeholder="Enter your Address" />
-                                </div>
-                                <div class="col-6">
-                                    <label for="zipCode">Zip Code</label>
-                                    <br />
-                                    <input type="number" id="zipCode" name="zipCode" pattern="[0-9]*" formControlName="
-                                        zipCode" placeholder="Enter your Zip Code" />
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="form-group tm-form-field">
                             <div class="row">
                                 <div class="col-6">
@@ -61,19 +45,6 @@
                                         placeholder="Enter your Company Name" />
 
                                 </div>
-                                <div class="col-6">
-                                    <label for="accountMobile">Phone No.</label>
-                                    <br />
-                                    <input type="tel" name="accountMobile" id="accountMobile"
-                                        [(ngModel)]="updateUserData.accountMobile" formControlName="accountMobile"
-                                        placeholder="Enter your Phone Number" />
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group tm-form-field">
-                            <div class="row">
                                 <div class="col-6">
                                     <label for="categoryId">Category</label> <br />
                                     <select class="mdb-select md-form" formControlName="categoryId"
@@ -88,7 +59,19 @@
                                         is required</label>
 
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group tm-form-field">
+                            <div class="row">
                                 <div class="col-6">
+                                    <label for="address">Address</label>
+                                    <br />
+                                    <input type="text" name="address" id="address" formControlName="address"
+                                        placeholder="Enter your Address" [(ngModel)]="updateUserData.address" />
+
+                                </div>
+                                <div class="col-3">
                                     <label for="countryId">Country</label> <br />
                                     <select class="mdb-select md-form" formControlName="countryId"
                                         style="text-transform: capitalize;" [(ngModel)]="updateUserData.countryId">
@@ -101,19 +84,99 @@
                                         *ngIf="editProfileForm.get('countryId').touched && editProfileForm.get('countryId').errors?.required">Country
                                         is required</label>
                                 </div>
+                                <div class="col-3">
+                                    <label for="zipCode">ZIP/postal Code</label>
+                                    <input type="text" name="zipCode" id="zipCode" formControlName="zipCode"
+                                        placeholder="Enter your ZipCode" [(ngModel)]="updateUserData.zipCode" />
+                                </div>
                             </div>
 
                         </div>
                         <div class="form-group tm-form-field">
                             <div class="row">
+                                <div class="col-12">
+                                    <label for="accountMobile">accountMobile</label>
+                                    <input type="tel" formControlName="accountMobile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group tm-form-field">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="mobile">Mobile Number Up to 4</label>
+                                    <br />
+                                    <section *ngFor="let mobile of mobileNumbers;let i = index;">
+                                        <input type="tel" name="mobile" id="mobile"
+                                            placeholder="Enter your Mobile {{i+1}}" style="margin-bottom: 1%;"
+                                            [(ngModel)]="mobile.mobile" [ngModelOptions]="{standalone: true}" />
+                                        <!-- <button *ngIf="i+1" type="button" class="btn btn-danger btn-sm"
+                                            (click)="removeMobile(i)">Remove</button> -->
+                                        <a *ngIf="i>0" type="button" class="btn rightAlign"
+                                            style="color: #fff;background-color: #dc3545;" (click)="removeMobile(i)">
+                                            Remove
+                                        </a>
+                                    </section>
+
+                                </div>
+                                <div class="col-2" style="margin-top: 2.3rem!important;">
+                                    <a type="button" class="btn rightAlign"
+                                        style="color: #fff;background-color: #f2b414;" (click)="addMobileNumber()">
+                                        Add More
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <label for="phone">Phone Number Up to 4</label>
+                                    <br />
+                                    <section *ngFor="let phoneN of phoneNumbers;let i = index;">
+                                        <input type="tel" name="phone" id="phone" placeholder="Enter your Phone {{i+1}}"
+                                            style="margin-bottom: 1%;" [(ngModel)]="phoneN.phone"
+                                            [ngModelOptions]="{standalone: true}" />
+                                        <a *ngIf="i>0" type="button" class="btn rightAlign"
+                                            style="color: #fff;background-color: #dc3545;" (click)="removePhone(i)">
+                                            Remove
+                                        </a>
+                                    </section>
+
+                                </div>
+                                <div class="col-2" style="margin-top: 2.3rem!important;">
+                                    <a type="button" class="btn rightAlign"
+                                        style="color: #fff;background-color: #f2b414;" (click)="addPhoneNumber()">
+                                        Add More
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group tm-form-field">
+                            <div class="row">
                                 <div class="col-6">
+                                    <label for="whatsApp">Whatsapp</label> <br />
+                                    <input type="tel" name="whatsApp" id="whatsApp" formControlName="whatsApp"
+                                        placeholder="Enter your Whatsapp Number"
+                                        [(ngModel)]="updateUserData.whatsApp" />
+                                </div>
+                                <div class="col-6">
+                                    <label for="weChat">WeChat</label> <br />
+                                    <input type="tel" name="weChat" id="weChat" formControlName="weChat"
+                                        placeholder="Enter your WeChat" [(ngModel)]="updateUserData.weChat" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group tm-form-field">
+                            <div class="row">
+                                <div class="col-12">
                                     <label for="mission">Mission</label>
                                     <br />
                                     <textarea class="form-control" id="mission" rows="3" formControlName="mission"
                                         [(ngModel)]="updateUserData.mission"
                                         placeholder="Add a Mission about Your Company"></textarea>
                                 </div>
-                                <div class="col-6">
+                            </div>
+                        </div>
+                        <div class="form-group tm-form-field">
+                            <div class="row">
+                                <div class="col-12">
                                     <label for="vission">Vision</label>
                                     <br />
                                     <textarea class="form-control" id="vission" rows="3" formControlName="vission"

@@ -24,7 +24,6 @@ export class Administrator {
 export class AccountData {
     accountId?: string
     accountName?: string
-    accountMobile?: string
     countryId?: 0
     countryName?: string
     accountImage?: string
@@ -40,6 +39,13 @@ export class AccountData {
     favorites?: Favorites[] = []
     categoryId?: string
     categoryName?: string
+    whatsApp?: string
+    weChat?: string
+    address?: string
+    mobile?: string[] = []
+    phone?: string[] = []
+    zipCode?: string
+    accountMobile?: string
 }
 
 export class Favorites {
@@ -50,4 +56,22 @@ export class Favorites {
     accountImage: string
     favoriteItemType: number
     categoryName: string
+}
+
+export class UserProfile {
+    accountName?: string
+    accountImage?: string
+    mission?: string
+    vission?: string
+    whatsApp?: string
+    weChat?: string
+    address?: string
+    mobile?: string[] = []
+    phone?: string[] = []
+    zipCode?: string
+    description?: string
+    accountAttachments?: string[] = []
+    accountWebsite?: string
+    countryId?: 0
+    categoryId?: string
 }

@@ -1,6 +1,12 @@
 import { ToastrService } from 'ngx-toastr'
 import { Component, OnInit } from '@angular/core'
-import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms'
+import {
+    NgForm,
+    FormGroup,
+    FormBuilder,
+    Validators,
+    FormArray,
+} from '@angular/forms'
 import { NavigationEnd, Router } from '@angular/router'
 import { User, AccountData } from '../../models/register'
 import { AccountsService } from '../../services/accounts.service'
@@ -41,7 +47,8 @@ export class EditprofileComponent implements OnInit {
     ) {
         this.env = environment
     }
-
+    public mobileNumbers = [{ id: 1, mobile: '' }]
+    public phoneNumbers = [{ id: 1, phone: '' }]
     ngOnInit(): void {
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
@@ -62,7 +69,6 @@ export class EditprofileComponent implements OnInit {
 
         this.editProfileForm = this.formBuilder.group({
             accountImage: [Validators.required],
-            accountMobile: [],
             accountName: [],
             accountAttachments: [Validators.required],
             contactEmail: [],
@@ -72,8 +78,13 @@ export class EditprofileComponent implements OnInit {
             vission: [],
             description: [],
             categoryId: [Validators.required],
-            // address: [],
-            // zipCode: []
+            address: [],
+            mobile: [],
+            phone: [],
+            whatsApp: [],
+            weChat: [],
+            zipCode: [],
+            accountMobile: [],
         })
 
         if (this.profileData) {
@@ -90,7 +101,13 @@ export class EditprofileComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
+
+        // this.addPhoneNumber()
     }
+    mobile(): FormArray {
+        return this.editProfileForm.get('mobile') as FormArray
+    }
+
     getImageURL() {
         return 'url(./assets/images/You-Trade-In/student2.png)'
     }
@@ -130,17 +147,48 @@ export class EditprofileComponent implements OnInit {
 
     onSubmit(form) {
         this.submitted = true
-        this.auth.updateProfile(form).subscribe((result: any) => {
-            if (result) {
-                // debugger
-                this.router.navigate(['/account/owner'])
-            } else {
-                this.toastr.error('Error')
-            }
+        let mobileResults: any[] = []
+        this.mobileNumbers.forEach((element) => {
+            mobileResults.push(element.mobile)
         })
+        let phoneResults = []
+        this.phoneNumbers.forEach((element) => {
+            phoneResults.push(element.phone)
+        })
+        // console.log(this.phoneNumbers)
+        // console.log(phoneResults)
+        this.auth
+            .updateProfile(form, mobileResults, phoneResults)
+            .subscribe((result: any) => {
+                if (result.isSucceeded) {
+                    // debugger
+                    this.router.navigate(['/account/owner'])
+                } else {
+                    this.toastr.error(result.errors)
+                }
+            })
     }
 
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
+    }
+
+    addMobileNumber() {
+        this.mobileNumbers.push({
+            id: this.mobileNumbers.length + 1,
+            mobile: '',
+        })
+    }
+    removeMobile(i: number) {
+        this.mobileNumbers.splice(i, 1)
+    }
+    addPhoneNumber() {
+        this.phoneNumbers.push({
+            id: this.phoneNumbers.length + 1,
+            phone: '',
+        })
+    }
+    removePhone(i: number) {
+        this.phoneNumbers.splice(i, 1)
     }
 }

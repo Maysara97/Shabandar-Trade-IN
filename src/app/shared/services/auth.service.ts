@@ -76,19 +76,30 @@ export class AuthService extends BaseService<any> {
         return this.post('Account', body)
     }
 
-    updateProfile(account: AccountData): Observable<any> {
+    updateProfile(
+        account: AccountData,
+        mobileResults,
+        phoneResults
+    ): Observable<AccountData> {
         const body = {
-            accountName: account.accountName,
-            accountMobile: account.accountMobile,
-            countryId: account.countryId,
             accountImage: account.accountImage,
+            accountName: account.accountName,
             mission: account.mission,
             vission: account.vission,
+            whatsApp: account.whatsApp,
+            weChat: account.weChat,
+            address: account.address,
+            mobile: mobileResults,
+            phone: phoneResults,
+            zipCode: account.zipCode,
             description: account.description,
-            accountWebsite: account.accountWebsite,
             accountAttachments: account.accountAttachments,
+            accountWebsite: account.accountWebsite,
+            accountMobile: account.accountMobile,
+            countryId: account.countryId,
             categoryId: account.categoryId,
         }
+        console.log(body)
         return this.put('Account', body)
     }
 
