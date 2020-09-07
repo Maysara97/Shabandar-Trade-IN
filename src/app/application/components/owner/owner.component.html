@@ -6,7 +6,7 @@
             <div class="row d-flex justify-content-center ml-2">
                 <mat-tab-group>
                     <mat-tab label="Profile">
-                        <div class="row">
+                        <div class="row" style="width: 1140px;">
                             <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
                                 <div class="row justify-content-center avatar-no-image">
                                     <img src="assets/images/You-Trade-In/student.png" alt="" width="70%"
@@ -316,11 +316,55 @@
                                         <div class="row">
                                             <div class="col-5">
                                                 <li>
-                                                    <b>Mobile </b></li>
+                                                    <b>Mobile Number </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngFor="let mobile of userDetails.mobile">
+                                                    {{mobile}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Phone Number </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngFor="let phone of userDetails.phone">
+                                                    {{phone}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Whatsapp </b></li>
                                             </div>
                                             <div class="col-7">
                                                 <li>
-                                                    {{userDetails.accountMobile}}
+                                                    {{userDetails.whatsApp}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>WeChat </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{userDetails.weChat}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Address </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{userDetails.address}}
                                                 </li>
                                             </div>
                                         </div>
@@ -342,7 +386,8 @@
                                             </div>
                                             <div class="col-7">
                                                 <li>
-                                                    {{userDetails.accountWebsite}}
+                                                    <a
+                                                        (click)="goToWebsiteUrl(userDetails.accountWebsite)">{{userDetails.accountWebsite}}</a>
                                                 </li>
                                             </div>
                                         </div>

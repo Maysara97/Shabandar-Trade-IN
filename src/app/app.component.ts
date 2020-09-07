@@ -22,15 +22,25 @@ export class AppComponent implements OnInit {
         this.notifier = notifier
     }
     ngOnInit(): void {
-        this.notificationsService
-            .getNewNotificationsCount()
-            .subscribe((result: any) => {
-                this.newNotificationCount$ = result.data
+        this.notificationsService.connect()
+        this.notificationsService.message.subscribe(
+            (msg: NotificationsService) => {
                 this.notifier.notify(
-                    'success',
+                    'Info',
                     'You are awesome! I mean it!',
                     'THAT_NOTIFICATION_ID'
                 )
-            })
+            }
+        )
+        // this.notificationsService
+        //     .getNewNotificationsCount()
+        //     .subscribe((result: any) => {
+        //         this.newNotificationCount$ = result.data
+        //         this.notifier.notify(
+        //             'success',
+        //             'You are awesome! I mean it!',
+        //             'THAT_NOTIFICATION_ID'
+        //         )
+        //     })
     }
 }

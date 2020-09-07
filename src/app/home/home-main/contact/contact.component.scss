@@ -1,7 +1,7 @@
 .contact-us-area .tm-contact-block {
-    // box-shadow: 0 0 10px rgb(255 248 248 / 78%);
+    box-shadow: 0 0 10px rgb(14 18 52);
     padding: 40px 15px;
-    background-color: #fff;
+    // background-color: #fff;
     // border-radius: 20px;
 }
 
@@ -37,10 +37,14 @@
 }
 
 .tm-contact-block p a {
-    color: #0e1234;
+    color: #f2b414;
+}
+
+.tm-contact-block h5 {
+    color: #f2b414;
 }
 
 .tm-contact-block p a:hover {
-    color: #f2b414;
+    color: #fff;
     text-decoration: none;
 }

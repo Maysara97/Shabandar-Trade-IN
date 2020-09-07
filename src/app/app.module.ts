@@ -11,6 +11,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o'
 import { FormsModule } from '@angular/forms'
 import { TagInputModule } from 'ngx-chips'
 import { NotifierModule, NotifierOptions } from 'angular-notifier'
+
 export function tokenGetter() {
     return localStorage.getItem('token')
 }
