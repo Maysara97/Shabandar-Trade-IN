@@ -36,4 +36,5 @@ export class BuyingRequest {
     accountName?: string
     countryName?: string
     accountImage?: string
+    status?: number
 }

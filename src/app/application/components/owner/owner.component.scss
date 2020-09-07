@@ -849,6 +849,9 @@ a:hover {
     border-radius: 40px;
     font-size: 12px;
 }
+.content .tm-feature .delete-btn:hover {
+    cursor: pointer;
+}
 .tm-feature {
     border: 2px solid #fbfbfb;
 }
@@ -881,9 +884,9 @@ a:hover {
     top: 50%;
     left: 10%;
     width: 100%;
-    height: 70px;
+    height: auto;
     text-align: center;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -938,4 +941,8 @@ a:hover {
 }
 .tm-portfoliodetails-info {
     width: 100%;
+}
+
+.ProductStatus {
+    margin-top: 15%;
 }

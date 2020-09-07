@@ -9,6 +9,7 @@ import { AccountProduct } from '../../models/accountProduct'
 import { BuyingRequest } from '../../models/buying-request'
 import { environment } from 'src/environments/environment'
 import { Notifications } from 'src/app/notifications/models/notification'
+import { StatusMapping } from '../../models/enum'
 
 @Component({
     selector: 'app-owner',
@@ -24,6 +25,7 @@ export class OwnerComponent implements OnInit {
     buyingProducts: BuyingRequest[]
     env: any
     product: Product[] = []
+    public ProductStatusMapping = StatusMapping
 
     productSlider: any = {
         loop: false,
@@ -149,12 +151,6 @@ export class OwnerComponent implements OnInit {
     pageSize = 1
     pageNumber = 1
     notifications: Notifications[]
-
-    // @ViewChild('owlCarousel', { static: false }) owlElement: OwlCarousel
-
-    // displayDetail(currentDetail: PageData) {
-    //     this.owlElement.to([selectIndex])
-    // }
 
     constructor(
         private router: Router,

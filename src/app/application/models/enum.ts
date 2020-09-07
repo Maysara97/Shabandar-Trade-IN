@@ -9,3 +9,17 @@ export const FinishedStatusTypeMapping = {
     [FinishedStatusType.Semi]: 'SemiFinished',
     [FinishedStatusType.UnFinished]: 'UnFinished',
 }
+
+export enum Status {
+    Active = 1,
+    Approved = 2,
+    PendingApprove = 3,
+    Hold = 4,
+}
+// tslint:disable-next-line:align
+export const StatusMapping = {
+    [Status.Active]: 'Active',
+    [Status.Approved]: 'Approved',
+    [Status.PendingApprove]: 'Pending Approve',
+    [Status.Hold]: 'Hold',
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit, HostBinding } from '@angular/core'
+import { Component, OnInit, HostBinding, TemplateRef } from '@angular/core'
 import { AuthService } from 'src/app/shared/services/auth.service'
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 
 @Component({
     selector: 'app-slider',
@@ -9,22 +10,12 @@ import { AuthService } from 'src/app/shared/services/auth.service'
 export class SliderComponent implements OnInit {
     isLoggedIn
     myBackgroundImageUrl = './assets/images/You-Trade-In/slider.png'
+    subCategoryModal: BsModalRef
 
-    categories: [
-        {
-            name: 'Logistics & Shipping'
-            icon: '/assets/images/You-Trade-In/truck-solid.png'
-        },
-        {
-            name: 'Architectures & Designers'
-            icon: '/assets/images/You-Trade-In/pencil-ruler-solid.png'
-        },
-        {
-            name: 'Equipment Rental'
-            icon: '/assets/images/You-Trade-In/toolbox-solid.png'
-        }
-    ]
-    constructor(private auth: AuthService) {}
+    constructor(
+        private auth: AuthService,
+        private modalService: BsModalService
+    ) {}
 
     ngOnInit() {
         this.auth.isAuthed.subscribe((result) => {
@@ -34,5 +25,11 @@ export class SliderComponent implements OnInit {
     @HostBinding('style.backgroundImage')
     getBackgroundImageUrl() {
         return `url(${this.myBackgroundImageUrl})`
+    }
+
+    subCategory(template: TemplateRef<any>) {
+        this.subCategoryModal = this.modalService.show(template, {
+            class: 'modal-md',
+        })
     }
 }

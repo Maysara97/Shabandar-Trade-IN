@@ -95,7 +95,6 @@ export class AuthService extends BaseService<any> {
             description: account.description,
             accountAttachments: account.accountAttachments,
             accountWebsite: account.accountWebsite,
-            accountMobile: account.accountMobile,
             countryId: account.countryId,
             categoryId: account.categoryId,
         }

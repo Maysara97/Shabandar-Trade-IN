@@ -10,6 +10,7 @@ import { ProductService } from '../../services/product.service'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { CountryService } from '../../services/country.service'
 import { environment } from 'src/environments/environment'
+import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Component({
     selector: 'app-buying-request',
@@ -38,12 +39,13 @@ export class BuyingRequestComponent implements OnInit {
     totalCount = 0
     pageEvent: PageEvent
     pageSizeOptions: number[] = [6, 9, 12, 15]
-
+    isLoggedIn
     constructor(
         private categoryService: CategoryService,
         private productService: ProductService,
         private buyingRequestService: BuyingRequestService,
-        private countryService: CountryService
+        private countryService: CountryService,
+        private auth: AuthService
     ) {
         this.env = environment
     }
@@ -84,6 +86,10 @@ export class BuyingRequestComponent implements OnInit {
 
         // Take the ID from Category on select
         this.onChooseCategory(this.categoryId)
+
+        this.auth.isAuthed.subscribe((result) => {
+            this.isLoggedIn = result
+        })
     }
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`

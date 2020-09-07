@@ -46,7 +46,7 @@ export class AccountsService {
             accountName: [null, [Validators.required]],
             countryId: [null, Validators.required],
             categoryId: [null, Validators.required],
-            acceptTerms: [Validators.required],
+            acceptTerms: [false, Validators.required],
         },
         {
             validators: MustMatch('primaryAdminPassword', 'confirmPassword'),

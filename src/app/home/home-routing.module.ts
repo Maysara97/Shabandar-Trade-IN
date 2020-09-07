@@ -5,6 +5,7 @@ import { HomeMainComponent } from './home-main/home-main.component'
 import { HomeReadMoreComponent } from './home-read-more/home-read-more.component'
 import { Egypt2030Component } from './home-main/egypt2030/egypt2030.component'
 import { ContactComponent } from './home-main/contact/contact.component'
+import { TermsPoliciesComponent } from './terms-policies/terms-policies.component'
 
 const routes: Routes = [
     {
@@ -30,6 +31,10 @@ const routes: Routes = [
             {
                 path: 'contact',
                 component: ContactComponent,
+            },
+            {
+                path: 'terms-policies',
+                component: TermsPoliciesComponent,
             },
         ],
     },

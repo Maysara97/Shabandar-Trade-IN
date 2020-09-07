@@ -181,8 +181,10 @@ button.tm-button {
 }
 
 .btn-post-req {
+    font-size: 30px;
     background-color: #f2b414;
-    width: 50%;
+    width: 70%;
+    height: 90px;
     margin-bottom: 4%;
     border: none;
     border-radius: 5px;
@@ -532,4 +534,9 @@ button.tm-button {
 .sponsored-section a {
     color: #08193b;
     text-decoration: none;
+}
+
+.picsum-img-wrapper img {
+    width: 660px;
+    height: 443px;
 }
