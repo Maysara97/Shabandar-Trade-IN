@@ -15,6 +15,7 @@ import { ConfirmationFailedComponent } from './components/confirmation-failed/co
 import { SendMessageComponent } from './components/send-message/send-message.component'
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
+import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
 
 const routes: Routes = [
     {
@@ -76,6 +77,10 @@ const routes: Routes = [
                 path:
                     'reply-message/:threadId/:receiverAccountId/:receiverName/:title',
                 component: ReplyMessageComponent,
+            },
+            {
+                path: 'more-companies-ads/:categoryId',
+                component: MoreCompaniesAdsComponent,
             },
         ],
     },

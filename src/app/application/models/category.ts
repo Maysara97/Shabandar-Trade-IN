@@ -5,4 +5,6 @@ export class Category {
     color: string
     image: string
     hasSub: string
+    description: string
+    icon: string
 }

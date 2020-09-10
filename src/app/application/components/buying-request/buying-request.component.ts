@@ -11,6 +11,8 @@ import { BuyingRequestService } from '../../services/buying-request.service'
 import { CountryService } from '../../services/country.service'
 import { environment } from 'src/environments/environment'
 import { AuthService } from 'src/app/shared/services/auth.service'
+import { AdsService } from '../../services/ads.service'
+import { Ads } from '../../models/ads'
 
 @Component({
     selector: 'app-buying-request',
@@ -40,12 +42,15 @@ export class BuyingRequestComponent implements OnInit {
     pageEvent: PageEvent
     pageSizeOptions: number[] = [6, 9, 12, 15]
     isLoggedIn
+
+    buyingRequestAds: Ads[]
     constructor(
         private categoryService: CategoryService,
         private productService: ProductService,
         private buyingRequestService: BuyingRequestService,
         private countryService: CountryService,
-        private auth: AuthService
+        private auth: AuthService,
+        private adService: AdsService
     ) {
         this.env = environment
     }
@@ -89,6 +94,10 @@ export class BuyingRequestComponent implements OnInit {
 
         this.auth.isAuthed.subscribe((result) => {
             this.isLoggedIn = result
+        })
+
+        this.adService.getAllBuyingRequestAds().subscribe((res: any) => {
+            this.buyingRequestAds = res.data
         })
     }
     getFilePath(fileName: string): string {

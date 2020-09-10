@@ -23,3 +23,25 @@
     background-position: center;
     // width: 50%;
 }
+.tm-service2-icon {
+    color: #f2b414;
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    line-height: 90px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+    font-size: 38px;
+    margin-bottom: 25px;
+    background: #f2b414;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    border: 3px solid #f2b414;
+    transition: all 0.3s ease-in-out;
+}
+.tm-service2:hover .tm-service2-icon {
+    background: #ffffff;
+    color: #ffffff;
+}

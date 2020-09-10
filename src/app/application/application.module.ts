@@ -28,7 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
-import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
+import { ReplyMessageComponent } from './components/reply-message/reply-message.component';
+import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { ReplyMessageComponent } from './components/reply-message/reply-message.
         SendMessageComponent,
         BuyingRequestComponent,
         ReplyMessageComponent,
+        MoreCompaniesAdsComponent,
     ],
     imports: [
         CommonModule,
