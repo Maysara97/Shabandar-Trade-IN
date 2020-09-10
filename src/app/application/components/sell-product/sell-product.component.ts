@@ -70,7 +70,7 @@ export class SellProductComponent implements OnInit {
         })
 
         // Bind all Categories
-        this.categoryService.getAllCategories().subscribe((result: any) => {
+        this.categoryService.getAllParents().subscribe((result: any) => {
             this.categories = result.data
         })
 

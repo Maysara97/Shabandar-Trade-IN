@@ -540,3 +540,28 @@ button.tm-button {
     width: 660px;
     height: 443px;
 }
+
+.modal-body p {
+    background-color: #07091a;
+    padding: 15px;
+    border-radius: 30px;
+    color: #f2b414;
+    font-weight: 600;
+}
+
+.modal-body li {
+    list-style: inside;
+}
+
+.modal-body .btn {
+    float: right;
+    width: 20%;
+    margin-top: 5%;
+    background-color: transparent;
+    color: #dc3545;
+    font-size: 18px;
+}
+.modal-body .btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+}

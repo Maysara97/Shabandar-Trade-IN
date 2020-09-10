@@ -16,6 +16,7 @@ import { SendMessageComponent } from './components/send-message/send-message.com
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
 import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
+import { AccountsByCategoryComponent } from './components/accounts-by-category/accounts-by-category.component'
 
 const routes: Routes = [
     {
@@ -81,6 +82,10 @@ const routes: Routes = [
             {
                 path: 'more-companies-ads/:categoryId',
                 component: MoreCompaniesAdsComponent,
+            },
+            {
+                path: 'accounts-by-category/:categoryId',
+                component: AccountsByCategoryComponent,
             },
         ],
     },

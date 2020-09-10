@@ -117,4 +117,7 @@ export class AuthService extends BaseService<any> {
     confirmEmail(email: string, token: string) {
         return this.post('Authorization/ConfirmEmail', { email, token })
     }
+    getAccountsByCategoryId(categoryId: string) {
+        return this.getById('Account/GetAccountsByCategory', categoryId)
+    }
 }
