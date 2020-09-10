@@ -161,6 +161,16 @@
                                                             Delete</a>
                                                         <div style="clear: both;"></div>
                                                     </div>
+                                                    <div class="ProductStatus">
+                                                        <span *ngIf="product.status == 1"
+                                                            class="badge badge-success">{{ProductStatusMapping[1]}}</span>
+                                                        <span *ngIf="product.status == 2"
+                                                            class="badge badge-secondery">{{ProductStatusMapping[2]}}</span>
+                                                        <span *ngIf="product.status == 3"
+                                                            class="badge badge-warning">{{ProductStatusMapping[3]}}</span>
+                                                        <span *ngIf="product.status == 4"
+                                                            class="badge badge-danger">{{ProductStatusMapping[4]}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,6 +225,16 @@
                                                                 class="fa fa-trash" aria-hidden="true"></i>
                                                             Delete</a>
                                                         <div style="clear: both;"></div>
+                                                    </div>
+                                                    <div class="ProductStatus">
+                                                        <span *ngIf="product.status == 1"
+                                                            class="badge badge-success">{{ProductStatusMapping[1]}}</span>
+                                                        <span *ngIf="product.status == 2"
+                                                            class="badge badge-secondery">{{ProductStatusMapping[2]}}</span>
+                                                        <span *ngIf="product.status == 3"
+                                                            class="badge badge-warning">{{ProductStatusMapping[3]}}</span>
+                                                        <span *ngIf="product.status == 4"
+                                                            class="badge badge-danger">{{ProductStatusMapping[4]}}</span>
                                                     </div>
                                                 </div>
                                             </div>

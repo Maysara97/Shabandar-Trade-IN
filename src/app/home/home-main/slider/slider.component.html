@@ -1,24 +1,28 @@
-<!-- Heroslider Area -->
 <div id="default" class="heroslider-area page-section">
     <div class="row">
         <div class="col-lg-3 col-md-12 col-12">
-            <!-- Single Widget (Widget Blog) -->
             <div class="single-widget widget-recentpost">
                 <h5 class="widget-title categories">Categories</h5>
                 <ul>
-                    <li>
-                        <div class="category-rectangle" style="background-color: #14F29D;">
+                    <li *ngFor="let category of categories">
+                        <div class="category-rectangle" [style.backgroundColor]="category.color">
                             <div class="row">
                                 <div class="col-md-4 col-sm-2">
-                                    <img src="/assets/images/You-Trade-In/pencil-ruler-solid.png">
+                                    <img [src]="getFilePath(category.icon)">
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <p class="category-title">Architectures & Designers </p>
+                                    <a *ngIf="category.hasSub"
+                                        (click)="subCategory(subCategoryModal, category.parentId)">
+                                        <p class="category-title">{{category.categoryName}} </p>
+                                    </a>
+                                    <a *ngIf="!category.hasSub" routerLink="/">
+                                        <p class="category-title">{{category.categoryName}} </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <!-- <li>
                         <div class="category-rectangle" style="background-color: #F2B414;">
                             <div class="row">
                                 <div class="col-md-4 col-sm-2">
@@ -53,15 +57,48 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
+                    <ng-template #subCategoryModal>
+                        <div class="modal-body text-center">
+                            <p>Sub Categories</p>
+                            <ul>
+                                <li *ngFor="let sub of subCategories">
+                                    <a>{{sub.categoryName}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ng-template>
                 </ul>
             </div>
-            <!--// Single Widget (Widget Blog) -->
         </div>
         <div class="col-lg-6 col-md-12 col-12">
             <div class="heroslider-slider-2 heroslider-animated-content tm-slider-arrow tm-slider-dots-left">
-                <div class="heroslider-singleslider d-flex align-items-center tm-padding-section"
-                    [ngStyle]="{ 'backgroundImage': getBackgroundImageUrl() }">
+                <div class="heroslider-singleslider d-flex align-items-center tm-padding-section">
+                    <ngb-carousel>
+                        <ng-template ngbSlide *ngFor="let billboard of billboardAds">
+                            <div class="picsum-img-wrapper">
+                                <img [src]="getFilePath(billboard.adImage)" alt="Angular Carousel 1">
+                            </div>
+                        </ng-template>
+                        <!-- <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img src="/assets/images/You-Trade-In/NewAdminCapital.png" alt="Angular Carousel 2">
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>Title Goes Here</h3>
+                                <p>Consectetur tortor volutpat pretium.</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img src="/assets/images/You-Trade-In/NewAdminCapital.png" alt="Angular Carousel 2">
+                            </div>
+                            <div class="carousel-caption">
+                                <h3>Title Goes Here</h3>
+                                <p>Consectetur tortor volutpat pretium.</p>
+                            </div>
+                        </ng-template> -->
+                    </ngb-carousel>
                 </div>
             </div>
 
@@ -70,7 +107,24 @@
             <div class="single-widget widget-recentpost ">
                 <h5 class="widget-title">Sponserd</h5>
                 <ul>
-                    <li>
+                    <li *ngFor="let sponsor of sponsoredAds">
+                        <a [routerLink]="['/application/viewer', sponsor.accountId]">
+                            <div class="sponsored-rectangle">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img [src]="getFilePath(sponsor.adImage)">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="sponsored-price">{{sponsor.adPrice}} </p>
+                                        <!-- <p class="sponsored-before-price">$1,587.00</p>
+                                        <p class="description">ANDELI inverter ac dc digital square wave pulse tig
+                                            TIG-250PAC tig aluminum with aluminum alloy tig welder</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!-- <li>
                         <a href="#">
                             <div class="sponsored-rectangle">
                                 <div class="row">
@@ -120,32 +174,17 @@
                                 </div>
                             </div>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="sponsored-rectangle">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="sponsored-price">$952.20 </p>
-                                        <p class="sponsored-before-price">$1,587.00</p>
-                                        <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                            TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <button class="btn btn-post-req">Post Your Request</button>
+    <div class="row justify-content-center" *ngIf="!isLoggedIn">
+        <button class="btn btn-post-req">Register Now for starting post Your Requests Here</button>
+    </div>
+    <div class="row justify-content-center" *ngIf="isLoggedIn">
+        <button class="btn btn-post-req">Post Your Request Here</button>
     </div>
 </div>
-<!--// Heroslider Area -->

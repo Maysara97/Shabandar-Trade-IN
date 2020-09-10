@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { SlickCarouselModule } from 'ngx-slick-carousel'
 import { MatTabsModule } from '@angular/material/tabs'
 import { OwlModule } from 'ngx-owl-carousel'
+import { ModalModule } from 'ngx-bootstrap/modal'
 
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
@@ -53,6 +54,7 @@ const SHARED_INTERNAL_MODULES = [
         ...SHARED_INTERNAL_MODULES,
         TooltipModule.forRoot(),
         OwlModule,
+        ModalModule.forRoot(),
     ],
     exports: [
         ...SHARED_EXTERNAL_MODULES,

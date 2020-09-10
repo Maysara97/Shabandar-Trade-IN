@@ -22,7 +22,10 @@ export class NotificationsService extends BaseService<any> {
         }
         log('Notification Hub', 'Trying to connect ...')
         this.connection = new signalR.HubConnectionBuilder()
+            .configureLogging(signalR.LogLevel.Debug)
             .withUrl(this.env.notification_url, {
+                skipNegotiation: true,
+                transport: signalR.HttpTransportType.WebSockets,
                 accessTokenFactory: () => getToken(),
             })
             .build()

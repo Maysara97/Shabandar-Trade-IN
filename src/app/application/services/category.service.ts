@@ -27,4 +27,10 @@ export class CategoryService extends BaseService<any> {
     getCategoryById(categoryId: string) {
         return this.getById('Category', categoryId)
     }
+    getCategoriesByParentId(parentId: string) {
+        return this.getById('Category/CategoriesByParentId', parentId)
+    }
+    getAllParents(): Observable<Category[]> {
+        return this.getAll('Category/AllParents')
+    }
 }

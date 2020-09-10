@@ -75,3 +75,8 @@ p a:hover {
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background :focus {
     background-color: #f2b414 !important;
 }
+
+.tm-form-field a:hover {
+    color: #f2b414;
+    text-decoration: none;
+}

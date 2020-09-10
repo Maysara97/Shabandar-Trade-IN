@@ -16,7 +16,8 @@ import { CategoryProductsComponent } from './home-main/category-products/categor
 import { ShahbundarServicesComponent } from './home-main/shahbundar-services/shahbundar-services.component'
 import { SuppliersComponent } from './home-main/suppliers/suppliers.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PartnersComponent } from './home-main/partners/partners.component'
+import { PartnersComponent } from './home-main/partners/partners.component';
+import { TermsPoliciesComponent } from './terms-policies/terms-policies.component'
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { PartnersComponent } from './home-main/partners/partners.component'
         SuppliersComponent,
         ProfileComponent,
         PartnersComponent,
+        TermsPoliciesComponent,
     ],
     imports: [CommonModule, HomeRoutingModule, SharedModule],
 })

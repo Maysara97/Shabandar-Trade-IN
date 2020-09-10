@@ -39,4 +39,5 @@ export class AccountProduct {
     createdBy?: string
     lastModifiedBy?: string
     isDeleted?: string
+    status?: number
 }

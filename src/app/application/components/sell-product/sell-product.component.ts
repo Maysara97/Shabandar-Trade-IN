@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { CategoryService } from '../../services/category.service'
 import { Observable } from 'rxjs'
 import { Category } from '../../models/category'
@@ -13,11 +13,10 @@ import { Country } from '../../models/country'
 import { PageEvent } from '@angular/material/paginator'
 import { SearchAccountProduct } from '../../models/accountProduct-search'
 import { AccountData } from 'src/app/account/models/register'
-import { ToastrService } from 'ngx-toastr'
 import { FavoriteService } from '../../services/favorite.service'
 import { MatDialog } from '@angular/material/dialog'
 import { SendMessageComponent } from '../send-message/send-message.component'
-import { title } from 'process'
+import { AuthService } from 'src/app/shared/services/auth.service'
 @Component({
     selector: 'app-sell-product',
     templateUrl: './sell-product.component.html',
@@ -48,7 +47,7 @@ export class SellProductComponent implements OnInit {
     pageSizeOptions: number[] = [6, 9, 12, 15]
 
     searchAccountProduct: SearchAccountProduct
-
+    isLoggedIn
     constructor(
         private categoryService: CategoryService,
         private router: Router,
@@ -56,7 +55,8 @@ export class SellProductComponent implements OnInit {
         private productService: ProductService,
         private countryService: CountryService,
         private favoriteService: FavoriteService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private auth: AuthService
     ) {
         this.env = environment
     }
@@ -102,6 +102,9 @@ export class SellProductComponent implements OnInit {
         )
 
         this.onChooseCategory(this.categoryId)
+        this.auth.isAuthed.subscribe((result) => {
+            this.isLoggedIn = result
+        })
     }
 
     getFilePath(fileName: string): string {

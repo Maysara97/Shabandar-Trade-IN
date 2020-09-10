@@ -37,11 +37,11 @@ const parseJwt = (token: string): AccountData => {
 // }
 
 const getToken = (): string => {
-    return localStorage.getItem('authToken')
+    return localStorage.getItem('token')
 }
 
 const setToken = (token: string) => {
-    localStorage.setItem('authToken', token)
+    localStorage.setItem('token', token)
 }
 
 const log = (title: string, data: any) => {

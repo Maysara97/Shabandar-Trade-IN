@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
         this.notificationsService.message.subscribe(
             (msg: NotificationsService) => {
                 this.notifier.notify(
-                    'Info',
+                    'success',
                     'You are awesome! I mean it!',
                     'THAT_NOTIFICATION_ID'
                 )

@@ -61,7 +61,6 @@ export class EditprofileComponent implements OnInit {
         })
         // Get Account Data
         this.auth.getAccountDetails().subscribe((result: any) => {
-            // debugger
             this.updateUserData = result.data
             this.files = this.updateUserData.accountAttachments
             this.images[0] = this.updateUserData.accountImage
@@ -84,7 +83,6 @@ export class EditprofileComponent implements OnInit {
             whatsApp: [],
             weChat: [],
             zipCode: [],
-            accountMobile: [],
         })
 
         if (this.profileData) {
@@ -101,11 +99,6 @@ export class EditprofileComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
-
-        // this.addPhoneNumber()
-    }
-    mobile(): FormArray {
-        return this.editProfileForm.get('mobile') as FormArray
     }
 
     getImageURL() {
@@ -113,18 +106,6 @@ export class EditprofileComponent implements OnInit {
     }
     get f() {
         return this.editProfileForm.controls
-    }
-    onSelectFile(event) {
-        // called each time file input changes
-        if (event.target.files && event.target.files[0]) {
-            var reader = new FileReader()
-
-            reader.readAsDataURL(event.target.files[0]) // read file as data url
-
-            reader.onload = (event) => {
-                this.imageUrl = event.target.result.toString()
-            }
-        }
     }
 
     handleImageUpload(files: FileImage[]) {
@@ -155,13 +136,10 @@ export class EditprofileComponent implements OnInit {
         this.phoneNumbers.forEach((element) => {
             phoneResults.push(element.phone)
         })
-        // console.log(this.phoneNumbers)
-        // console.log(phoneResults)
         this.auth
             .updateProfile(form, mobileResults, phoneResults)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    // debugger
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

@@ -43,6 +43,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-9 col-md-7 col-sm-12 col-12 notLoggedin" *ngIf="!isLoggedIn">
+                <h2>You Need to Signup to Show All Requests</h2>
+            </div>
             <div class="col-lg-9 col-md-7 col-sm-12 col-12" *ngIf="buyingRequestProducts.length">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
@@ -103,7 +106,39 @@
         </div>
     </div>
     <div class="row justify-content-center mt-5">
-        <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
+        <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3" *ngFor="let buyingAd of buyingRequestAds">
+            <a [routerLink]="['/application/viewer', buyingAd.accountId]">
+                <div class="sponsored-rectangle" *ngIf="buyingRequestAds">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img [src]="getFilePath(buyingAd.adImage)">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="sponsored-price">{{buyingAd.adPrice}} </p>
+                            <!-- <p class="sponsored-before-price">$1,587.00</p>
+                            <p class="description">ANDELI inverter ac dc digital square wave pulse tig
+                                TIG-250PAC tig aluminum with aluminum alloy tig welder</p> -->
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="sponsored-rectangle" style="background-color: #fff;" *ngIf="buyingRequestAds.length < 4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="/assets/images/You-Trade-In/sponsored-img.png">
+                        </div>
+                        <div class="col-md-6">
+
+                            <p class="sponsored-before-price">$1,587.00</p>
+                            <p class="description">ANDELI inverter ac dc digital square wave pulse tig
+                                TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
             <a href="#">
                 <div class="sponsored-rectangle">
                     <div class="row">
@@ -153,23 +188,6 @@
                     </div>
                 </div>
             </a>
-        </div>
-        <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
-            <a href="#">
-                <div class="sponsored-rectangle">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                        </div>
-                        <div class="col-md-6">
-                            <p class="sponsored-price">$952.20 </p>
-                            <p class="sponsored-before-price">$1,587.00</p>
-                            <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+        </div> -->
     </div>
 </div>

@@ -9,17 +9,17 @@
         </div>
         <div class="row services-wrap-2 mt-3 justify-content-center">
             <!-- Single Service -->
-            <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
+            <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp" *ngFor="let category of categories">
                 <div class="tm-service2 text-center">
                     <span class="tm-service2-icon">
-                        <i class="fa fa-paint-brush"></i>
+                        <img [src]="getFilePath(category.icon)">
                     </span>
-                    <h5><a href="#">Architectures & Designers</a></h5>
+                    <h5><a href="#">{{category.categoryName}}</a></h5>
                 </div>
             </div>
             <!--// Single Service -->
-            <!-- Single Service -->
-            <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
+
+            <!-- <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
                 <div class="tm-service2 text-center">
                     <span class="tm-service2-icon decoration-img">
                         <div class="decoration-img"></div>
@@ -27,8 +27,6 @@
                     <h5><a href="#"> Building & Decoration Materials</a></h5>
                 </div>
             </div>
-            <!--// Single Service -->
-            <!-- Single Service -->
             <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
                 <div class="tm-service2 text-center">
                     <span class="tm-service2-icon">
@@ -37,8 +35,6 @@
                     <h5><a href="#">Equipment Rental</a></h5>
                 </div>
             </div>
-            <!--// Single Service -->
-            <!-- Single Service -->
             <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
                 <div class="tm-service2 text-center">
                     <span class="tm-service2-icon">
@@ -46,8 +42,7 @@
                     </span>
                     <h5><a href="#">Logistics & Shipping </a></h5>
                 </div>
-            </div>
-            <!--// Single Service -->
+            </div> -->
         </div>
     </div>
 </div>
