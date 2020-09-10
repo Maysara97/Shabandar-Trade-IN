@@ -1,0 +1,39 @@
+<div class="tm-section homepage-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-7 col-sm-12 col-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let account of accountByCategory">
+                        <div class="tm-product">
+                            <div class="tm-product-image">
+                                <a class="tm-product-imagelink"
+                                    [routerLink]="['/application/viewer', account.accountId]">
+                                    <img style="width: 270px; height: 250px;" [src]="getFilePath(account.accountImage)"
+                                        alt="{{account.accountName}}" />
+
+                                </a>
+                            </div>
+                            <div class="supplier-name">
+                                <p style="float: left; color: #0e1234;"><i class="fa fa-globe"
+                                        aria-hidden="true"></i>&nbsp;{{account.countryName}}</p>
+                                <a [routerLink]="['/application/viewer', account.accountId]">
+                                    {{account.accountName}}
+                                </a>
+                                <div style="clear: both;"></div>
+                            </div>
+                            <div class="buttons mt-3">
+                                <button class="email-btn" style="float: right;"
+                                    [routerLink]="['/application/send-message', account.accountId,account.accountName]">
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                    &nbsp; Send Message
+                                </button>
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Single Product -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

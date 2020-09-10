@@ -12,62 +12,35 @@
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <a *ngIf="category.hasSub"
-                                        (click)="subCategory(subCategoryModal, category.parentId)">
+                                        (click)="subCategory(subCategoryModal, category.categoryId)">
                                         <p class="category-title">{{category.categoryName}} </p>
                                     </a>
-                                    <a *ngIf="!category.hasSub" routerLink="/">
+                                    <a *ngIf="!category.hasSub"
+                                        [routerLink]="['/application/accounts-by-category', category.categoryId]">
                                         <p class="category-title">{{category.categoryName}} </p>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <!-- <li>
-                        <div class="category-rectangle" style="background-color: #F2B414;">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-2">
-                                    <img src="/assets/images/You-Trade-In/building-solid.png">
-                                </div>
-                                <div class="col-md-8 col-sm-8">
-                                    <p class="category-title">Building Materials & Decoration </p>
-                                </div>
+                        <ng-template #subCategoryModal>
+                            <div class="modal-body text-center">
+                                <p> Sub Categories of {{category.categoryName}}</p>
+                                <ul>
+                                    <div class="row">
+                                        <div class="col-md-6" *ngFor="let sub of subCategories">
+                                            <li>
+                                                <a>{{sub.categoryName}}</a>
+                                            </li>
+                                        </div>
+                                    </div>
+
+                                </ul>
+
+                                <button type="button" class="btn btn-danger" (click)="closeSubDialog()">Close</button>
                             </div>
-                        </div>
+                        </ng-template>
                     </li>
-                    <li>
-                        <div class="category-rectangle" style="background-color: #F7526C;">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-2">
-                                    <img src="/assets/images/You-Trade-In/toolbox-solid.png">
-                                </div>
-                                <div class="col-md-8 col-sm-8">
-                                    <p class="category-title">Equipment Rental </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="category-rectangle" style="background-color: #439AFF;">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-2">
-                                    <img src="/assets/images/You-Trade-In/truck-solid.png">
-                                </div>
-                                <div class="col-md-8 col-sm-8">
-                                    <p class="category-title">Logistics & Shipping </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li> -->
-                    <ng-template #subCategoryModal>
-                        <div class="modal-body text-center">
-                            <p>Sub Categories</p>
-                            <ul>
-                                <li *ngFor="let sub of subCategories">
-                                    <a>{{sub.categoryName}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </ng-template>
+
                 </ul>
             </div>
         </div>
@@ -76,28 +49,13 @@
                 <div class="heroslider-singleslider d-flex align-items-center tm-padding-section">
                     <ngb-carousel>
                         <ng-template ngbSlide *ngFor="let billboard of billboardAds">
-                            <div class="picsum-img-wrapper">
-                                <img [src]="getFilePath(billboard.adImage)" alt="Angular Carousel 1">
-                            </div>
+                            <a [routerLink]="['/application/viewer', billboard.accountId]">
+                                <div class="picsum-img-wrapper">
+                                    <img [src]="getFilePath(billboard.adImage)" alt="Angular Carousel 1">
+                                </div>
+                            </a>
+
                         </ng-template>
-                        <!-- <ng-template ngbSlide>
-                            <div class="picsum-img-wrapper">
-                                <img src="/assets/images/You-Trade-In/NewAdminCapital.png" alt="Angular Carousel 2">
-                            </div>
-                            <div class="carousel-caption">
-                                <h3>Title Goes Here</h3>
-                                <p>Consectetur tortor volutpat pretium.</p>
-                            </div>
-                        </ng-template>
-                        <ng-template ngbSlide>
-                            <div class="picsum-img-wrapper">
-                                <img src="/assets/images/You-Trade-In/NewAdminCapital.png" alt="Angular Carousel 2">
-                            </div>
-                            <div class="carousel-caption">
-                                <h3>Title Goes Here</h3>
-                                <p>Consectetur tortor volutpat pretium.</p>
-                            </div>
-                        </ng-template> -->
                     </ngb-carousel>
                 </div>
             </div>
@@ -114,67 +72,16 @@
                                     <div class="col-md-4">
                                         <img [src]="getFilePath(sponsor.adImage)">
                                     </div>
-                                    <div class="col-md-6">
-                                        <p class="sponsored-price">{{sponsor.adPrice}} </p>
-                                        <!-- <p class="sponsored-before-price">$1,587.00</p>
+                                    <!-- <div class="col-md-6"> -->
+                                    <!-- <p class="sponsored-price">{{sponsor.adPrice}} </p> -->
+                                    <!-- <p class="sponsored-before-price">$1,587.00</p>
                                         <p class="description">ANDELI inverter ac dc digital square wave pulse tig
                                             TIG-250PAC tig aluminum with aluminum alloy tig welder</p> -->
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="#">
-                            <div class="sponsored-rectangle">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="sponsored-price">$952.20 </p>
-                                        <p class="sponsored-before-price">$1,587.00</p>
-                                        <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                            TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="sponsored-rectangle">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="sponsored-price">$952.20 </p>
-                                        <p class="sponsored-before-price">$1,587.00</p>
-                                        <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                            TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="sponsored-rectangle">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="sponsored-price">$952.20 </p>
-                                        <p class="sponsored-before-price">$1,587.00</p>
-                                        <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                            TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li> -->
                 </ul>
             </div>
 
@@ -182,9 +89,10 @@
     </div>
 
     <div class="row justify-content-center" *ngIf="!isLoggedIn">
-        <button class="btn btn-post-req">Register Now for starting post Your Requests Here</button>
+        <button class="btn btn-post-req" routerLink="/account/registeration">Register Now for starting post Your
+            Requests Here</button>
     </div>
     <div class="row justify-content-center" *ngIf="isLoggedIn">
-        <button class="btn btn-post-req">Post Your Request Here</button>
+        <button class="btn btn-post-req" routerLink="/application/add-new-request-form">Post Your Request Here</button>
     </div>
 </div>

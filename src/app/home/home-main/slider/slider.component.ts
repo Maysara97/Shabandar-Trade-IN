@@ -48,23 +48,23 @@ export class SliderComponent implements OnInit {
             this.billboardAds = res.data
         })
     }
-    // @HostBinding('style.backgroundImage')
-    // getBackgroundImageUrl() {
-    //     return `url(${this.myBackgroundImageUrl})`
-    // }
 
-    subCategory(template: TemplateRef<any>, parentId) {
+    subCategory(template: TemplateRef<any>, categoryId) {
         this.subCategoryModal = this.modalService.show(template, {
-            class: 'modal-md',
+            class: 'modal-lg',
         })
 
         this.categoryService
-            .getCategoriesByParentId(parentId)
+            .getCategoriesByParentId(categoryId)
             .subscribe((res: any) => {
                 this.subCategories = res.data
             })
     }
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
+    }
+
+    closeSubDialog(): void {
+        this.subCategoryModal.hide()
     }
 }

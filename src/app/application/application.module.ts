@@ -29,7 +29,8 @@ import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component';
-import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
+import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component';
+import { AccountsByCategoryComponent } from './components/accounts-by-category/accounts-by-category.component'
 
 @NgModule({
     declarations: [
@@ -48,6 +49,7 @@ import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-
         BuyingRequestComponent,
         ReplyMessageComponent,
         MoreCompaniesAdsComponent,
+        AccountsByCategoryComponent,
     ],
     imports: [
         CommonModule,
