@@ -15,7 +15,7 @@
                     <div class="col-12 pr-5">
                         <ul class="list-group">
                             <li> <a class="d-flex w-100 text-capitalize text-main fw-bold"
-                                    routerLink="{{ notification.notificationRef }}">{{
+                                    [routerLink]="['/application/viewer', notification.notifierAccountId]">{{
                                     notification.body.length > 100
                                         ? (notification.body | slice: 0:100) + '...'
                                         : notification.body
