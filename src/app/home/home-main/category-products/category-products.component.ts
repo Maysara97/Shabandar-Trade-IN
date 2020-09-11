@@ -14,7 +14,9 @@ export class CategoryProductsComponent implements OnInit {
     categoriesAds: Ads[]
     categories: Category[]
     env: any
-    // @Input() categoryId
+    catgoryId
+    showAd: boolean = false
+    // @Input() id: any
     constructor(
         private categoryService: CategoryService,
         private adsService: AdsService
@@ -26,17 +28,23 @@ export class CategoryProductsComponent implements OnInit {
         this.categoryService.getAllParents().subscribe((result: any) => {
             this.categories = result.data
         })
+
         // this.getCategoryId(this.categoryId)
     }
 
-    // getCategoryId(categoryId) {
-    //     this.adsService
-    //         .getHomeCategoryAdsById(categoryId)
-    //         .subscribe((result: any) => {
-    //             this.categoriesAds = result.data
-    //         })
+    // getCategoryId(i) {
+
     // }
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
+    }
+    showAds(categoryId) {
+        debugger
+        this.adsService
+            .getHomeCategoryAdsById(categoryId)
+            .subscribe((result: any) => {
+                this.categoriesAds = result.data
+                this.showAd = true
+            })
     }
 }

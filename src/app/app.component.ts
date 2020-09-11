@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import * as $ from 'jquery'
 import { NotificationsService } from './notifications/services/notification.service'
 import { Observable } from 'rxjs'
+import { Notifications } from './notifications/models/notification'
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -13,6 +14,8 @@ export class AppComponent implements OnInit {
     newNotificationCount$: Observable<number>
     type: string
     message: string
+    notifications: Notifications
+
     title = 'Shah-bandar-trade-in'
 
     public constructor(
@@ -25,11 +28,17 @@ export class AppComponent implements OnInit {
         this.notificationsService.connect()
         this.notificationsService.message.subscribe(
             (msg: NotificationsService) => {
-                this.notifier.notify(
-                    'success',
-                    'You are awesome! I mean it!',
-                    'THAT_NOTIFICATION_ID'
-                )
+                this.notificationsService
+                    .getAllNotifications(1, 1)
+                    .subscribe((result: any) => {
+                        // debugger
+                        this.notifications = result.data
+                        this.notifier.notify(
+                            'success',
+                            this.notifications.body,
+                            'THAT_NOTIFICATION_ID'
+                        )
+                    })
             }
         )
         // this.notificationsService
