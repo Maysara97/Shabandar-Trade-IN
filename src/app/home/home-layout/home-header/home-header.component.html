@@ -57,7 +57,7 @@
                                 <!-- <mat-icon *ngIf="notifications != null">
                                     notifications
                                 </mat-icon> -->
-                                <mat-icon matBadge=" {{ newNotificationCount$ | async }}" matBadgeColor="warn">
+                                <mat-icon matBadge=" {{ newNotificationCount }}" matBadgeColor="warn">
                                     notifications
                                 </mat-icon>
                                 <!-- <span class="cdk-visually-hidden">
@@ -73,7 +73,7 @@
                                     <ng-container *ngIf="notifications != null">
                                         <li *ngFor="let notification of sortNotificationsByDate">
                                             <a class="dropdown-item d-flex flex-wrap"
-                                                [routerLink]="[ notification.notificationRef,notification.changedEntityId]">
+                                                [routerLink]="['/application/viewer', notification.notifierAccountId]">
                                                 <div class="col-12 fz-14">
                                                     {{notification?.body?.length > 50 ? (notification.body | slice: 0:50) + '...' : notification.body }}
                                                 </div>

@@ -1,17 +1,43 @@
-import { Component, OnInit, HostBinding } from "@angular/core";
+import { Component, OnInit, HostBinding } from '@angular/core'
 
 @Component({
-  selector: "app-home-read-more",
-  templateUrl: "./home-read-more.component.html",
-  styleUrls: ["./home-read-more.component.scss"]
+    selector: 'app-home-read-more',
+    templateUrl: './home-read-more.component.html',
+    styleUrls: ['./home-read-more.component.scss'],
 })
 export class HomeReadMoreComponent implements OnInit {
-  myBackgroundImageUrl = "./assets/images/You-Trade-In/background-end.png";
-  constructor() {}
+    myBackgroundImageUrl = './assets/images/You-Trade-In/background-end.png'
 
-  ngOnInit() {}
-  @HostBinding("style.backgroundImage")
-  getBackgroundImageUrl() {
-    return `url(${this.myBackgroundImageUrl})`;
-  }
+    egyptCarousel: any = {
+        loop: false,
+        mouseDrag: true,
+        touchDrag: true,
+        autoWidth: true,
+        pullDrag: true,
+        dots: true,
+        navSpeed: 700,
+        navText: ['', ''],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            400: {
+                items: 1,
+            },
+            740: {
+                items: 2,
+            },
+            940: {
+                items: 2,
+            },
+        },
+        nav: true,
+    }
+    constructor() {}
+
+    ngOnInit() {}
+    @HostBinding('style.backgroundImage')
+    getBackgroundImageUrl() {
+        return `url(${this.myBackgroundImageUrl})`
+    }
 }
