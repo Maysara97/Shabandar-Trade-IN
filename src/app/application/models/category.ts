@@ -1,3 +1,5 @@
+import { Ads } from './ads'
+
 export class Category {
     categoryId: string
     parentId: string
@@ -7,4 +9,5 @@ export class Category {
     hasSub: string
     description: string
     icon: string
+    ads: Ads[]
 }

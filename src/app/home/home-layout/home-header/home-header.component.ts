@@ -18,7 +18,7 @@ export class HomeHeaderComponent implements OnInit {
     currentUser: User
     @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
     // newNotificationCount: number
-    newNotificationCount$: Observable<number>
+    newNotificationCount: number
     pageSize = 5
     pageNumber = 1
     notifications: Notifications[]
@@ -34,7 +34,9 @@ export class HomeHeaderComponent implements OnInit {
         this.auth.isAuthed.subscribe((result) => {
             this.isLoggedIn = result
         })
-        // this.newNotificationCounts()
+        if (this.newNotificationCount > 0) {
+            this.newNotificationCounts()
+        }
         this.allNotifications(this.pageSize, this.pageNumber)
     }
 
@@ -69,7 +71,7 @@ export class HomeHeaderComponent implements OnInit {
             .getNewNotificationsCount()
             .subscribe((result: any) => {
                 // debugger
-                this.newNotificationCount$ = result.data
+                this.newNotificationCount = result.data
             })
     }
 

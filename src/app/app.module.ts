@@ -66,7 +66,10 @@ const customNotifierOptions: NotifierOptions = {
         JwtModule.forRoot({
             config: {
                 tokenGetter: tokenGetter,
-                whitelistedDomains: ['localhost:5001', 'api.youtradein.com'],
+                whitelistedDomains: [
+                    'localhost:5001',
+                    'api.shahbandartrade.com',
+                ],
             },
         }),
         Ng2SearchPipeModule,

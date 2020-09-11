@@ -16,7 +16,6 @@ export class CategoryProductsComponent implements OnInit {
     env: any
     catgoryId
     showAd: boolean = false
-    // @Input() id: any
     constructor(
         private categoryService: CategoryService,
         private adsService: AdsService
@@ -25,26 +24,25 @@ export class CategoryProductsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.categoryService.getAllParents().subscribe((result: any) => {
+        // this.categoryService.getAllParents().subscribe((result: any) => {
+        //     this.categories = result.data
+        // })
+        this.categoryService.getParentsWithAds().subscribe((result: any) => {
             this.categories = result.data
         })
 
         // this.getCategoryId(this.categoryId)
     }
-
-    // getCategoryId(i) {
-
-    // }
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
-    showAds(categoryId) {
-        debugger
-        this.adsService
-            .getHomeCategoryAdsById(categoryId)
-            .subscribe((result: any) => {
-                this.categoriesAds = result.data
-                this.showAd = true
-            })
-    }
+    // showAds(categoryId) {
+    //     debugger
+    //     this.adsService
+    //         .getHomeCategoryAdsById(categoryId)
+    //         .subscribe((result: any) => {
+    //             this.categoriesAds = result.data
+    //             this.showAd = true
+    //         })
+    // }
 }

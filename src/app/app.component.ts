@@ -1,5 +1,5 @@
 import { NotifierService } from 'angular-notifier'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import * as $ from 'jquery'
 import { NotificationsService } from './notifications/services/notification.service'
 import { Observable } from 'rxjs'
@@ -28,17 +28,11 @@ export class AppComponent implements OnInit {
         this.notificationsService.connect()
         this.notificationsService.message.subscribe(
             (msg: NotificationsService) => {
-                this.notificationsService
-                    .getAllNotifications(1, 1)
-                    .subscribe((result: any) => {
-                        // debugger
-                        this.notifications = result.data
-                        this.notifier.notify(
-                            'success',
-                            this.notifications.body,
-                            'THAT_NOTIFICATION_ID'
-                        )
-                    })
+                this.notifier.notify(
+                    'success',
+                    'You are awesome! I mean it!',
+                    'THAT_NOTIFICATION_ID'
+                )
             }
         )
         // this.notificationsService

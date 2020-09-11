@@ -33,4 +33,7 @@ export class CategoryService extends BaseService<any> {
     getAllParents(): Observable<Category[]> {
         return this.getAll('Category/AllParents')
     }
+    getParentsWithAds(): Observable<Category[]> {
+        return this.getAll('Category/GetParentsWithAds')
+    }
 }
