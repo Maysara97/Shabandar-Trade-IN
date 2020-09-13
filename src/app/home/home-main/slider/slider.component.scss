@@ -551,9 +551,9 @@ button.tm-button {
     font-weight: 600;
 }
 
-.modal-body li {
-    list-style: inside;
-}
+// .modal-body li {
+//     list-style: inside;
+// }
 
 .modal-body .btn {
     float: right;
@@ -566,4 +566,17 @@ button.tm-button {
 .modal-body .btn:hover {
     background-color: #dc3545;
     color: #fff;
+}
+
+.modal-body a {
+    color: #07091a;
+}
+
+.modal-body a:hover {
+    color: #f2b414;
+}
+
+.widget-categories ul li a:before {
+    content: '-';
+    padding-right: 5px;
 }

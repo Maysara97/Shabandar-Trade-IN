@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment'
 export class CategoriesComponent implements OnInit {
     categories: Category[]
     env: any
+
     constructor(private categoryService: CategoryService) {
         this.env = environment
     }

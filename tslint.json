@@ -65,7 +65,8 @@
         "ban-types": false,
         "max-line-length": false,
         "no-angle-bracket-type-assertion": false,
-        "whitespace": false
+        "whitespace": false,
+        "prefer-for-of": false
     },
     "rulesDirectory": ["codelyzer"]
 }

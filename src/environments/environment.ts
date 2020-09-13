@@ -4,13 +4,13 @@
 
 export const environment = {
     production: false,
-    // baseUrl: 'https://localhost:5001/api',
-    // file_path: 'https://localhost:5001/files/',
-    // notification_url: 'https://localhost:5001/signalr',
+    baseUrl: 'https://localhost:5001/api',
+    file_path: 'https://localhost:5001/files/',
+    notification_url: 'https://localhost:5001/signalr',
 
-    baseUrl: 'https://api.shahbandartrade.com/api',
-    file_path: 'https://api.shahbandartrade.com/files/',
-    notification_url: 'https://api.shahbandartrade.com/signalr',
+    // baseUrl: 'https://api.shahbandartrade.com/api',
+    // file_path: 'https://api.shahbandartrade.com/files/',
+    // notification_url: 'https://api.shahbandartrade.com/signalr',
 }
 
 /*
