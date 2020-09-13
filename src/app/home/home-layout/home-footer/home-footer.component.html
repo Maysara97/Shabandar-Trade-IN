@@ -18,7 +18,7 @@
                                 <a routerLink="/home/contact">Contact Us</a>
                             </li>
                             <li>
-                                <a href="#">Terms & Policies</a>
+                                <a routerLink="/home/terms-policies">Terms & Policies</a>
                             </li>
                             <!-- <li>
                                 <a href="#">About Us</a>
@@ -47,7 +47,8 @@
                                 <a routerLink="/application/sell-product">Sell on shahbandartrade.com</a>
                             </li>
                             <li>
-                                <a href="#">Partner Program</a>
+                                <a routerLink="/home" fragment="partners"
+                                    (click)="navigateToSection('partners')">Partner Program</a>
                             </li>
                         </ul>
                     </div>
