@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    
+
 
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./assets/css/plugins.css" />
@@ -47,32 +47,24 @@
         //     $('[data-toggle="popover"]').popover()
         // })
     </script>
-    <!-- <script type="text/javascript">
-        (function () {
-            var head = document.getElementsByTagName("head").item(0);
-            var script = document.createElement("script");
-            var src = (document.location.protocol == 'https:'
-                ? 'https://www.formilla.com/scripts/feedback.js'
-                : 'http://www.formilla.com/scripts/feedback.js');
-            script.setAttribute("type", "text/javascript");
-            script.setAttribute("src", src); script.setAttribute("async", true);
-            var complete = false;
-            script.onload = script.onreadystatechange = function () {
-                if (!complete && (!this.readyState
-                    || this.readyState == 'loaded'
-                    || this.readyState == 'complete')) {
-                    complete = true;
-                    Formilla.guid = 'csc0699c-1cd3-48a9-b4a8-039344dfda8b';
-                    Formilla.loadWidgets();
-                }
+    <!-- Chatra {literal} -->
+    <script>
+        (function (d, w, c) {
+            w.ChatraID = 'igoSuBd9WvubWLfLf';
+            var s = d.createElement('script');
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
             };
-            head.appendChild(script);
-        })();
-    </script> -->
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
     <script src="//cdn.conveythis.com/javascript/53/conveythis.js"></script>
     <script src="//cdn.conveythis.com/javascript/53/translate.js"></script>
     <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(e) {
+        document.addEventListener("DOMContentLoaded", function (e) {
             conveythis.init({
                 icon: "rect",
                 text: "full-text",
@@ -81,7 +73,7 @@
                 positionLeft: null,
                 positionRight: 0,
                 change: {},
-                languages: [{"id":707,"active":false},{"id":703,"active":true}],
+                languages: [{ "id": 707, "active": false }, { "id": 703, "active": true }],
                 api_key: "pub_3a5545371eb4795bce8c1f175b485ff2",
                 source_language_id: 703,
                 auto_translate: 0,
@@ -89,13 +81,13 @@
                 translate_media: 0,
                 translate_document: 0,
                 change_direction: 0,
-                            
-            } );
-        } );
-            
+
+            });
+        });
+
     </script>
-    
-    
+
+
 </body>
 
 </html>
