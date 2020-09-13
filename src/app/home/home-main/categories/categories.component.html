@@ -8,41 +8,15 @@
             </div>
         </div>
         <div class="row services-wrap-2 mt-3 justify-content-center">
-            <!-- Single Service -->
             <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp" *ngFor="let category of categories">
                 <div class="tm-service2 text-center">
-                    <span class="tm-service2-icon">
+                    <span class="tm-service2-icon" [style.backgroundColor]="category.color">
                         <img [src]="getFilePath(category.icon)">
                     </span>
                     <h5><a href="#">{{category.categoryName}}</a></h5>
                 </div>
-            </div>
-            <!--// Single Service -->
 
-            <!-- <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
-                <div class="tm-service2 text-center">
-                    <span class="tm-service2-icon decoration-img">
-                        <div class="decoration-img"></div>
-                    </span>
-                    <h5><a href="#"> Building & Decoration Materials</a></h5>
-                </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
-                <div class="tm-service2 text-center">
-                    <span class="tm-service2-icon">
-                        <i class="fa fa-briefcase" aria-hidden="true"></i>
-                    </span>
-                    <h5><a href="#">Equipment Rental</a></h5>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp">
-                <div class="tm-service2 text-center">
-                    <span class="tm-service2-icon">
-                        <i class="fa fa-truck"></i>
-                    </span>
-                    <h5><a href="#">Logistics & Shipping </a></h5>
-                </div>
-            </div> -->
         </div>
     </div>
 </div>

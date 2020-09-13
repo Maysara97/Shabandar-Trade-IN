@@ -12,9 +12,13 @@
     border-radius: 10px;
 }
 
-.text-header h5 {
+.text-header p {
     color: #ffffff;
     text-transform: uppercase;
+    padding: 0px !important;
+    height: 25%;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .services-area .tm-feature {
@@ -23,6 +27,7 @@
     padding: 0px 0px;
     background: #ffffff;
     border-radius: 15px;
+    height: 100%;
 }
 
 .services-area .tm-feature p {
