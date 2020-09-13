@@ -148,7 +148,9 @@
                                                         <img [src]="getFilePath(product.productImages[0])" width="152px"
                                                             height="76px">
                                                     </span>
-                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="proTitle"><a
+                                                            [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
+                                                    </p>
                                                     <p class="des">{{product.description | slice : 0 : 60}}</p>
                                                     <div class="actions">
                                                         <a class="edit-btn"
@@ -213,7 +215,9 @@
                                                         <img [src]="getFilePath(product.image)" width="152px"
                                                             height="76px">
                                                     </span>
-                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="proTitle"><a
+                                                            [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                    </p>
                                                     <p class="des">{{product.description | slice : 0 : 60}}</p>
                                                     <div class="actions">
                                                         <a class="edit-btn"
@@ -270,7 +274,9 @@
                                                         <img [src]="getFilePath(interest.accountImage)" width="152px"
                                                             height="76px">
                                                     </span>
-                                                    <p class="proTitle">{{interest.accountName}}</p>
+                                                    <p class="proTitle"><a
+                                                            [routerLink]="['/application/viewer', interest.favoriteAccountId]">{{interest.accountName}}</a>
+                                                    </p>
                                                     <p class="des">{{interest.categoryName | slice : 0 : 60}}</p>
                                                     <div class="actions">
                                                         <a class="delete-btn"><i class="fa fa-trash"
