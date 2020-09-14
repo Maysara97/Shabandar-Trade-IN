@@ -66,7 +66,8 @@
         "max-line-length": false,
         "no-angle-bracket-type-assertion": false,
         "whitespace": false,
-        "prefer-for-of": false
+        "prefer-for-of": false,
+        "no-conditional-assignment": false
     },
     "rulesDirectory": ["codelyzer"]
 }

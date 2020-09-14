@@ -8,23 +8,46 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
                                 <label for="title">Product Title</label>
                                 <input type="text" class="form-control w-100" id="title" formControlName="title"
-                                    placeholder="Product Title" [(ngModel)]="title">
-
+                                    placeholder="Product Title">
+                                <label class="text-danger"
+                                    *ngIf="editBuyingRequestForm.get('title').touched && editBuyingRequestForm.get('title').errors?.required">
+                                    You Must Add Title to your Buying Request
+                                </label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <!-- (change)="handleOnCategoryChange()" -->
-                                <label for="categoryId">Product Category</label>
-                                <select class="form-control" id="categoryId" formControlName="categoryId"
-                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
-                                    <option [disabled]="true">Choose Product's Category
+                                <label for="parentId">Product Category</label>
+                                <select class="form-control" id="parentId" formControlName="parentId"
+                                    [(ngModel)]="categorySelected" (change)="handleOnChooseParent()">
+                                    <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
                                     <option *ngFor="let category of categories" value="{{category.categoryId}}">
                                         {{category.categoryName}}</option>
                                 </select>
-
+                                <label class="text-danger"
+                                    *ngIf="editBuyingRequestForm.get('parentId').touched && editBuyingRequestForm.get('parentId').errors?.required">
+                                    You Must choose the Product's Category
+                                </label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="categoryId">Sub Category</label>
+                                <select class="form-control" id="categoryId" formControlName="categoryId"
+                                    [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
+                                    <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Sub Category
+                                    </option>
+                                    <option *ngFor="let category of subCategories" value="{{category.categoryId}}">
+                                        {{category.categoryName}}</option>
+                                </select>
+                                <label class="text-danger"
+                                    *ngIf="editBuyingRequestForm.get('categoryId').touched && editBuyingRequestForm.get('categoryId').errors?.required">
+                                    You Must choose the Product's Category
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -41,10 +64,6 @@
                                         {{product.productName}}</option>
                                     <option value="">New Product</option>
                                 </select>
-                                <!-- <label class="text-danger"
-                                    *ngIf="editBuyingRequestForm.get('productId').touched && editBuyingRequestForm.get('productId').errors?.required">
-                                    Product Name is Required
-                                </label> -->
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="buyingRequestDetails.productId == ''">
                                 <label for="productName">Product Name</label>
@@ -288,10 +307,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div *ngSwitchDefault>
-                            <p>test</p>
-                        </div> -->
                     </div>
 
                     <!-- Common -->
@@ -316,7 +331,7 @@
                     <div class="form-group">
                         <label for="productImages">Buying Request Image</label>
                         <app-upload-files (onFileUpload)="handleImageUpload($event)"
-                            (onFileRemove)="handleImageRemove($event)" [files]="images">
+                            (onFileRemove)="handleImageRemove($event)" [files]="images" [multiple]="true">
                         </app-upload-files>
 
                     </div>

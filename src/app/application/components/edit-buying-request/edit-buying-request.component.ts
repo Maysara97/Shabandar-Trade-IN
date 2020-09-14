@@ -31,6 +31,7 @@ export class EditBuyingRequestComponent implements OnInit {
     countrySelected
     unitePriceSelected
     finishedStatusSelected
+    subCategorySelected
 
     submitted = false
     data = false
@@ -61,6 +62,7 @@ export class EditBuyingRequestComponent implements OnInit {
     categoryId
     title
     categories: Category[]
+    subCategories: Category[]
     products: Product[]
     countries: Country[]
     products$: Observable<Product[]>
@@ -94,13 +96,13 @@ export class EditBuyingRequestComponent implements OnInit {
 
                 this.categorySelected = this.buyingRequestDetails.categoryId
                 this.countrySelected = this.buyingRequestDetails.location
-
+                // this.subCategorySelected = this.buyingRequestDetails.parentId
                 this.unitePriceSelected = this.buyingRequestDetails.unitePrice
                 this.finishedStatusSelected = this.buyingRequestDetails.finishedStatus
                 this.tagNames = this.buyingRequestDetails.brandName
                 this.tagCoverage = this.buyingRequestDetails.coverage
                 this.title = this.buyingRequestDetails.title
-                this.images[0] = this.buyingRequestDetails.image
+                this.images = this.buyingRequestDetails.image
                 if (this.certifications[0]) {
                     this.certifications[0] = this.buyingRequestDetails.certification
                 }
@@ -134,6 +136,7 @@ export class EditBuyingRequestComponent implements OnInit {
             unitePrice: [],
             price: [],
             categoryId: [],
+            parentId: [],
             paymentTerms: [],
             image: [],
             size: [],
@@ -165,12 +168,12 @@ export class EditBuyingRequestComponent implements OnInit {
     // Upload Images
     handleImageUpload(files: FileImage[]) {
         this.editBuyingRequestForm.patchValue({
-            productImages: files.map((file) => file.imageFile),
+            image: files.map((file) => file.imageFile),
         })
     }
     handleImageRemove(files: FileImage[]) {
         this.editBuyingRequestForm.patchValue({
-            productImages: files.map((file) => file.imageFile),
+            image: files.map((file) => file.imageFile),
         })
     }
 
@@ -188,10 +191,28 @@ export class EditBuyingRequestComponent implements OnInit {
     handleOnCategoryChange() {
         // Bind Products by Category
         this.productService
+            .getProductsByCategory(this.subCategorySelected)
+            .subscribe((result: any) => {
+                this.products = result.data
+            })
+
+        this.productSelected = -1
+    }
+
+    handleOnChooseParent() {
+        this.categoryService
+            .getCategoriesByParentId(this.categorySelected)
+            .subscribe((result: any) => {
+                this.subCategories = result.data
+            })
+        this.productService
             .getProductsByCategory(this.categorySelected)
             .subscribe((result: any) => {
                 this.products = result.data
             })
+
+        this.subCategorySelected = -1
+        this.productSelected = -1
     }
     onSubmit(buyingRequestId) {
         this.submitted = true

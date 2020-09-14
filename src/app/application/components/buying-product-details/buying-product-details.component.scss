@@ -40,3 +40,16 @@
 .col-7 li {
     list-style: none;
 }
+
+.details-buyingReq .tm-feature {
+    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px 33px;
+    background: #ffffff;
+}
+
+.details-buyingReq .tm-feature-icon {
+    display: inline-block;
+    font-size: 60px;
+    margin-bottom: 0px;
+}

@@ -1,12 +1,21 @@
 <!-- Portfolio Details Area -->
-<div class="tm-section portfolio-details-area tm-padding-section" style="background-color: #0e1234;">
+<div class="tm-section portfolio-details-area details-product tm-padding-section" style="background-color: #0e1234;">
     <div class="container">
         <div class="tm-portfoliodetails" *ngIf="accountProductDetails">
-            <div class="tm-portfoliodetails-image" style="margin-left: 15%;">
+            <div class="row justify-content-center">
+                <owl-carousel [options]="imagesSlider" [items]="accountProductDetails.productImages"
+                    [carouselClasses]="['owl-theme','row','sliding']">
+                    <div class="item" *ngFor="let image of accountProductDetails.productImages">
 
-                <img *ngFor="let image of accountProductDetails.productImages"
-                    style="width: 250px; height: 250px; padding: 10px;" [src]="getFilePath(image)"
-                    alt="{{accountProductDetails.productName}}">
+                        <div class="col-lg-12">
+                            <div class="tm-feature text-center">
+                                <span class="tm-feature-icon">
+                                    <a href="#"><img [src]="getFilePath(image)" width="152px" height="76px"></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </owl-carousel>
             </div>
             <div class="tm-portfoliodetails-content tm-padding-section-sm-top">
                 <div class="row">

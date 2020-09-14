@@ -121,12 +121,6 @@ export class EditProductFormComponent implements OnInit {
             this.allProducts = result.data
         })
 
-        // this.categorySelected = -1
-        // this.productSelected = -1
-        // this.countrySelected = -1
-        // this.unitePriceSelected = -1
-        // this.finishedStatusSelected = -1
-
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data

@@ -39,6 +39,9 @@ export class HomeHeaderComponent implements OnInit {
         }
         this.allNotifications(this.pageSize, this.pageNumber)
     }
+    getNotifications() {
+        this.allNotifications(this.pageSize, this.pageNumber)
+    }
 
     hideNav() {
         const x = document.getElementById('mainNav')
