@@ -5,7 +5,7 @@ export class BuyingRequest {
     categoryId?: string
     title?: string
     description?: string
-    image?: string
+    image?: string[] = []
     location?: number
     size?: string
     wieght?: string

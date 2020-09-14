@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    ElementRef,
+    TemplateRef,
+} from '@angular/core'
 import { User, AccountData, Favorites } from 'src/app/account/models/register'
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
@@ -10,6 +16,7 @@ import { BuyingRequest } from '../../models/buying-request'
 import { environment } from 'src/environments/environment'
 import { Notifications } from 'src/app/notifications/models/notification'
 import { StatusMapping } from '../../models/enum'
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 
 @Component({
     selector: 'app-owner',
@@ -25,6 +32,7 @@ export class OwnerComponent implements OnInit {
     buyingProducts: BuyingRequest[]
     env: any
     product: Product[] = []
+    fillAccountDataModal: BsModalRef
     public ProductStatusMapping = StatusMapping
 
     productSlider: any = {
@@ -157,7 +165,8 @@ export class OwnerComponent implements OnInit {
         private auth: AuthService,
         private route: ActivatedRoute,
         private accountProductService: AccountProductService,
-        private buyingRequestService: BuyingRequestService
+        private buyingRequestService: BuyingRequestService,
+        private modalService: BsModalService
     ) {
         this.env = environment
     }
@@ -172,6 +181,13 @@ export class OwnerComponent implements OnInit {
 
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.userDetails = result.data
+            // if (
+            //     this.userDetails.accountImage == null ||
+            //     this.userDetails.accountWebsite == null ||
+            //     this.userDetails.vission == null
+            // ) {
+            //     this.fillAccountData()
+            // }
         })
         this.getAllAccountProduct()
 
@@ -217,5 +233,11 @@ export class OwnerComponent implements OnInit {
     goToWebsiteUrl(url) {
         const path = 'http://' + url
         window.open(path, '_blank')
+    }
+
+    fillAccountData(template: TemplateRef<any>) {
+        this.fillAccountDataModal = this.modalService.show(template, {
+            class: 'modal-md',
+        })
     }
 }

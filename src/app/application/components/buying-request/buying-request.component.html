@@ -54,7 +54,8 @@
                             <div class="tm-product-image">
                                 <a class="tm-product-imagelink"
                                     [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]">
-                                    <img style="width: 270px; height: 250px;" [src]="getFilePath(requestProduct.image)"
+                                    <img style="width: 270px; height: 250px;"
+                                        [src]="getFilePath(requestProduct.image[0])"
                                         alt="{{requestProduct.productName}}" />
 
                                 </a>

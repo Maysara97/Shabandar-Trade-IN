@@ -30,12 +30,15 @@ export class AddNewRequestFormComponent implements OnInit {
     unitePriceSelected
     finishedStatusSelected
     anotherProductSelected
+    subCategorySelected
+    productSubCatSelected
 
     submitted = false
     data = false
     message: string
     products$: Observable<Product[]>
     products: Product[]
+    productSubCat: Product[]
     selectedProduct: Product
     addBuyingRequestForm: FormGroup
     allProducts = []
@@ -59,6 +62,7 @@ export class AddNewRequestFormComponent implements OnInit {
     shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
 
     categories: Category[]
+    subCategories: Category[]
     countries: Country[]
     public coverage: Country
     public localFields: Object = { text: 'name', value: 'id' }
@@ -81,15 +85,12 @@ export class AddNewRequestFormComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        // this.productService.getAllProducts().subscribe((result: any) => {
-        //     this.products = result.data
-        // })
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
         })
-        // Bind all Categories
-        this.categoryService.getAllCategories().subscribe((result: any) => {
+        // Bind all Parents Categories
+        this.categoryService.getAllParents().subscribe((result: any) => {
             this.categories = result.data
         })
         this.router.events.subscribe((evt) => {
@@ -102,13 +103,14 @@ export class AddNewRequestFormComponent implements OnInit {
             productId: [],
             title: [null, [Validators.required]],
             productName: [],
-            unitePrice: [null],
+            unitePrice: [],
             image: [null, [Validators.required]],
-            price: [null, [Validators.required]],
+            price: [],
             categoryId: [this.categorySelected, [Validators.required]],
+            parentId: [],
             paymentTerms: [],
             size: [],
-            description: [null, [Validators.required]],
+            description: [],
             location: [],
             brandName: [],
             packing: [],
@@ -137,12 +139,14 @@ export class AddNewRequestFormComponent implements OnInit {
         this.countrySelected = -1
         this.unitePriceSelected = -1
         this.finishedStatusSelected = -1
+        this.subCategorySelected = -1
+        this.productSubCatSelected = -1
     }
 
     // Upload Image
     handleImageUpload(files: FileImage[]) {
         this.addBuyingRequestForm.patchValue({
-            image: files[0].imageFile,
+            image: files.map((file) => file.imageFile),
         })
     }
     handleImageRemove(files: FileImage[]) {
@@ -166,10 +170,27 @@ export class AddNewRequestFormComponent implements OnInit {
     handleOnCategoryChange() {
         // Bind Products by Category
         this.productService
+            .getProductsByCategory(this.subCategorySelected)
+            .subscribe((result: any) => {
+                this.products = result.data
+            })
+
+        this.productSelected = -1
+    }
+
+    handleOnChooseParent() {
+        this.categoryService
+            .getCategoriesByParentId(this.categorySelected)
+            .subscribe((result: any) => {
+                this.subCategories = result.data
+            })
+        this.productService
             .getProductsByCategory(this.categorySelected)
             .subscribe((result: any) => {
                 this.products = result.data
             })
+
+        this.subCategorySelected = -1
         this.productSelected = -1
     }
 
