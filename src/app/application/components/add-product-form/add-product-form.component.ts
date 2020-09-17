@@ -43,17 +43,10 @@ export class AddProductFormComponent implements OnInit {
     tagCoverage = []
     agents = []
 
-    industryCategorySelected = false
-    touristicCategorySelected = false
-    realEstateCategorySelected = false
-    designersCategorySelected = false
-    shippingCategorySelected = false
-
-    realStateId = '5a1bfc74-813f-436a-b919-c24c895cfd81'
-    touristicId = '5a1bfc74-813f-436a-b919-c24c895cfd82'
-    industryId = '5a1bfc74-813f-436a-b919-c24c895cfd87'
-    designersId = '5a1bfc74-813f-436a-b919-c24c895cfd89'
-    shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
+    decorationId = 'cf762c06-cc14-456b-a0fb-85f071fab5cf'
+    designersId = '44fba92f-4cd8-47cb-8ac6-66d6b0a6d9c5'
+    shippingId = '7f1cb7ce-f7ee-4683-9cdd-3f080b183326'
+    equipmentId = 'b942f13a-5c68-4b3a-a04e-388f1a3d96e6'
 
     categories: Category[]
     subCategories: Category[]
@@ -135,6 +128,9 @@ export class AddProductFormComponent implements OnInit {
             agentsLocation: [],
             softwares: [],
             tripCategory: [],
+            modelYear: [],
+            totalHours: [],
+            capacity: [],
         })
     }
 

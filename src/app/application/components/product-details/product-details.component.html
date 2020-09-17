@@ -10,12 +10,27 @@
                         <div class="col-lg-12">
                             <div class="tm-feature text-center">
                                 <span class="tm-feature-icon">
-                                    <a href="#"><img [src]="getFilePath(image)" width="152px" height="76px"></a>
+                                    <a (click)="viewImage(imageModal)"><img [src]="getFilePath(image)" width="152px"
+                                            height="76px"></a>
                                 </span>
                             </div>
+                            <ng-template #imageModal>
+                                <div class="modal-body text-center ">
+                                    <div class="row justify-content-center">
+                                        <img [src]="getFilePath(image)" width="100%">
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="closeSubDialog()">Close</button>
+                                    </div>
+
+
+                                </div>
+                            </ng-template>
                         </div>
                     </div>
                 </owl-carousel>
+
             </div>
             <div class="tm-portfoliodetails-content tm-padding-section-sm-top">
                 <div class="row">
@@ -258,6 +273,39 @@
                                     </li>
                                 </div>
                             </div>
+                            <div class="row mt-3" *ngIf="accountProductDetails.totalHours">
+                                <div class="col-5">
+                                    <li style="color: #fff;">
+                                        <b>Total Hours :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="accountProductDetails.totalHours">
+                                        {{accountProductDetails.totalHours}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="accountProductDetails.capacity">
+                                <div class="col-5">
+                                    <li style="color: #fff;">
+                                        <b>Capacity :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="accountProductDetails.capacity">
+                                        {{accountProductDetails.capacity}}
+                                    </li>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="accountProductDetails.modelYear">
+                                <div class="col-5">
+                                    <li style="color: #fff;">
+                                        <b>Model by Year :</b></li>
+                                </div>
+                                <div class="col-7">
+                                    <li *ngIf="accountProductDetails.modelYear">
+                                        {{accountProductDetails.modelYear}}
+                                    </li>
+                                </div>
+                            </div>
                             <div class="row mt-3" *ngIf="accountProductDetails.space">
                                 <div class="col-5">
                                     <li style="color: #fff;">
@@ -269,19 +317,20 @@
                                     </li>
                                 </div>
                             </div>
-                            <div class="row mt-3" *ngIf="accountProductDetails.finishedStatus != -1">
+                            <div class="row mt-3" *ngIf="accountProductDetails.finishedStatus">
                                 <div class="col-5">
                                     <li style="color: #fff;">
                                         <b>Finished Status :</b></li>
                                 </div>
                                 <div class="col-7">
                                     <li *ngIf="accountProductDetails.finishedStatus">
-                                        <div *ngIf="accountProductDetails.finishedStatus == 1">
+                                        <!-- <div *ngIf="accountProductDetails.finishedStatus == 1">
                                             {{FinishedStatusTypeMapping[1]}}</div>
                                         <div *ngIf="accountProductDetails.finishedStatus == 2">
                                             {{FinishedStatusTypeMapping[2]}}</div>
                                         <div *ngIf="accountProductDetails.finishedStatus == 3">
-                                            {{FinishedStatusTypeMapping[3]}}</div>
+                                            {{FinishedStatusTypeMapping[3]}}</div> -->
+                                        {{FinishedStatusTypeMapping[accountProductDetails.finishedStatus]}}
                                     </li>
                                 </div>
                             </div>

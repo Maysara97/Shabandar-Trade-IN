@@ -52,13 +52,6 @@ export class EditBuyingRequestComponent implements OnInit {
     realEstateCategorySelected = false
     designersCategorySelected = false
     shippingCategorySelected = false
-
-    realStateId = '5a1bfc74-813f-436a-b919-c24c895cfd81'
-    touristicId = '5a1bfc74-813f-436a-b919-c24c895cfd82'
-    industryId = '5a1bfc74-813f-436a-b919-c24c895cfd87'
-    designersId = '5a1bfc74-813f-436a-b919-c24c895cfd89'
-    shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
-
     categoryId
     title
     categories: Category[]
@@ -66,15 +59,7 @@ export class EditBuyingRequestComponent implements OnInit {
     products: Product[]
     countries: Country[]
     products$: Observable<Product[]>
-    public coverage: Country
-    public localFields: Object = { text: 'name', value: 'id' }
-    public localWaterMark: string = 'Select Multiple Coverages'
 
-    public FinishedStatusTypeMapping = FinishedStatusTypeMapping
-    public finishedType = Object.values(FinishedStatusType)
-    public stateTypes = Object.values(FinishedStatusType).filter(
-        (value) => typeof value === 'number'
-    )
     constructor(
         private buyingRequestService: BuyingRequestService,
         private route: ActivatedRoute,
@@ -98,14 +83,14 @@ export class EditBuyingRequestComponent implements OnInit {
                 this.countrySelected = this.buyingRequestDetails.location
                 // this.subCategorySelected = this.buyingRequestDetails.parentId
                 this.unitePriceSelected = this.buyingRequestDetails.unitePrice
-                this.finishedStatusSelected = this.buyingRequestDetails.finishedStatus
-                this.tagNames = this.buyingRequestDetails.brandName
-                this.tagCoverage = this.buyingRequestDetails.coverage
+                // this.finishedStatusSelected = this.buyingRequestDetails.finishedStatus
+                // this.tagNames = this.buyingRequestDetails.brandName
+                // this.tagCoverage = this.buyingRequestDetails.coverage
                 this.title = this.buyingRequestDetails.title
                 this.images = this.buyingRequestDetails.image
-                if (this.certifications[0]) {
-                    this.certifications[0] = this.buyingRequestDetails.certification
-                }
+                // if (this.certifications[0]) {
+                //     this.certifications[0] = this.buyingRequestDetails.certification
+                // }
 
                 this.productService
                     .getProductsByCategory(this.buyingRequestDetails.categoryId)
@@ -115,7 +100,7 @@ export class EditBuyingRequestComponent implements OnInit {
             })
 
         // Bind all Categories
-        this.categoryService.getAllCategories().subscribe((result: any) => {
+        this.categoryService.getAllParents().subscribe((result: any) => {
             this.categories = result.data
         })
 
@@ -139,29 +124,29 @@ export class EditBuyingRequestComponent implements OnInit {
             parentId: [],
             paymentTerms: [],
             image: [],
-            size: [],
+            // size: [],
             description: [],
             location: [],
-            brandName: [],
-            packing: [],
-            storage: [],
-            productMaterial: [],
-            wieght: [],
-            type: [],
-            grade: [],
-            code: [],
-            moq: [],
-            certification: [],
-            duration: [],
-            accomdationName: [],
-            program: [],
-            space: [],
-            finishedStatus: [],
-            coverage: [],
-            serviceType: [],
-            agentsLocation: [],
-            softwares: [],
-            tripCategory: [],
+            // brandName: [],
+            // packing: [],
+            // storage: [],
+            // productMaterial: [],
+            // wieght: [],
+            // type: [],
+            // grade: [],
+            // code: [],
+            // moq: [],
+            // certification: [],
+            // duration: [],
+            // accomdationName: [],
+            // program: [],
+            // space: [],
+            // finishedStatus: [],
+            // coverage: [],
+            // serviceType: [],
+            // agentsLocation: [],
+            // softwares: [],
+            // tripCategory: [],
         })
     }
 
@@ -178,16 +163,16 @@ export class EditBuyingRequestComponent implements OnInit {
     }
 
     // Upload Certifications
-    handleCertificationsUpload(files: FileImage[]) {
-        this.editBuyingRequestForm.patchValue({
-            certification: files[0].imageFile,
-        })
-    }
-    handleCertificationsRemove(files: FileImage[]) {
-        this.editBuyingRequestForm.patchValue({
-            certification: files.map((file) => file.imageFile),
-        })
-    }
+    // handleCertificationsUpload(files: FileImage[]) {
+    //     this.editBuyingRequestForm.patchValue({
+    //         certification: files[0].imageFile,
+    //     })
+    // }
+    // handleCertificationsRemove(files: FileImage[]) {
+    //     this.editBuyingRequestForm.patchValue({
+    //         certification: files.map((file) => file.imageFile),
+    //     })
+    // }
     handleOnCategoryChange() {
         // Bind Products by Category
         this.productService
@@ -233,14 +218,7 @@ export class EditBuyingRequestComponent implements OnInit {
         })
 
         this.buyingRequestService
-            .updateBuyingRequest(
-                buyingRequestId,
-                tagResult,
-                this.tagCoverage,
-                agentsResult,
-                this.images,
-                this.certifications
-            )
+            .updateBuyingRequest(buyingRequestId, this.images)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
                     this.router.navigate(['/account/owner'])

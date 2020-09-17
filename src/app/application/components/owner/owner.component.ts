@@ -49,10 +49,10 @@ export class OwnerComponent implements OnInit {
                 items: 1,
             },
             400: {
-                items: 2,
+                items: 1,
             },
             740: {
-                items: 2,
+                items: 1,
             },
             940: {
                 items: 3,

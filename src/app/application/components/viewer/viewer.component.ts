@@ -37,13 +37,13 @@ export class ViewerComponent implements OnInit {
                 items: 1,
             },
             400: {
-                items: 2,
+                items: 1,
             },
             740: {
-                items: 2,
+                items: 1,
             },
             940: {
-                items: 4,
+                items: 3,
             },
         },
         nav: true,
@@ -62,13 +62,13 @@ export class ViewerComponent implements OnInit {
                 items: 1,
             },
             400: {
-                items: 2,
+                items: 1,
             },
             740: {
-                items: 2,
+                items: 1,
             },
             940: {
-                items: 4,
+                items: 2,
             },
         },
         nav: true,
@@ -88,10 +88,10 @@ export class ViewerComponent implements OnInit {
                 items: 1,
             },
             400: {
-                items: 2,
+                items: 1,
             },
             740: {
-                items: 2,
+                items: 1,
             },
             940: {
                 items: 3,
@@ -115,10 +115,10 @@ export class ViewerComponent implements OnInit {
                 items: 1,
             },
             400: {
-                items: 2,
+                items: 1,
             },
             740: {
-                items: 2,
+                items: 1,
             },
             940: {
                 items: 3,

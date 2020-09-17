@@ -308,3 +308,31 @@ mat-form-field {
     align-items: center;
     color: #f2b414;
 }
+.input-search {
+    width: 25%;
+}
+
+#countrySelect {
+    width: 15%;
+}
+
+@media (min-device-width: 320px) and (max-device-width: 768px) {
+    #countrySelect {
+        width: 30%;
+        font-size: 10px;
+    }
+    .input-group > .form-control:not(:first-child),
+    .input-group > .custom-select:not(:first-child) {
+        border-radius: 5px;
+        border: 1px solid #f2b414;
+        background: #0e1234;
+        color: #fff !important;
+        height: 45px;
+        font-size: 13px;
+        width: 20%;
+    }
+    .input-search {
+        width: 50%;
+        height: 32%;
+    }
+}

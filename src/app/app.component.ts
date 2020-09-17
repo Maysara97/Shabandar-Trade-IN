@@ -35,15 +35,5 @@ export class AppComponent implements OnInit {
                 )
             }
         )
-        // this.notificationsService
-        //     .getNewNotificationsCount()
-        //     .subscribe((result: any) => {
-        //         this.newNotificationCount$ = result.data
-        //         this.notifier.notify(
-        //             'success',
-        //             'You are awesome! I mean it!',
-        //             'THAT_NOTIFICATION_ID'
-        //         )
-        //     })
     }
 }

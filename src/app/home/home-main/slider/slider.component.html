@@ -44,7 +44,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-lg-6 col-md-12 col-12">
+        <div class="col-lg-6 col-md-12 col-12 slider-section">
             <div class="heroslider-slider-2 heroslider-animated-content tm-slider-arrow tm-slider-dots-left">
                 <div class="heroslider-singleslider d-flex align-items-center tm-padding-section">
                     <ngb-carousel>
@@ -63,10 +63,17 @@
             <div class="single-widget widget-recentpost ">
                 <h5 class="widget-title">Sponsores </h5>
                 <ul>
-                    <li *ngFor="let sponsor of sponsoredAds">
+                    <!-- <li *ngFor="let sponsor of sponsoredAds">
                         <a [routerLink]="['/application/viewer', sponsor.accountId]">
                             <div class="sponsored-rectangle">
                                 <img [src]="getFilePath(sponsor.adImage)">
+                            </div>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a>
+                            <div class="sponsored-rectangle">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
                             </div>
                         </a>
                     </li>

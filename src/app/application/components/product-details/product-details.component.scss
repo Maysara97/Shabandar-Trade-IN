@@ -17,7 +17,7 @@
 
 @media (max-width: 414px) {
     .tm-portfoliodetails-info li {
-        font-size: 10px;
+        font-size: 13px;
     }
 }
 
@@ -46,15 +46,93 @@
     display: block;
     width: 40%;
 }
-.details-product .tm-feature {
-    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    padding: 15px 33px;
-    background: #ffffff;
-}
 
 .details-product .tm-feature-icon {
     display: inline-block;
     font-size: 60px;
     margin-bottom: 0px;
+}
+
+.details-product .tm-feature-icon:hover {
+    cursor: pointer;
+}
+
+.details-product .tm-feature {
+    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px 33px;
+    background: #ffffff;
+    border-radius: 40px;
+    // height: 150px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+::ng-deep .owl-carousel .owl-stage {
+    display: flex !important;
+    width: 900px;
+}
+
+::ng-deep .owl-carousel .owl-stage-outer {
+    width: 100%;
+    margin-left: 0%;
+}
+
+.tm-portfolio-content {
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    padding: 0px 0px;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    z-index: 3;
+}
+
+.tm-portfolio-actions li a:hover {
+    background: #f2b414;
+    color: #ffffff;
+}
+
+.details-product .owl-theme .owl-dots {
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    /* margin-left: 35%; */
+}
+
+.tm-portfolio:hover {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 35px;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #ffffff47;
+    background-clip: padding-box;
+    border: 1px solid rgb(255 255 255 / 12%);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+@media (min-device-width: 320px) and (max-device-width: 768px) {
+    ::ng-deep .owl-theme .owl-dots {
+        text-align: initial;
+        -webkit-tap-highlight-color: transparent;
+        margin-left: 50%;
+    }
+    ::ng-deep .owl-carousel .owl-stage {
+        display: flex !important;
+        width: 404px !important;
+    }
 }

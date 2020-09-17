@@ -34,6 +34,9 @@ export class AccountProduct {
     description?: string
     productImages?: string[] = []
     attachments?: string[] = []
+    modelYear?: string
+    totalHours?: string
+    capacity?: string
     createdOn?: string
     lastModifiedOn?: string
     createdBy?: string

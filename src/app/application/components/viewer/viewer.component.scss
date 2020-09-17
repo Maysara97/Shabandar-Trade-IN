@@ -904,3 +904,140 @@ a:hover {
     max-width: 200px;
     max-height: 100px;
 }
+
+@media (min-width: 1024px) {
+    .avatar-no-image .img-rounded {
+        width: 70%;
+    }
+    .tab-section {
+        width: 1140px;
+    }
+    #mobileView {
+        display: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    #desktopView {
+        display: none;
+    }
+    .owl-stage {
+        width: 400px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .avatar-no-image .img-rounded {
+        width: 20%;
+    }
+    .tm-portfoliodetails-info {
+        width: 30%;
+    }
+    .about .title p {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .owl-stage-outer {
+        margin-left: 60%;
+    }
+}
+@media (min-width: 360px) and (max-width: 414px) {
+    .leftAlign {
+        margin-left: 32%;
+    }
+    .rightAlign {
+        margin-right: 33%;
+    }
+    .about .title p {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .content .btn {
+        color: #fff;
+        float: right;
+        background-color: #f2b414;
+        border-radius: 25px;
+        margin-right: 3px;
+        font-size: 13px;
+    }
+}
+@media (min-width: 375px) and (max-width: 1023px) {
+    .avatar-no-image .img-rounded {
+        width: 30%;
+    }
+    .tm-portfoliodetails-info {
+        width: 40%;
+    }
+    .about .title p {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+#mobileView {
+    ::ng-deep .owl-stage {
+        width: 400px !important;
+    }
+    ::ng-deep .owl-theme .owl-dots {
+        text-align: initial;
+        -webkit-tap-highlight-color: transparent;
+        margin-left: 45%;
+    }
+
+    .content h4 {
+        color: #404f76;
+        float: left;
+        font-size: 15px;
+    }
+    .rightAlign {
+        margin-right: 32%;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    #desktopView {
+        display: none;
+    }
+    .leftAlign {
+        margin-left: 20%;
+    }
+    .rightAlign {
+        margin-right: 20%;
+    }
+    .tm-portfoliodetails-info {
+        width: 70%;
+    }
+    .description {
+        margin-left: 15%;
+    }
+    #mobileView ::ng-deep .owl-stage {
+        width: 660px !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 1366px) {
+    #desktopView {
+        display: block;
+    }
+}

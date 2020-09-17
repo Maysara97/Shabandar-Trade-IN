@@ -45,6 +45,9 @@ export class AccountProductService extends BaseService<any> {
             description: accountProduct.description,
             productImages: accountProduct.productImages,
             attachments: accountProduct.attachments,
+            modelYear: accountProduct.modelYear,
+            totalHours: accountProduct.totalHours,
+            capacity: accountProduct.capacity,
         }
         console.log(body)
         return this.post('AccountProduct', body)
@@ -88,6 +91,9 @@ export class AccountProductService extends BaseService<any> {
             description: accountProduct.description,
             productImages: images,
             attachments: files,
+            modelYear: accountProduct.modelYear,
+            totalHours: accountProduct.totalHours,
+            capacity: accountProduct.capacity,
         }
         return this.put('AccountProduct', body)
     }

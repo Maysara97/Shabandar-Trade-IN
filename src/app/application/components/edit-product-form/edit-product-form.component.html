@@ -5,36 +5,40 @@
                 <form [formGroup]="editAccountProductForm" (submit)="onSubmit(editAccountProductForm.value)"
                     class="p-3 tm-form tm-register-form tm-form-bordered bg-white">
                     <h4 class="m-5">Edit Account Product</h4>
-
                     <div class="form-group">
                         <div class="row">
-                            <!-- (change)="handleOnCategoryChange()" -->
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="categoryId">Product Category</label>
-                                <select class="form-control" id="categoryId" formControlName="categoryId" #mySelect
-                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
-                                    <option [disabled]="true">Choose Product's
-                                        Category
+                                <label for="parentId">Product Category</label>
+                                <select class="form-control" id="parentId" formControlName="parentId"
+                                    [(ngModel)]="categorySelected" (change)="handleOnChooseParent()">
+                                    <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
-                                    <option *ngFor="let category of categories" value={{category.categoryId}}>
+                                    <option *ngFor="let category of categories" value="{{category.categoryId}}">
                                         {{category.categoryName}}</option>
                                 </select>
+                                <label class="text-danger"
+                                    *ngIf="editAccountProductForm.get('parentId').touched && editAccountProductForm.get('parentId').errors?.required">
+                                    You Must choose the Product's Category
+                                </label>
                             </div>
-
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="productId">Product Name</label>
-                                <select class="form-control" id="productId" formControlName="productId"
-                                    [(ngModel)]="accountProductDetails.productId">
-                                    <option disabled>Choose your Product</option>
-                                    <option *ngFor="let product of products" value='{{product.productId}}'>
-                                        {{product.productName}}</option>
+                                <label for="categoryId">Sub Category</label>
+                                <select class="form-control" id="categoryId" formControlName="categoryId"
+                                    [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
+                                    <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Sub Category
+                                    </option>
+                                    <option *ngFor="let category of subCategories" value="{{category.categoryId}}">
+                                        {{category.categoryName}}</option>
                                 </select>
+                                <label class="text-danger"
+                                    *ngIf="editAccountProductForm.get('categoryId').touched && editAccountProductForm.get('categoryId').errors?.required">
+                                    You Must choose the Product's Category
+                                </label>
                             </div>
-
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="location">Country</label>
@@ -62,11 +66,48 @@
                                 </select>
                             </div>
                         </div>
+                    </div> -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-8 col-sm-8">
+                                <label for="productId">Product Name</label>
+                                <select class="form-control" id="productId" formControlName="productId"
+                                    [(ngModel)]="productSelected">
+                                    <option [ngValue]="-1" disabled selected="selected">Choose your Product</option>
+                                    <option *ngFor="let product of products" value="{{product.productId}}">
+                                        {{product.productName}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-8 col-sm-8">
+                                <label for="location">Country</label>
+                                <select class="form-control" id="countries" formControlName="location"
+                                    style="text-transform: capitalize;" [(ngModel)]="countrySelected">
+                                    <option [ngValue]="-1" disabled selected="selected">Choose Product's Country
+                                    </option>
+                                    <option *ngFor="let country of countries" value="{{country.id}}">
+                                        {{country.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-4">
+                                <label for="price">Product Price</label>
+                                <input type="text" class="form-control w-100" id="price" formControlName="price"
+                                    placeholder="Product Price">
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-4">
+                                <label for="unitePrice">Unite Price</label>
+                                <select class="form-control" id="unitePrice" formControlName="unitePrice"
+                                    [(ngModel)]="unitePriceSelected">
+                                    <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Unite Price
+                                    </option>
+                                    <option value="1">$</option>
+                                    <option value="2">EGY</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-
                     <div [ngSwitch]="categorySelected">
-
-                        <div class="industry-category" *ngSwitchCase="industryId">
+                        <div class="industry-category" *ngSwitchCase="decorationId">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-12">
@@ -83,13 +124,12 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="packing">Packing Way</label>
                                         <input type="text" class="form-control w-100" id="packing"
-                                            formControlName="packing" placeholder="Packing Way"
-                                            [(ngModel)]="accountProductDetails.packing">
+                                            formControlName="packing" [(ngModel)]="accountProductDetails.packing">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="moq">MOQ</label>
                                         <input type="text" class="form-control w-100" id="moq" formControlName="moq"
-                                            placeholder="MOQ" [(ngModel)]="accountProductDetails.moq">
+                                            [(ngModel)]="accountProductDetails.moq">
                                     </div>
                                 </div>
                             </div>
@@ -98,18 +138,17 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="type">Type</label>
                                         <input type="text" class="form-control w-100" id="type" formControlName="type"
-                                            placeholder="Type" [(ngModel)]="accountProductDetails.type">
+                                            [(ngModel)]="accountProductDetails.type">
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="wieght">Wieght</label>
+                                        <label for="wieght">Weight</label>
                                         <input type="text" class="form-control w-100" id="wieght"
-                                            formControlName="wieght" placeholder="Wieght"
-                                            [(ngModel)]="accountProductDetails.wieght">
+                                            formControlName="wieght" [(ngModel)]="accountProductDetails.wieght">
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="size">Product Size</label>
                                         <input type="text" class="form-control w-100" id="size" formControlName="size"
-                                            placeholder="Product Size" [(ngModel)]="accountProductDetails.size">
+                                            [(ngModel)]="accountProductDetails.size">
                                     </div>
                                 </div>
                             </div>
@@ -118,13 +157,12 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="storage">Storage</label>
                                         <input type="text" class="form-control w-100" id="storage"
-                                            formControlName="storage" placeholder="Storage"
-                                            [(ngModel)]="accountProductDetails.storage">
+                                            formControlName="storage" [(ngModel)]="accountProductDetails.storage">
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="grade">Grade</label>
                                         <input type="text" class="form-control w-100" id="grade" formControlName="grade"
-                                            placeholder="Grade" [(ngModel)]="accountProductDetails.grade">
+                                            [(ngModel)]="accountProductDetails.grade">
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label for="code">Code</label>
@@ -148,81 +186,6 @@
                             </div>
 
                         </div>
-
-                        <div class="touristic-category" *ngSwitchCase="touristicId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="tripCategory">Trip Category</label>
-                                        <input type="text" class="form-control w-100" id="tripCategory"
-                                            formControlName="tripCategory" placeholder="Trip Category"
-                                            [(ngModel)]="accountProductDetails.tripCategory">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="duration">Duration</label>
-                                        <input type="text" class="form-control w-100" id="duration"
-                                            formControlName="duration" placeholder="Duration"
-                                            [(ngModel)]="accountProductDetails.duration">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="accomdationName">Accomdation Name</label>
-                                        <input type="text" class="form-control w-100" id="accomdationName"
-                                            formControlName="accomdationName" placeholder="Accomdation Name"
-                                            [(ngModel)]="accountProductDetails.accomdationName">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="program">Program</label>
-                                        <input type="text" class="form-control w-100" id="program"
-                                            formControlName="program" placeholder="Program"
-                                            [(ngModel)]="accountProductDetails.program">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="real-state-category" *ngSwitchCase="realStateId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="space">Space</label>
-                                        <input type="text" class="form-control w-100" id="space" formControlName="space"
-                                            placeholder="Space" [(ngModel)]="accountProductDetails.space">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="size">Product Size</label>
-                                        <input type="text" class="form-control w-100" id="size" formControlName="size"
-                                            placeholder="Product Size" [(ngModel)]="accountProductDetails.size">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="type">Type</label>
-                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
-                                            placeholder="Type" [(ngModel)]="accountProductDetails.type">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="finishedStatus">Finished Or Semi Or Unfinished</label>
-                                        <select class="form-control" id="finishedStatus"
-                                            formControlName="finishedStatus" [(ngModel)]="finishedStatusSelected">
-                                            <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Product's
-                                                State
-                                            </option>
-                                            <option *ngFor="let finishedType of stateTypes" [value]="finishedType">
-                                                {{FinishedStatusTypeMapping[finishedType]}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="shipping-and-logistics-category" *ngSwitchCase="shippingId">
                             <div class="form-group">
                                 <div class="row">
@@ -247,7 +210,7 @@
                                     <div class="col-12">
                                         <label for="serviceType">Service Type</label>
                                         <input type="number" class="form-control w-100" id="serviceType"
-                                            formControlName="serviceType" placeholder="Service Type"
+                                            formControlName="serviceType"
                                             [(ngModel)]="accountProductDetails.serviceType">
                                     </div>
 
@@ -261,16 +224,46 @@
                                     <div class="col-12">
                                         <label for="softwares">Softwares</label>
                                         <input type="text" class="form-control w-100" id="softwares"
-                                            formControlName="softwares" placeholder="Softwares"
-                                            [(ngModel)]="accountProductDetails.softwares">
+                                            formControlName="softwares" [(ngModel)]="accountProductDetails.softwares">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div *ngSwitchDefault>
-                            <p>test</p>
-                        </div> -->
+                        <div class="designers-category" *ngSwitchCase="equipmentId">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="type">Brand Name</label>
+                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
+                                            [(ngModel)]="accountProductDetails.type">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="capacity">Capacity</label>
+                                        <input type="text" class="form-control w-100" id="capacity"
+                                            formControlName="capacity" [(ngModel)]="accountProductDetails.capacity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="wieght">Weight</label>
+                                        <input type="text" class="form-control w-100" id="wieght"
+                                            formControlName="wieght" [(ngModel)]="accountProductDetails.wieght">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="modelYear">Model by Year</label>
+                                        <input type="text" class="form-control w-100" id="modelYear"
+                                            formControlName="modelYear" [(ngModel)]="accountProductDetails.modelYear">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="totalHours">Total Hours</label>
+                                        <input type="text" class="form-control w-100" id="totalHours"
+                                            formControlName="totalHours" [(ngModel)]="accountProductDetails.totalHours">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Common -->

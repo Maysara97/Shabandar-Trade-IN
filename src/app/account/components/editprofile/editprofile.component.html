@@ -47,31 +47,31 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="categoryId">Category</label> <br />
-                                    <select class="mdb-select md-form" formControlName="categoryId"
+                                    <!-- <select class="mdb-select md-form" formControlName="categoryId"
                                         style="text-transform: capitalize;" [(ngModel)]="updateUserData.categoryId">
                                         <option value="" disabled selected>Choose your Category</option>
                                         <option *ngFor="let category of categories" value={{category.categoryId}}>
                                             {{category.categoryName}}</option>
 
-                                    </select>
-                                    <label class="text-danger"
-                                        *ngIf="editProfileForm.get('categoryId').touched && editProfileForm.get('categoryId').errors?.required">Category
-                                        is required</label>
-
+                                    </select> -->
+                                    <ejs-multiselect [dataSource]='categories' [fields]='localFields'
+                                        [placeholder]='localWaterMark' formControlName="categoryId"
+                                        [(ngModel)]="categorySelections">
+                                    </ejs-multiselect>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group tm-form-field">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <label for="address">Address</label>
                                     <br />
                                     <input type="text" name="address" id="address" formControlName="address"
                                         placeholder="Enter your Address" [(ngModel)]="updateUserData.address" />
 
                                 </div>
-                                <div class="col-3">
+                                <div class="col-lg-3 col-md-6 col-sm-6">
                                     <label for="countryId">Country</label> <br />
                                     <select class="mdb-select md-form" formControlName="countryId"
                                         style="text-transform: capitalize;" [(ngModel)]="updateUserData.countryId">
@@ -84,17 +84,17 @@
                                         *ngIf="editProfileForm.get('countryId').touched && editProfileForm.get('countryId').errors?.required">Country
                                         is required</label>
                                 </div>
-                                <div class="col-3">
-                                    <label for="zipCode">ZIP/postal Code</label>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <label for="zipCode">ZIP</label>
                                     <input type="text" name="zipCode" id="zipCode" formControlName="zipCode"
-                                        placeholder="Enter your ZipCode" [(ngModel)]="updateUserData.zipCode" />
+                                        placeholder="ZipCode" [(ngModel)]="updateUserData.zipCode" />
                                 </div>
                             </div>
 
                         </div>
                         <div class="form-group tm-form-field">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-8 col-sm-8 col-12">
                                     <label for="mobile">Mobile Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let mobile of mobileNumbers;let i = index;">
@@ -108,13 +108,13 @@
                                     </section>
 
                                 </div>
-                                <div class="col-2" style="margin-top: 2.3rem!important;">
-                                    <a *ngIf="mobileNumbers.length < 4" type="button" class="btn rightAlign"
+                                <div class="col-lg-2 col-md-4 col-sm-4 col-12" style="margin-top: 2.3rem!important;">
+                                    <a *ngIf="mobileNumbers.length < 4" type="button" class="btn rightAlign mb-5"
                                         style="color: #fff;background-color: #f2b414;" (click)="addMobileNumber()">
                                         Add More
                                     </a>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-8 col-sm-8 col-12">
                                     <label for="phone">Phone Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let phoneN of phoneNumbers;let i = index;">
@@ -128,8 +128,8 @@
                                     </section>
 
                                 </div>
-                                <div class="col-2" style="margin-top: 2.3rem!important;">
-                                    <a *ngIf="phoneNumbers.length < 4" type="button" class="btn rightAlign"
+                                <div class="col-lg-2 col-md-4 col-sm-4 col-12" style="margin-top: 2.3rem!important;">
+                                    <a *ngIf="phoneNumbers.length < 4" type="button" class="btn rightAlign mb-5"
                                         style="color: #fff;background-color: #f2b414;" (click)="addPhoneNumber()">
                                         Add More
                                     </a>

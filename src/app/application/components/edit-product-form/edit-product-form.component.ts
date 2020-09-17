@@ -31,6 +31,7 @@ export class EditProductFormComponent implements OnInit {
     countrySelected
     unitePriceSelected
     finishedStatusSelected
+    subCategorySelected
 
     submitted = false
     data = false
@@ -53,14 +54,14 @@ export class EditProductFormComponent implements OnInit {
     designersCategorySelected = false
     shippingCategorySelected = false
 
-    realStateId = '5a1bfc74-813f-436a-b919-c24c895cfd81'
-    touristicId = '5a1bfc74-813f-436a-b919-c24c895cfd82'
-    industryId = '5a1bfc74-813f-436a-b919-c24c895cfd87'
-    designersId = '5a1bfc74-813f-436a-b919-c24c895cfd89'
-    shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
+    decorationId = 'cf762c06-cc14-456b-a0fb-85f071fab5cf'
+    designersId = '44fba92f-4cd8-47cb-8ac6-66d6b0a6d9c5'
+    shippingId = '7f1cb7ce-f7ee-4683-9cdd-3f080b183326'
+    equipmentId = 'b942f13a-5c68-4b3a-a04e-388f1a3d96e6'
 
     categoryId
     categories: Category[]
+    subCategories: Category[]
     products: Product[]
     countries: Country[]
     products$: Observable<Product[]>
@@ -98,6 +99,7 @@ export class EditProductFormComponent implements OnInit {
                 this.countrySelected = this.accountProductDetails.location
                 this.unitePriceSelected = this.accountProductDetails.unitePrice
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
+                // this.subCategorySelected = this.accountProductDetails.parentId
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
                 this.images = this.accountProductDetails.productImages
@@ -113,7 +115,7 @@ export class EditProductFormComponent implements OnInit {
             })
 
         // Bind all Categories
-        this.categoryService.getAllCategories().subscribe((result: any) => {
+        this.categoryService.getAllParents().subscribe((result: any) => {
             this.categories = result.data
         })
 
@@ -132,6 +134,7 @@ export class EditProductFormComponent implements OnInit {
             unitePrice: [],
             price: [],
             categoryId: [],
+            parentId: [],
             paymentTerms: [],
             productImages: [],
             attachments: [],
@@ -202,6 +205,21 @@ export class EditProductFormComponent implements OnInit {
             .subscribe((result: any) => {
                 this.products = result.data
             })
+    }
+    handleOnChooseParent() {
+        this.categoryService
+            .getCategoriesByParentId(this.categorySelected)
+            .subscribe((result: any) => {
+                this.subCategories = result.data
+            })
+        this.productService
+            .getProductsByCategory(this.categorySelected)
+            .subscribe((result: any) => {
+                this.products = result.data
+            })
+
+        // this.subCategorySelected = -1
+        // this.productSelected = -1
     }
     onSubmit(accountProductId) {
         this.submitted = true

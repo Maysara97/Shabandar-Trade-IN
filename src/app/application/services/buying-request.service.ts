@@ -10,10 +10,7 @@ export class BuyingRequestService extends BaseService<any> {
     }
 
     createBuyingRequest(
-        buyingRequest: BuyingRequest,
-        tagResult,
-        coverageResult,
-        agentsResult
+        buyingRequest: BuyingRequest
     ): Observable<BuyingRequest> {
         const body = {
             productId: buyingRequest.productId,
@@ -22,73 +19,25 @@ export class BuyingRequestService extends BaseService<any> {
             title: buyingRequest.title,
             image: buyingRequest.image,
             location: buyingRequest.location,
-            size: buyingRequest.size,
-            wieght: buyingRequest.wieght,
-            packing: buyingRequest.packing,
-            certification: buyingRequest.certification,
-            type: buyingRequest.type,
-            grade: buyingRequest.grade,
-            storage: buyingRequest.storage,
-            brandName: tagResult,
-            code: buyingRequest.code,
-            moq: buyingRequest.moq,
             paymentTerms: buyingRequest.paymentTerms,
             unitePrice: buyingRequest.unitePrice,
             price: buyingRequest.price,
-            duration: buyingRequest.duration,
-            accomdationName: buyingRequest.accomdationName,
-            program: buyingRequest.program,
-            tripCategory: buyingRequest.tripCategory,
-            space: buyingRequest.space,
-            finishedStatus: buyingRequest.finishedStatus,
-            coverage: coverageResult,
-            serviceType: buyingRequest.serviceType,
-            agentsLocation: agentsResult,
-            softwares: buyingRequest.softwares,
             description: buyingRequest.description,
         }
-        console.log(body)
         return this.post('BuyingRequest', body)
     }
-    updateBuyingRequest(
-        buyingRequest: BuyingRequest,
-        tagResult,
-        coverageResult,
-        agentsResult,
-        images,
-        certifications
-    ) {
+    updateBuyingRequest(buyingRequest: BuyingRequest, images) {
         const body = {
             buyingRequestId: buyingRequest.buyingRequestId,
             productId: buyingRequest.productId,
             categoryId: buyingRequest.categoryId,
             productName: buyingRequest.productName,
             title: buyingRequest.title,
-            image: images[0],
+            image: images,
             location: buyingRequest.location,
-            size: buyingRequest.size,
-            wieght: buyingRequest.wieght,
-            packing: buyingRequest.packing,
-            certification: certifications[0],
-            type: buyingRequest.type,
-            grade: buyingRequest.grade,
-            storage: buyingRequest.storage,
-            brandName: tagResult,
-            code: buyingRequest.code,
-            moq: buyingRequest.moq,
             paymentTerms: buyingRequest.paymentTerms,
             unitePrice: buyingRequest.unitePrice,
             price: buyingRequest.price,
-            duration: buyingRequest.duration,
-            accomdationName: buyingRequest.accomdationName,
-            program: buyingRequest.program,
-            tripCategory: buyingRequest.tripCategory,
-            space: buyingRequest.space,
-            finishedStatus: buyingRequest.finishedStatus,
-            coverage: coverageResult,
-            serviceType: buyingRequest.serviceType,
-            agentsLocation: agentsResult,
-            softwares: buyingRequest.softwares,
             description: buyingRequest.description,
         }
         return this.put('BuyingRequest', body)

@@ -4,13 +4,15 @@
     <div class="page-section tm-section contact-area tm-padding-section" style="background-color: #0E1234;">
         <div class="container">
             <div class="row d-flex justify-content-center ml-2">
-                <mat-tab-group>
+                <mat-tab-group id="desktopView">
                     <mat-tab label="Profile">
                         <div class="row" style="width: 1140px;">
-                            <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
+                            <div class="col-lg-3 col-md-5 col-12 justify-content-center about">
                                 <div class="row justify-content-center avatar-no-image">
-                                    <img src="assets/images/You-Trade-In/student.png" alt="" width="70%"
-                                        class="img-rounded img-responsive">
+                                    <img *ngIf="!userDetails.accountImage" src="assets/images/You-Trade-In/student.png"
+                                        alt="" class="img-rounded img-responsive">
+                                    <img *ngIf="userDetails.accountImage" [src]="getFilePath(userDetails.accountImage)"
+                                        alt="{{userDetails.accountName}}" class="img-rounded img-responsive">
                                 </div>
                                 <div class="row justify-content-center mt-3">
                                     <ul>
@@ -24,21 +26,23 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-lg-9 col-md-8 col-12 content">
+                            <div class="col-lg-9 col-md-7 col-12 content">
                                 <div class="mb-5">
                                     <h4 class="leftAlign">
                                         {{userDetails.accountName}}
                                     </h4>
+                                    <div class="rightAlign">
+                                        <a type="button" class="btn" routerLink="/account/editprofile">
+                                            Edit Profile
+                                        </a>
+                                        <a type="button" class="btn" routerLink="/account/update-password">
+                                            Update Password
+                                        </a>
+                                    </div>
 
-                                    <a type="button" class="btn rightAlign" routerLink="/account/editprofile">
-                                        Edit Profile
-                                    </a>
-                                    <a type="button" class="btn rightAlign" routerLink="/account/update-password">
-                                        Update Password
-                                    </a>
                                 </div>
                                 <div style="clear: both;"></div>
-                                <div class="row" style="border-top: 2px solid #70707070;">
+                                <div class="row justify-content-center" style="border-top: 2px solid #70707070;">
                                     <div class="tm-portfoliodetails-info">
                                         <div class="row">
                                             <div class="col-5">
@@ -128,13 +132,16 @@
                                     <h4 class="leftAlign">
                                         Account Products
                                     </h4>
-                                    <a type="button" class="btn rightAlign" style="
-                                    color: #fff;
-                                    float: right;
-                                    background-color: #F2B414;
-                                " routerLink="/application/add-product-form">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                    </a>
+                                    <div class="rightAlign">
+                                        <a type="button" class="btn rightAlign" style="
+                                        color: #fff;
+                                        float: right;
+                                        background-color: #F2B414;
+                                    " routerLink="/application/add-product-form">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
                                 </div>
                                 <div style="clear: both;"></div>
                                 <div class="row">
@@ -145,8 +152,7 @@
                                             <div class="col-lg-12">
                                                 <div class="tm-feature text-center">
                                                     <span class="tm-feature-icon">
-                                                        <img [src]="getFilePath(product.productImages[0])" width="152px"
-                                                            height="76px">
+                                                        <img [src]="getFilePath(product.productImages[0])">
                                                     </span>
                                                     <p class="proTitle"><a
                                                             [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
@@ -195,13 +201,15 @@
                                     <h4 class="leftAlign">
                                         Buying Requests
                                     </h4>
-                                    <a type="button" class="btn rightAlign" style="
+                                    <div class="rightAlign">
+                                        <a type="button" class="btn rightAlign" style="
                                     color: #fff;
                                     float: right;
                                     background-color: #F2B414;
                                 " routerLink="/application/add-new-request-form">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                    </a>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
                                 </div>
                                 <div style="clear: both;"></div>
                                 <div class="row">
@@ -306,13 +314,15 @@
                                     <h4 class="leftAlign">
                                         Company Profile
                                     </h4>
+                                    <div class="rightAlign">
+                                        <a type="button" class="btn" routerLink="/account/editprofile">
+                                            Edit Profile
+                                        </a>
+                                        <a type="button" class="btn" routerLink="/account/update-password">
+                                            Update Password
+                                        </a>
+                                    </div>
 
-                                    <a type="button" class="btn rightAlign" routerLink="/account/editprofile">
-                                        Edit Profile
-                                    </a>
-                                    <a type="button" class="btn rightAlign" routerLink="/account/update-password">
-                                        Update Password
-                                    </a>
                                 </div>
                                 <div style="clear: both;"></div>
                                 <div class="row" style="border-top: 2px solid #70707070;">
@@ -423,6 +433,427 @@
                         </div>
                     </mat-tab>
                 </mat-tab-group>
+
+                <div id="mobileView">
+
+                    <div class="row" style="width: 1140px;">
+                        <div class="col-lg-3 col-md-12 col-12 justify-content-center about">
+                            <div class="row justify-content-center avatar-no-image">
+                                <img *ngIf="!userDetails.accountImage" src="assets/images/You-Trade-In/student.png"
+                                    alt="" class="img-rounded img-responsive">
+                                <img *ngIf="userDetails.accountImage" [src]="getFilePath(userDetails.accountImage)"
+                                    alt="{{userDetails.accountName}}" class="img-rounded img-responsive">
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <ul>
+                                    <li><i class="fa fa-user" aria-hidden="true"></i> &nbsp;
+                                        <p> {{userDetails.accountAdministrators[0].firstName}}
+                                            {{userDetails.accountAdministrators[0].lastName}}</p>
+                                    </li>
+                                    <li><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
+                                        <p>{{userDetails.accountAdministrators[0].email}}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12 col-12 content">
+                            <div class="mb-5">
+                                <h4 class="leftAlign">
+                                    {{userDetails.accountName}}
+                                </h4>
+                                <div class="rightAlign">
+                                    <a type="button" class="btn" routerLink="/account/editprofile">
+                                        Edit Profile
+                                    </a>
+                                    <a type="button" class="btn" routerLink="/account/update-password">
+                                        Update Password
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="row justify-content-center" style="border-top: 2px solid #70707070;">
+                                <div class="tm-portfoliodetails-info">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Category </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.categoryName}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Country </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.countryName}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Account Website </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                <a
+                                                    (click)="goToWebsiteUrl(userDetails.accountWebsite)">{{userDetails.accountWebsite}}</a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Mission </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.mission}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Vision </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.vission}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row description">
+                                <h4>Profile Description </h4>
+                                <p *ngIf="userDetails.description">
+                                    {{userDetails.description}}
+                                </p>
+
+                            </div>
+                            <div class="row description">
+                                <h4>Attachments</h4> <br>
+                                <a *ngFor="let attachment of userDetails.accountAttachments"
+                                    [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
+                                    &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="width: 1140px;">
+                        <div class="col-lg-3 col-md-12 col-12 justify-content-center about">
+                            <div class="row justify-content-center title">
+                                <p>Account Products</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12 col-12 content" style="width: 100px;">
+                            <div class="mb-5">
+                                <h4 class="leftAlign">
+                                    Account Products
+                                </h4>
+                                <div class="rightAlign">
+                                    <a type="button" class="btn rightAlign" style="
+                                            color: #fff;
+                                            float: right;
+                                            background-color: #F2B414;
+                                        " routerLink="/application/add-product-form">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="row justify-content-center">
+                                <owl-carousel [options]="productSlider" [items]="accountProducts"
+                                    [carouselClasses]="['owl-theme','row','sliding']">
+                                    <div class="item" *ngFor="let product of accountProducts">
+
+                                        <div class="col-lg-12">
+                                            <div class="tm-feature text-center">
+                                                <span class="tm-feature-icon">
+                                                    <img [src]="getFilePath(product.productImages[0])">
+                                                </span>
+                                                <p class="proTitle"><a
+                                                        [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
+                                                </p>
+                                                <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                <div class="actions">
+                                                    <a class="edit-btn"
+                                                        [routerLink]="['/application/edit-product-form', product.accountProductId]"><i
+                                                            class="fa fa-wrench" aria-hidden="true"></i>
+                                                        Edit</a>
+                                                    <a class="delete-btn"
+                                                        (click)="deleteAccountProduct(product.accountProductId)"><i
+                                                            class="fa fa-trash" aria-hidden="true"></i>
+                                                        Delete</a>
+                                                    <div style="clear: both;"></div>
+                                                </div>
+                                                <div class="ProductStatus">
+                                                    <span *ngIf="product.status == 1"
+                                                        class="badge badge-success">{{ProductStatusMapping[1]}}</span>
+                                                    <span *ngIf="product.status == 2"
+                                                        class="badge badge-secondery">{{ProductStatusMapping[2]}}</span>
+                                                    <span *ngIf="product.status == 3"
+                                                        class="badge badge-warning">{{ProductStatusMapping[3]}}</span>
+                                                    <span *ngIf="product.status == 4"
+                                                        class="badge badge-danger">{{ProductStatusMapping[4]}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </owl-carousel>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row" style="width: 1140px;">
+                        <div class="col-lg-3 col-md-12 col-12 justify-content-center about">
+                            <div class="row justify-content-center title">
+                                <p>Buying Requests</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12 col-12 content" style="width: 100px;">
+                            <div class="mb-5">
+                                <h4 class="leftAlign">
+                                    Buying Requests
+                                </h4>
+                                <div class="rightAlign">
+                                    <a type="button" class="btn rightAlign" style="
+                                        color: #fff;
+                                        float: right;
+                                        background-color: #F2B414;
+                                    " routerLink="/application/add-new-request-form">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="row justify-content-center">
+                                <owl-carousel [options]="requestsSlider" [items]="buyingProducts"
+                                    [carouselClasses]="['owl-theme','row','sliding']">
+                                    <div class="item" *ngFor="let product of buyingProducts">
+
+                                        <div class="col-lg-12">
+                                            <div class="tm-feature text-center">
+                                                <span class="tm-feature-icon">
+                                                    <img [src]="getFilePath(product.image[0])">
+                                                </span>
+                                                <p class="proTitle"><a
+                                                        [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                </p>
+                                                <p class="des">{{product.description | slice : 0 : 60}}</p>
+                                                <div class="actions">
+                                                    <a class="edit-btn"
+                                                        [routerLink]="['/application/edit-buying-request', product.buyingRequestId]"><i
+                                                            class="fa fa-wrench" aria-hidden="true"></i>
+                                                        Edit</a>
+                                                    <a class="delete-btn"
+                                                        (click)="deleteBuyingRequest(product.buyingRequestId)"><i
+                                                            class="fa fa-trash" aria-hidden="true"></i>
+                                                        Delete</a>
+                                                    <div style="clear: both;"></div>
+                                                </div>
+                                                <div class="ProductStatus">
+                                                    <span *ngIf="product.status == 1"
+                                                        class="badge badge-success">{{ProductStatusMapping[1]}}</span>
+                                                    <span *ngIf="product.status == 2"
+                                                        class="badge badge-secondery">{{ProductStatusMapping[2]}}</span>
+                                                    <span *ngIf="product.status == 3"
+                                                        class="badge badge-warning">{{ProductStatusMapping[3]}}</span>
+                                                    <span *ngIf="product.status == 4"
+                                                        class="badge badge-danger">{{ProductStatusMapping[4]}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </owl-carousel>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" style="width: 1140px;">
+                        <div class="col-lg-3 col-md-12 col-12 justify-content-center about">
+                            <div class="row justify-content-center title">
+                                <p>Followings</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12 col-12 content" style="width: 100px;">
+                            <div class="mb-5">
+                                <h4 class="leftAlign">
+                                    Followings
+                                </h4>
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="row justify-content-center">
+                                <owl-carousel [options]="interestsOptions" [items]="userDetails.favorites"
+                                    [carouselClasses]="['owl-theme','row','sliding']">
+                                    <div class="item" *ngFor="let interest of userDetails.favorites">
+
+                                        <div class="col-lg-12">
+                                            <div class="tm-feature text-center">
+                                                <span class="tm-feature-icon">
+                                                    <img [src]="getFilePath(interest.accountImage)">
+                                                </span>
+                                                <p class="proTitle"><a
+                                                        [routerLink]="['/application/viewer', interest.favoriteAccountId]">{{interest.accountName}}</a>
+                                                </p>
+                                                <p class="des">{{interest.categoryName | slice : 0 : 60}}</p>
+                                                <div class="actions">
+                                                    <a class="delete-btn"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                        Delete</a>
+                                                    <div style="clear: both;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </owl-carousel>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" style="width: 1140px;">
+                        <div class="col-lg-3 col-md-12 col-12 justify-content-center about">
+                            <div class="row justify-content-center title">
+                                <p>About Us</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12 col-12 content">
+                            <div class="mb-5">
+                                <h4 class="leftAlign">
+                                    Company Profile
+                                </h4>
+                                <div class="rightAlign">
+                                    <a type="button" class="btn" routerLink="/account/editprofile">
+                                        Edit Profile
+                                    </a>
+                                    <a type="button" class="btn" routerLink="/account/update-password">
+                                        Update Password
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div style="clear: both;"></div>
+                            <div class="row justify-content-center" style="border-top: 2px solid #70707070;">
+                                <div class="tm-portfoliodetails-info">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Company Name </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.accountName}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Country </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.countryName}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Mobile Number </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li *ngFor="let mobile of userDetails.mobile">
+                                                {{mobile}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Phone Number </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li *ngFor="let phone of userDetails.phone">
+                                                {{phone}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Whatsapp </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.whatsApp}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>WeChat </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.weChat}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Address </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.address}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Contact Email </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{userDetails.accountAdministrators[0].email}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Website </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                <a
+                                                    (click)="goToWebsiteUrl(userDetails.accountWebsite)">{{userDetails.accountWebsite}}</a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
