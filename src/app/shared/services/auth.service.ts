@@ -79,7 +79,8 @@ export class AuthService extends BaseService<any> {
     updateProfile(
         account: AccountData,
         mobileResults,
-        phoneResults
+        phoneResults,
+        categoriesResult
     ): Observable<AccountData> {
         const body = {
             accountImage: account.accountImage,
@@ -96,7 +97,8 @@ export class AuthService extends BaseService<any> {
             accountAttachments: account.accountAttachments,
             accountWebsite: account.accountWebsite,
             countryId: account.countryId,
-            categoryId: account.categoryId,
+            categoryId: categoriesResult,
+            // categoryId: account.categoryId,
         }
         console.log(body)
         return this.put('Account', body)

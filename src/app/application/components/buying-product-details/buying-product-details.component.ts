@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, TemplateRef } from '@angular/core'
 import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { ActivatedRoute } from '@angular/router'
 import { environment } from 'src/environments/environment'
 import { FinishedStatusTypeMapping } from '../../models/enum'
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 
 @Component({
     selector: 'app-buying-product-details',
@@ -12,6 +13,7 @@ import { FinishedStatusTypeMapping } from '../../models/enum'
 })
 export class BuyingProductDetailsComponent implements OnInit {
     buyingRequestDetails: BuyingRequest
+    viewImageModal: BsModalRef
 
     buyingRequestId
     env: any
@@ -44,7 +46,8 @@ export class BuyingProductDetailsComponent implements OnInit {
     }
     constructor(
         private buyingRequestService: BuyingRequestService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private modalService: BsModalService
     ) {
         this.buyingRequestId = route.snapshot.params['buyingRequestId']
         this.env = environment
@@ -60,5 +63,14 @@ export class BuyingProductDetailsComponent implements OnInit {
 
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
+    }
+
+    viewImage(template: TemplateRef<any>) {
+        this.viewImageModal = this.modalService.show(template, {
+            class: 'modal-lg',
+        })
+    }
+    closeSubDialog(): void {
+        this.viewImageModal.hide()
     }
 }

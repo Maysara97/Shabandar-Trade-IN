@@ -9,8 +9,9 @@ import { FormsModule } from '@angular/forms'
 
 import { EditprofileComponent } from './components/editprofile/editprofile.component'
 import { UpdatePasswordComponent } from './components/update-password/update-password.component'
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module'
 import { ConfirmationComponent } from './components/confirmation/confirmation.component'
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
         ReactiveFormsModule,
         FormsModule,
         SharedModule,
+        MultiSelectAllModule,
     ],
 })
 export class AccountModule {}

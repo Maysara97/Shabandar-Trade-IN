@@ -47,32 +47,9 @@ export class AddNewRequestFormComponent implements OnInit {
     tagNames = []
     tagCoverage = []
     agents = []
-    certifications: string[] = []
-
-    industryCategorySelected = false
-    touristicCategorySelected = false
-    realEstateCategorySelected = false
-    designersCategorySelected = false
-    shippingCategorySelected = false
-
-    realStateId = '5a1bfc74-813f-436a-b919-c24c895cfd81'
-    touristicId = '5a1bfc74-813f-436a-b919-c24c895cfd82'
-    industryId = '5a1bfc74-813f-436a-b919-c24c895cfd87'
-    designersId = '5a1bfc74-813f-436a-b919-c24c895cfd89'
-    shippingId = '5a1bfc74-813f-436a-b919-c24c895cfd80'
-
     categories: Category[]
     subCategories: Category[]
     countries: Country[]
-    public coverage: Country
-    public localFields: Object = { text: 'name', value: 'id' }
-    public localWaterMark: string = 'Select Multiple Coverages'
-
-    public FinishedStatusTypeMapping = FinishedStatusTypeMapping
-    public finishedType = Object.values(FinishedStatusType)
-    public stateTypes = Object.values(FinishedStatusType).filter(
-        (value) => typeof value === 'number'
-    )
 
     constructor(
         private formBuilder: FormBuilder,
@@ -109,29 +86,29 @@ export class AddNewRequestFormComponent implements OnInit {
             categoryId: [this.categorySelected, [Validators.required]],
             parentId: [],
             paymentTerms: [],
-            size: [],
+            // size: [],
             description: [],
             location: [],
-            brandName: [],
-            packing: [],
-            storage: [],
-            productMaterial: [],
-            wieght: [],
-            type: [],
-            grade: [],
-            code: [],
-            moq: [],
-            certification: [],
-            duration: [],
-            accomdationName: [],
-            program: [],
-            space: [],
-            finishedStatus: [],
-            coverage: [],
-            serviceType: [],
-            agentsLocation: [],
-            softwares: [],
-            tripCategory: [],
+            // brandName: [],
+            // packing: [],
+            // storage: [],
+            // productMaterial: [],
+            // wieght: [],
+            // type: [],
+            // grade: [],
+            // code: [],
+            // moq: [],
+            // certification: [],
+            // duration: [],
+            // accomdationName: [],
+            // program: [],
+            // space: [],
+            // finishedStatus: [],
+            // coverage: [],
+            // serviceType: [],
+            // agentsLocation: [],
+            // softwares: [],
+            // tripCategory: [],
         })
 
         this.productSelected = -1
@@ -156,16 +133,16 @@ export class AddNewRequestFormComponent implements OnInit {
     }
 
     // Upload Certifications
-    handleCertificationsUpload(files: FileImage[]) {
-        this.addBuyingRequestForm.patchValue({
-            certification: files[0].imageFile,
-        })
-    }
-    handleCertificationsRemove(files: FileImage[]) {
-        this.addBuyingRequestForm.patchValue({
-            certification: files.map((file) => file.imageFile),
-        })
-    }
+    // handleCertificationsUpload(files: FileImage[]) {
+    //     this.addBuyingRequestForm.patchValue({
+    //         certification: files[0].imageFile,
+    //     })
+    // }
+    // handleCertificationsRemove(files: FileImage[]) {
+    //     this.addBuyingRequestForm.patchValue({
+    //         certification: files.map((file) => file.imageFile),
+    //     })
+    // }
 
     handleOnCategoryChange() {
         // Bind Products by Category
@@ -212,12 +189,7 @@ export class AddNewRequestFormComponent implements OnInit {
             agentsResult.push(element.value)
         })
         this.buyingRequestService
-            .createBuyingRequest(
-                requestProduct,
-                tagResult,
-                this.tagCoverage,
-                agentsResult
-            )
+            .createBuyingRequest(requestProduct)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
                     this.router.navigate(['/account/owner'])

@@ -34,9 +34,9 @@ export class HomeHeaderComponent implements OnInit {
         this.auth.isAuthed.subscribe((result) => {
             this.isLoggedIn = result
         })
-        if (this.newNotificationCount > 0) {
-            this.newNotificationCounts()
-        }
+        // if (this.newNotificationCount > 0) {
+        //     this.newNotificationCounts()
+        // }
         this.allNotifications(this.pageSize, this.pageNumber)
     }
     getNotifications() {

@@ -9,9 +9,23 @@
                         <div class="col-lg-12">
                             <div class="tm-feature text-center">
                                 <span class="tm-feature-icon">
-                                    <a href="#"><img [src]="getFilePath(image)" width="152px" height="76px"></a>
+                                    <a (click)="viewImage(imageModal)"><img [src]="getFilePath(image)" width="152px"
+                                            height="76px"></a>
                                 </span>
                             </div>
+                            <ng-template #imageModal>
+                                <div class="modal-body text-center ">
+                                    <div class="row justify-content-center">
+                                        <img [src]="getFilePath(image)" width="100%">
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="closeSubDialog()">Close</button>
+                                    </div>
+
+
+                                </div>
+                            </ng-template>
                         </div>
                     </div>
                 </owl-carousel>
@@ -66,121 +80,6 @@
                                     </li>
                                 </div>
                             </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.size">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Size :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.size">
-                                        {{buyingRequestDetails.size}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.wieght">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Wieght :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.wieght">
-                                        {{buyingRequestDetails.wieght}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.packing">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Packing Way :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.packing">
-                                        {{buyingRequestDetails.packing}}
-                                    </li>
-                                </div>
-                            </div>
-
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.certification">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Certification :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.certification">
-                                        <a [href]="getFilePath(buyingRequestDetails.certification)"
-                                            target="_blank">{{buyingRequestDetails.certification}}
-                                        </a>
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.type">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Type :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.type">
-                                        {{buyingRequestDetails.type}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.grade">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Grade :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.grade">
-                                        {{buyingRequestDetails.grade}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.storage">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Storage :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.storage">
-                                        {{buyingRequestDetails.storage}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.brandName.length > 0">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Brand Names :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.brandName.length > 0">
-                                        <div style="display: inline-block;"
-                                            *ngFor="let brand of buyingRequestDetails.brandName">&nbsp; {{brand}}
-                                        </div>
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.code">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Code :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.code">
-                                        {{buyingRequestDetails.code}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.moq">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>MOQ :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.moq">
-                                        {{buyingRequestDetails.moq}}
-                                    </li>
-                                </div>
-                            </div>
                             <div class="row mt-3" *ngIf="buyingRequestDetails.paymentTerms">
                                 <div class="col-5">
                                     <li style="color: #fff;">
@@ -211,114 +110,6 @@
                                 <div class="col-7">
                                     <li *ngIf="buyingRequestDetails.unitePrice">
                                         {{buyingRequestDetails.unitePrice}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.duration">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Duration :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.duration">
-                                        {{buyingRequestDetails.duration}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.accomdationName">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Accomdation Name :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.accomdationName">
-                                        {{buyingRequestDetails.accomdationName}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.program">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Program :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.program">
-                                        {{buyingRequestDetails.program}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.tripCategory">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Trip Category :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.tripCategory">
-                                        {{buyingRequestDetails.tripCategory}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.space">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Space :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.space">
-                                        {{buyingRequestDetails.space}}
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.finishedStatus != -1">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Finished Status :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.finishedStatus">
-                                        <div *ngIf="buyingRequestDetails.finishedStatus == 1">
-                                            {{FinishedStatusTypeMapping[1]}}</div>
-                                        <div *ngIf="buyingRequestDetails.finishedStatus == 2">
-                                            {{FinishedStatusTypeMapping[2]}}</div>
-                                        <div *ngIf="buyingRequestDetails.finishedStatus == 3">
-                                            {{FinishedStatusTypeMapping[3]}}</div>
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.coverage.length > 0">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Coverage :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.coverage">
-                                        <div style="display: inline-block;"
-                                            *ngFor="let coverage of buyingRequestDetails.coverage">&nbsp; {{coverage}}
-                                        </div>
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.agentsLocation.length > 0">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Agents Locations :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.agentsLocation">
-                                        <div style="display: inline-block;"
-                                            *ngFor="let agent of buyingRequestDetails.agentsLocation">&nbsp; {{agent}}
-                                        </div>
-                                    </li>
-                                </div>
-                            </div>
-                            <div class="row mt-3" *ngIf="buyingRequestDetails.softwares">
-                                <div class="col-5">
-                                    <li style="color: #fff;">
-                                        <b>Softwares :</b></li>
-                                </div>
-                                <div class="col-7">
-                                    <li *ngIf="buyingRequestDetails.softwares">
-                                        {{buyingRequestDetails.softwares}}
                                     </li>
                                 </div>
                             </div>

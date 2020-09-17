@@ -31,3 +31,15 @@ p a {
 p a:hover {
     color: #0e1234;
 }
+
+.forgetPass a {
+    color: #f80000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.forgetPass a:hover {
+    color: #f80000;
+    font-weight: 900;
+    text-decoration: underline;
+}

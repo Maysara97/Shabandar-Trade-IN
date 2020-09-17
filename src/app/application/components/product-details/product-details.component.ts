@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, TemplateRef } from '@angular/core'
 import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
 import { ActivatedRoute } from '@angular/router'
@@ -8,6 +8,7 @@ import {
     FinishedStatusType,
     FinishedStatusTypeMapping,
 } from '../../models/enum'
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 
 @Component({
     selector: 'app-product-details',
@@ -18,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
     accountProductDetails: AccountProduct
     accountProductId
     env: any
+    viewImageModal: BsModalRef
 
     public FinishedStatusTypeMapping = FinishedStatusTypeMapping
 
@@ -49,7 +51,8 @@ export class ProductDetailsComponent implements OnInit {
     }
     constructor(
         private accountProductService: AccountProductService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private modalService: BsModalService
     ) {
         this.accountProductId = route.snapshot.params['accountProductId']
         this.env = environment
@@ -66,5 +69,14 @@ export class ProductDetailsComponent implements OnInit {
 
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
+    }
+
+    viewImage(template: TemplateRef<any>) {
+        this.viewImageModal = this.modalService.show(template, {
+            class: 'modal-lg',
+        })
+    }
+    closeSubDialog(): void {
+        this.viewImageModal.hide()
     }
 }

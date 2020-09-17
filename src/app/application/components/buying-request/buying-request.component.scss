@@ -254,6 +254,7 @@
     color: #fff !important;
     height: 45px;
     font-size: 13px;
+    width: 6%;
 }
 
 .dateFrom::placeholder {
@@ -309,26 +310,8 @@
 }
 .sponsored-rectangle img {
     width: 80%;
-    margin-left: 15px;
+    margin-left: 10%;
 }
-
-.sponsored-rectangle .sponsored-price {
-    color: red;
-    font-size: 12px;
-    margin-bottom: 0;
-}
-
-.sponsored-rectangle .sponsored-before-price {
-    font-size: 10px;
-    text-decoration: line-through;
-    margin-bottom: 0;
-    color: #ffffff;
-}
-.sponsored-rectangle .description {
-    font-size: 8px;
-    color: #ffffff;
-}
-
 .tm-padding-section {
     padding-top: 130px;
     padding-bottom: 30px;
@@ -341,23 +324,8 @@ a:hover {
 
 @media (max-width: 414px) {
     .sponsored-rectangle img {
-        width: 30%;
-        margin-left: 15px;
-    }
-    .sponsored-rectangle .sponsored-price {
-        color: red;
-        font-size: 15px;
-        margin-bottom: 0;
-    }
-    .sponsored-rectangle .sponsored-before-price {
-        font-size: 14px;
-        text-decoration: line-through;
-        margin-bottom: 0;
-        color: #ffffff;
-    }
-    .sponsored-rectangle .description {
-        font-size: 15px;
-        color: #ffffff;
+        width: 60%;
+        margin-left: 20%;
     }
 }
 
@@ -367,4 +335,33 @@ a:hover {
     text-align: center;
     align-items: center;
     color: #f2b414;
+}
+
+.input-search {
+    width: 25%;
+}
+
+#countrySelect {
+    width: 15%;
+}
+
+@media (min-device-width: 320px) and (max-device-width: 768px) {
+    #countrySelect {
+        width: 30%;
+        font-size: 10px;
+    }
+    .input-group > .form-control:not(:first-child),
+    .input-group > .custom-select:not(:first-child) {
+        border-radius: 5px;
+        border: 1px solid #f2b414;
+        background: #0e1234;
+        color: #fff !important;
+        height: 45px;
+        font-size: 13px;
+        width: 20%;
+    }
+    .input-search {
+        width: 50%;
+        height: 32%;
+    }
 }

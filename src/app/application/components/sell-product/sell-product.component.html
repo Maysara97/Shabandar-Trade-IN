@@ -3,11 +3,11 @@
         <div class="row">
             <div class="input-group">
                 <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
-                    placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
+                    placeholder="What are you looking for?" aria-label="What are you looking for?"
                     aria-describedby="basic-addon2" (keyup)="applyFilter()" />
 
-                <select name="demo" id="countrySelect" style="text-transform: uppercase;width: 15%;"
-                    [(ngModel)]="countryId" (click)="applyFilter()">
+                <select name="demo" id="countrySelect" style="text-transform: uppercase;" [(ngModel)]="countryId"
+                    (click)="applyFilter()">
                     <option selected="selected" disabled="disabled" value="">All Countries</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>

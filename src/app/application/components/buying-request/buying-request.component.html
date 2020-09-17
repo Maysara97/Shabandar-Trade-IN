@@ -2,24 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <!-- <select name="demo" id="productSelect" style="width: 12%;">
-                    <option selected="selected" value="">Products</option>
-                    <option *ngFor="let product of products" value="{{product.productId}}">
-                        {{product.productName}}</option>
-                </select> -->
-                <!-- [(ngModel)]="term" -->
-                <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
-                    placeholder="What are you looking for?" style="width: 25%;" aria-label="What are you looking for?"
+                <input type="text" class="form-control input-search " name="search" [(ngModel)]="searchKeyWord"
+                    placeholder="What are you looking for?" aria-label="What are you looking for?"
                     aria-describedby="basic-addon2" (keyup)="applyFilter()" />
-                <select name="demo" id="countrySelect" style="text-transform: uppercase; width: 15%;"
-                    [(ngModel)]="countryId" (click)="applyFilter()">
+                <select name="demo" id="countrySelect" style="text-transform: uppercase; " [(ngModel)]="countryId"
+                    (click)="applyFilter()">
                     <option selected="selected" value="" style="text-transform: capitalize;">All Countries</option>
                     <option *ngFor="let country of countries" value="{{country.id}}">
                         {{country.name}}</option>
                 </select>
-                <input type="text" placeholder="Date From" class="form-control dateFrom" bsDatepicker
+                <input type="text" placeholder="Date From" class="form-control dateFrom " bsDatepicker
                     [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="dateFrom">
-                <input type="text" placeholder="Date To" class="form-control dateFrom" bsDatepicker
+                <input type="text" placeholder="Date To" class="form-control dateFrom " bsDatepicker
                     [(ngModel)]="dateTo">
 
                 <button class="btn searchButton" type="button" (click)="applyFilter()">
@@ -67,8 +61,6 @@
                             </div>
 
                             <div class="supplier-name">
-                                <!-- Country name -->
-                                <!-- <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" /> -->
                                 <p style="float: left; color: #0e1234;"><i class="fa fa-globe"
                                         aria-hidden="true"></i>&nbsp;{{requestProduct.countryName}}</p>
                                 <a [routerLink]="['/application/viewer', requestProduct.ownerAccountId]">
@@ -92,7 +84,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--// Single Product -->
                 </div>
             </div>
         </div>
@@ -119,51 +110,11 @@
             </a>
         </div>
         <!-- <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
-            <a href="#">
+            <a>
                 <div class="sponsored-rectangle">
                     <div class="row">
-                        <div class="col-md-4">
-                            <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                        </div>
-                        <div class="col-md-6">
-                            <p class="sponsored-price">$952.20 </p>
-                            <p class="sponsored-before-price">$1,587.00</p>
-                            <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
-            <a href="#">
-                <div class="sponsored-rectangle">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                        </div>
-                        <div class="col-md-6">
-                            <p class="sponsored-price">$952.20 </p>
-                            <p class="sponsored-before-price">$1,587.00</p>
-                            <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
-            <a href="#">
-                <div class="sponsored-rectangle">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="/assets/images/You-Trade-In/sponsored-img.png">
-                        </div>
-                        <div class="col-md-6">
-                            <p class="sponsored-price">$952.20 </p>
-                            <p class="sponsored-before-price">$1,587.00</p>
-                            <p class="description">ANDELI inverter ac dc digital square wave pulse tig
-                                TIG-250PAC tig aluminum with aluminum alloy tig welder</p>
+                        <div class="col-md-12">
+                            <img src="/assets/images/You-Trade-In/sponsore-1.png">
                         </div>
                     </div>
                 </div>

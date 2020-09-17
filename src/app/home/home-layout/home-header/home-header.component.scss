@@ -42,10 +42,18 @@
     .header-logo {
         display: none;
     }
+    .messaging {
+        color: #ffffff;
+        background-color: transparent;
+        background-image: none;
+        height: 41%;
+        display: inline-flex;
+    }
 }
 @media (min-width: 768px) and (max-width: 1365px) {
     .header-logo-mobile {
         width: 48%;
+        height: 140px;
     }
 
     .toggle {
@@ -218,4 +226,23 @@
     color: #0e1234;
     text-decoration: none;
     background-color: #f2b41433;
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+    .menu-list {
+        margin-right: 20%;
+    }
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 0.25rem 0;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+        font-size: 15px;
+    }
 }

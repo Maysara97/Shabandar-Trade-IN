@@ -36,6 +36,8 @@ export class EditprofileComponent implements OnInit {
     images: string[] = []
     countries: Country[]
     categories: Category[]
+    categoryParentId
+    categorySelections = []
     env: any
     constructor(
         private formBuilder: FormBuilder,
@@ -49,6 +51,9 @@ export class EditprofileComponent implements OnInit {
     }
     public mobileNumbers = [{ id: 1, mobile: '' }]
     public phoneNumbers = [{ id: 1, phone: '' }]
+
+    public localFields: Object = { text: 'categoryName', value: 'categoryId' }
+    public localWaterMark: string = 'Select Multiple Category'
     ngOnInit(): void {
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
@@ -64,19 +69,25 @@ export class EditprofileComponent implements OnInit {
             this.updateUserData = result.data
             this.files = this.updateUserData.accountAttachments
             this.images[0] = this.updateUserData.accountImage
+            // this.categoryParentId = this.updateUserData.categoryId
         })
+        // this.categoryService
+        //     .getCategoriesByParentId(this.categoryParentId)
+        //     .subscribe((result: any) => {
+        //         this.categories = result.data
+        //     })
 
         this.editProfileForm = this.formBuilder.group({
             accountImage: [Validators.required],
             accountName: [],
-            accountAttachments: [Validators.required],
+            accountAttachments: [],
             contactEmail: [],
             accountWebsite: [],
-            countryId: [Validators.required],
+            countryId: [],
             mission: [],
             vission: [],
             description: [],
-            categoryId: [Validators.required],
+            categoryId: [],
             address: [],
             mobile: [],
             phone: [],
@@ -136,8 +147,13 @@ export class EditprofileComponent implements OnInit {
         this.phoneNumbers.forEach((element) => {
             phoneResults.push(element.phone)
         })
+
+        let categoriesResult = []
+        this.categorySelections.forEach((element) => {
+            categoriesResult.push(element.value)
+        })
         this.auth
-            .updateProfile(form, mobileResults, phoneResults)
+            .updateProfile(form, mobileResults, phoneResults, categoriesResult)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
                     this.router.navigate(['/account/owner'])

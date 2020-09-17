@@ -1,0 +1,20 @@
+.tm-section-title h2,
+.tm-section-title h3 {
+    font-weight: 700;
+    font-size: 40px;
+    margin-top: 15%;
+    color: #fff;
+}
+
+.tm-section-title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.tm-section-title h2::before,
+.tm-section-title h2::after,
+.tm-section-title h3::before,
+.tm-section-title h3::after {
+    color: #f2b414;
+    font-weight: 400;
+}
