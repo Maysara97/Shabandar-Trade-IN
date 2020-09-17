@@ -3,6 +3,7 @@ export class BuyingRequest {
     buyingRequestId?: string
     productId?: string
     categoryId?: string
+    subCategoryId?: string
     title?: string
     description?: string
     image?: string[] = []

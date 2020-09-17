@@ -11,12 +11,16 @@
             </div>
             <div class="row services-wrap mt-5">
 
-                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp" *ngFor="let partner of partnerAds">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp"
+                    *ngFor="let partner of partnerAds; let i = index">
                     <div class="tm-service text-center">
                         <span class="tm-service-icon">
                             <a [routerLink]="['/application/viewer', partner.accountId]"> <img
                                     [src]="getFilePath(partner.adImage)"></a>
                         </span>
+                        <!-- <span class="tm-service-icon" *ngIf="i != 4">
+                            <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
+                        </span> -->
                     </div>
                 </div>
 

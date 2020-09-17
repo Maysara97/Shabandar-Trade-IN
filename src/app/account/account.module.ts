@@ -11,7 +11,8 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { UpdatePasswordComponent } from './components/update-password/update-password.component'
 import { SharedModule } from '../shared/shared.module'
 import { ConfirmationComponent } from './components/confirmation/confirmation.component'
-import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component'
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns'
         EditprofileComponent,
         UpdatePasswordComponent,
         ConfirmationComponent,
+        ForgetPasswordComponent,
     ],
     imports: [
         CommonModule,

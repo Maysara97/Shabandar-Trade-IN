@@ -21,19 +21,6 @@ export class CategoryProductsComponent implements OnInit {
     ngOnInit(): void {
         this.categoryService.getParentsWithAds().subscribe((result: any) => {
             this.categories = result.data
-            // console.log(this.categories)
-            // for (var i = 0; i < this.categories.length; i++) {
-            //     for (var j = 0; j < 4; j++) {
-            //         this.counter++
-            //         if (this.categories[i].ads.length < 4) {
-            //             let len = this.categories[i].ads.length
-            //             let adStaticImage: Ads
-            //             adStaticImage.adImage =
-            //                 './assets/images/You-Trade-In/category_1.png'
-            //             this.categories[i].ads.fill(adStaticImage, len)
-            //         }
-            //     }
-            // }
         })
     }
     getFilePath(fileName: string): string {

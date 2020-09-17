@@ -9,6 +9,7 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
 import { AuthGuard } from '../shared/guards/auth.guard'
 import { UpdatePasswordComponent } from './components/update-password/update-password.component'
 import { ConfirmationComponent } from './components/confirmation/confirmation.component'
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component'
 
 const routes: Routes = [
     {
@@ -35,6 +36,7 @@ const routes: Routes = [
             { path: 'editprofile', component: EditprofileComponent },
             { path: 'update-password', component: UpdatePasswordComponent },
             { path: 'confirmation', component: ConfirmationComponent },
+            { path: 'forget-password', component: ForgetPasswordComponent },
         ],
     },
 ]

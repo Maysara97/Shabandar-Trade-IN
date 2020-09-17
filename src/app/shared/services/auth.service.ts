@@ -11,6 +11,7 @@ import { Observable, BehaviorSubject } from 'rxjs'
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { tokenGetter } from 'src/app/app.module'
 import { UpdatePassword } from 'src/app/account/models/updatePassword'
+import { Category } from 'src/app/application/models/category'
 
 @Injectable({
     providedIn: 'root',
@@ -68,7 +69,6 @@ export class AuthService extends BaseService<any> {
             primaryAdminLastName: user.primaryAdminLastName,
             primaryAdminEmail: user.primaryAdminEmail,
             primaryAdminPassword: user.primaryAdminPassword,
-            accountMobile: user.accountMobile,
             countryId: user.countryId,
             categoryId: user.categoryId,
             acceptTerms: user.acceptTerms,
@@ -97,8 +97,8 @@ export class AuthService extends BaseService<any> {
             accountAttachments: account.accountAttachments,
             accountWebsite: account.accountWebsite,
             countryId: account.countryId,
-            categoryId: categoriesResult,
-            // categoryId: account.categoryId,
+            categories: categoriesResult,
+            categoryId: account.categoryId,
         }
         console.log(body)
         return this.put('Account', body)
@@ -121,5 +121,11 @@ export class AuthService extends BaseService<any> {
     }
     getAccountsByCategoryId(categoryId: string) {
         return this.getById('Account/GetAccountsByCategory', categoryId)
+    }
+    forgetPassword(email: string) {
+        return this.getById('Authorization/ForgetPassword', email)
+    }
+    getAccountCategories(): Observable<Category> {
+        return this.get('Account/AccountCategoriesLookUp')
     }
 }

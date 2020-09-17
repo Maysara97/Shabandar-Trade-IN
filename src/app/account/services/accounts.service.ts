@@ -30,7 +30,7 @@ export class AccountsService {
                     ),
                 ],
             ],
-            accountMobile: [null, [Validators.required]],
+            // accountMobile: [null, [Validators.required]],
             primaryAdminPassword: [
                 null,
                 [

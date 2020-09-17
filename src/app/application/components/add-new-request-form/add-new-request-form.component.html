@@ -22,8 +22,8 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="parentId">Product Category</label>
-                                <select class="form-control" id="parentId" formControlName="parentId"
+                                <label for="categoryId">Product Category</label>
+                                <select class="form-control" id="categoryId" formControlName="categoryId"
                                     [(ngModel)]="categorySelected" (change)="handleOnChooseParent()">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
@@ -31,13 +31,13 @@
                                         {{category.categoryName}}</option>
                                 </select>
                                 <label class="text-danger"
-                                    *ngIf="addBuyingRequestForm.get('parentId').touched && addBuyingRequestForm.get('parentId').errors?.required">
+                                    *ngIf="addBuyingRequestForm.get('categoryId').touched && addBuyingRequestForm.get('categoryId').errors?.required">
                                     You Must choose the Product's Category
                                 </label>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="categoryId">Sub Category</label>
-                                <select class="form-control" id="categoryId" formControlName="categoryId"
+                                <label for="subCategoryId">Sub Category</label>
+                                <select class="form-control" id="subCategoryId" formControlName="subCategoryId"
                                     [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Sub Category
                                     </option>
@@ -45,7 +45,7 @@
                                         {{category.categoryName}}</option>
                                 </select>
                                 <label class="text-danger"
-                                    *ngIf="addBuyingRequestForm.get('categoryId').touched && addBuyingRequestForm.get('categoryId').errors?.required">
+                                    *ngIf="addBuyingRequestForm.get('subCategoryId').touched && addBuyingRequestForm.get('subCategoryId').errors?.required">
                                     You Must choose the Product's Category
                                 </label>
                             </div>

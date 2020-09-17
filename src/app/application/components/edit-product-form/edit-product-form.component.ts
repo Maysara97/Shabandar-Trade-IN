@@ -94,12 +94,10 @@ export class EditProductFormComponent implements OnInit {
             .getAccountProductById(this.accountProductId)
             .subscribe((result: any) => {
                 this.accountProductDetails = result.data
-
                 this.categorySelected = this.accountProductDetails.categoryId
                 this.countrySelected = this.accountProductDetails.location
                 this.unitePriceSelected = this.accountProductDetails.unitePrice
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
-                // this.subCategorySelected = this.accountProductDetails.parentId
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
                 this.images = this.accountProductDetails.productImages
@@ -134,7 +132,6 @@ export class EditProductFormComponent implements OnInit {
             unitePrice: [],
             price: [],
             categoryId: [],
-            parentId: [],
             paymentTerms: [],
             productImages: [],
             attachments: [],
@@ -206,21 +203,21 @@ export class EditProductFormComponent implements OnInit {
                 this.products = result.data
             })
     }
-    handleOnChooseParent() {
-        this.categoryService
-            .getCategoriesByParentId(this.categorySelected)
-            .subscribe((result: any) => {
-                this.subCategories = result.data
-            })
-        this.productService
-            .getProductsByCategory(this.categorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
+    // handleOnChooseParent() {
+    //     this.categoryService
+    //         .getCategoriesByParentId(this.categorySelected)
+    //         .subscribe((result: any) => {
+    //             this.subCategories = result.data
+    //         })
+    //     this.productService
+    //         .getProductsByCategory(this.categorySelected)
+    //         .subscribe((result: any) => {
+    //             this.products = result.data
+    //         })
 
-        // this.subCategorySelected = -1
-        // this.productSelected = -1
-    }
+    //     // this.subCategorySelected = -1
+    //     // this.productSelected = -1
+    // }
     onSubmit(accountProductId) {
         this.submitted = true
         // Tags

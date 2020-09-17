@@ -6,8 +6,6 @@ import { Component, OnInit, HostBinding } from '@angular/core'
     styleUrls: ['./home-read-more.component.scss'],
 })
 export class HomeReadMoreComponent implements OnInit {
-    myBackgroundImageUrl = './assets/images/You-Trade-In/background-end.png'
-
     egyptCarousel: any = {
         loop: false,
         mouseDrag: true,
@@ -36,8 +34,4 @@ export class HomeReadMoreComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {}
-    @HostBinding('style.backgroundImage')
-    getBackgroundImageUrl() {
-        return `url(${this.myBackgroundImageUrl})`
-    }
 }

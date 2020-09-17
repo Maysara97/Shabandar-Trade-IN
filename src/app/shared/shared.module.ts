@@ -21,6 +21,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel'
 import { MatTabsModule } from '@angular/material/tabs'
 import { OwlModule } from 'ngx-owl-carousel'
 import { ModalModule } from 'ngx-bootstrap/modal'
+import { NgSelectModule } from '@ng-select/ng-select'
 
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginImagePreview)
 
@@ -55,6 +56,7 @@ const SHARED_INTERNAL_MODULES = [
         TooltipModule.forRoot(),
         OwlModule,
         ModalModule.forRoot(),
+        NgSelectModule,
     ],
     exports: [
         ...SHARED_EXTERNAL_MODULES,
@@ -62,6 +64,7 @@ const SHARED_INTERNAL_MODULES = [
         ...SHARED_COMPONENTS,
         TooltipModule,
         OwlModule,
+        NgSelectModule,
     ],
 })
 export class SharedModule {}

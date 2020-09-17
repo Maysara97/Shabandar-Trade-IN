@@ -6,14 +6,9 @@ import { Component, OnInit, HostBinding } from '@angular/core'
     styleUrls: ['./home-footer.component.scss'],
 })
 export class HomeFooterComponent implements OnInit {
-    myBackgroundImageUrl = 'assets/images/You-Trade-In/background.png'
     constructor() {}
 
     ngOnInit() {}
-    @HostBinding('style.backgroundImage')
-    getBackgroundImageUrl() {
-        return `url(${this.myBackgroundImageUrl})`
-    }
 
     public navigateToSection(section: string) {
         window.location.hash = ''
