@@ -10,7 +10,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="parentId">Product Category</label>
                                 <select class="form-control" id="parentId" formControlName="parentId"
-                                    [(ngModel)]="categorySelected" (change)="handleOnChooseParent()">
+                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
                                     <option *ngFor="let category of categories" value="{{category.categoryId}}">
@@ -22,6 +22,16 @@
                                 </label>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="productId">Product Name</label>
+                                <select class="form-control" id="productId" formControlName="productId"
+                                    [(ngModel)]="productSelected">
+                                    <option [ngValue]="-1" disabled selected="selected">Choose your Product</option>
+                                    <option *ngFor="let product of products" value="{{product.productId}}">
+                                        {{product.productName}}</option>
+                                </select>
+                            </div>
+
+                            <!-- <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="categoryId">Sub Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId"
                                     [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
@@ -34,52 +44,13 @@
                                     *ngIf="editAccountProductForm.get('categoryId').touched && editAccountProductForm.get('categoryId').errors?.required">
                                     You Must choose the Product's Category
                                 </label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="location">Country</label>
-                                <select class="form-control" id="countries" formControlName="location"
-                                    style="text-transform: capitalize;" [(ngModel)]="countrySelected">
-                                    <option disabled>Choose Product's Country
-                                    </option>
-                                    <option *ngFor="let country of countries" value="{{country.id}}">
-                                        {{country.name}}</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                <label for="price">Product Price</label>
-                                <input type="text" class="form-control w-100" id="price" formControlName="price"
-                                    placeholder="Product Price" [(ngModel)]="accountProductDetails.price">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                <label for="unitePrice">Unite Price</label>
-                                <select class="form-control" id="unitePrice" formControlName="unitePrice"
-                                    [(ngModel)]="unitePriceSelected">
-                                    <option [disabled]="true">Choose Unite Price
-                                    </option>
-                                    <option value="1">$</option>
-                                    <option value="2">EGY</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-lg-4 col-md-8 col-sm-8">
-                                <label for="productId">Product Name</label>
-                                <select class="form-control" id="productId" formControlName="productId"
-                                    [(ngModel)]="productSelected">
-                                    <option [ngValue]="-1" disabled selected="selected">Choose your Product</option>
-                                    <option *ngFor="let product of products" value="{{product.productId}}">
-                                        {{product.productName}}</option>
-                                </select>
-                            </div>
-
-                            <div class="col-lg-4 col-md-8 col-sm-8">
+                            <div class="col-lg-6 col-md-8 col-sm-8">
                                 <label for="location">Country</label>
                                 <select class="form-control" id="countries" formControlName="location"
                                     style="text-transform: capitalize;" [(ngModel)]="countrySelected">
@@ -89,12 +60,12 @@
                                         {{country.name}}</option>
                                 </select>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
                                 <label for="price">Product Price</label>
                                 <input type="text" class="form-control w-100" id="price" formControlName="price"
                                     placeholder="Product Price">
                             </div>
-                            <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
                                 <label for="unitePrice">Unite Price</label>
                                 <select class="form-control" id="unitePrice" formControlName="unitePrice"
                                     [(ngModel)]="unitePriceSelected">

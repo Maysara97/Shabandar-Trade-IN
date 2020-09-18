@@ -58,12 +58,10 @@
 }
 
 .details-product .tm-feature {
-    -webkit-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    padding: 15px 33px;
-    background: #ffffff;
+    // box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    background: none;
     border-radius: 40px;
-    // height: 150px;
     margin-bottom: 10px;
     width: 300px;
 }
@@ -135,4 +133,10 @@
         display: flex !important;
         width: 404px !important;
     }
+}
+
+::ng-deep .owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    height: auto;
 }

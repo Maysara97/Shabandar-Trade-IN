@@ -8,7 +8,7 @@ import {
     FormArray,
 } from '@angular/forms'
 import { NavigationEnd, Router } from '@angular/router'
-import { User, AccountData } from '../../models/register'
+import { User, AccountData, Categories } from '../../models/register'
 import { AccountsService } from '../../services/accounts.service'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { MustMatch } from '../../models/matchPassword'
@@ -36,8 +36,8 @@ export class EditprofileComponent implements OnInit {
     images: string[] = []
     countries: Country[]
     categories: Category[]
+    mainCategories: Category[]
     categoryParentId
-    categorySelections = []
     env: any
     constructor(
         private formBuilder: FormBuilder,
@@ -51,8 +51,14 @@ export class EditprofileComponent implements OnInit {
     }
     public mobileNumbers = [{ id: 1, mobile: '' }]
     public phoneNumbers = [{ id: 1, phone: '' }]
-
-    public localFields: Object = { text: 'categoryName', value: 'categoryId' }
+    // public categorySelections: Object[] = [{ categoryId: '' }]
+    public categorySelections = [{ categoryId: '' }]
+    public placeHolder: Categories[] = [{ categoryId: '' }]
+    categoryId
+    public localFields: Object = {
+        text: 'categoryName',
+        value: 'categoryId',
+    }
     public localWaterMark: string = 'Select Multiple Category'
     ngOnInit(): void {
         // Bind all Countries
@@ -61,21 +67,27 @@ export class EditprofileComponent implements OnInit {
         })
 
         // Bind all Categories
-        this.categoryService.getAllCategories().subscribe((result: any) => {
-            this.categories = result.data
+        this.categoryService.getAllParents().subscribe((result: any) => {
+            this.mainCategories = result.data
         })
         // Get Account Data
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.updateUserData = result.data
+
             this.files = this.updateUserData.accountAttachments
-            this.images[0] = this.updateUserData.accountImage
+
+            if (this.updateUserData.accountImage) {
+                this.images[0] = this.updateUserData.accountImage
+            }
+            // [this.placeHolder] = this.updateUserData.categories
+            // this.images[0] = this.updateUserData.accountImage
             // this.categoryParentId = this.updateUserData.categoryId
+            this.categoryService
+                .getCategoriesByParentId(this.updateUserData.categoryId)
+                .subscribe((result: any) => {
+                    this.categories = result.data
+                })
         })
-        // this.categoryService
-        //     .getCategoriesByParentId(this.categoryParentId)
-        //     .subscribe((result: any) => {
-        //         this.categories = result.data
-        //     })
 
         this.editProfileForm = this.formBuilder.group({
             accountImage: [Validators.required],
@@ -87,21 +99,18 @@ export class EditprofileComponent implements OnInit {
             mission: [],
             vission: [],
             description: [],
-            categoryId: [],
             address: [],
             mobile: [],
             phone: [],
             whatsApp: [],
             weChat: [],
             zipCode: [],
+            categories: [],
+            categoryId: [],
         })
 
         if (this.profileData) {
             this.editProfileForm.patchValue(this.profileData)
-        }
-
-        if (this.updateUserData.accountImage) {
-            this.images[0] = this.updateUserData.accountImage
         }
 
         this.router.events.subscribe((evt) => {
@@ -150,8 +159,9 @@ export class EditprofileComponent implements OnInit {
 
         let categoriesResult = []
         this.categorySelections.forEach((element) => {
-            categoriesResult.push(element.value)
+            categoriesResult.push({ categoryId: element })
         })
+
         this.auth
             .updateProfile(form, mobileResults, phoneResults, categoriesResult)
             .subscribe((result: any) => {

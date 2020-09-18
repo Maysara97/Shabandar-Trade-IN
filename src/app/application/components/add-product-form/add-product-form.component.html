@@ -10,7 +10,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="parentId">Product Category</label>
                                 <select class="form-control" id="parentId" formControlName="parentId"
-                                    [(ngModel)]="categorySelected" (change)="handleOnChooseParent()">
+                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
                                     <option *ngFor="let category of categories" value="{{category.categoryId}}">
@@ -22,6 +22,15 @@
                                 </label>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label for="productId">Product Name</label>
+                                <select class="form-control" id="productId" formControlName="productId"
+                                    [(ngModel)]="productSelected">
+                                    <option [ngValue]="-1" disabled selected="selected">Choose your Product</option>
+                                    <option *ngFor="let product of products" value="{{product.productId}}">
+                                        {{product.productName}}</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="categoryId">Sub Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId"
                                     [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
@@ -34,24 +43,14 @@
                                     *ngIf="addProductForm.get('categoryId').touched && addProductForm.get('categoryId').errors?.required">
                                     You Must choose the Product's Category
                                 </label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-lg-4 col-md-8 col-sm-8">
-                                <label for="productId">Product Name</label>
-                                <select class="form-control" id="productId" formControlName="productId"
-                                    [(ngModel)]="productSelected">
-                                    <option [ngValue]="-1" disabled selected="selected">Choose your Product</option>
-                                    <option *ngFor="let product of products" value="{{product.productId}}">
-                                        {{product.productName}}</option>
-                                </select>
-                            </div>
-
-                            <div class="col-lg-4 col-md-8 col-sm-8">
+                            <div class="col-lg-6 col-md-8 col-sm-8">
                                 <label for="location">Country</label>
                                 <select class="form-control" id="countries" formControlName="location"
                                     style="text-transform: capitalize;" [(ngModel)]="countrySelected">
@@ -61,12 +60,12 @@
                                         {{country.name}}</option>
                                 </select>
                             </div>
-                            <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
                                 <label for="price">Product Price</label>
                                 <input type="text" class="form-control w-100" id="price" formControlName="price"
                                     placeholder="Product Price">
                             </div>
-                            <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
                                 <label for="unitePrice">Unite Price</label>
                                 <select class="form-control" id="unitePrice" formControlName="unitePrice"
                                     [(ngModel)]="unitePriceSelected">
@@ -160,76 +159,6 @@
                             </div>
 
                         </div>
-
-                        <!-- <div class="touristic-category" *ngSwitchCase="touristicId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="tripCategory">Trip Category</label>
-                                        <input type="text" class="form-control w-100" id="tripCategory"
-                                            formControlName="tripCategory" placeholder="Trip Category">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="duration">Duration</label>
-                                        <input type="text" class="form-control w-100" id="duration"
-                                            formControlName="duration" placeholder="Duration">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="accomdationName">Accomdation Name</label>
-                                        <input type="text" class="form-control w-100" id="accomdationName"
-                                            formControlName="accomdationName" placeholder="Accomdation Name">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="program">Program</label>
-                                        <input type="text" class="form-control w-100" id="program"
-                                            formControlName="program" placeholder="Program">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="real-state-category" *ngSwitchCase="realStateId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="space">Space</label>
-                                        <input type="text" class="form-control w-100" id="space" formControlName="space"
-                                            placeholder="Space">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="size">Product Size</label>
-                                        <input type="text" class="form-control w-100" id="size" formControlName="size"
-                                            placeholder="Product Size">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="type">Type</label>
-                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
-                                            placeholder="Type">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="finishedStatus">Finished Or Semi Or Unfinished</label>
-                                        <select class="form-control" id="finishedStatus"
-                                            formControlName="finishedStatus" [(ngModel)]="finishedStatusSelected">
-                                            <option [ngValue]="-1" [selected]="true" [disabled]="true">Choose Product's
-                                                State
-                                            </option>
-                                            <option *ngFor="let finishedType of stateTypes" [value]="finishedType">
-                                                {{FinishedStatusTypeMapping[finishedType]}}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
                         <div class="shipping-and-logistics-category" *ngSwitchCase="shippingId">
                             <div class="form-group">

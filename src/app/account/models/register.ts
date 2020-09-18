@@ -1,3 +1,4 @@
+import { Category } from 'src/app/application/models/category'
 import { Role } from './role'
 
 export class User {
@@ -6,7 +7,6 @@ export class User {
     primaryAdminFirstlName?: string
     primaryAdminLastName?: string
     primaryAdminPassword?: string
-    accountMobile?: string
     countryId?: 0
     categoryId?: string
     acceptTerms?: boolean
@@ -46,6 +46,7 @@ export class AccountData {
     phone?: string[] = []
     zipCode?: string
     accountMobile?: string
+    categories?: Categories[] = []
 }
 
 export class Favorites {
@@ -74,4 +75,11 @@ export class UserProfile {
     accountWebsite?: string
     countryId?: 0
     categoryId?: string
+}
+
+export class Categories {
+    accountCategoryId?: string
+    accountId?: string
+    categoryId?: string
+    categoryName?: string
 }

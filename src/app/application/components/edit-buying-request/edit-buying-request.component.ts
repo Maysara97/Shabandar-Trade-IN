@@ -47,11 +47,6 @@ export class EditBuyingRequestComponent implements OnInit {
     tagCoverage = []
     agents = []
 
-    industryCategorySelected = false
-    touristicCategorySelected = false
-    realEstateCategorySelected = false
-    designersCategorySelected = false
-    shippingCategorySelected = false
     categoryId
     title
     categories: Category[]
@@ -78,20 +73,12 @@ export class EditBuyingRequestComponent implements OnInit {
             .getBuyingRequestById(this.buyingRequestId)
             .subscribe((result: any) => {
                 this.buyingRequestDetails = result.data
-
                 this.categorySelected = this.buyingRequestDetails.categoryId
                 this.countrySelected = this.buyingRequestDetails.location
-                // this.subCategorySelected = this.buyingRequestDetails.parentId
+                this.subCategorySelected = this.buyingRequestDetails.subCategoryId
                 this.unitePriceSelected = this.buyingRequestDetails.unitePrice
-                // this.finishedStatusSelected = this.buyingRequestDetails.finishedStatus
-                // this.tagNames = this.buyingRequestDetails.brandName
-                // this.tagCoverage = this.buyingRequestDetails.coverage
                 this.title = this.buyingRequestDetails.title
                 this.images = this.buyingRequestDetails.image
-                // if (this.certifications[0]) {
-                //     this.certifications[0] = this.buyingRequestDetails.certification
-                // }
-
                 this.productService
                     .getProductsByCategory(this.buyingRequestDetails.categoryId)
                     .subscribe((result: any) => {
@@ -121,32 +108,11 @@ export class EditBuyingRequestComponent implements OnInit {
             unitePrice: [],
             price: [],
             categoryId: [],
-            parentId: [],
+            subCategoryId: [],
             paymentTerms: [],
             image: [],
-            // size: [],
             description: [],
             location: [],
-            // brandName: [],
-            // packing: [],
-            // storage: [],
-            // productMaterial: [],
-            // wieght: [],
-            // type: [],
-            // grade: [],
-            // code: [],
-            // moq: [],
-            // certification: [],
-            // duration: [],
-            // accomdationName: [],
-            // program: [],
-            // space: [],
-            // finishedStatus: [],
-            // coverage: [],
-            // serviceType: [],
-            // agentsLocation: [],
-            // softwares: [],
-            // tripCategory: [],
         })
     }
 
@@ -161,18 +127,6 @@ export class EditBuyingRequestComponent implements OnInit {
             image: files.map((file) => file.imageFile),
         })
     }
-
-    // Upload Certifications
-    // handleCertificationsUpload(files: FileImage[]) {
-    //     this.editBuyingRequestForm.patchValue({
-    //         certification: files[0].imageFile,
-    //     })
-    // }
-    // handleCertificationsRemove(files: FileImage[]) {
-    //     this.editBuyingRequestForm.patchValue({
-    //         certification: files.map((file) => file.imageFile),
-    //     })
-    // }
     handleOnCategoryChange() {
         // Bind Products by Category
         this.productService

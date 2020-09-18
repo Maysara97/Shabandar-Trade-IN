@@ -16,6 +16,7 @@ import {
     FinishedStatusTypeMapping,
     FinishedStatusType,
 } from '../../models/enum'
+import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Component({
     selector: 'app-add-product-form',
@@ -70,7 +71,8 @@ export class AddProductFormComponent implements OnInit {
         private toastr: ToastrService,
         private accountProductService: AccountProductService,
         private categoryService: CategoryService,
-        private countryService: CountryService
+        private countryService: CountryService,
+        private authService: AuthService
     ) {}
 
     ngOnInit(): void {
@@ -81,7 +83,11 @@ export class AddProductFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         // Bind all Categories
-        this.categoryService.getAllParents().subscribe((result: any) => {
+        // this.categoryService.getAllParents().subscribe((result: any) => {
+        //     this.categories = result.data
+        // })
+
+        this.authService.getAccountCategories().subscribe((result: any) => {
             this.categories = result.data
         })
 
@@ -171,29 +177,29 @@ export class AddProductFormComponent implements OnInit {
     handleOnCategoryChange() {
         // Bind Products by Category
         this.productService
-            .getProductsByCategory(this.subCategorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
-
-        this.productSelected = -1
-    }
-
-    handleOnChooseParent() {
-        this.categoryService
-            .getCategoriesByParentId(this.categorySelected)
-            .subscribe((result: any) => {
-                this.subCategories = result.data
-            })
-        this.productService
             .getProductsByCategory(this.categorySelected)
             .subscribe((result: any) => {
                 this.products = result.data
             })
 
-        this.subCategorySelected = -1
         this.productSelected = -1
     }
+
+    // handleOnChooseParent() {
+    //     this.categoryService
+    //         .getCategoriesByParentId(this.categorySelected)
+    //         .subscribe((result: any) => {
+    //             this.subCategories = result.data
+    //         })
+    //     this.productService
+    //         .getProductsByCategory(this.categorySelected)
+    //         .subscribe((result: any) => {
+    //             this.products = result.data
+    //         })
+
+    //     this.subCategorySelected = -1
+    //     this.productSelected = -1
+    // }
 
     onSubmit(accountProduct) {
         this.submitted = true

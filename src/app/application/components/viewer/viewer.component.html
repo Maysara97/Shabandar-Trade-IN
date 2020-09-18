@@ -52,11 +52,24 @@
                                         <div class="row">
                                             <div class="col-5">
                                                 <li>
-                                                    <b>Category </b></li>
+                                                    <b>Main Category </b></li>
                                             </div>
                                             <div class="col-7">
                                                 <li>
                                                     {{targetAccountDetails.categoryName}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Sub Categories </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    <p *ngFor="let category of targetAccountDetails.categories">
+                                                        {{category.categoryName}}
+                                                    </p>
                                                 </li>
                                             </div>
                                         </div>
@@ -105,21 +118,34 @@
                                                 </li>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Profile Description </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.description}}
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Attachments </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    <a *ngFor="let attachment of targetAccountDetails.accountAttachments"
+                                                        [href]="getFilePath(attachment) " alt="Product Attachments"
+                                                        target="_blank">
+                                                        &nbsp; <i class="fa fa-paperclip"
+                                                            aria-hidden="true"></i>&nbsp;{{attachment}}
+                                                    </a>
+                                                </li>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="row description">
-                                    <h4>Profile Description </h4>
-                                    <p *ngIf="targetAccountDetails.description">
-                                        {{targetAccountDetails.description}}
-                                    </p>
-                                </div>
-                                <div class="row description">
-                                    <h4>Attachments</h4>
-                                    <a *ngFor="let attachment of targetAccountDetails.accountAttachments"
-                                        [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
-                                        &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -335,11 +361,24 @@
                                     <div class="row">
                                         <div class="col-5">
                                             <li>
-                                                <b>Category </b></li>
+                                                <b>Main Category </b></li>
                                         </div>
                                         <div class="col-7">
                                             <li>
                                                 {{targetAccountDetails.categoryName}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Sub Categories </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                <p *ngFor="let category of targetAccountDetails.categories">
+                                                    {{category.categoryName}}
+                                                </p>
                                             </li>
                                         </div>
                                     </div>
@@ -388,21 +427,34 @@
                                             </li>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Profile Description </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{targetAccountDetails.description}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Attachments </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                <a *ngFor="let attachment of targetAccountDetails.accountAttachments"
+                                                    [href]="getFilePath(attachment) " alt="Product Attachments"
+                                                    target="_blank">
+                                                    &nbsp; <i class="fa fa-paperclip"
+                                                        aria-hidden="true"></i>&nbsp;{{attachment}}
+                                                </a>
+                                            </li>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="row description">
-                                <h4>Profile Description </h4>
-                                <p *ngIf="targetAccountDetails.description">
-                                    {{targetAccountDetails.description}}
-                                </p>
-                            </div>
-                            <div class="row description">
-                                <h4>Attachments</h4>
-                                <a *ngFor="let attachment of targetAccountDetails.accountAttachments"
-                                    [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
-                                    &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
-                                </a>
                             </div>
                         </div>
                     </div>
