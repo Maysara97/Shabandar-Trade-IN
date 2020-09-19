@@ -187,7 +187,7 @@ export class AddProductFormComponent implements OnInit {
 
         let coverageResult: string[] = []
         this.tagCoverage.forEach((element) => {
-            coverageResult.push(element.value)
+            coverageResult.push(element.text)
         })
 
         let agentsResult: string[] = []

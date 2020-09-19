@@ -35,7 +35,7 @@
                                     </h4>
                                     <div class="rightAlign">
                                         <a type="button" class="btn"
-                                            [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
+                                            [routerLink]="['/application/send-message', targetAccountDetails.accountId, targetAccountDetails.accountName]">
                                             Send Message <i class="fa fa-comments" aria-hidden="true"></i>
                                         </a>
                                         <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn"

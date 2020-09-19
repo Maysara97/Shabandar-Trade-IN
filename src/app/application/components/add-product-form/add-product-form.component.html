@@ -136,10 +136,16 @@
                                 </div>
                                 <div class="col-lg-4 col-md-8 col-sm-8">
                                     <label for="coverage">Coverage</label>
-                                    <ejs-multiselect [dataSource]='countries' [fields]='localFields'
-                                        [placeholder]='localWaterMark' formControlName="coverage"
+                                    <!-- <ejs-multiselect [dataSource]='countries' [fields]='localFields'
+                                            [placeholder]='localWaterMark' formControlName="coverage"
+                                            [(ngModel)]="tagCoverage">
+                                        </ejs-multiselect> -->
+                                    <ng-select class="" bindLabel="name" bindValue="name" placeholder="Choose Category"
+                                        clearAllText="Clear" [virtualScroll]="true" [items]="countries"
+                                        [searchable]="true" [clearable]="true" formControlName="coverage"
+                                        [multiple]="true" [clearSearchOnAdd]="true" [closeOnSelect]="false"
                                         [(ngModel)]="tagCoverage">
-                                    </ejs-multiselect>
+                                    </ng-select>
                                 </div>
                             </div>
                         </div>
