@@ -77,9 +77,8 @@ export class AddNewRequestFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.addBuyingRequestForm = this.formBuilder.group({
-            productId: [],
+            // buyingRequestId: [],
             title: [null, [Validators.required]],
-            productName: [],
             unitePrice: [],
             image: [null, [Validators.required]],
             price: [],
@@ -123,16 +122,16 @@ export class AddNewRequestFormComponent implements OnInit {
     //     })
     // }
 
-    handleOnCategoryChange() {
-        // Bind Products by Category
-        this.productService
-            .getProductsByCategory(this.subCategorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
+    // handleOnCategoryChange() {
+    //     // Bind Products by Category
+    //     this.productService
+    //         .getProductsByCategory(this.subCategorySelected)
+    //         .subscribe((result: any) => {
+    //             this.products = result.data
+    //         })
 
-        this.productSelected = -1
-    }
+    //     this.productSelected = -1
+    // }
 
     handleOnChooseParent() {
         this.categoryService
@@ -140,14 +139,14 @@ export class AddNewRequestFormComponent implements OnInit {
             .subscribe((result: any) => {
                 this.subCategories = result.data
             })
-        this.productService
-            .getProductsByCategory(this.categorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
+        // this.productService
+        //     .getProductsByCategory(this.categorySelected)
+        //     .subscribe((result: any) => {
+        //         this.products = result.data
+        //     })
 
         this.subCategorySelected = -1
-        this.productSelected = -1
+        // this.productSelected = -1
     }
 
     onSubmit(requestProduct) {

@@ -1,0 +1,46 @@
+<div class="tm-section all-products-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12 m-3 mt-5">
+                <h4 style="color: #fff; float: left;" class="leftAlign">
+                    New Messages
+                </h4>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table" *ngIf="newsMessages.length > 0">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Body</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inbox of newsMessages">
+                        <td>{{inbox.title}}</td>
+                        <td>{{inbox.body | slice : 0 : 20}}</td>
+                        <td><a type="button" class="btn btn-primary"
+                                [routerLink]="['/messageing/sidebar/view-message' , inbox.threadId]" tooltip="View"
+                                placement="bottom"><i class="far fa-eye"></i></a>
+                            <button type="button" class="btn btn-danger" (click)="deleteMessage(inbox.messageId)"
+                                tooltip="Delete" placement="bottom"><i class="far fa-trash-alt"></i></button>
+                            <button type="button" class="btn btn-warning" (click)="archiveMessage(inbox.messageId)"
+                                tooltip="Archive" placement="bottom"><i class="fa fa-archive"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center p-2 w-100 mt-3" *ngIf="newsMessages.length">
+            <mat-toolbar-row>
+                <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                    (page)="handleOnPageChange($event)">
+                </mat-paginator>
+            </mat-toolbar-row>
+        </div>
+    </div>
+    <p *ngIf="newsMessages.length == 0" class="col-12 text-center text-main fw-semi2 mb-5">
+        No Messages
+    </p>
+</div>

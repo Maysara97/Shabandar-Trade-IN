@@ -79,10 +79,17 @@ export class EditBuyingRequestComponent implements OnInit {
                 this.unitePriceSelected = this.buyingRequestDetails.unitePrice
                 this.title = this.buyingRequestDetails.title
                 this.images = this.buyingRequestDetails.image
-                this.productService
-                    .getProductsByCategory(this.buyingRequestDetails.categoryId)
+                // this.productService
+                //     .getProductsByCategory(this.buyingRequestDetails.categoryId)
+                //     .subscribe((result: any) => {
+                //         this.products = result.data
+                //     })
+                this.categoryService
+                    .getCategoriesByParentId(
+                        this.buyingRequestDetails.categoryId
+                    )
                     .subscribe((result: any) => {
-                        this.products = result.data
+                        this.subCategories = result.data
                     })
             })
 
@@ -102,9 +109,7 @@ export class EditBuyingRequestComponent implements OnInit {
 
         this.editBuyingRequestForm = this.formBuilder.group({
             buyingRequestId: [this.buyingRequestId],
-            productId: [],
             title: [],
-            productName: [],
             unitePrice: [],
             price: [],
             categoryId: [],
@@ -127,16 +132,16 @@ export class EditBuyingRequestComponent implements OnInit {
             image: files.map((file) => file.imageFile),
         })
     }
-    handleOnCategoryChange() {
-        // Bind Products by Category
-        this.productService
-            .getProductsByCategory(this.subCategorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
+    // handleOnCategoryChange() {
+    //     // Bind Products by Category
+    //     this.productService
+    //         .getProductsByCategory(this.subCategorySelected)
+    //         .subscribe((result: any) => {
+    //             this.products = result.data
+    //         })
 
-        this.productSelected = -1
-    }
+    //     this.productSelected = -1
+    // }
 
     handleOnChooseParent() {
         this.categoryService
@@ -144,14 +149,13 @@ export class EditBuyingRequestComponent implements OnInit {
             .subscribe((result: any) => {
                 this.subCategories = result.data
             })
-        this.productService
-            .getProductsByCategory(this.categorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
+        // this.productService
+        //     .getProductsByCategory(this.categorySelected)
+        //     .subscribe((result: any) => {
+        //         this.products = result.data
+        //     })
 
-        this.subCategorySelected = -1
-        this.productSelected = -1
+        // this.subCategorySelected = -1
     }
     onSubmit(buyingRequestId) {
         this.submitted = true

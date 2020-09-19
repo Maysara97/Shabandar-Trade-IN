@@ -2,10 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="input-group">
-                <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
+                <!-- <input type="text" class="form-control input-search" name="search" [(ngModel)]="searchKeyWord"
                     placeholder="What are you looking for?" aria-label="What are you looking for?"
-                    aria-describedby="basic-addon2" (keyup)="applyFilter()" />
-
+                    aria-describedby="basic-addon2" (keyup)="applyFilter()" /> -->
+                <select name="demo" id="productSelect" style="text-transform: uppercase;" [(ngModel)]="searchKeyWord"
+                    (click)="applyFilter()">
+                    <option selected="selected" disabled="disabled" value="">Products Based on Sub Category</option>
+                    <option *ngFor="let product of products" value="{{product.productId}}">
+                        {{product.productName}}</option>
+                </select>
                 <select name="demo" id="countrySelect" style="text-transform: uppercase;" [(ngModel)]="countryId"
                     (click)="applyFilter()">
                     <option selected="selected" disabled="disabled" value="">All Countries</option>
@@ -36,6 +41,14 @@
                         </li>
                     </ul>
                 </div>
+                <div class="single-widget widget-categories mb-5">
+                    <h5>Sub Categories</h5>
+                    <ul>
+                        <li *ngFor="let subCategory of subCategories">
+                            <a (click)="onChooseSubCategory(subCategory.categoryId)">{{ subCategory.categoryName }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="col-lg-9 col-md-7 col-sm-12 col-12 notLoggedin" *ngIf="!isLoggedIn">
                 <h2>You Need to Signup to Show All Products</h2>
@@ -60,7 +73,6 @@
                             <div class="supplier-name">
 
                                 <p><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{product.countryName}} </p>
-                                <!-- <img src="assets/images/You-Trade-In/uk.png" alt="" width="12%" style="float: left;" /> -->
                                 <a [routerLink]="['/application/viewer', product.accountId]">
                                     {{product.accountName}}</a>
                                 <div style="clear: both;"></div>
@@ -72,10 +84,11 @@
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ product.categoryName }}</p>
                                 </div>
-                                <button class="email-btn" style="float: right;"
+                                <button class="email-btn" style="float: right;" mat-raised-button
+                                    matTooltip="Send Message"
                                     [routerLink]="['/application/send-message', product.accountId,product.accountName]">
-                                    <i class="fa fa-comments" aria-hidden="true"></i>
-                                    &nbsp; Send Message
+                                    &nbsp; <i class="fa fa-comments" aria-hidden="true"></i>
+                                    &nbsp;
                                 </button>
 
                                 <div style="clear: both;"></div>

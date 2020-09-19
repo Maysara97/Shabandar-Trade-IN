@@ -25,6 +25,7 @@ export class BuyingRequestComponent implements OnInit {
     products$: Observable<Product[]>
     buyingRequestProducts: BuyingRequest[] = []
     categories: Category[]
+    subCategories: Category[]
     products: Product[]
     countries: Country[]
     filteredCategories = []
@@ -35,6 +36,7 @@ export class BuyingRequestComponent implements OnInit {
     pageSize = 6
     searchKeyWord = ''
     categoryId = ''
+    subCategoryId = ''
     countryId = ''
     dateFrom = ''
     dateTo = ''
@@ -157,6 +159,15 @@ export class BuyingRequestComponent implements OnInit {
 
     onChooseCategory(category) {
         this.categoryId = category
+        this.applyFilter()
+        this.categoryService
+            .getCategoriesByParentId(category)
+            .subscribe((result: any) => {
+                this.subCategories = result.data
+            })
+    }
+    onChooseSubCategory(subCategory) {
+        this.subCategoryId = subCategory
         this.applyFilter()
     }
 

@@ -43,12 +43,6 @@ export class AddProductFormComponent implements OnInit {
     tagNames = []
     tagCoverage = []
     agents = []
-
-    decorationId = 'cf762c06-cc14-456b-a0fb-85f071fab5cf'
-    designersId = '44fba92f-4cd8-47cb-8ac6-66d6b0a6d9c5'
-    shippingId = '7f1cb7ce-f7ee-4683-9cdd-3f080b183326'
-    equipmentId = 'b942f13a-5c68-4b3a-a04e-388f1a3d96e6'
-
     categories: Category[]
     subCategories: Category[]
     products: Product[]
@@ -63,6 +57,8 @@ export class AddProductFormComponent implements OnInit {
     public stateTypes = Object.values(FinishedStatusType).filter(
         (value) => typeof value === 'number'
     )
+
+    moreInformation = false
 
     constructor(
         private formBuilder: FormBuilder,
@@ -107,7 +103,6 @@ export class AddProductFormComponent implements OnInit {
             unitePrice: [],
             price: [null, [Validators.required]],
             categoryId: [null, [Validators.required]],
-            parentId: [],
             paymentTerms: [],
             productImages: [null, [Validators.required]],
             attachments: [null],
@@ -201,6 +196,9 @@ export class AddProductFormComponent implements OnInit {
     //     this.productSelected = -1
     // }
 
+    toggleMoreInformation() {
+        this.moreInformation = !this.moreInformation
+    }
     onSubmit(accountProduct) {
         this.submitted = true
         // Tags

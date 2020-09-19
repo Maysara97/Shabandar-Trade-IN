@@ -6,6 +6,7 @@ import { InboxComponent } from './inbox/inbox.component'
 import { OutboxComponent } from './outbox/outbox.component'
 import { ArchivedComponent } from './archived/archived.component'
 import { ViewMessageComponent } from './view-message/view-message.component'
+import { NewsComponent } from './news/news.component'
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
                 path: 'sidebar',
                 component: SidebarComponent,
                 children: [
+                    {
+                        path: 'news',
+                        component: NewsComponent,
+                    },
                     {
                         path: 'inbox',
                         component: InboxComponent,

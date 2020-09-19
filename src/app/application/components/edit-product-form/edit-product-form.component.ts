@@ -17,6 +17,7 @@ import { CategoryService } from '../../services/category.service'
 import { CountryService } from '../../services/country.service'
 import { FileImage } from 'src/app/shared/models/file'
 import { environment } from 'src/environments/environment'
+import { AuthService } from 'src/app/shared/services/auth.service'
 
 @Component({
     selector: 'app-edit-product-form',
@@ -82,7 +83,8 @@ export class EditProductFormComponent implements OnInit {
         private productService: ProductService,
         private toastr: ToastrService,
         private categoryService: CategoryService,
-        private countryService: CountryService
+        private countryService: CountryService,
+        private authService: AuthService
     ) {
         this.accountProductId = route.snapshot.params['accountProductId']
 
@@ -94,15 +96,20 @@ export class EditProductFormComponent implements OnInit {
             .getAccountProductById(this.accountProductId)
             .subscribe((result: any) => {
                 this.accountProductDetails = result.data
-                this.categorySelected = this.accountProductDetails.categoryId
                 this.countrySelected = this.accountProductDetails.location
                 this.unitePriceSelected = this.accountProductDetails.unitePrice
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
                 this.images = this.accountProductDetails.productImages
-                this.files = this.accountProductDetails.attachments
-                this.certifications = this.accountProductDetails.certification
+                if (this.accountProductDetails.attachments) {
+                    this.files = this.accountProductDetails.attachments
+                }
+                if (this.accountProductDetails.certification) {
+                    this.certifications = this.accountProductDetails.certification
+                }
+                this.categorySelected = this.accountProductDetails.categoryId
+                this.productSelected = this.accountProductDetails.productId
                 this.productService
                     .getProductsByCategory(
                         this.accountProductDetails.categoryId
@@ -113,7 +120,7 @@ export class EditProductFormComponent implements OnInit {
             })
 
         // Bind all Categories
-        this.categoryService.getAllParents().subscribe((result: any) => {
+        this.authService.getAccountCategories().subscribe((result: any) => {
             this.categories = result.data
         })
 
@@ -158,6 +165,9 @@ export class EditProductFormComponent implements OnInit {
             agentsLocation: [],
             softwares: [],
             tripCategory: [],
+            modelYear: [],
+            totalHours: [],
+            capacity: [],
         })
     }
 
@@ -192,7 +202,7 @@ export class EditProductFormComponent implements OnInit {
     }
     handleCertificationsRemove(files: FileImage[]) {
         this.editAccountProductForm.patchValue({
-            certification: files[0].imageFile,
+            certification: files.map((file) => file.imageFile),
         })
     }
     handleOnCategoryChange() {

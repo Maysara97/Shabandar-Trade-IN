@@ -21,7 +21,9 @@
                                                 {{targetAccountDetails.accountAdministrators[0].lastName}}</p>
                                         </li>
                                         <li><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
-                                            <p>{{targetAccountDetails.accountAdministrators[0].email}}</p>
+                                            <a href="mailto:{{targetAccountDetails.accountAdministrators[0].email}}">
+                                                {{targetAccountDetails.accountAdministrators[0].email}}
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -174,7 +176,9 @@
                                                     <span class="tm-feature-icon">
                                                         <img [src]="getFilePath(product.productImages[0])">
                                                     </span>
-                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="proTitle"><a
+                                                            [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
+                                                    </p>
                                                     <p class="des">{{product.description | slice : 0 : 60}}</p>
                                                 </div>
                                             </div>
@@ -210,7 +214,9 @@
                                                     <span class="tm-feature-icon">
                                                         <img [src]="getFilePath(product.image)">
                                                     </span>
-                                                    <p class="proTitle">{{product.productName}}</p>
+                                                    <p class="proTitle"><a
+                                                            [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                    </p>
                                                     <p class="des">{{product.description | slice : 0 : 60}}</p>
                                                 </div>
                                             </div>
@@ -481,7 +487,9 @@
                                                 <span class="tm-feature-icon">
                                                     <img [src]="getFilePath(product.productImages[0])">
                                                 </span>
-                                                <p class="proTitle">{{product.productName}}</p>
+                                                <p class="proTitle"><a
+                                                        [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
+                                                </p>
                                                 <p class="des">{{product.description | slice : 0 : 60}}</p>
                                             </div>
                                         </div>
@@ -515,7 +523,9 @@
                                                 <span class="tm-feature-icon">
                                                     <img [src]="getFilePath(product.image)">
                                                 </span>
-                                                <p class="proTitle">{{product.productName}}</p>
+                                                <p class="proTitle"><a
+                                                        [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                </p>
                                                 <p class="des">{{product.description | slice : 0 : 60}}</p>
                                             </div>
                                         </div>
