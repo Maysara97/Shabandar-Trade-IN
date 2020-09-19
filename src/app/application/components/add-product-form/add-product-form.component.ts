@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core'
-import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Product } from '../../models/product'
 import { NavigationEnd, Router } from '@angular/router'
 import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
 import { AccountProductService } from '../../services/accountProduct.service'
 import { AccountProduct } from '../../models/accountProduct'
-import { CategoryService } from '../../services/category.service'
 import { Category } from '../../models/category'
 import { FileImage, FilePond } from 'src/app/shared/models/file'
 import { Observable } from 'rxjs'
@@ -66,7 +65,6 @@ export class AddProductFormComponent implements OnInit {
         private productService: ProductService,
         private toastr: ToastrService,
         private accountProductService: AccountProductService,
-        private categoryService: CategoryService,
         private countryService: CountryService,
         private authService: AuthService
     ) {}
@@ -78,10 +76,6 @@ export class AddProductFormComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
-        // Bind all Categories
-        // this.categoryService.getAllParents().subscribe((result: any) => {
-        //     this.categories = result.data
-        // })
 
         this.authService.getAccountCategories().subscribe((result: any) => {
             this.categories = result.data
@@ -180,22 +174,6 @@ export class AddProductFormComponent implements OnInit {
         this.productSelected = -1
     }
 
-    // handleOnChooseParent() {
-    //     this.categoryService
-    //         .getCategoriesByParentId(this.categorySelected)
-    //         .subscribe((result: any) => {
-    //             this.subCategories = result.data
-    //         })
-    //     this.productService
-    //         .getProductsByCategory(this.categorySelected)
-    //         .subscribe((result: any) => {
-    //             this.products = result.data
-    //         })
-
-    //     this.subCategorySelected = -1
-    //     this.productSelected = -1
-    // }
-
     toggleMoreInformation() {
         this.moreInformation = !this.moreInformation
     }
@@ -216,9 +194,6 @@ export class AddProductFormComponent implements OnInit {
         this.agents.forEach((element) => {
             agentsResult.push(element.value)
         })
-
-        // console.log(this.tagCoverage)
-        // console.log(this.agents)
 
         this.accountProductService
             .createAccountProduct(

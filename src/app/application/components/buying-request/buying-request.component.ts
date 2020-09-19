@@ -36,7 +36,7 @@ export class BuyingRequestComponent implements OnInit {
     pageSize = 6
     searchKeyWord = ''
     categoryId = ''
-    subCategoryId = ''
+    SubCategoryId = ''
     countryId = ''
     dateFrom = ''
     dateTo = ''
@@ -88,6 +88,7 @@ export class BuyingRequestComponent implements OnInit {
             '',
             '',
             '',
+            '',
             ''
         )
 
@@ -112,6 +113,7 @@ export class BuyingRequestComponent implements OnInit {
             pageEvent.pageIndex + 1,
             this.searchKeyWord,
             this.countryId,
+            this.SubCategoryId,
             this.categoryId,
             this.dateFrom,
             this.dateTo
@@ -124,6 +126,7 @@ export class BuyingRequestComponent implements OnInit {
             this.page,
             this.searchKeyWord,
             this.categoryId,
+            this.SubCategoryId,
             this.countryId,
             this.dateFrom,
             this.dateTo
@@ -135,6 +138,7 @@ export class BuyingRequestComponent implements OnInit {
         pageNumber,
         searchKeyWord,
         categoryId,
+        SubCategoryId,
         countryId,
         dateFrom,
         dateTo
@@ -145,6 +149,7 @@ export class BuyingRequestComponent implements OnInit {
                 pageNumber,
                 searchKeyWord,
                 categoryId,
+                SubCategoryId,
                 countryId,
                 dateFrom,
                 dateTo
@@ -167,7 +172,7 @@ export class BuyingRequestComponent implements OnInit {
             })
     }
     onChooseSubCategory(subCategory) {
-        this.subCategoryId = subCategory
+        this.SubCategoryId = subCategory
         this.applyFilter()
     }
 
@@ -181,6 +186,7 @@ export class BuyingRequestComponent implements OnInit {
         this.getBuyingRequests(
             this.pageSize,
             this.pageNumber,
+            '',
             '',
             '',
             '',

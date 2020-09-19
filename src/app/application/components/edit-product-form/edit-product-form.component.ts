@@ -213,21 +213,7 @@ export class EditProductFormComponent implements OnInit {
                 this.products = result.data
             })
     }
-    // handleOnChooseParent() {
-    //     this.categoryService
-    //         .getCategoriesByParentId(this.categorySelected)
-    //         .subscribe((result: any) => {
-    //             this.subCategories = result.data
-    //         })
-    //     this.productService
-    //         .getProductsByCategory(this.categorySelected)
-    //         .subscribe((result: any) => {
-    //             this.products = result.data
-    //         })
 
-    //     // this.subCategorySelected = -1
-    //     // this.productSelected = -1
-    // }
     onSubmit(accountProductId) {
         this.submitted = true
         // Tags

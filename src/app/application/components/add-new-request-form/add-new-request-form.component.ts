@@ -25,13 +25,9 @@ import {
 })
 export class AddNewRequestFormComponent implements OnInit {
     categorySelected
-    productSelected
     countrySelected
     unitePriceSelected
-    finishedStatusSelected
-    anotherProductSelected
     subCategorySelected
-    productSubCatSelected
 
     submitted = false
     data = false
@@ -77,7 +73,6 @@ export class AddNewRequestFormComponent implements OnInit {
             window.scrollTo(0, 0)
         })
         this.addBuyingRequestForm = this.formBuilder.group({
-            // buyingRequestId: [],
             title: [null, [Validators.required]],
             unitePrice: [],
             image: [null, [Validators.required]],
@@ -89,13 +84,10 @@ export class AddNewRequestFormComponent implements OnInit {
             location: [],
         })
 
-        this.productSelected = -1
         this.categorySelected = -1
         this.countrySelected = -1
         this.unitePriceSelected = -1
-        this.finishedStatusSelected = -1
         this.subCategorySelected = -1
-        this.productSubCatSelected = -1
     }
 
     // Upload Image
@@ -110,43 +102,14 @@ export class AddNewRequestFormComponent implements OnInit {
         })
     }
 
-    // Upload Certifications
-    // handleCertificationsUpload(files: FileImage[]) {
-    //     this.addBuyingRequestForm.patchValue({
-    //         certification: files[0].imageFile,
-    //     })
-    // }
-    // handleCertificationsRemove(files: FileImage[]) {
-    //     this.addBuyingRequestForm.patchValue({
-    //         certification: files.map((file) => file.imageFile),
-    //     })
-    // }
-
-    // handleOnCategoryChange() {
-    //     // Bind Products by Category
-    //     this.productService
-    //         .getProductsByCategory(this.subCategorySelected)
-    //         .subscribe((result: any) => {
-    //             this.products = result.data
-    //         })
-
-    //     this.productSelected = -1
-    // }
-
     handleOnChooseParent() {
         this.categoryService
             .getCategoriesByParentId(this.categorySelected)
             .subscribe((result: any) => {
                 this.subCategories = result.data
             })
-        // this.productService
-        //     .getProductsByCategory(this.categorySelected)
-        //     .subscribe((result: any) => {
-        //         this.products = result.data
-        //     })
 
         this.subCategorySelected = -1
-        // this.productSelected = -1
     }
 
     onSubmit(requestProduct) {
@@ -175,9 +138,5 @@ export class AddNewRequestFormComponent implements OnInit {
                     this.toastr.error(result.errors)
                 }
             })
-    }
-
-    selectProductSelectHandler(event: any) {
-        this.productSelected = event.target.value
     }
 }
