@@ -10,13 +10,60 @@
                     </div>
                 </div>
             </div>
+            <!-- *ngFor="let ad of category.ads; let i = index" -->
             <div class="row services-wrap mt-5">
-                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp"
-                    *ngFor="let ad of category.ads; let i = index">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp">
                     <div class="tm-service text-center">
-                        <span class="tm-service-icon">
-                            <a [routerLink]="['/application/viewer', ad.accountId]"> <img
-                                    [src]="getFilePath(ad.adImage)"></a>
+                        <span class="tm-service-icon" *ngIf="category.ads[0]">
+                            <a [routerLink]="['/application/viewer', category.ads[0].accountId]"> <img
+                                    [src]="getFilePath(category.ads[0].adImage)"></a>
+                        </span>
+                        <span class="tm-service-icon" *ngIf="!category.ads[0]">
+                            <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp">
+                    <div class="tm-service text-center">
+                        <span class="tm-service-icon" *ngIf="category.ads[1]">
+                            <a [routerLink]="['/application/viewer', category.ads[1].accountId]"> <img
+                                    [src]="getFilePath(category.ads[1].adImage)"></a>
+                        </span>
+                        <span class="tm-service-icon" *ngIf="!category.ads[1]">
+                            <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp">
+                    <div class="tm-service text-center">
+                        <span class="tm-service-icon" *ngIf="category.ads[2]">
+                            <a [routerLink]="['/application/viewer', category.ads[2].accountId]"> <img
+                                    [src]="getFilePath(category.ads[2].adImage)"></a>
+                        </span>
+                        <span class="tm-service-icon" *ngIf="!category.ads[2]">
+                            <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp">
+                    <div class="tm-service text-center">
+                        <span class="tm-service-icon" *ngIf="category.ads[3]">
+                            <a [routerLink]="['/application/viewer', category.ads[3].accountId]"> <img
+                                    [src]="getFilePath(category.ads[3].adImage)"></a>
+                        </span>
+                        <span class="tm-service-icon" *ngIf="!category.ads[3]">
+                            <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-12 wow fadeInUp">
+                    <div class="tm-service text-center">
+                        <span class="tm-service-icon" *ngIf="category.ads[4]">
+                            <a [routerLink]="['/application/viewer', category.ads[4].accountId]"> <img
+                                    [src]="getFilePath(category.ads[4].adImage)"></a>
+                        </span>
+                        <span class="tm-service-icon" *ngIf="!category.ads[4]">
+                            <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
                         </span>
                     </div>
                 </div>

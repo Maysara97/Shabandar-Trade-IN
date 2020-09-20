@@ -63,15 +63,49 @@
             <div class="single-widget widget-recentpost ">
                 <h5 class="widget-title">Sponsores </h5>
                 <ul>
-                    <!-- <li *ngFor="let sponsor of sponsoredAds">
-                        <a [routerLink]="['/application/viewer', sponsor.accountId]">
+                    <li>
+                        <a *ngIf="sponsoredAds[0]" [routerLink]="['/application/viewer', sponsoredAds[0].accountId]">
                             <div class="sponsored-rectangle">
-                                <img [src]="getFilePath(sponsor.adImage)">
+                                <img [src]="getFilePath(sponsoredAds[0].adImage)">
                             </div>
                         </a>
-                    </li> -->
+                        <a *ngIf="!sponsoredAds[0]">
+                            <div class="sponsored-rectangle">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                            </div>
+                        </a>
+                    </li>
                     <li>
-                        <a>
+                        <a *ngIf="sponsoredAds[1]" [routerLink]="['/application/viewer', sponsoredAds[1].accountId]">
+                            <div class="sponsored-rectangle">
+                                <img [src]="getFilePath(sponsoredAds[1].adImage)">
+                            </div>
+                        </a>
+                        <a *ngIf="!sponsoredAds[1]">
+                            <div class="sponsored-rectangle">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a *ngIf="sponsoredAds[2]" [routerLink]="['/application/viewer', sponsoredAds[2].accountId]">
+                            <div class="sponsored-rectangle">
+                                <img [src]="getFilePath(sponsoredAds[2].adImage)">
+                            </div>
+                        </a>
+                        <a *ngIf="!sponsoredAds[2]">
+                            <div class="sponsored-rectangle">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a *ngIf="sponsoredAds[3]" [routerLink]="['/application/viewer', sponsoredAds[3].accountId]">
+                            <div class="sponsored-rectangle">
+                                <img [src]="getFilePath(sponsoredAds[3].adImage)">
+                            </div>
+                        </a>
+                        <a *ngIf="!sponsoredAds[3]">
                             <div class="sponsored-rectangle">
                                 <img src="/assets/images/You-Trade-In/sponsore-1.png">
                             </div>

@@ -16,6 +16,7 @@ export class MoreCompaniesAdsComponent implements OnInit {
     targetCat: Category
     categoryId
     env: any
+    ads = []
     constructor(
         private adsService: AdsService,
         private route: ActivatedRoute,
@@ -23,6 +24,9 @@ export class MoreCompaniesAdsComponent implements OnInit {
     ) {
         this.categoryId = route.snapshot.params['categoryId']
         this.env = environment
+        this.ads = Array(16)
+            .fill(0)
+            .map((x, i) => i)
     }
 
     ngOnInit(): void {
