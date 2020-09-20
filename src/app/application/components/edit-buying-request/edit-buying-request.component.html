@@ -38,7 +38,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="subCategoryId">Sub Category</label>
                                 <select class="form-control" id="subCategoryId" formControlName="subCategoryId"
-                                    [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
+                                    [(ngModel)]="subCategorySelected">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Sub Category
                                     </option>
                                     <option *ngFor="let category of subCategories" value="{{category.categoryId}}">
@@ -48,28 +48,6 @@
                                     *ngIf="editBuyingRequestForm.get('subCategoryId').touched && editBuyingRequestForm.get('subCategoryId').errors?.required">
                                     You Must choose the Product's Category
                                 </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="productId">Product</label>
-                                <select class="form-control" id="productId" formControlName="productId"
-                                    [(ngModel)]="buyingRequestDetails.productId">
-                                    <option [disabled]="true">Choose your Product
-                                    </option>
-                                    <option *ngFor="let product of products" value="{{product.productId}}">
-                                        {{product.productName}}</option>
-                                    <option value="">New Product</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6" *ngIf="buyingRequestDetails.productId == ''">
-                                <label for="productName">Product Name</label>
-                                <input type="text" class="form-control w-100" id="productName"
-                                    formControlName="productName" placeholder="Product Name"
-                                    [(ngModel)]="buyingRequestDetails.productName">
                             </div>
                         </div>
                     </div>

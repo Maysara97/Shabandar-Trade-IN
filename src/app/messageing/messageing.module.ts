@@ -12,7 +12,8 @@ import { ArchivedComponent } from './archived/archived.component'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { ViewMessageComponent } from './view-message/view-message.component'
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared/shared.module';
+import { NewsComponent } from './news/news.component'
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { SharedModule } from '../shared/shared.module'
         OutboxComponent,
         ArchivedComponent,
         ViewMessageComponent,
+        NewsComponent,
     ],
     imports: [
         CommonModule,

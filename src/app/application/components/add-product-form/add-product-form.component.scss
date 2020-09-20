@@ -165,3 +165,118 @@ p a:hover {
     .e-input-in-wrap::after {
     background: #f2b414;
 }
+::ng-deep
+    .e-input-group:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left),
+.e-input-group.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error)
+    .e-input-in-wrap,
+.e-input-group.e-control-wrapper:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error)
+    .e-input-in-wrap,
+.e-float-input.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error)
+    .e-input-in-wrap,
+.e-float-input.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error)
+    .e-input-in-wrap {
+    border-color: rgb(242 180 20 / 47%);
+}
+
+::ng-deep
+    .e-input-group:hover:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled):not(.e-float-icon-left),
+.e-input-group.e-control-wrapper:hover:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled):not(.e-float-icon-left),
+.e-float-input.e-control-wrapper:hover:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled):not(.e-float-icon-left),
+.e-float-input:hover:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled):not(.e-float-icon-left),
+.e-input-group.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    .e-input-in-wrap:hover,
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    .e-input-in-wrap:hover,
+.e-float-input.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    .e-input-in-wrap:hover,
+.e-float-input.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    .e-input-in-wrap:hover,
+.e-float-input:hover:not(.e-input-group):not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    input:not([disabled]),
+.e-float-input:hover:not(.e-input-group):not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    textarea:not([disabled]),
+.e-float-input.e-control-wrapper:hover:not(.e-input-group):not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    input:not([disabled]),
+.e-float-input.e-control-wrapper:hover:not(.e-input-group):not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    textarea:not([disabled]),
+.e-float-input.e-control-wrapper.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled)
+    .e-input-in-wrap:hover {
+    border-color: rgb(242 180 20 / 59%);
+}
+
+.more-info-btn {
+    font-size: 15px;
+    padding: 1%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    color: #ffffff !important;
+    border: 1px solid;
+    background: #f2b414;
+    cursor: pointer;
+}
+
+::ng-deep .ng2-tag-input.ng2-tag-input--focused {
+    border-bottom: 2px solid #f2b414 !important;
+}
+
+::ng-deep .ng2-tag-input {
+    display: block;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    transition: 0.25s;
+    padding: 0.25rem 0;
+    min-height: 32px;
+    cursor: text;
+    border-bottom: 2px solid #f2b41452 !important;
+}
+
+::ng-deep
+    .ng-dropdown-panel
+    .ng-dropdown-panel-items
+    .ng-option.ng-option-marked {
+    background-color: #f2b4149e;
+    color: #333;
+}
+
+::ng-deep .ng-select.ng-select-opened > .ng-select-container {
+    background: #fff;
+    height: 50px;
+    border-color: #f2b414 #f2b414 #f2b414;
+}
+
+::ng-deep
+    .ng-dropdown-panel
+    .ng-dropdown-panel-items
+    .ng-option.ng-option-selected,
+.ng-dropdown-panel
+    .ng-dropdown-panel-items
+    .ng-option.ng-option-selected.ng-option-marked {
+    color: #333;
+    background-color: #f2b414b8;
+}
+
+::ng-deep
+    .ng-select.ng-select-multiple
+    .ng-select-container
+    .ng-value-container
+    .ng-value {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    /* background-color: #0e123438; */
+    border-radius: 2px;
+    margin-right: 5px;
+    color: #f2b414;
+}
+
+::ng-deep .ng-select .ng-select-container {
+    color: #333;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #f2b414;
+    /* min-height: 49px; */
+    height: 50px;
+    align-items: center;
+}

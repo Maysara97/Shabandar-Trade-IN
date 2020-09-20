@@ -172,7 +172,6 @@ export class ViewerComponent implements OnInit {
         const favorite: Favorite = {
             favoriteItemId: TargetAccountId,
         }
-        // this.targetAccountDetails.isFavorite = this.isFavorite
         this.isFavoriteService
             .createFavorite(favorite)
             .subscribe((result: any) => {

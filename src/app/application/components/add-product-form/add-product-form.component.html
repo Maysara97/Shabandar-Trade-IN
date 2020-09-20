@@ -8,8 +8,8 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="parentId">Product Category</label>
-                                <select class="form-control" id="parentId" formControlName="parentId"
+                                <label for="categoryId">Product Category</label>
+                                <select class="form-control" id="categoryId" formControlName="categoryId"
                                     [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
@@ -17,7 +17,7 @@
                                         {{category.categoryName}}</option>
                                 </select>
                                 <label class="text-danger"
-                                    *ngIf="addProductForm.get('parentId').touched && addProductForm.get('parentId').errors?.required">
+                                    *ngIf="addProductForm.get('categoryId').touched && addProductForm.get('categoryId').errors?.required">
                                     You Must choose the Product's Category
                                 </label>
                             </div>
@@ -30,20 +30,6 @@
                                         {{product.productName}}</option>
                                 </select>
                             </div>
-                            <!-- <div class="col-lg-6 col-md-6 col-sm-6">
-                                <label for="categoryId">Sub Category</label>
-                                <select class="form-control" id="categoryId" formControlName="categoryId"
-                                    [(ngModel)]="subCategorySelected" (change)="handleOnCategoryChange()">
-                                    <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Sub Category
-                                    </option>
-                                    <option *ngFor="let category of subCategories" value="{{category.categoryId}}">
-                                        {{category.categoryName}}</option>
-                                </select>
-                                <label class="text-danger"
-                                    *ngIf="addProductForm.get('categoryId').touched && addProductForm.get('categoryId').errors?.required">
-                                    You Must choose the Product's Category
-                                </label>
-                            </div> -->
                         </div>
                     </div>
 
@@ -77,168 +63,138 @@
                             </div>
                         </div>
                     </div>
-
-                    <div [ngSwitch]="categorySelected">
-
-                        <div class="industry-category" *ngSwitchCase="decorationId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="brandName">Brand Names</label>
-                                        <tag-input class="brandTags" [(ngModel)]="tagNames" formControlName="brandName"
-                                            [secondaryPlaceholder]="'Brand Name'" [placeholder]="'Brand Name again'">
-                                        </tag-input>
-                                    </div>
-
+                    <div class="row justify-content-center">
+                        <a class="more-info-btn" (click)="toggleMoreInformation()">Add More Information ?</a>
+                    </div>
+                    <div class="more-info" *ngIf="moreInformation">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <label for="type">Type</label>
+                                    <input type="text" class="form-control w-100" id="type" formControlName="type"
+                                        placeholder="Type">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <label for="wieght">Weight</label>
+                                    <input type="text" class="form-control w-100" id="wieght" formControlName="wieght"
+                                        placeholder="Wieght">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <label for="size">Product Size</label>
+                                    <input type="text" class="form-control w-100" id="size" formControlName="size"
+                                        placeholder="Product Size">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="packing">Packing Way</label>
-                                        <input type="text" class="form-control w-100" id="packing"
-                                            formControlName="packing" placeholder="Packing Way">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="moq">MOQ</label>
-                                        <input type="text" class="form-control w-100" id="moq" formControlName="moq"
-                                            placeholder="MOQ">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="type">Type</label>
-                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
-                                            placeholder="Type">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="wieght">Weight</label>
-                                        <input type="text" class="form-control w-100" id="wieght"
-                                            formControlName="wieght" placeholder="Wieght">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="size">Product Size</label>
-                                        <input type="text" class="form-control w-100" id="size" formControlName="size"
-                                            placeholder="Product Size">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="storage">Storage</label>
-                                        <input type="text" class="form-control w-100" id="storage"
-                                            formControlName="storage" placeholder="Storage">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="grade">Grade</label>
-                                        <input type="text" class="form-control w-100" id="grade" formControlName="grade"
-                                            placeholder="Grade">
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label for="code">Code</label>
-                                        <input type="text" class="form-control w-100" id="code" formControlName="code"
-                                            placeholder="Code">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-
-                                    <div class="col-12">
-                                        <label for="certification">Certifications</label>
-                                        <app-upload-files (onFileUpload)="handleCertificationsUpload($event)"
-                                            (onFileRemove)="handleCertificationsRemove($event)"
-                                            [files]="certifications">
-                                        </app-upload-files>
-
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-
-                        <div class="shipping-and-logistics-category" *ngSwitchCase="shippingId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="agentsLocation">Agents Location</label>
-                                        <tag-input class="brandTags" [(ngModel)]="agents"
-                                            formControlName="agentsLocation" [secondaryPlaceholder]="'Agents Location'"
-                                            [placeholder]="'Agents Location again'">
-                                        </tag-input>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <label for="coverage">Coverage</label>
-                                        <ejs-multiselect [dataSource]='countries' [fields]='localFields'
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <label for="storage">Storage</label>
+                                    <input type="text" class="form-control w-100" id="storage" formControlName="storage"
+                                        placeholder="Storage">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <label for="grade">Grade</label>
+                                    <input type="text" class="form-control w-100" id="grade" formControlName="grade"
+                                        placeholder="Grade">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <label for="code">Code</label>
+                                    <input type="text" class="form-control w-100" id="code" formControlName="code"
+                                        placeholder="Code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="brandName">Brand Names</label>
+                                    <tag-input class="brandTags" [(ngModel)]="tagNames" formControlName="brandName"
+                                        [secondaryPlaceholder]="'Brand Name'" [placeholder]="'Brand Name again'">
+                                    </tag-input>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="agentsLocation">Agents Location</label>
+                                    <tag-input class="brandTags" [(ngModel)]="agents" formControlName="agentsLocation"
+                                        [secondaryPlaceholder]="'Agents Location'"
+                                        [placeholder]="'Agents Location again'">
+                                    </tag-input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-8 col-sm-8">
+                                    <label for="packing">Packing Way</label>
+                                    <input type="text" class="form-control w-100" id="packing" formControlName="packing"
+                                        placeholder="Packing Way">
+                                </div>
+                                <div class="col-lg-4 col-md-8 col-sm-8">
+                                    <label for="moq">MOQ</label>
+                                    <input type="text" class="form-control w-100" id="moq" formControlName="moq"
+                                        placeholder="MOQ">
+                                </div>
+                                <div class="col-lg-4 col-md-8 col-sm-8">
+                                    <label for="coverage">Coverage</label>
+                                    <!-- <ejs-multiselect [dataSource]='countries' [fields]='localFields'
                                             [placeholder]='localWaterMark' formControlName="coverage"
                                             [(ngModel)]="tagCoverage">
-                                        </ejs-multiselect>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="serviceType">Service Type</label>
-                                        <input type="number" class="form-control w-100" id="serviceType"
-                                            formControlName="serviceType" placeholder="Service Type">
-                                    </div>
-
+                                        </ejs-multiselect> -->
+                                    <ng-select class="" bindLabel="name" bindValue="name" placeholder="Choose Category"
+                                        clearAllText="Clear" [virtualScroll]="true" [items]="countries"
+                                        [searchable]="true" [clearable]="true" formControlName="coverage"
+                                        [multiple]="true" [clearSearchOnAdd]="true" [closeOnSelect]="false"
+                                        [(ngModel)]="tagCoverage">
+                                    </ng-select>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="designers-category" *ngSwitchCase="designersId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label for="softwares">Softwares</label>
-                                        <input type="text" class="form-control w-100" id="softwares"
-                                            formControlName="softwares" placeholder="Softwares">
-                                    </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="serviceType">Service Type</label>
+                                    <input type="number" class="form-control w-100" id="serviceType"
+                                        formControlName="serviceType" placeholder="Service Type">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="capacity">Capacity</label>
+                                    <input type="text" class="form-control w-100" id="capacity"
+                                        formControlName="capacity" placeholder="Capacity">
                                 </div>
                             </div>
                         </div>
-                        <div class="designers-category" *ngSwitchCase="equipmentId">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label for="type">Brand Name</label>
-                                        <input type="text" class="form-control w-100" id="type" formControlName="type"
-                                            placeholder="Brand Name">
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="capacity">Capacity</label>
-                                        <input type="text" class="form-control w-100" id="capacity"
-                                            formControlName="capacity" placeholder="Capacity">
-                                    </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="softwares">Softwares</label>
+                                    <input type="text" class="form-control w-100" id="softwares"
+                                        formControlName="softwares" placeholder="Softwares">
+                                </div>
+                                <div class="col-4">
+                                    <label for="modelYear">Model by Year</label>
+                                    <input type="text" class="form-control w-100" id="modelYear"
+                                        formControlName="modelYear" placeholder="Model by Year">
+                                </div>
+                                <div class="col-4">
+                                    <label for="totalHours">Total Hours</label>
+                                    <input type="text" class="form-control w-100" id="totalHours"
+                                        formControlName="totalHours" placeholder="Total Hours">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <label for="wieght">Weight</label>
-                                        <input type="text" class="form-control w-100" id="wieght"
-                                            formControlName="wieght" placeholder="Weight">
-                                    </div>
-                                    <div class="col-4">
-                                        <label for="modelYear">Model by Year</label>
-                                        <input type="text" class="form-control w-100" id="modelYear"
-                                            formControlName="modelYear" placeholder="Model by Year">
-                                    </div>
-                                    <div class="col-4">
-                                        <label for="totalHours">Total Hours</label>
-                                        <input type="text" class="form-control w-100" id="totalHours"
-                                            formControlName="totalHours" placeholder="Total Hours">
-                                    </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="certification">Certifications</label>
+                                    <app-upload-files (onFileUpload)="handleCertificationsUpload($event)"
+                                        (onFileRemove)="handleCertificationsRemove($event)" [files]="certifications">
+                                    </app-upload-files>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <!-- Common -->
                     <div class="form-group">
                         <div class="row">

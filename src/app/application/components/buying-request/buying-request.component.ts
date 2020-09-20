@@ -25,6 +25,7 @@ export class BuyingRequestComponent implements OnInit {
     products$: Observable<Product[]>
     buyingRequestProducts: BuyingRequest[] = []
     categories: Category[]
+    subCategories: Category[]
     products: Product[]
     countries: Country[]
     filteredCategories = []
@@ -35,6 +36,7 @@ export class BuyingRequestComponent implements OnInit {
     pageSize = 6
     searchKeyWord = ''
     categoryId = ''
+    SubCategoryId = ''
     countryId = ''
     dateFrom = ''
     dateTo = ''
@@ -86,6 +88,7 @@ export class BuyingRequestComponent implements OnInit {
             '',
             '',
             '',
+            '',
             ''
         )
 
@@ -110,6 +113,7 @@ export class BuyingRequestComponent implements OnInit {
             pageEvent.pageIndex + 1,
             this.searchKeyWord,
             this.countryId,
+            this.SubCategoryId,
             this.categoryId,
             this.dateFrom,
             this.dateTo
@@ -122,6 +126,7 @@ export class BuyingRequestComponent implements OnInit {
             this.page,
             this.searchKeyWord,
             this.categoryId,
+            this.SubCategoryId,
             this.countryId,
             this.dateFrom,
             this.dateTo
@@ -133,6 +138,7 @@ export class BuyingRequestComponent implements OnInit {
         pageNumber,
         searchKeyWord,
         categoryId,
+        SubCategoryId,
         countryId,
         dateFrom,
         dateTo
@@ -143,6 +149,7 @@ export class BuyingRequestComponent implements OnInit {
                 pageNumber,
                 searchKeyWord,
                 categoryId,
+                SubCategoryId,
                 countryId,
                 dateFrom,
                 dateTo
@@ -158,6 +165,15 @@ export class BuyingRequestComponent implements OnInit {
     onChooseCategory(category) {
         this.categoryId = category
         this.applyFilter()
+        this.categoryService
+            .getCategoriesByParentId(category)
+            .subscribe((result: any) => {
+                this.subCategories = result.data
+            })
+    }
+    onChooseSubCategory(subCategory) {
+        this.SubCategoryId = subCategory
+        this.applyFilter()
     }
 
     allProductWithoutSearch() {
@@ -170,6 +186,7 @@ export class BuyingRequestComponent implements OnInit {
         this.getBuyingRequests(
             this.pageSize,
             this.pageNumber,
+            '',
             '',
             '',
             '',

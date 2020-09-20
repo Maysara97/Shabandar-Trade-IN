@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { MessageService } from 'src/app/messageing/services/message.service'
+import { environment } from 'src/environments/environment'
 import { Message } from '../models/message'
 
 @Component({
@@ -10,12 +11,14 @@ import { Message } from '../models/message'
 })
 export class ViewMessageComponent implements OnInit {
     threadId
+    env: any
     messageDetails: Message[]
     constructor(
         private route: ActivatedRoute,
         private messageService: MessageService
     ) {
         this.threadId = route.snapshot.params['threadId']
+        this.env = environment
     }
 
     ngOnInit(): void {
@@ -25,5 +28,9 @@ export class ViewMessageComponent implements OnInit {
                 // debugger
                 this.messageDetails = result.data
             })
+    }
+
+    getFilePath(fileName: string): string {
+        return `${this.env.file_path}${fileName}`
     }
 }

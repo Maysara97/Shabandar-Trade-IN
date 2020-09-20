@@ -11,6 +11,14 @@
     <!-- Card image -->
     <div class="view overlay">
         <p>{{message.body}}</p>
+        <ul>
+            <li *ngFor="let attachment of message.attachments">
+                <a [href]="getFilePath(attachment) " alt="Message Attachment" target="_blank">
+                    &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
+                </a>
+            </li>
+        </ul>
+
     </div>
     <!-- Card content -->
     <div class="card-body">

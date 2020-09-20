@@ -5,10 +5,6 @@ import { FormGroup, FormBuilder } from '@angular/forms'
 import { Category } from '../../models/category'
 import { Country } from '../../models/country'
 import { Observable } from 'rxjs'
-import {
-    FinishedStatusTypeMapping,
-    FinishedStatusType,
-} from '../../models/enum'
 import { ActivatedRoute, Router } from '@angular/router'
 import { ProductService } from '../../services/product.service'
 import { ToastrService } from 'ngx-toastr'
@@ -27,10 +23,8 @@ export class EditBuyingRequestComponent implements OnInit {
     buyingRequestDetails: BuyingRequest
     buyingRequestId
     categorySelected
-    productSelected
     countrySelected
     unitePriceSelected
-    finishedStatusSelected
     subCategorySelected
 
     submitted = false
@@ -79,10 +73,13 @@ export class EditBuyingRequestComponent implements OnInit {
                 this.unitePriceSelected = this.buyingRequestDetails.unitePrice
                 this.title = this.buyingRequestDetails.title
                 this.images = this.buyingRequestDetails.image
-                this.productService
-                    .getProductsByCategory(this.buyingRequestDetails.categoryId)
+
+                this.categoryService
+                    .getCategoriesByParentId(
+                        this.buyingRequestDetails.categoryId
+                    )
                     .subscribe((result: any) => {
-                        this.products = result.data
+                        this.subCategories = result.data
                     })
             })
 
@@ -102,9 +99,7 @@ export class EditBuyingRequestComponent implements OnInit {
 
         this.editBuyingRequestForm = this.formBuilder.group({
             buyingRequestId: [this.buyingRequestId],
-            productId: [],
             title: [],
-            productName: [],
             unitePrice: [],
             price: [],
             categoryId: [],
@@ -127,16 +122,6 @@ export class EditBuyingRequestComponent implements OnInit {
             image: files.map((file) => file.imageFile),
         })
     }
-    handleOnCategoryChange() {
-        // Bind Products by Category
-        this.productService
-            .getProductsByCategory(this.subCategorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
-
-        this.productSelected = -1
-    }
 
     handleOnChooseParent() {
         this.categoryService
@@ -144,14 +129,6 @@ export class EditBuyingRequestComponent implements OnInit {
             .subscribe((result: any) => {
                 this.subCategories = result.data
             })
-        this.productService
-            .getProductsByCategory(this.categorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
-
-        this.subCategorySelected = -1
-        this.productSelected = -1
     }
     onSubmit(buyingRequestId) {
         this.submitted = true

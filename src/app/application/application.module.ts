@@ -28,9 +28,10 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
-import { ReplyMessageComponent } from './components/reply-message/reply-message.component';
-import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component';
+import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
+import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
 import { AccountsByCategoryComponent } from './components/accounts-by-category/accounts-by-category.component'
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 @NgModule({
     declarations: [
@@ -68,6 +69,7 @@ import { AccountsByCategoryComponent } from './components/accounts-by-category/a
         BsDatepickerModule.forRoot(),
         MatTabsModule,
         MatDialogModule,
+        MatTooltipModule
     ],
 })
 export class ApplicationModule {}

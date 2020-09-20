@@ -1,10 +1,4 @@
-import {
-    Component,
-    OnInit,
-    ViewChild,
-    ElementRef,
-    TemplateRef,
-} from '@angular/core'
+import { Component, OnInit, TemplateRef } from '@angular/core'
 import { User, AccountData, Favorites } from 'src/app/account/models/register'
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router'
 import { AuthService } from 'src/app/shared/services/auth.service'
@@ -181,13 +175,6 @@ export class OwnerComponent implements OnInit {
 
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.userDetails = result.data
-            // if (
-            //     this.userDetails.accountImage == null ||
-            //     this.userDetails.accountWebsite == null ||
-            //     this.userDetails.vission == null
-            // ) {
-            //     this.fillAccountData()
-            // }
         })
         this.getAllAccountProduct()
 

@@ -26,6 +26,7 @@ export class SellProductComponent implements OnInit {
     searchText
     categories$: Observable<Category[]>
     categories: Category[]
+    subCategories: Category[]
     accountProducts: AccountProduct[] = []
     products: Product[]
     countries: Country[]
@@ -39,6 +40,7 @@ export class SellProductComponent implements OnInit {
     pageSize = 6
     searchKeyWord = ''
     categoryId = ''
+    productId = ''
     countryId = ''
     dateFrom = ''
     dateTo = ''
@@ -82,9 +84,9 @@ export class SellProductComponent implements OnInit {
             })
 
         // Bind all Products
-        this.productService.getAllProducts().subscribe((result: any) => {
-            this.products = result.data
-        })
+        // this.productService.getAllProducts().subscribe((result: any) => {
+        //     this.products = result.data
+        // })
 
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
@@ -171,8 +173,26 @@ export class SellProductComponent implements OnInit {
     onChooseCategory(category) {
         this.categoryId = category
         this.applyFilter()
+
+        this.categoryService
+            .getCategoriesByParentId(category)
+            .subscribe((result: any) => {
+                this.subCategories = result.data
+            })
+    }
+    onChooseSubCategory(subCategory) {
+        this.productService
+            .getProductsByCategory(subCategory)
+            .subscribe((result: any) => {
+                this.products = result.data
+            })
+        this.applyFilter()
     }
 
+    onChooseProduct(product) {
+        this.productId = product
+        this.applyFilter()
+    }
     allProductWithoutSearch() {
         this.accountProductService
             .getAllAccountProducts()

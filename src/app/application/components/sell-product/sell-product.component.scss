@@ -38,7 +38,7 @@
     background-color: #0e1234;
     color: #fff;
     border-radius: 5px;
-    height: 100%;
+    height: auto;
 }
 .sell-product-area h5 {
     color: #fff;
@@ -335,4 +335,7 @@ mat-form-field {
         width: 50%;
         height: 32%;
     }
+}
+#productSelect {
+    width: 30%;
 }

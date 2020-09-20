@@ -218,13 +218,13 @@
                                     </li>
                                 </div>
                             </div>
-                            <div class="row mt-3" *ngIf="accountProductDetails.unitePrice">
+                            <div class="row mt-3" *ngIf="accountProductDetails.unitePrice != -1">
                                 <div class="col-5">
                                     <li style="color: #fff;">
                                         <b>Unite Price :</b></li>
                                 </div>
                                 <div class="col-7">
-                                    <li *ngIf="accountProductDetails.unitePrice">
+                                    <li *ngIf="accountProductDetails.unitePrice != -1">
                                         {{accountProductDetails.unitePrice}}
                                     </li>
                                 </div>

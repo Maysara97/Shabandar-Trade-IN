@@ -1,6 +1,4 @@
 <div class="header" id="header">
-    <!-- *ngIf="!_route.url.includes('login') && !_route.url.includes( 'registeration')" -->
-    <!-- Header Bottom Area -->
     <div class="header-bottomarea">
         <div class="container">
             <div class="header-logo-mobile">
@@ -53,16 +51,13 @@
                                     class="fa fa-comments" aria-hidden="true"></i>
                             </a>
                             <a class="btn notifications" [matMenuTriggerFor]="menu" style="font-size: 22px;"
-                                aria-label="Example icon-button with a menu">
+                                aria-label="Example icon-button with a menu" (click)="getAllNotifications()">
                                 <!-- <mat-icon *ngIf="notifications != null">
                                     notifications
                                 </mat-icon> -->
-                                <mat-icon matBadge=" {{ newNotificationCount }}" matBadgeColor="warn">
+                                <mat-icon matBadge="{{ newNotificationCount }}" matBadgeColor="warn">
                                     notifications
                                 </mat-icon>
-                                <!-- <span class="cdk-visually-hidden">
-                                    15
-                                </span> -->
                             </a>
                             <mat-menu #menu="matMenu">
                                 <ul class="menu-list">

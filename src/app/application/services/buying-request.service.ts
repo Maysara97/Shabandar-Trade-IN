@@ -13,9 +13,8 @@ export class BuyingRequestService extends BaseService<any> {
         buyingRequest: BuyingRequest
     ): Observable<BuyingRequest> {
         const body = {
-            productId: buyingRequest.productId,
             categoryId: buyingRequest.categoryId,
-            productName: buyingRequest.productName,
+            subCategoryId: buyingRequest.subCategoryId,
             title: buyingRequest.title,
             image: buyingRequest.image,
             location: buyingRequest.location,
@@ -29,7 +28,6 @@ export class BuyingRequestService extends BaseService<any> {
     updateBuyingRequest(buyingRequest: BuyingRequest, images) {
         const body = {
             buyingRequestId: buyingRequest.buyingRequestId,
-            productId: buyingRequest.productId,
             categoryId: buyingRequest.categoryId,
             productName: buyingRequest.productName,
             title: buyingRequest.title,
@@ -66,12 +64,13 @@ export class BuyingRequestService extends BaseService<any> {
         pageNumber: number,
         searchKeyWord: string,
         categoryId: number,
+        SubCategoryId: number,
         countryId: number,
         dateFrom: string,
         dateTo: string
     ) {
         return this.getAll(
-            `BuyingRequest/BuyingRequestSearch/${pageSize}/${pageNumber}?SearchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
+            `BuyingRequest/BuyingRequestSearch/${pageSize}/${pageNumber}?SearchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&SubCategoryId=${SubCategoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
         )
     }
 

@@ -36,6 +36,14 @@
                         </li>
                     </ul>
                 </div>
+                <div class="single-widget widget-categories mb-5">
+                    <h5>Sub Categories</h5>
+                    <ul>
+                        <li *ngFor="let subCategory of subCategories">
+                            <a (click)="onChooseSubCategory(subCategory.categoryId)">{{ subCategory.categoryName }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="col-lg-9 col-md-7 col-sm-12 col-12 notLoggedin" *ngIf="!isLoggedIn">
                 <h2>You Need to Signup to Show All Requests</h2>
@@ -49,14 +57,13 @@
                                 <a class="tm-product-imagelink"
                                     [routerLink]="['/application/buying-product-details', requestProduct.buyingRequestId]">
                                     <img style="width: 270px; height: 250px;"
-                                        [src]="getFilePath(requestProduct.image[0])"
-                                        alt="{{requestProduct.productName}}" />
+                                        [src]="getFilePath(requestProduct.image[0])" alt="{{requestProduct.title}}" />
 
                                 </a>
                             </div>
                             <div class="tm-product-content">
                                 <p class="tm-product-title">
-                                    {{ requestProduct.productName }}
+                                    {{ requestProduct.title }}
                                 </p>
                             </div>
 
@@ -73,12 +80,13 @@
                             </div>
                             <div class="buttons mt-3">
                                 <div class="category-btn" style="float: left;">
-                                    <p>{{ requestProduct.categoryName}}</p>
+                                    <p>{{ requestProduct.subCategoryName}}</p>
                                 </div>
-                                <button class="email-btn" style="float: right;"
+                                <button class="email-btn" style="float: right;" mat-raised-button
+                                    matTooltip="Send Message"
                                     [routerLink]="['/application/send-message', requestProduct.ownerAccountId,requestProduct.accountName]">
-                                    <i class="fa fa-comments" aria-hidden="true"></i>
-                                    &nbsp; Send Message
+                                    &nbsp; <i class="fa fa-comments" aria-hidden="true"></i>
+                                    &nbsp;
                                 </button>
                                 <div style="clear: both;"></div>
                             </div>
@@ -102,23 +110,12 @@
             <a [routerLink]="['/application/viewer', buyingAd.accountId]">
                 <div class="sponsored-rectangle" *ngIf="buyingRequestAds">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <img [src]="getFilePath(buyingAd.adImage)">
                         </div>
                     </div>
                 </div>
             </a>
         </div>
-        <!-- <div class="col-lg-3 col-md-12 col-12 sponsored-section mb-3">
-            <a>
-                <div class="sponsored-rectangle">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img src="/assets/images/You-Trade-In/sponsore-1.png">
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div> -->
     </div>
 </div>
