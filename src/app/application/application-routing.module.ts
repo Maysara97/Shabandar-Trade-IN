@@ -76,7 +76,7 @@ const routes: Routes = [
             },
             {
                 path:
-                    'reply-message/:threadId/:receiverAccountId/:receiverName/:title',
+                    'reply-message/:threadId/:senderAccountId/:senderName/:title',
                 component: ReplyMessageComponent,
             },
             {

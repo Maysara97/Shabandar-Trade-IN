@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment'
 import { Notifications } from 'src/app/notifications/models/notification'
 import { StatusMapping } from '../../models/enum'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
+import { FavoriteService } from '../../services/favorite.service'
 
 @Component({
     selector: 'app-owner',
@@ -31,6 +32,7 @@ export class OwnerComponent implements OnInit {
 
     productSlider: any = {
         loop: false,
+        margin: 15,
         mouseDrag: true,
         touchDrag: true,
         autoWidth: true,
@@ -160,7 +162,8 @@ export class OwnerComponent implements OnInit {
         private route: ActivatedRoute,
         private accountProductService: AccountProductService,
         private buyingRequestService: BuyingRequestService,
-        private modalService: BsModalService
+        private modalService: BsModalService,
+        private favoriteService: FavoriteService
     ) {
         this.env = environment
     }
@@ -173,9 +176,7 @@ export class OwnerComponent implements OnInit {
             window.scrollTo(0, 0)
         })
 
-        this.auth.getAccountDetails().subscribe((result: any) => {
-            this.userDetails = result.data
-        })
+        this.getAccountDetails()
         this.getAllAccountProduct()
 
         this.getAllBuyingRequests()
@@ -189,6 +190,12 @@ export class OwnerComponent implements OnInit {
         this.router.navigateByUrl(
             `/application/product-details/${accountProductId}`
         )
+    }
+
+    getAccountDetails() {
+        this.auth.getAccountDetails().subscribe((result: any) => {
+            this.userDetails = result.data
+        })
     }
 
     getAllAccountProduct() {
@@ -222,9 +229,16 @@ export class OwnerComponent implements OnInit {
         window.open(path, '_blank')
     }
 
-    fillAccountData(template: TemplateRef<any>) {
-        this.fillAccountDataModal = this.modalService.show(template, {
-            class: 'modal-md',
-        })
+    // fillAccountData(template: TemplateRef<any>) {
+    //     this.fillAccountDataModal = this.modalService.show(template, {
+    //         class: 'modal-md',
+    //     })
+    // }
+    deleteFollowing(favoriteItemId) {
+        this.favoriteService
+            .deleteFavorite(favoriteItemId)
+            .subscribe((result) => {
+                this.getAccountDetails()
+            })
     }
 }

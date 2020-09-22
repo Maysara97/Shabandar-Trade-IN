@@ -152,7 +152,7 @@
                             </div>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Account Products History">
+                    <mat-tab label="Account Products ">
                         <div class="row" style="width: 1140px;">
                             <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
                                 <div class="row justify-content-center title">
@@ -176,6 +176,7 @@
                                                     <span class="tm-feature-icon">
                                                         <img [src]="getFilePath(product.productImages[0])">
                                                     </span>
+                                                    <p class="catName">{{product.categoryName}}</p>
                                                     <p class="proTitle"><a
                                                             [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
                                                     </p>
@@ -190,7 +191,7 @@
                         </div>
 
                     </mat-tab>
-                    <mat-tab label="Buying Requests History">
+                    <mat-tab label="Buying Requests ">
                         <div class="row" style="width: 1140px;">
                             <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
                                 <div class="row justify-content-center title">
@@ -217,6 +218,7 @@
                                                     <p class="proTitle"><a
                                                             [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
                                                     </p>
+                                                    <p class="catName">{{product.subCategoryName}}</p>
                                                     <p class="des">{{product.description | slice : 0 : 60}}</p>
                                                 </div>
                                             </div>
@@ -490,6 +492,7 @@
                                                 <p class="proTitle"><a
                                                         [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
                                                 </p>
+                                                <p class="catName">{{product.categoryName}}</p>
                                                 <p class="des">{{product.description | slice : 0 : 60}}</p>
                                             </div>
                                         </div>
@@ -526,6 +529,7 @@
                                                 <p class="proTitle"><a
                                                         [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
                                                 </p>
+                                                <p class="catName">{{product.subCategoryName}}</p>
                                                 <p class="des">{{product.description | slice : 0 : 60}}</p>
                                             </div>
                                         </div>
