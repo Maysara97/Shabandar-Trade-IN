@@ -1,4 +1,4 @@
-<div class="owner-profile" *ngIf="targetAccountDetails">
+<div class="viewer-profile" *ngIf="targetAccountDetails">
     <div class="page-section tm-section contact-area tm-padding-section" style="background-color: #0E1234;">
         <div class="container">
             <div class="row d-flex justify-content-center ml-2">
@@ -216,7 +216,7 @@
                                                         <img [src]="getFilePath(product.image)">
                                                     </span>
                                                     <p class="proTitle"><a
-                                                            [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                            [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.title}}</a>
                                                     </p>
                                                     <p class="catName">{{product.subCategoryName}}</p>
                                                     <p class="des">{{product.description | slice : 0 : 60}}</p>
@@ -284,11 +284,57 @@
                                         <div class="row">
                                             <div class="col-5">
                                                 <li>
-                                                    <b>Mobile </b></li>
+                                                    <b>Mobile Number </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngFor="let mobile of targetAccountDetails.mobile">
+                                                    <a href="tel:{{mobile}}">{{mobile}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Phone Number </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li *ngFor="let phone of targetAccountDetails.phone">
+                                                    <a href="tel:{{phone}}">{{phone}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b> Whatsapp </b></li>
                                             </div>
                                             <div class="col-7">
                                                 <li>
-                                                    {{targetAccountDetails.accountMobile}}
+                                                    <a
+                                                        href="https://wa.me/{{targetAccountDetails.whatsApp}}">{{targetAccountDetails.whatsApp}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>WeChat </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    <a
+                                                        href="http:/weixin://{{targetAccountDetails.weChat}}">{{targetAccountDetails.weChat}}</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <li>
+                                                    <b>Address </b></li>
+                                            </div>
+                                            <div class="col-7">
+                                                <li>
+                                                    {{targetAccountDetails.address}}
                                                 </li>
                                             </div>
                                         </div>
@@ -299,7 +345,8 @@
                                             </div>
                                             <div class="col-7">
                                                 <li>
-                                                    {{targetAccountDetails.accountAdministrators[0].email}}
+                                                    <a
+                                                        href="mailto:{{targetAccountDetails.accountAdministrators[0].email}}">{{targetAccountDetails.accountAdministrators[0].email}}</a>
                                                 </li>
                                             </div>
                                         </div>
@@ -310,7 +357,8 @@
                                             </div>
                                             <div class="col-7">
                                                 <li>
-                                                    {{targetAccountDetails.accountWebsite}}
+                                                    <a (click)="goToWebsiteUrl(targetAccountDetails.accountWebsite)"
+                                                        target="_blank">{{targetAccountDetails.accountWebsite}}</a>
                                                 </li>
                                             </div>
                                         </div>
@@ -527,7 +575,7 @@
                                                     <img [src]="getFilePath(product.image)">
                                                 </span>
                                                 <p class="proTitle"><a
-                                                        [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                        [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.title}}</a>
                                                 </p>
                                                 <p class="catName">{{product.subCategoryName}}</p>
                                                 <p class="des">{{product.description | slice : 0 : 60}}</p>
@@ -593,11 +641,57 @@
                                     <div class="row">
                                         <div class="col-5">
                                             <li>
-                                                <b>Mobile </b></li>
+                                                <b>Mobile Number </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li *ngFor="let mobile of targetAccountDetails.mobile">
+                                                {{mobile}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Phone Number </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li *ngFor="let phone of targetAccountDetails.phone">
+                                                {{phone}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b> Whatsapp </b></li>
                                         </div>
                                         <div class="col-7">
                                             <li>
-                                                {{targetAccountDetails.accountMobile}}
+                                                <a
+                                                    href="https://wa.me/{{targetAccountDetails.whatsApp}}">{{targetAccountDetails.whatsApp}}</a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>WeChat </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                <a
+                                                    href="http:/weixin://{{targetAccountDetails.weChat}}">{{targetAccountDetails.weChat}}</a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <li>
+                                                <b>Address </b></li>
+                                        </div>
+                                        <div class="col-7">
+                                            <li>
+                                                {{targetAccountDetails.address}}
                                             </li>
                                         </div>
                                     </div>
@@ -608,7 +702,8 @@
                                         </div>
                                         <div class="col-7">
                                             <li>
-                                                {{targetAccountDetails.accountAdministrators[0].email}}
+                                                <a
+                                                    href="mailto:{{targetAccountDetails.accountAdministrators[0].email}}">{{targetAccountDetails.accountAdministrators[0].email}}</a>
                                             </li>
                                         </div>
                                     </div>
@@ -619,7 +714,8 @@
                                         </div>
                                         <div class="col-7">
                                             <li>
-                                                {{targetAccountDetails.accountWebsite}}
+                                                <a (click)="goToWebsiteUrl(targetAccountDetails.accountWebsite)"
+                                                    target="_blank">{{targetAccountDetails.accountWebsite}}</a>
                                             </li>
                                         </div>
                                     </div>

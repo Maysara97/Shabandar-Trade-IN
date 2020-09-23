@@ -179,8 +179,16 @@
 
                                             <div class="col-lg-12">
                                                 <div class="tm-feature text-center">
+                                                    <!-- <div class="tm-product-image">
+                                                       
+                                                    </div> -->
                                                     <span class="tm-feature-icon">
-                                                        <img [src]="getFilePath(product.productImages[0])">
+                                                        <!-- <img [src]="getFilePath(product.productImages[0])"> -->
+                                                        <a class="tm-product-imagelink">
+                                                            <img style="width: 250px; height: 230px;"
+                                                                [src]="getFilePath(product.productImages[0])"
+                                                                alt="{{product.productName}}" />
+                                                        </a>
                                                     </span>
                                                     <p class="proTitle"><a
                                                             [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
@@ -249,11 +257,16 @@
                                             <div class="col-lg-12">
                                                 <div class="tm-feature text-center">
                                                     <span class="tm-feature-icon">
-                                                        <img [src]="getFilePath(product.image[0])" width="152px"
-                                                            height="76px">
+                                                        <!-- <img [src]="getFilePath(product.image[0])" width="152px"
+                                                            height="76px"> -->
+                                                        <a class="tm-product-imagelink">
+                                                            <img style="width: 250px; height: 230px;"
+                                                                [src]="getFilePath(product.image[0])"
+                                                                alt="{{product.productName}}" />
+                                                        </a>
                                                     </span>
                                                     <p class="proTitle"><a
-                                                            [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                            [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.title}}</a>
                                                     </p>
                                                     <p class="catName">{{product.subCategoryName}}</p>
 
@@ -310,8 +323,13 @@
                                             <div class="col-lg-12">
                                                 <div class="tm-feature text-center">
                                                     <span class="tm-feature-icon">
-                                                        <img [src]="getFilePath(interest.accountImage)" width="152px"
-                                                            height="76px">
+                                                        <!-- <img [src]="getFilePath(interest.accountImage)" width="152px"
+                                                            height="76px"> -->
+                                                        <a class="tm-product-imagelink">
+                                                            <img style="width: 250px; height: 230px;"
+                                                                [src]="getFilePath(interest.accountImage)"
+                                                                alt="{{interest.accountName}}" />
+                                                        </a>
                                                     </span>
                                                     <p class="proTitle"><a
                                                             [routerLink]="['/application/viewer', interest.favoriteItemId]">{{interest.accountName}}</a>
@@ -641,7 +659,12 @@
                                         <div class="col-lg-12">
                                             <div class="tm-feature text-center">
                                                 <span class="tm-feature-icon">
-                                                    <img [src]="getFilePath(product.productImages[0])">
+                                                    <!-- <img [src]="getFilePath(product.productImages[0])"> -->
+                                                    <a class="tm-product-imagelink">
+                                                        <img style="width: 250px; height: 230px;"
+                                                            [src]="getFilePath(product.productImages[0])"
+                                                            alt="{{product.productName}}" />
+                                                    </a>
                                                 </span>
                                                 <p class="proTitle"><a
                                                         [routerLink]="['/application/product-details', product.accountProductId]">{{product.productName}}</a>
@@ -675,7 +698,6 @@
                                     </div>
                                 </owl-carousel>
                             </div>
-
                         </div>
                     </div>
 
@@ -710,10 +732,15 @@
                                         <div class="col-lg-12">
                                             <div class="tm-feature text-center">
                                                 <span class="tm-feature-icon">
-                                                    <img [src]="getFilePath(product.image[0])">
+                                                    <!-- <img [src]="getFilePath(product.image[0])"> -->
+                                                    <a class="tm-product-imagelink">
+                                                        <img style="width: 250px; height: 230px;"
+                                                            [src]="getFilePath(product.image[0])"
+                                                            alt="{{product.productName}}" />
+                                                    </a>
                                                 </span>
                                                 <p class="proTitle"><a
-                                                        [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.productName}}</a>
+                                                        [routerLink]="['/application/buying-product-details', product.buyingRequestId]">{{product.title}}</a>
                                                 </p>
                                                 <p class="catName">{{product.subCategoryName}}</p>
                                                 <p class="des">{{product.description | slice : 0 : 60}}</p>
@@ -768,7 +795,12 @@
                                         <div class="col-lg-12">
                                             <div class="tm-feature text-center">
                                                 <span class="tm-feature-icon">
-                                                    <img [src]="getFilePath(interest.accountImage)">
+                                                    <!-- <img [src]="getFilePath(interest.accountImage)"> -->
+                                                    <a class="tm-product-imagelink">
+                                                        <img style="width: 250px; height: 230px;"
+                                                            [src]="getFilePath(interest.accountImage)"
+                                                            alt="{{interest.accountName}}" />
+                                                    </a>
                                                 </span>
                                                 <p class="proTitle"><a
                                                         [routerLink]="['/application/viewer', interest.favoriteItemId]">{{interest.accountName}}</a>

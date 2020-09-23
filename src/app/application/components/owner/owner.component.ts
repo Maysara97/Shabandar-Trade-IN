@@ -37,7 +37,7 @@ export class OwnerComponent implements OnInit {
         touchDrag: true,
         autoWidth: true,
         pullDrag: true,
-        dots: true,
+        // dots: true,
         navSpeed: 700,
         navText: ['', ''],
         responsive: {

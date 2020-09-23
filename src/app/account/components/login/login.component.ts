@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     submitted = false
     userId
     userData: User
+    fieldTextType: boolean
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
@@ -45,6 +46,10 @@ export class LoginComponent implements OnInit {
     }
     get password() {
         return this.loginForm.get('primaryAdminPassword')
+    }
+
+    toggleFieldTextType() {
+        this.fieldTextType = !this.fieldTextType
     }
 
     onSubmit() {

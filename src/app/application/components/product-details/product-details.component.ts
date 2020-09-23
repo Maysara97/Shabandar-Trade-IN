@@ -23,32 +23,6 @@ export class ProductDetailsComponent implements OnInit {
 
     public FinishedStatusTypeMapping = FinishedStatusTypeMapping
 
-    imagesSlider: any = {
-        loop: false,
-        mouseDrag: true,
-        // center: true,
-        touchDrag: true,
-        autoWidth: true,
-        pullDrag: true,
-        // rewind: true,
-        dots: true,
-        navSpeed: 700,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            400: {
-                items: 2,
-            },
-            740: {
-                items: 2,
-            },
-            940: {
-                items: 3,
-            },
-        },
-        nav: false,
-    }
     constructor(
         private accountProductService: AccountProductService,
         private route: ActivatedRoute,

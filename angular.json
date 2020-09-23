@@ -18,7 +18,6 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/you-trade-in-public",
-                        "allowedCommonJsDependencies": ["lodash"],
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -29,7 +28,8 @@
                             "src/styles.scss",
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "./node_modules/filepond/dist/filepond.min.css",
-                            "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+                            "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+                            "./node_modules/font-awesome/css/font-awesome.css"
                         ],
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.min.js",

@@ -332,7 +332,7 @@ a:hover {
 ::ng-deep .owl-theme .owl-dots {
     text-align: initial;
     -webkit-tap-highlight-color: transparent;
-    margin-left: 50%;
+    margin-left: 15%;
 }
 
 .tm-feature .des {
@@ -532,4 +532,12 @@ ul li a:hover {
     color: #0e1234a1;
     padding-top: 10%;
     font-size: 15px;
+}
+
+.viewer-profile ::ng-deep .owl-stage-outer .owl-stage {
+    width: 1000px !important;
+}
+
+a:hover {
+    cursor: pointer;
 }
