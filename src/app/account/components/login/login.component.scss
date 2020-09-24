@@ -43,3 +43,16 @@ p a:hover {
     font-weight: 900;
     text-decoration: underline;
 }
+
+.form-group .form-control {
+    padding-left: 2.375rem;
+}
+
+.form-group .form-control-icon {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}

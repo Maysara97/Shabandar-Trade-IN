@@ -1,35 +1,41 @@
 <!-- Portfolio Details Area -->
 <div class="tm-section portfolio-details-area details-buyingReq tm-padding-section" style="background-color: #0e1234;">
-    <div class="container">
-        <div class="tm-portfoliodetails" *ngIf="buyingRequestDetails">
-            <div class="row justify-content-center">
-                <owl-carousel [options]="imagesSlider" [items]="buyingRequestDetails.image"
-                    [carouselClasses]="['owl-theme','row','sliding']">
-                    <div class="item" *ngFor="let image of buyingRequestDetails.image">
-                        <div class="col-lg-12">
-                            <div class="tm-feature text-center">
-                                <span class="tm-feature-icon">
-                                    <a (click)="viewImage(imageModal)"><img [src]="getFilePath(image)" width="152px"
-                                            height="76px"></a>
-                                </span>
+    <div class="container" *ngIf="buyingRequestDetails">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt-5" *ngFor="let image of buyingRequestDetails.image">
+                <div class="tm-product">
+                    <div class="tm-product-image">
+                        <a (click)="viewImage(imageModal)" class="tm-product-imagelink">
+                            <img style="width: 230px; height: 230px;" [src]="getFilePath(image)" />
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ng-template #imageModal>
+                <div class="modal-body text-center">
+                    <div class="row justify-content-center">
+                        <div
+                            class="heroslider-slider-2 heroslider-animated-content tm-slider-arrow tm-slider-dots-left">
+                            <div class="heroslider-singleslider d-flex align-items-center">
+                                <ngb-carousel>
+                                    <ng-template ngbSlide *ngFor="let image of buyingRequestDetails.image">
+                                        <div class="picsum-img-wrapper">
+                                            <img [src]="getFilePath(image)" width="100%">
+                                        </div>
+                                    </ng-template>
+                                </ngb-carousel>
                             </div>
-                            <ng-template #imageModal>
-                                <div class="modal-body text-center ">
-                                    <div class="row justify-content-center">
-                                        <img [src]="getFilePath(image)" width="100%">
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <button type="button" class="btn btn-danger"
-                                            (click)="closeSubDialog()">Close</button>
-                                    </div>
-
-
-                                </div>
-                            </ng-template>
                         </div>
                     </div>
-                </owl-carousel>
-            </div>
+                    <div class="row justify-content-center mt-3">
+                        <button type="button" class="btn btn-danger" (click)="closeSubDialog()">Close</button>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <div class="tm-portfoliodetails">
+
             <div class="tm-portfoliodetails-content tm-padding-section-sm-top">
                 <div class="row">
                     <div class="col-xl-6 col-lg-7">
