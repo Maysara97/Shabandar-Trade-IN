@@ -37,6 +37,7 @@ export class EditprofileComponent implements OnInit {
     countries: Country[]
     categories: Category[]
     mainCategories: Category[]
+    mainCategory: string
     categoryParentId
     env: any
     constructor(
@@ -79,18 +80,29 @@ export class EditprofileComponent implements OnInit {
             if (this.updateUserData.accountImage) {
                 this.images[0] = this.updateUserData.accountImage
             }
-            // [this.placeHolder] = this.updateUserData.categories
-            // this.images[0] = this.updateUserData.accountImage
-            // this.categoryParentId = this.updateUserData.categoryId
             this.categoryService
                 .getCategoriesByParentId(this.updateUserData.categoryId)
                 .subscribe((result: any) => {
                     this.categories = result.data
                 })
+
+            this.mainCategory = this.updateUserData.categoryName
+            if (this.updateUserData.phone) {
+                // this.updateUserData.phone = []
+                this.phoneNumbers.forEach((element) => {
+                    this.updateUserData.phone.push(element.phone)
+                })
+            }
+            if (this.updateUserData.mobile) {
+                // this.updateUserData.mobile = []
+                this.mobileNumbers.forEach((element) => {
+                    this.updateUserData.mobile.push(element.mobile)
+                })
+            }
         })
 
         this.editProfileForm = this.formBuilder.group({
-            accountImage: [Validators.required],
+            accountImage: [null, Validators.required],
             accountName: [],
             accountAttachments: [],
             contactEmail: [],
@@ -105,7 +117,7 @@ export class EditprofileComponent implements OnInit {
             whatsApp: [],
             weChat: [],
             zipCode: [],
-            categories: [],
+            categories: [null, Validators.required],
             categoryId: [],
         })
 
@@ -161,6 +173,10 @@ export class EditprofileComponent implements OnInit {
         this.categorySelections.forEach((element) => {
             categoriesResult.push({ categoryId: element })
         })
+        const images = this.images[0]
+        if (!this.updateUserData.accountImage) {
+            this.updateUserData.accountImage = images
+        }
 
         this.auth
             .updateProfile(form, mobileResults, phoneResults, categoriesResult)

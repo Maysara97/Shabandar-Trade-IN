@@ -182,3 +182,8 @@ p a:hover {
     height: 50px;
     align-items: center;
 }
+
+button:disabled,
+button[disabled] {
+    background: #f2b4148f !important;
+}

@@ -51,16 +51,17 @@
                                 <div class="col-6">
                                     <label for="categoryId">Main Category</label>
                                     <br />
-                                    <select class="mdb-select md-form" formControlName="categoryId"
+                                    <!-- <select class="mdb-select md-form" formControlName="categoryId"
                                         style="text-transform: capitalize;" [(ngModel)]="updateUserData.categoryId">
                                         <option value="" disabled selected>Choose your Main Category</option>
                                         <option *ngFor="let category of mainCategories" value="{{category.categoryId}}">
                                             {{category.categoryName}}</option>
-                                    </select>
+                                    </select> -->
+                                    <input type="text" formControlName="categoryId" disabled [(ngModel)]="mainCategory">
                                 </div>
 
                                 <div class="col-6">
-                                    <label for="categoryId">Category</label> <br />
+                                    <label for="categories">Category</label> <br />
 
                                     <ng-select class="" bindLabel="categoryName" bindValue="categoryId"
                                         placeholder="Choose Category" clearAllText="Clear" [virtualScroll]="true"
@@ -68,6 +69,9 @@
                                         formControlName="categories" [multiple]="true" [clearSearchOnAdd]="true"
                                         [closeOnSelect]="false" [(ngModel)]="categorySelections">
                                     </ng-select>
+                                    <label class="text-danger"
+                                        *ngIf="editProfileForm.get('categories').touched && editProfileForm.get('categories').errors?.required">
+                                        You must choose your sub Categories</label>
                                 </div>
                             </div>
                         </div>

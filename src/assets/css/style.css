@@ -357,6 +357,9 @@ body {
     font-weight: 400;
     background-color: #0e1234 !important;
 }
+body i {
+    font-family: 'FontAwesome' !important;
+}
 
 ::-webkit-input-placeholder {
     color: #444444;

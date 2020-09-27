@@ -25,11 +25,10 @@
                         "aot": true,
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
-                            "src/styles.scss",
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "./node_modules/filepond/dist/filepond.min.css",
                             "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-                            "./node_modules/font-awesome/css/font-awesome.css"
+                            "src/styles.scss"
                         ],
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.min.js",
@@ -95,10 +94,10 @@
                         "karmaConfig": "karma.conf.js",
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
-                            "src/styles.scss",
-                            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "./node_modules/filepond/dist/filepond.min.css",
-                            "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+                            "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "../node_modules/filepond/dist/filepond.min.css",
+                            "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+                            "src/styles.scss"
                         ],
                         "scripts": [
                             "./node_modules/jquery/dist/jquery.min.js",
