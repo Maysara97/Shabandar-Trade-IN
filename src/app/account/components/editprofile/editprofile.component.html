@@ -10,8 +10,8 @@
                         <div class="form-group tm-form-field">
                             <div class="row justify-content-center">
                                 <div class="col-md-3 profile-image-edit">
-                                    <app-upload-files (onFileUpload)="handleImageUpload($event)" [isCircle]="true"
-                                        [files]="images">
+                                    <app-upload-files (onFileUpload)="handleImageUpload($event)"
+                                        (onFileRemove)="handleImageRemove($event)" [isCircle]="true" [files]="images">
                                     </app-upload-files>
                                 </div>
                             </div>
@@ -51,13 +51,9 @@
                                 <div class="col-6">
                                     <label for="categoryId">Main Category</label>
                                     <br />
-                                    <!-- <select class="mdb-select md-form" formControlName="categoryId"
-                                        style="text-transform: capitalize;" [(ngModel)]="updateUserData.categoryId">
-                                        <option value="" disabled selected>Choose your Main Category</option>
-                                        <option *ngFor="let category of mainCategories" value="{{category.categoryId}}">
-                                            {{category.categoryName}}</option>
-                                    </select> -->
-                                    <input type="text" formControlName="categoryId" disabled [(ngModel)]="mainCategory">
+                                    <input type="text" formControlName="categoryName" disabled
+                                        [(ngModel)]="mainCategoryName">
+                                    <input type="hidden" formControlName="categoryId" [(ngModel)]="mainCategoryId">
                                 </div>
 
                                 <div class="col-6">
@@ -67,11 +63,13 @@
                                         placeholder="Choose Category" clearAllText="Clear" [virtualScroll]="true"
                                         [items]="categories" [searchable]="true" [clearable]="true"
                                         formControlName="categories" [multiple]="true" [clearSearchOnAdd]="true"
-                                        [closeOnSelect]="false" [(ngModel)]="categorySelections">
+                                        [closeOnSelect]="false" [(ngModel)]="categorySelections" required>
                                     </ng-select>
                                     <label class="text-danger"
                                         *ngIf="editProfileForm.get('categories').touched && editProfileForm.get('categories').errors?.required">
                                         You must choose your sub Categories</label>
+                                    <label class="text-danger" *ngIf="!categorySelections"> You must choose your sub
+                                        Categories</label>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +110,11 @@
                                     <label for="mobile">Mobile Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let mobile of mobileNumbers;let i = index;">
-                                        <input type="tel" name="mobile" id="mobile"
+                                        <input type="tel" name="mobile" id="mobile" *ngIf="updateUserData.mobile[i]"
+                                            placeholder="Enter your Mobile {{i+1}}" style="margin-bottom: 1%;"
+                                            [(ngModel)]="updateUserData.mobile[i]"
+                                            [ngModelOptions]="{standalone: true}" />
+                                        <input type="tel" name="mobile" id="mobile" *ngIf="!updateUserData.mobile[i]"
                                             placeholder="Enter your Mobile {{i+1}}" style="margin-bottom: 1%;"
                                             [(ngModel)]="mobile.mobile" [ngModelOptions]="{standalone: true}" />
                                         <a *ngIf="i>0" type="button" class="btn rightAlign"
@@ -132,8 +134,13 @@
                                     <label for="phone">Phone Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let phoneN of phoneNumbers;let i = index;">
-                                        <input type="tel" name="phone" id="phone" placeholder="Enter your Phone {{i+1}}"
-                                            style="margin-bottom: 1%;" [(ngModel)]="phoneN.phone"
+                                        <input type="tel" name="phone{{i}}" id="phone"
+                                            placeholder="Enter your Phone {{i+1}}" style="margin-bottom: 1%;"
+                                            [(ngModel)]="phoneN.phone" *ngIf="!updateUserData.phone"
+                                            [ngModelOptions]="{standalone: true}" />
+                                        <input type="tel" name="phone" id="phone" *ngIf="updateUserData.phone"
+                                            placeholder="Enter your Phone {{i+1}}" style="margin-bottom: 1%;"
+                                            [(ngModel)]="updateUserData.phone[i]"
                                             [ngModelOptions]="{standalone: true}" />
                                         <a *ngIf="i>0" type="button" class="btn rightAlign"
                                             style="color: #fff;background-color: #dc3545;" (click)="removePhone(i)">
