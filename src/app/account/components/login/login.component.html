@@ -28,16 +28,10 @@
                             }" style="height: 50px;">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <i class="fab" [ngClass]="{
-                                        'fa-facebook-f': !fieldTextType,
-                                        'fa-youtube': fieldTextType
+                                    <i class="fas" [ngClass]="{
+                                        'fa-eye': !fieldTextType,
+                                        'fa-eye-slash': fieldTextType
                                       }" (click)="toggleFieldTextType()"></i>
-                                    <!-- <span class="material-icons" [ngClass]="{
-                                        visibility_off: !fieldTextType,
-                                        visibility: fieldTextType
-                                      }">
-
-                                    </span> -->
                                 </span>
                             </div>
                         </div>
@@ -45,30 +39,8 @@
                             *ngIf="loginForm.get('primaryAdminPassword').touched && loginForm.get('primaryAdminPassword').errors?.required">Password
                             is
                             required</label>
-                        <!-- <div class="tm-form-field">
-                            <label for="login-password">Password</label> <br />
-
-                            <input [type]="fieldTextType ? 'text' : 'password'" id="login-password"
-                                name="primaryAdminPassword" formControlName="primaryAdminPassword"
-                                placeholder="Enter Your Password" required="required" [ngClass]="{
-                                    'is-invalid': submitted && f.primaryAdminPassword.errors
-                                }" />
-
-                            <span class="input-group-text">
-                                <i class="fas" [ngClass]="{
-                                            'fa-eye-slash': !fieldTextType,
-                                            'fa-eye': fieldTextType
-                                          }" (click)="toggleFieldTextType()"></i>
-                            </span>
-
-                            <label class="text-danger"
-                                *ngIf="loginForm.get('primaryAdminPassword').touched && loginForm.get('primaryAdminPassword').errors?.required">Password
-                                is
-                                required</label>
-                        </div> -->
-
                         <div class="tm-form-field">
-                            <button type="submit" class="tm-button mt-2">
+                            <button type="submit" class="tm-button mt-2" [disabled]="!loginForm.valid">
                                 <a>Login <b></b></a>
                             </button>
                             <p class="forgetPass"><a routerLink="/account/forget-password">Forgotten password?</a></p>

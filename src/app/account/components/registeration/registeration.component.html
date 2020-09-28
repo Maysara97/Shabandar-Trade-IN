@@ -32,19 +32,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="form-group tm-form-field">
-                            <label for="register-telephone-number">Telephone Number</label>
-                            <br />
-                            <input type="tel" name="telephonenumber" id="register-telephone-number" required="required"
-                                formControlName="accountMobile" placeholder="Telephone Number" />
-
-                            <label class="text-danger"
-                                *ngIf="accountService.registerForm.get('accountMobile').touched && accountService.registerForm.get('accountMobile').errors?.required">Telephone
-                                Number is required</label>
-                            <label class="text-danger"
-                                *ngIf="accountService.registerForm.get('accountMobile').touched && accountService.registerForm.get('accountMobile').errors?.accountMobile">Telephone
-                                Number Telephone Number must be a valid number</label>
-                        </div> -->
                         <div class="form-group tm-form-field">
                             <label for="register-email">Email Address</label> <br />
                             <input type="email" name="primaryAdminEmail" id="register-email" required="required"
@@ -62,13 +49,26 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label for="register-password">Password</label>
-                                    <br />
-                                    <input type="password" id="register-password" name="primaryAdminPassword"
-                                        required="required" formControlName="primaryAdminPassword"
-                                        placeholder="Password" />
+
+                                    <div class="input-group mt-3">
+                                        <input [type]="passwordField ? 'text' : 'password'" class="form-control"
+                                            formControlName="primaryAdminPassword" placeholder="Enter Your Password"
+                                            required="required" [ngClass]="{
+                                                'is-invalid': submitted && f.primaryAdminPassword.errors
+                                            }" style="height: 50px;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fab" [ngClass]="{
+                                                        'fa-eye': !passwordField,
+                                                        'fa-eye-slash': passwordField
+                                                      }" (click)="togglePassword()"></i>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <label class="text-danger"
                                         *ngIf="accountService.registerForm.get('primaryAdminPassword').touched && accountService.registerForm.get('primaryAdminPassword').errors?.required">Password
-                                        is required</label>
+                                        is
+                                        required</label>
                                     <label class="text-danger"
                                         *ngIf="accountService.registerForm.get('primaryAdminPassword').touched && accountService.registerForm.get('primaryAdminPassword').errors?.minLength">Password
                                         must be at least 6 characters</label>
@@ -76,19 +76,29 @@
 
                                 <div class="col-6">
                                     <label for="register-password-con">Confirm Password</label>
-                                    <br />
-                                    <input type="password" id="register-password-con" name="confirmPassword"
-                                        required="required" formControlName="confirmPassword"
-                                        placeholder="Confirm Password" />
+
+                                    <div class="input-group mt-3">
+                                        <input [type]="confirmPasswordField ? 'text' : 'password'" class="form-control"
+                                            formControlName="confirmPassword" placeholder="Confirm Password"
+                                            required="required" style="height: 50px;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fa" [ngClass]="{
+                                                            'fa-eye': !confirmPasswordField,
+                                                            'fa-eye-slash': confirmPasswordField
+                                                          }" (click)="toggleConfirmPassword()"></i>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <label class="text-danger"
                                         *ngIf="accountService.registerForm.get('confirmPassword').touched && accountService.registerForm.get('confirmPassword').errors?.required">Confirm
                                         Password is required</label>
                                     <label class="text-danger"
                                         *ngIf="accountService.registerForm.get('confirmPassword').touched && accountService.registerForm.get('confirmPassword').errors">Confirm
                                         Password not match with Password</label>
-
                                 </div>
                             </div>
+
                         </div>
                         <div class="form-group tm-form-field">
                             <div class="row">
@@ -113,7 +123,7 @@
                                             {{category.categoryName}}</option>
                                     </select>
                                     <label class="text-danger"
-                                        *ngIf="accountService.registerForm.get('categoryId').touched && accountService.registerForm.get('categoryId').errors?.required">Category
+                                        *ngIf="accountService.registerForm.get('categoryId').touched || accountService.registerForm.get('categoryId').errors?.required">Category
                                         is required</label>
 
                                 </div>
@@ -130,7 +140,7 @@
                                     {{country.name}}</option>
                             </select>
                             <label class="text-danger"
-                                *ngIf="accountService.registerForm.get('countryId').touched && accountService.registerForm.get('countryId').errors?.required">Country
+                                *ngIf="accountService.registerForm.get('countryId').touched || accountService.registerForm.get('countryId').errors?.required">Country
                                 is required</label>
                         </div>
                         <div class="form-group tm-form-field justify-content-center" style="display: flex;">
@@ -140,7 +150,8 @@
 
                         </div>
                         <div class="form-group tm-form-field">
-                            <button type="submit" class="tm-button mt-3">
+                            <button type="submit" class="tm-button mt-3"
+                                [disabled]="!accountService.registerForm.valid">
                                 Register <b></b>
                             </button>
                             <p>
