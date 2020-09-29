@@ -37,7 +37,8 @@ export class EditprofileComponent implements OnInit {
     countries: Country[]
     categories: Category[]
     mainCategories: Category[]
-    mainCategory: string
+    mainCategoryName: string
+    mainCategoryId: string
     categoryParentId
     env: any
     constructor(
@@ -67,10 +68,6 @@ export class EditprofileComponent implements OnInit {
             this.countries = result.data
         })
 
-        // Bind all Categories
-        this.categoryService.getAllParents().subscribe((result: any) => {
-            this.mainCategories = result.data
-        })
         // Get Account Data
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.updateUserData = result.data
@@ -78,26 +75,23 @@ export class EditprofileComponent implements OnInit {
             this.files = this.updateUserData.accountAttachments
 
             if (this.updateUserData.accountImage) {
-                this.images[0] = this.updateUserData.accountImage
+            this.images[0] = this.updateUserData.accountImage
+            }
+            else{
+                 this.updateUserData.accountImage = this.images[0] 
             }
             this.categoryService
                 .getCategoriesByParentId(this.updateUserData.categoryId)
                 .subscribe((result: any) => {
                     this.categories = result.data
                 })
-
-            this.mainCategory = this.updateUserData.categoryName
+            this.mainCategoryName = this.updateUserData.categoryName
+            this.mainCategoryId = this.updateUserData.categoryId
             if (this.updateUserData.phone) {
-                // this.updateUserData.phone = []
-                this.phoneNumbers.forEach((element) => {
-                    this.updateUserData.phone.push(element.phone)
-                })
+                this.phoneNumbers.length = this.updateUserData.phone.length
             }
             if (this.updateUserData.mobile) {
-                // this.updateUserData.mobile = []
-                this.mobileNumbers.forEach((element) => {
-                    this.updateUserData.mobile.push(element.mobile)
-                })
+                this.mobileNumbers.length = this.updateUserData.mobile.length
             }
         })
 
@@ -119,6 +113,7 @@ export class EditprofileComponent implements OnInit {
             zipCode: [],
             categories: [null, Validators.required],
             categoryId: [],
+            categoryName: [],
         })
 
         if (this.profileData) {
@@ -145,6 +140,11 @@ export class EditprofileComponent implements OnInit {
             accountImage: files[0].imageFile,
         })
     }
+    handleImageRemove(files: FileImage[]) {
+        this.editProfileForm.patchValue({
+            accountImage: files.map((file) => file.imageFile),
+        })
+    }
 
     // Upload Files
     handleFileUpload(files: FileImage[]) {
@@ -160,24 +160,28 @@ export class EditprofileComponent implements OnInit {
 
     onSubmit(form) {
         this.submitted = true
+
         let mobileResults: any[] = []
         this.mobileNumbers.forEach((element) => {
             mobileResults.push(element.mobile)
         })
+        mobileResults = this.updateUserData.mobile
+
         let phoneResults = []
         this.phoneNumbers.forEach((element) => {
             phoneResults.push(element.phone)
         })
+        phoneResults = this.updateUserData.phone
 
         let categoriesResult = []
         this.categorySelections.forEach((element) => {
             categoriesResult.push({ categoryId: element })
         })
+        const user = this.editProfileForm.value as AccountData
         const images = this.images[0]
-        if (!this.updateUserData.accountImage) {
-            this.updateUserData.accountImage = images
+        if (user.accountImage) {
+            user.accountImage = images
         }
-
         this.auth
             .updateProfile(form, mobileResults, phoneResults, categoriesResult)
             .subscribe((result: any) => {
