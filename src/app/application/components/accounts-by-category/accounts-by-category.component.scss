@@ -2,7 +2,6 @@
     display: block;
     width: 100%;
     border: 2px solid #f2b414;
-    border-radius: 50%;
     position: relative;
     left: 0;
     right: 0;
@@ -37,10 +36,10 @@
 
 .homepage-area .supplier-name {
     margin-top: 10px;
+    text-align: center;
 }
 .homepage-area .supplier-name a {
-    float: right;
-    font-size: 13px;
+    font-size: 15px;
     color: #f2b414;
 }
 .homepage-area .supplier-name p {

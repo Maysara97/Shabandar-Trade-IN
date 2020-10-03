@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormGroup, FormBuilder } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { AccountData } from 'src/app/account/models/register'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { MessageService } from '../../../messageing/services/message.service'
@@ -32,9 +32,9 @@ export class ReplyMessageComponent implements OnInit {
         private toastr: ToastrService,
         private route: ActivatedRoute
     ) {
-        this.receiverAccountId = route.snapshot.params['receiverAccountId']
+        this.receiverAccountId = route.snapshot.params['senderAccountId']
         this.threadId = route.snapshot.params['threadId']
-        this.receiverName = route.snapshot.params['receiverName']
+        this.receiverName = route.snapshot.params['senderName']
         this.title = route.snapshot.params['title']
     }
 
@@ -47,8 +47,8 @@ export class ReplyMessageComponent implements OnInit {
             threadId: [],
             senderAccountId: [],
             receiverAccountId: [],
-            title: [],
-            body: [],
+            title: [null,  [Validators.required]],
+            body: [null, [Validators.required]],
             receiverAccountName: [],
             attachments: [],
         })

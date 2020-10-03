@@ -11,14 +11,10 @@
                                     <img [src]="getFilePath(category.icon)">
                                 </div>
                                 <div class="col-md-8 col-sm-8">
-                                    <a *ngIf="category.hasSub"
-                                        (click)="subCategory(subCategoryModal, category.categoryId)">
+                                    <a (click)="subCategory(subCategoryModal, category.categoryId)">
                                         <p class="category-title">{{category.categoryName}} </p>
                                     </a>
-                                    <a *ngIf="!category.hasSub"
-                                        [routerLink]="['/application/accounts-by-category', category.categoryId]">
-                                        <p class="category-title">{{category.categoryName}} </p>
-                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -30,8 +26,8 @@
                                     <ul>
                                         <div class="row">
                                             <div class="col-md-4" *ngFor="let sub of subCategories">
-                                                <li><a
-                                                        [routerLink]="['/application/accounts-by-category', sub.categoryId]">{{sub.categoryName}}</a>
+                                                <li><a [routerLink]="['/application/accounts-by-category', sub.categoryId]"
+                                                        (click)="closeSubDialog()">{{sub.categoryName}}</a>
                                                 </li>
                                             </div>
                                         </div>

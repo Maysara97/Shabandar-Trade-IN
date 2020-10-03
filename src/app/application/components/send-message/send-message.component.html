@@ -23,6 +23,10 @@
                             <br />
                             <input type="text" id="title" required="required" formControlName="title" name="title"
                                 placeholder="Subject" />
+                            <label class="text-danger"
+                                *ngIf="sendMessageForm.get('title').touched && sendMessageForm.get('title').errors?.required">
+                                You Must Add Message's Subject
+                            </label>
                         </div>
                         <div class="form-group attachment-group tm-form-field">
                             <label for="attachments">Attachments</label>
@@ -35,6 +39,10 @@
                             <br>
                             <textarea class="form-control" id="body" rows="3" formControlName="body"
                                 placeholder="Message"></textarea>
+                            <label class="text-danger"
+                                *ngIf="sendMessageForm.get('body').touched && sendMessageForm.get('body').errors?.required">
+                                You Must Add Message's Body
+                            </label>
                         </div>
 
                         <div class="form-group tm-form-field">

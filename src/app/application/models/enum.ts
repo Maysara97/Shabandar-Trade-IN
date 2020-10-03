@@ -40,3 +40,15 @@ export const AdsTypesMapping = {
     [AdsTypes.ShowInHome]: 'Show In Home',
     [AdsTypes.Sponsers]: 'Sponsers',
 }
+
+export enum NotificationEntityType {
+    Account = 1,
+    Message = 2,
+    BuyingRequest = 3,
+    Product = 4,
+}
+
+export enum MessageStatus {
+    New = 1,
+    Read = 2,
+}

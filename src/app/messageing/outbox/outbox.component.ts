@@ -45,11 +45,11 @@ export class OutboxComponent implements OnInit {
                 this.getOutboxes(this.pageSize, this.pageNumber)
             )
     }
-    // archiveMessage(messageId) {
-    //     this.messageService
-    //         .archiveMessage(messageId)
-    //         .subscribe((res) =>
-    //             this.getOutboxes(this.pageSize, this.pageNumber)
-    //         )
-    // }
+    archiveMessage(messageId) {
+        this.messageService
+            .archiveMessage(messageId)
+            .subscribe((res) =>
+                this.getOutboxes(this.pageSize, this.pageNumber)
+            )
+    }
 }

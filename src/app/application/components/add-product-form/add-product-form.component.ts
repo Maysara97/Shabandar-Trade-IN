@@ -93,7 +93,7 @@ export class AddProductFormComponent implements OnInit {
             this.countries = result.data
         })
         this.addProductForm = this.formBuilder.group({
-            productId: [null, [Validators.required]],
+            productName: [null, [Validators.required]],
             unitePrice: [],
             price: [null, [Validators.required]],
             categoryId: [null, [Validators.required]],

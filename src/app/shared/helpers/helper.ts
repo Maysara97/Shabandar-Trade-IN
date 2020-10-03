@@ -1,5 +1,6 @@
 import jwt_decode from 'jwt-decode'
 import { AccountData } from 'src/app/account/models/register'
+import { NotificationEntityType } from 'src/app/application/models/enum'
 
 const parseJwt = (token: string): AccountData => {
     try {
@@ -7,6 +8,23 @@ const parseJwt = (token: string): AccountData => {
     } catch (e) {
         return null
     }
+}
+const generateNotificationURL = (
+    notificationEntityType: NotificationEntityType,
+    id: any
+): string => {
+    let url = ''
+    switch (notificationEntityType) {
+        case NotificationEntityType.BuyingRequest: {
+            url = `/application/buying-product-details`
+            break
+        }
+        case NotificationEntityType.Product: {
+            url = `/application/product-details`
+            break
+        }
+    }
+    return url
 }
 
 // const shouldDisplayNotification = (notificationTags: string[]): boolean => {
@@ -50,4 +68,4 @@ const log = (title: string, data: any) => {
     console.groupEnd()
 }
 
-export { getToken, setToken, parseJwt, log }
+export { getToken, setToken, parseJwt, log, generateNotificationURL }

@@ -67,8 +67,10 @@
                                     <li class="divider dropdown-divider mb-3"></li>
                                     <ng-container *ngIf="notifications != null">
                                         <li *ngFor="let notification of sortNotificationsByDate">
-                                            <a class="dropdown-item d-flex flex-wrap"
-                                                [routerLink]="['/application/viewer', notification.notifierAccountId]">
+                                            <a class="dropdown-item d-flex flex-wrap" [routerLink]="['/application',
+                                            notification.notificationUrl,
+                                            notification.changedEntityId
+                                        ]">
                                                 <div class="col-12 fz-14">
                                                     {{notification?.body?.length > 50 ? (notification.body | slice: 0:50) + '...' : notification.body }}
                                                 </div>

@@ -135,7 +135,7 @@ export class EditProductFormComponent implements OnInit {
 
         this.editAccountProductForm = this.formBuilder.group({
             accountProductId: [this.accountProductId],
-            productId: [],
+            productName: [],
             unitePrice: [],
             price: [],
             categoryId: [],

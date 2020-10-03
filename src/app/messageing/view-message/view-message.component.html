@@ -28,7 +28,7 @@
             <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse"
                 href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
             <a
-                [routerLink]="['/application/reply-message', message.threadId,message.receiverAccountId, message.receiverName, message.title]">
+                [routerLink]="['/application/reply-message', message.threadId,message.senderAccountId, message.senderName, message.title]">
                 <i class="fa fa-share text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top"
                     title="Replay" aria-hidden="true"></i></a>
         </div>
