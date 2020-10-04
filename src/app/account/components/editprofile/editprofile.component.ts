@@ -102,7 +102,10 @@ export class EditprofileComponent implements OnInit {
                 this.mobileNumbers.length = this.updateUserData.mobile.length
             }
             if (this.updateUserData.categories) {
-                this.categorySelections = this.updateUserData.categories
+               // this.categorySelections = this.updateUserData.categories
+                this.categorySelections= (this.updateUserData.categories || []).map(
+                    c => c.categoryId
+                )
             }
         })
 
