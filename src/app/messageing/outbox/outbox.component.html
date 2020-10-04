@@ -12,7 +12,7 @@
             <table class="table" *ngIf="outboxMessages.length > 0">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>To</th>
                         <th>Subject</th>
                         <th>Body</th>
                         <th>Actions</th>
@@ -20,14 +20,16 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let outbox of outboxMessages">
-                        <td>{{outbox.senderName}}</td>
-                        <td>{{outbox.title}}</td>
-                        <td>{{outbox.body  | slice : 0 : 20}}</td>
+                        <td style="width: 15%;">{{outbox.receiverName}}</td>
+                        <td style="width: 30%;">{{outbox.title}}</td>
+                        <td>{{outbox.body  | slice : 0 : 10}}</td>
                         <td><a type="button" class="btn btn-primary"
-                                [routerLink]="['/messageing/sidebar/view-message' , outbox.threadId]"><i
-                                    class="far fa-eye"></i></a>
-                            <button type="button" class="btn btn-danger" (click)="deleteMessage(outbox.messageId)"><i
-                                    class="far fa-trash-alt"></i></button>
+                                [routerLink]="['/messageing/sidebar/view-message' , outbox.threadId]" tooltip="View"
+                                placement="bottom"><i class="far fa-eye"></i></a>
+                            <button type="button" class="btn btn-danger" (click)="deleteMessage(outbox.messageId)"
+                                tooltip="Delete" placement="bottom"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-warning" (click)="archiveMessage(outbox.messageId)"
+                                tooltip="Archive" placement="bottom"><i class="fa fa-archive"></i></button>
                         </td>
                     </tr>
                 </tbody>

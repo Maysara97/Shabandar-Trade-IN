@@ -40,6 +40,7 @@ export class SellProductComponent implements OnInit {
     pageSize = 6
     searchKeyWord = ''
     categoryId = ''
+    SubCategoryId = ''
     productId = ''
     countryId = ''
     dateFrom = ''
@@ -100,6 +101,7 @@ export class SellProductComponent implements OnInit {
             '',
             '',
             '',
+            '',
             ''
         )
 
@@ -119,6 +121,7 @@ export class SellProductComponent implements OnInit {
             pageEvent.pageIndex + 1,
             this.searchKeyWord,
             this.countryId,
+            this.SubCategoryId,
             this.categoryId,
             this.dateFrom,
             this.dateTo
@@ -131,6 +134,7 @@ export class SellProductComponent implements OnInit {
             this.page,
             this.searchKeyWord,
             this.categoryId,
+            this.SubCategoryId,
             this.countryId,
             this.dateFrom,
             this.dateTo
@@ -142,6 +146,7 @@ export class SellProductComponent implements OnInit {
         pageNumber,
         searchKeyWord,
         categoryId,
+        subCategoryId,
         countryId,
         dateFrom,
         dateTo
@@ -152,6 +157,7 @@ export class SellProductComponent implements OnInit {
                 pageNumber,
                 searchKeyWord,
                 categoryId,
+                subCategoryId,
                 countryId,
                 dateFrom,
                 dateTo
@@ -181,11 +187,12 @@ export class SellProductComponent implements OnInit {
             })
     }
     onChooseSubCategory(subCategory) {
-        this.productService
-            .getProductsByCategory(subCategory)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
+        // this.productService
+        //     .getProductsByCategory(subCategory)
+        //     .subscribe((result: any) => {
+        //         this.products = result.data
+        //     })
+        this.SubCategoryId = subCategory
         this.applyFilter()
     }
 
@@ -202,6 +209,7 @@ export class SellProductComponent implements OnInit {
         this.getAccountProducts(
             this.pageSize,
             this.pageNumber,
+            '',
             '',
             '',
             '',

@@ -17,7 +17,8 @@ export class AccountProductService extends BaseService<any> {
         agentsResult
     ): Observable<AccountProduct> {
         const body = {
-            productId: accountProduct.productId,
+            categoryId: accountProduct.categoryId,
+            productName: accountProduct.productName,
             location: accountProduct.location,
             size: accountProduct.size,
             wieght: accountProduct.wieght,
@@ -63,7 +64,8 @@ export class AccountProductService extends BaseService<any> {
     ): Observable<AccountProduct> {
         const body = {
             accountProductId: accountProduct.accountProductId,
-            productId: accountProduct.productId,
+            categoryId: accountProduct.categoryId,
+            productName: accountProduct.productName,
             location: accountProduct.location,
             size: accountProduct.size,
             wieght: accountProduct.wieght,
@@ -118,12 +120,13 @@ export class AccountProductService extends BaseService<any> {
         pageNumber: number,
         searchKeyWord: string,
         categoryId: number,
+        SubCategoryId: number,
         countryId: number,
         dateFrom: string,
         dateTo: string
     ) {
         return this.getAll(
-            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
+            `AccountProduct/AccountProductsSearch/${pageSize}/${pageNumber}?searchKeyWord=${searchKeyWord}&CategoryId=${categoryId}&SubCategoryId=${SubCategoryId}&CountryId=${countryId}&DateFrom=${dateFrom}&DateTo=${dateTo}`
         )
     }
 

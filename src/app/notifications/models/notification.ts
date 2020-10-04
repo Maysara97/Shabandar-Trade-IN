@@ -8,6 +8,7 @@ export class Notifications {
     newNotificationsCount: number
     accountName: string
     body: string
+    notificationUrl: string
     notificationRef: string
     title: string
     createdOn: string

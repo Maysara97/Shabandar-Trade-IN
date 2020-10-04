@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input } from '@angular/core'
-import { FormGroup, FormBuilder } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { AccountData } from 'src/app/account/models/register'
 import { MessageService } from '../../../messageing/services/message.service'
@@ -44,8 +44,8 @@ export class SendMessageComponent implements OnInit {
         this.sendMessageForm = this.fb.group({
             senderAccountId: [],
             receiverAccountId: [],
-            title: [],
-            body: [],
+            title: [null, [Validators.required]],
+            body: [null, [Validators.required]],
             receiverAccountName: [],
             attachments: [],
         })

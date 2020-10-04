@@ -80,10 +80,11 @@ export class AuthService extends BaseService<any> {
         account: AccountData,
         mobileResults,
         phoneResults,
-        categoriesResult
+        categoriesResult,
+        images
     ): Observable<AccountData> {
         const body = {
-            accountImage: account.accountImage,
+            accountImage: images,
             accountName: account.accountName,
             mission: account.mission,
             vission: account.vission,
@@ -127,5 +128,8 @@ export class AuthService extends BaseService<any> {
     }
     getAccountCategories(): Observable<Category> {
         return this.get('Account/AccountCategoriesLookUp')
+    }
+    getAccountsBySubCategoryId(subCategoryId: string) {
+        return this.getById('Account/GetAccountsBySubCategory', subCategoryId)
     }
 }

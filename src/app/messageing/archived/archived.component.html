@@ -20,14 +20,14 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let archive of archivedMessage">
-                        <td>{{archive.senderName}}</td>
-                        <td>{{archive.title}}</td>
+                        <td style="width: 15%;"> {{archive.senderName}}</td>
+                        <td style="width: 30%;">{{archive.title}}</td>
                         <td>{{archive.body  | slice : 0 : 20}}</td>
                         <td><a type="button" class="btn btn-primary"
                                 [routerLink]="['/messageing/sidebar/view-message' , archive.threadId]" tooltip="View"
                                 placement="bottom"><i class="far fa-eye"></i></a>
                             <button type="button" class="btn btn-danger" (click)="deleteMessage(archive.messageId)"
-                                tooltip="Delete" placement="bottom"><i class="far fa-trash-alt"></i></button>
+                                tooltip="Delete" placement="bottom"><i class="fa fa-trash"></i></button>
                             <button type="button" class="btn btn-secondary"
                                 (click)="UnArchiveMessage(archive.messageId)" tooltip="UnArchive" placement="bottom"><i
                                     class="fa fa-undo"></i></button>

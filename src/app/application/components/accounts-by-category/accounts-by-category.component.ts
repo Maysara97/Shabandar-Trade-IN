@@ -27,7 +27,7 @@ export class AccountsByCategoryComponent implements OnInit {
 
     ngOnInit(): void {
         this.auth
-            .getAccountsByCategoryId(this.targetCategoryId)
+            .getAccountsBySubCategoryId(this.targetCategoryId)
             .subscribe((res: any) => {
                 this.accountByCategory = res.data
             })

@@ -54,7 +54,8 @@ export class EditprofileComponent implements OnInit {
     public mobileNumbers = [{ id: 1, mobile: '' }]
     public phoneNumbers = [{ id: 1, phone: '' }]
     // public categorySelections: Object[] = [{ categoryId: '' }]
-    public categorySelections = [{ categoryId: '' }]
+    // public categorySelections = [{ categoryId: '' }]
+    categorySelections = []
     public placeHolder: Categories[] = [{ categoryId: '' }]
     categoryId
     public localFields: Object = {
@@ -74,16 +75,23 @@ export class EditprofileComponent implements OnInit {
 
             this.files = this.updateUserData.accountAttachments
 
-            if (this.updateUserData.accountImage) {
+            // if (this.updateUserData.accountImage) {
             this.images[0] = this.updateUserData.accountImage
-            }
-            else{
-                 this.updateUserData.accountImage = this.images[0] 
-            }
+            // }
+
+            this.categorySelections = this.updateUserData.categories
+            // for (const cat of this.updateUserData.categories) {
+            //     ;[cat.categoryId] = this.categorySelections
+            // }
             this.categoryService
                 .getCategoriesByParentId(this.updateUserData.categoryId)
                 .subscribe((result: any) => {
                     this.categories = result.data
+
+                    // let categoriesSelect = []
+                    // this.categorySelections.forEach((element) => {
+                    //     categoriesSelect.push(element.categoryId)
+                    // })
                 })
             this.mainCategoryName = this.updateUserData.categoryName
             this.mainCategoryId = this.updateUserData.categoryId
@@ -93,8 +101,16 @@ export class EditprofileComponent implements OnInit {
             if (this.updateUserData.mobile) {
                 this.mobileNumbers.length = this.updateUserData.mobile.length
             }
+            if (this.updateUserData.categories) {
+                this.categorySelections = this.updateUserData.categories
+            }
         })
 
+        // this.editProfileForm.patchValue({
+        //     categories: (this.updateUserData.categories || []).map(
+        //         (c) => c.categoryId
+        //     ),
+        // })
         this.editProfileForm = this.formBuilder.group({
             accountImage: [null, Validators.required],
             accountName: [],
@@ -111,7 +127,7 @@ export class EditprofileComponent implements OnInit {
             whatsApp: [],
             weChat: [],
             zipCode: [],
-            categories: [null, Validators.required],
+            categories: [],
             categoryId: [],
             categoryName: [],
         })
@@ -177,13 +193,19 @@ export class EditprofileComponent implements OnInit {
         this.categorySelections.forEach((element) => {
             categoriesResult.push({ categoryId: element })
         })
-        const user = this.editProfileForm.value as AccountData
-        const images = this.images[0]
-        if (user.accountImage) {
-            user.accountImage = images
-        }
+        // const user = this.editProfileForm.value as AccountData
+        // const images = this.images[0]
+        // if (user.accountImage) {
+        //     user.accountImage = images
+        // }
         this.auth
-            .updateProfile(form, mobileResults, phoneResults, categoriesResult)
+            .updateProfile(
+                form,
+                mobileResults,
+                phoneResults,
+                categoriesResult,
+                this.images[0]
+            )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
                     this.router.navigate(['/account/owner'])
