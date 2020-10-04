@@ -7,6 +7,8 @@ import { MatMenuTrigger } from '@angular/material/menu'
 import { Observable } from 'rxjs'
 import { NotificationsService } from 'src/app/notifications/services/notification.service'
 import { Notifications } from 'src/app/notifications/models/notification'
+import { MessageService } from 'src/app/messageing/services/message.service'
+import { Message } from 'src/app/messageing/models/message'
 
 @Component({
     selector: 'app-home-header',
@@ -18,16 +20,19 @@ export class HomeHeaderComponent implements OnInit {
     currentUser: User
     @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
     newNotificationCount: number
+    newMessageCount = 0
     newNotificationCount$: Observable<number>
     pageSize = 5
     pageNumber = 1
     notifications: Notifications[]
+    newMessages: Message[] = []
     // tslint:disable-next-line:variable-name
     constructor(
         public _route: Router,
         private auth: AuthService,
         private router: Router,
-        private notificationService: NotificationsService
+        private notificationService: NotificationsService,
+        private messageService: MessageService
     ) {}
 
     ngOnInit(): void {
@@ -101,5 +106,17 @@ export class HomeHeaderComponent implements OnInit {
         return this.notifications.sort((a, b) => {
             return <any>new Date(b.createdOn) - <any>new Date(a.createdOn)
         })
+    }
+
+    getNewMessage(pageSize, pageNumber) {
+        this.messageService
+            .getNewInboxMessages(pageSize, pageNumber)
+            .subscribe((res: any) => {
+                if (res.isSucceeded) {
+                    this.newMessages = res.data
+                    this.newMessages = res.totalRecords
+                    res.totalRecords = 0
+                }
+            })
     }
 }
