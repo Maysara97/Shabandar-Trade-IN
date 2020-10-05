@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/you-trade-in-public",
+                        "outputPath": "dist/you-trade-in-public/browser",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -128,6 +128,53 @@
                         "production": {
                             "devServerTarget": "you-trade-in-public:serve:production"
                         }
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/you-trade-in-public/server",
+                        "main": "server.ts",
+                        "tsConfig": "tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "outputHashing": "media",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "sourceMap": false,
+                            "optimization": true
+                        }
+                    }
+                },
+                "serve-ssr": {
+                    "builder": "@nguniversal/builders:ssr-dev-server",
+                    "options": {
+                        "browserTarget": "you-trade-in-public:build",
+                        "serverTarget": "you-trade-in-public:server"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "you-trade-in-public:build:production",
+                            "serverTarget": "you-trade-in-public:server:production"
+                        }
+                    }
+                },
+                "prerender": {
+                    "builder": "@nguniversal/builders:prerender",
+                    "options": {
+                        "browserTarget": "you-trade-in-public:build:production",
+                        "serverTarget": "you-trade-in-public:server:production",
+                        "routes": [
+                            "/"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {}
                     }
                 }
             }
