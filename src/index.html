@@ -51,7 +51,7 @@
     equipment rental logistics company
     ">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="./src/assets/js/main.js"></script>
+    <!-- <script src="./assets/js/main.js"></script> -->
     <link rel="icon" type="image/x-icon" href="./assets/images/You-Trade-In/small-logo.png" />
     <!-- Google Font (font-family: 'Open Sans', sans-serif;) -->
     <!-- <link rel="stylesheet" type="text/css"
@@ -87,6 +87,7 @@
     <!-- <script src="./assets/js/main.js"></script> -->
     <script src="./assets/js/modernizr-3.6.0.min.js"></script>
     <script src="./assets/js/jquery.min.js"></script>
+
     <script type="text/javascript" src="./assets/js/popper.min.js"></script>
     <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/plugins.js"></script>
@@ -137,6 +138,11 @@
 
     </script>
 
+    <script>
+        window.onbeforeunload = function () {
+            localStorage.removeItem('token');
+        };
+    </script>
 
 </body>
 

@@ -1,5 +1,11 @@
 import { NotifierService } from 'angular-notifier'
-import { Component, OnInit, ViewChild } from '@angular/core'
+import {
+    Component,
+    HostListener,
+    OnDestroy,
+    OnInit,
+    ViewChild,
+} from '@angular/core'
 import * as $ from 'jquery'
 import { NotificationsService } from './notifications/services/notification.service'
 import { Observable } from 'rxjs'
@@ -10,14 +16,20 @@ import { AuthService } from './shared/services/auth.service'
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
     private notifier: NotifierService
-    newNotificationCount$: Observable<number>
+    // newNotificationCount$: Observable<number>
     type: string
     message: string
     notifications: Notifications
 
     title = 'Shah-bandar-trade-in'
+
+    // @HostListener('window:onbeforeunload', ['$event'])
+    // clearLocalStorage(event) {
+    //     localStorage.removeItem('token')
+    //     localStorage.clear()
+    // }
 
     public constructor(
         notifier: NotifierService,
@@ -43,5 +55,10 @@ export class AppComponent implements OnInit {
                 this.notificationsService.disconnect()
             }
         })
+    }
+
+    ngOnDestroy() {
+        this.authService.logout()
+        // localStorage.removeItem('token')
     }
 }

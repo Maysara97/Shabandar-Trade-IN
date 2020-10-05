@@ -42,12 +42,19 @@ export class HomeHeaderComponent implements OnInit {
 
         // this.newNotificationCounts()
         // this.newNotificationCount$ = this.notificationService.getNewNotificationsCount()
-        this.notificationService
-            .getNewNotificationsCount()
-            .subscribe((res: any) => {
-                this.newNotificationCount = res.data
-            })
-        this.allNotifications(this.pageSize, this.pageNumber)
+        this.auth.isAuthed.subscribe((info) => {
+            if (info) {
+                this.notificationService.connect()
+                this.notificationService
+                    .getNewNotificationsCount()
+                    .subscribe((res: any) => {
+                        this.newNotificationCount = res.data
+                    })
+                this.allNotifications(this.pageSize, this.pageNumber)
+            } else {
+                this.notificationService.disconnect()
+            }
+        })
     }
     getNotifications() {
         this.allNotifications(this.pageSize, this.pageNumber)
