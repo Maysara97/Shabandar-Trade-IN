@@ -60,6 +60,7 @@ export class AuthService extends BaseService<any> {
     logout() {
         this.isAuthSubject.next(false)
         localStorage.removeItem('token')
+        localStorage.clear()
     }
 
     register(user: User): Observable<User> {
