@@ -197,17 +197,20 @@ export class EditprofileComponent implements OnInit {
             categoriesResult.push({ categoryId: element })
         })
         // const user = this.editProfileForm.value as AccountData
-        // const images = this.images[0]
-        // if (user.accountImage) {
-        //     user.accountImage = images
-        // }
+         const images = this.images[0]
+        if (!form.accountImage) {
+            form.accountImage = images
+        }
+        const img=form.accountImage;
+   
+        debugger
         this.auth
             .updateProfile(
                 form,
                 mobileResults,
                 phoneResults,
                 categoriesResult,
-                this.images[0]
+                form.accountImage
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
