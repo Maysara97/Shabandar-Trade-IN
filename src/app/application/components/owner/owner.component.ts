@@ -195,6 +195,12 @@ export class OwnerComponent implements OnInit {
     getAccountDetails() {
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.userDetails = result.data
+
+            if(!this.userDetails.categories){
+                this.fillAccountDataModal = this.modalService.show({
+                    class: 'modal-md',
+                })
+            }
         })
     }
 
@@ -229,16 +235,20 @@ export class OwnerComponent implements OnInit {
         window.open(path, '_blank')
     }
 
-    // fillAccountData(template: TemplateRef<any>) {
-    //     this.fillAccountDataModal = this.modalService.show(template, {
-    //         class: 'modal-md',
-    //     })
-    // }
+    fillAccountData(template: TemplateRef<any>) {
+        this.fillAccountDataModal = this.modalService.show(template, {
+            class: 'modal-md',
+        })
+    }
     deleteFollowing(favoriteItemId) {
         this.favoriteService
             .deleteFavorite(favoriteItemId)
             .subscribe((result) => {
                 this.getAccountDetails()
             })
+    }
+
+    goToEditProfile(){
+        this.router.navigate(['/account/editprofile'])
     }
 }
