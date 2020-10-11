@@ -121,10 +121,12 @@
                                         </option>
                                         <option *ngFor="let category of categories" value={{category.categoryId}}>
                                             {{category.categoryName}}</option>
+
+                                            <label class="text-danger"
+                                            *ngIf="accountService.registerForm.get('categoryId').touched || accountService.registerForm.get('categoryId').errors?.required">Category
+                                            is required</label>
                                     </select>
-                                    <label class="text-danger"
-                                        *ngIf="accountService.registerForm.get('categoryId').touched || accountService.registerForm.get('categoryId').errors?.required">Category
-                                        is required</label>
+                                   
 
                                 </div>
                             </div>
@@ -138,10 +140,11 @@
                                 </option>
                                 <option *ngFor="let country of countries" value="{{country.id}}">
                                     {{country.name}}</option>
-                            </select>
-                            <label class="text-danger"
+                                    <label class="text-danger"
                                 *ngIf="accountService.registerForm.get('countryId').touched || accountService.registerForm.get('countryId').errors?.required">Country
                                 is required</label>
+                            </select>
+                            
                         </div>
                         <div class="form-group tm-form-field justify-content-center" style="display: flex;">
                             <mat-checkbox field="acceptTerms" formControlName="acceptTerms"><a
@@ -150,8 +153,7 @@
 
                         </div>
                         <div class="form-group tm-form-field">
-                            <button type="submit" class="tm-button mt-3"
-                                [disabled]="!accountService.registerForm.valid">
+                            <button type="submit" class="tm-button mt-3">
                                 Register <b></b>
                             </button>
                             <p>

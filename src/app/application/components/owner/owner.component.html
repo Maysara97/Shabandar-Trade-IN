@@ -955,4 +955,15 @@
             </div>
         </div>
     </div>
+
+
+    <div *ngIf="userDetails.categories; else fillFormModal"></div>
+<ng-template #fillFormModal>
+    <div class="modal-body text-center ">
+        <p> Hello {{userDetails.accountName}} <br>
+        You must fill your profile data Click OK to go to Filling your Profile Data</p>
+        <button type="button" class="btn btn-info" (click)="goToEditProfile()">OK</button>
+    </div>
+</ng-template>
 </div>
+

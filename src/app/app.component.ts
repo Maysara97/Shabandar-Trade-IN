@@ -16,20 +16,13 @@ import { AuthService } from './shared/services/auth.service'
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
     private notifier: NotifierService
-    // newNotificationCount$: Observable<number>
     type: string
     message: string
     notifications: Notifications
 
     title = 'Shah-bandar-trade-in'
-
-    // @HostListener('window:onbeforeunload', ['$event'])
-    // clearLocalStorage(event) {
-    //     localStorage.removeItem('token')
-    //     localStorage.clear()
-    // }
 
     public constructor(
         notifier: NotifierService,
@@ -57,8 +50,4 @@ export class AppComponent implements OnInit, OnDestroy {
         })
     }
 
-    ngOnDestroy() {
-        this.authService.logout()
-        // localStorage.removeItem('token')
-    }
 }
