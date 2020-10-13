@@ -102,7 +102,6 @@ export class AuthService extends BaseService<any> {
             categories: categoriesResult,
             categoryId: account.categoryId,
         }
-        console.log(body)
         return this.put('Account', body)
     }
 

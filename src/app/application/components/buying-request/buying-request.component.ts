@@ -118,7 +118,6 @@ export class BuyingRequestComponent implements OnInit {
             this.dateFrom,
             this.dateTo
         )
-        console.log(pageEvent)
     }
     applyFilter() {
         this.getBuyingRequests(

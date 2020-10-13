@@ -50,7 +50,6 @@ export class AccountProductService extends BaseService<any> {
             totalHours: accountProduct.totalHours,
             capacity: accountProduct.capacity,
         }
-        console.log(body)
         return this.post('AccountProduct', body)
     }
     updateAccountProduct(
