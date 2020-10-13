@@ -126,7 +126,6 @@ export class SellProductComponent implements OnInit {
             this.dateFrom,
             this.dateTo
         )
-        console.log(pageEvent)
     }
     applyFilter() {
         this.getAccountProducts(
@@ -217,23 +216,4 @@ export class SellProductComponent implements OnInit {
             ''
         )
     }
-
-    sendMessage(accountId): void {
-        const dialogRef = this.dialog.open(SendMessageComponent, {
-            maxWidth: '700px',
-            maxHeight: '800px',
-            data: {
-                title: 'Send Message',
-                model: accountId,
-            },
-        })
-
-        dialogRef.afterClosed().subscribe((result) => {
-            console.log('The dialog was closed')
-            // this.animal = result
-        })
-    }
-    // goToSendMessage() {
-    //     this.router.navigate(['application/send-message'])
-    // }
 }

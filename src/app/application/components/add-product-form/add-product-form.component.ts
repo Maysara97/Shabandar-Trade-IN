@@ -204,7 +204,6 @@ export class AddProductFormComponent implements OnInit {
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    console.log(result.data)
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

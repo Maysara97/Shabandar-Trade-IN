@@ -74,7 +74,6 @@ export class SendMessageComponent implements OnInit {
             .sendMessage(messageForm)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    console.log(result.data)
                     this.router.navigate(['/application/sell-product'])
                 } else {
                     this.toastr.error(result.errors)
