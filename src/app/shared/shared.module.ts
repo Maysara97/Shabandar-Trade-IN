@@ -38,13 +38,11 @@ const SHARED_EXTERNAL_MODULES = [
     MatPaginatorModule,
     MatToolbarModule,
     NgbModule,
-    SlickCarouselModule,
     MatTabsModule,
 ]
 const SHARED_INTERNAL_MODULES = [
     FormsModule,
     ReactiveFormsModule,
-    SlickCarouselModule,
 ]
 
 @NgModule({
