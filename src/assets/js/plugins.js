@@ -1,19 +1,4 @@
-/*
- * %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- *
- * Template Name:  Multipurpose Business HTML Template
- * Template URI:
- * Description: Business is a multipurpose business HTML template which comes with the unique and clean design. It helps you to create a beautiful multipurpose business HTML website. It has also e-commerce support. E-commerce pages are included on this template.
- * Author: Thememarch
- * Author URI:
- * Version: 3.5
- *
- * %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- */
-
-/*! WOW wow.js - v1.3.0 - 2016-10-04
- * https://wowjs.uk
- * Copyright (c) 2016 Thomas Grainger; Licensed MIT */ !(function(a, b) {
+ !(function(a, b) {
   if ("function" == typeof define && define.amd)
     define(["module", "exports"], b);
   else if ("undefined" != typeof exports) b(module, exports);
