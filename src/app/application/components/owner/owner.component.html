@@ -179,11 +179,7 @@
 
                                             <div class="col-lg-12">
                                                 <div class="tm-feature text-center">
-                                                    <!-- <div class="tm-product-image">
-                                                       
-                                                    </div> -->
                                                     <span class="tm-feature-icon">
-                                                        <!-- <img [src]="getFilePath(product.productImages[0])"> -->
                                                         <a class="tm-product-imagelink">
                                                             <img style="width: 250px; height: 230px;"
                                                                 [src]="getFilePath(product.productImages[0])"
@@ -955,15 +951,4 @@
             </div>
         </div>
     </div>
-
-
-    <div *ngIf="userDetails.categories; else fillFormModal"></div>
-<ng-template #fillFormModal>
-    <div class="modal-body text-center ">
-        <p> Hello {{userDetails.accountName}} <br>
-        You must fill your profile data Click OK to go to Filling your Profile Data</p>
-        <button type="button" class="btn btn-info" (click)="goToEditProfile()">OK</button>
-    </div>
-</ng-template>
 </div>
-
