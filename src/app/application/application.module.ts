@@ -25,14 +25,54 @@ import { EditBuyingRequestComponent } from './components/edit-buying-request/edi
 import { ConfirmationSuccessfullComponent } from './components/confirmation-successfull/confirmation-successfull.component'
 import { ConfirmationFailedComponent } from './components/confirmation-failed/confirmation-failed.component'
 import { MatDialogModule } from '@angular/material/dialog'
-import { DialogModule } from '@syncfusion/ej2-angular-popups'
 import { SendMessageComponent } from './components/send-message/send-message.component'
 import { BuyingRequestComponent } from './components/buying-request/buying-request.component'
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
 import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
 import { AccountsByCategoryComponent } from './components/accounts-by-category/accounts-by-category.component'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { NotifierModule, NotifierOptions } from 'angular-notifier'
 
+const customNotifier: NotifierOptions = {
+    position: {
+        horizontal: {
+            position: 'middle',
+            distance: 12,
+        },
+        vertical: {
+            position: 'top',
+            distance: 12,
+            gap: 10,
+        },
+    },
+    theme: 'material',
+    behaviour: {
+        autoHide: 5000,
+        onClick: false,
+        onMouseover: 'pauseAutoHide',
+        showDismissButton: true,
+        stacking: 4,
+    },
+    animations: {
+        enabled: true,
+        show: {
+            preset: 'slide',
+            speed: 300,
+            easing: 'ease',
+        },
+        hide: {
+            preset: 'fade',
+            speed: 300,
+            easing: 'ease',
+            offset: 50,
+        },
+        shift: {
+            speed: 300,
+            easing: 'ease',
+        },
+        overlap: 150,
+    },
+}
 @NgModule({
     declarations: [
         OwnerComponent,
@@ -64,12 +104,51 @@ import { MatTooltipModule } from '@angular/material/tooltip'
         SharedModule,
         MatPaginatorModule,
         MultiSelectAllModule,
-        // NgxPaginationModule,
         MatToolbarModule,
         BsDatepickerModule.forRoot(),
         MatTabsModule,
         MatDialogModule,
-        MatTooltipModule
+        MatTooltipModule,
+        NotifierModule.withConfig({
+            position: {
+                horizontal: {
+                    position: 'middle',
+                    distance: 12,
+                },
+                vertical: {
+                    position: 'bottom',
+                    distance: 12,
+                    gap: 10,
+                },
+            },
+            theme: 'material',
+            behaviour: {
+                autoHide: 5000,
+                onClick: false,
+                onMouseover: 'pauseAutoHide',
+                showDismissButton: true,
+                stacking: 4,
+            },
+            animations: {
+                enabled: true,
+                show: {
+                    preset: 'slide',
+                    speed: 300,
+                    easing: 'ease',
+                },
+                hide: {
+                    preset: 'fade',
+                    speed: 300,
+                    easing: 'ease',
+                    offset: 50,
+                },
+                shift: {
+                    speed: 300,
+                    easing: 'ease',
+                },
+                overlap: 150,
+            },
+        }),
     ],
 })
 export class ApplicationModule {}

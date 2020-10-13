@@ -197,13 +197,12 @@ export class EditprofileComponent implements OnInit {
             categoriesResult.push({ categoryId: element })
         })
         // const user = this.editProfileForm.value as AccountData
-         const images = this.images[0]
+        const images = this.images[0]
         if (!form.accountImage) {
             form.accountImage = images
         }
         const img=form.accountImage;
-   
-        debugger
+        // debugger
         this.auth
             .updateProfile(
                 form,

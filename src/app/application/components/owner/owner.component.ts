@@ -12,6 +12,7 @@ import { Notifications } from 'src/app/notifications/models/notification'
 import { StatusMapping } from '../../models/enum'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 import { FavoriteService } from '../../services/favorite.service'
+import { NotifierService } from 'angular-notifier'
 
 @Component({
     selector: 'app-owner',
@@ -20,7 +21,6 @@ import { FavoriteService } from '../../services/favorite.service'
 })
 export class OwnerComponent implements OnInit {
     user: User
-
     userDetails: AccountData
     favorites: Favorites[]
     accountProducts: AccountProduct[]
@@ -29,7 +29,7 @@ export class OwnerComponent implements OnInit {
     product: Product[] = []
     fillAccountDataModal: BsModalRef
     public ProductStatusMapping = StatusMapping
-
+    private notifier: NotifierService
     productSlider: any = {
         loop: false,
         margin: 15,
@@ -163,9 +163,11 @@ export class OwnerComponent implements OnInit {
         private accountProductService: AccountProductService,
         private buyingRequestService: BuyingRequestService,
         private modalService: BsModalService,
-        private favoriteService: FavoriteService
+        private favoriteService: FavoriteService,
+        notifier: NotifierService,
     ) {
         this.env = environment
+        this.notifier = notifier
     }
 
     ngOnInit() {
@@ -195,11 +197,11 @@ export class OwnerComponent implements OnInit {
     getAccountDetails() {
         this.auth.getAccountDetails().subscribe((result: any) => {
             this.userDetails = result.data
-
-            if(!this.userDetails.categories){
-                this.fillAccountDataModal = this.modalService.show({
-                    class: 'modal-md',
-                })
+            if(this.userDetails.categories.length === 0) {
+                this.notifier.notify(
+                    'info',
+                    'You Need to adding your categories, Please go to Edit Profile and Fill your data',
+                )
             }
         })
     }
@@ -248,7 +250,7 @@ export class OwnerComponent implements OnInit {
             })
     }
 
-    goToEditProfile(){
+    goToEditProfile() {
         this.router.navigate(['/account/editprofile'])
     }
 }
