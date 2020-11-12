@@ -65,6 +65,7 @@ export class RegisterationComponent implements OnInit {
         this.submitted = true
         this.auth.register(user).subscribe((result: any) => {
             if (result.isSucceeded) {
+                this.toastr.success(" Check your mail to confirm")
                 this.router.navigate(['/account/login'])
             } else {
                 this.toastr.error(result.errors)

@@ -44,9 +44,13 @@
 
 .carousel {
     display: block;
-    width: 40%;
+    // width: 40%;
+    width: 100%;
 }
-
+.tm-product-image:hover 
+{
+    cursor: pointer;
+}
 .details-product .tm-feature-icon {
     display: inline-block;
     font-size: 60px;
@@ -143,7 +147,8 @@
 
 .details-product .tm-product-imagelink {
     display: block;
-    width: 100%;
+    max-width: 300px;
+    max-height: 300px;
     border: 2px solid #f2b414;
     border-radius: 5px;
     position: relative;
@@ -176,4 +181,12 @@
     -webkit-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
+}
+.email-btn {
+    background-color: #f2b414;
+    color: #fff;
+    border-radius: 5px;
+    height: 35px;
+    margin-top: 5%;
+ 
 }

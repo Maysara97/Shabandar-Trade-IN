@@ -29,8 +29,8 @@ export class SidebarComponent implements OnInit {
                 if (res.isSucceeded) {
                     this.newMessages = res.data
                     this.totalCount = res.totalRecords
-                    res.totalRecords = 0
+                     res.totalRecords = 0
                 }
             })
-    }
+    } 
 }

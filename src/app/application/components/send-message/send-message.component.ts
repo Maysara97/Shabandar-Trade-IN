@@ -6,7 +6,7 @@ import { MessageService } from '../../../messageing/services/message.service'
 import { Router, ActivatedRoute } from '@angular/router'
 import { ToastrService } from 'ngx-toastr'
 import { FileImage } from 'src/app/shared/models/file'
-
+ 
 @Component({
     selector: 'app-send-message',
     templateUrl: './send-message.component.html',
@@ -74,6 +74,7 @@ export class SendMessageComponent implements OnInit {
             .sendMessage(messageForm)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
+                    this.toastr.success("Message sent successfully")
                     this.router.navigate(['/application/sell-product'])
                 } else {
                     this.toastr.error(result.errors)

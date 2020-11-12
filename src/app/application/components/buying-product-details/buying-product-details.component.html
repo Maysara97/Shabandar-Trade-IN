@@ -6,7 +6,7 @@
                 <div class="tm-product">
                     <div class="tm-product-image">
                         <a (click)="viewImage(imageModal)" class="tm-product-imagelink">
-                            <img style="width: 230px; height: 230px;" [src]="getFilePath(image)" />
+                            <img width="300px" height="290px"  [src]="getFilePath(image)" />
 
                         </a>
                     </div>
@@ -21,7 +21,7 @@
                                 <ngb-carousel>
                                     <ng-template ngbSlide *ngFor="let image of buyingRequestDetails.image">
                                         <div class="picsum-img-wrapper">
-                                            <img [src]="getFilePath(image)" width="100%">
+                                            <img [src]="getFilePath(image)">
                                         </div>
                                     </ng-template>
                                 </ngb-carousel>
@@ -137,10 +137,17 @@
                             <h3>Product Description</h3>
                             <p>{{buyingRequestDetails.description}}</p>
                         </div>
+                    <button class="email-btn" style="float: left;" mat-raised-button matTooltip="Send Message"
+                        [routerLink]="['/application/send-message', buyingRequestDetails.ownerAccountId,buyingRequestDetails.accountName]">
+                        &nbsp; <i class="fa fa-comments" aria-hidden="true">&nbsp; Send Message</i>
+                        &nbsp;
+                    </button>
                     </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <!--// Portfolio Details Area -->

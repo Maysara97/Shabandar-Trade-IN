@@ -213,6 +213,7 @@ export class EditprofileComponent implements OnInit {
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
+                    this.toastr.success("Your profile updated successfully")
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

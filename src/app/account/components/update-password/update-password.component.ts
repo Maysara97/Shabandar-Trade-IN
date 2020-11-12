@@ -15,7 +15,7 @@ import { AccountsService } from '../../services/accounts.service'
 export class UpdatePasswordComponent implements OnInit {
     submitted = false
     userPass: User
-
+    fieldTextType: boolean
     constructor(
         public updatePassService: UpdatePasswordService,
         public auth: AuthService,
@@ -33,10 +33,16 @@ export class UpdatePasswordComponent implements OnInit {
         this.auth.updatePassword(form).subscribe((data) => {
             if (data) {
                 this.route.navigateByUrl('/account/owner')
+                 this.toastr.success("Your password updated Successfully")
             } else {
                 this.updatePassService.updatePasswordForm.reset()
                 this.toastr.error('Invalid resetting Password')
             }
         })
+    }
+
+
+       toggleFieldTextType() {
+        this.fieldTextType = !this.fieldTextType
     }
 }
