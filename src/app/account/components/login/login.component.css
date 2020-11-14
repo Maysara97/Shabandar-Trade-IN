@@ -1,0 +1,86 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+  text-align: center;
+  color: #f2b414;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #f2b414;
+  border-radius: 5px;
+}
+
+.tm-button {
+  width: 100%;
+}
+
+p {
+  text-align: center;
+  margin-top: 40px;
+  color: #0e1234;
+  font-size: large;
+}
+
+p a {
+  color: #f2b414;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #0e1234;
+}
+
+.forgetPass a {
+  color: #f80000;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.forgetPass a:hover {
+  color: #f80000;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.form-group .form-control {
+  padding-left: 2.375rem;
+}
+
+.form-group .form-control-icon {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.input-group-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #f2b414;
+  border: 1px solid #f2b414;
+  border-radius: 0.25rem;
+}
+
+button:disabled,
+button[disabled] {
+  background: #f2b4148f !important;
+}
+/*# sourceMappingURL=login.component.css.map */

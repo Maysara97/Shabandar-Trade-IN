@@ -26,6 +26,7 @@ export class RegisterationComponent implements OnInit {
     categories: Category[]
     countrySelected
     passwordField: boolean
+    select:boolean
     confirmPasswordField: boolean
     categorySelected
     constructor(
@@ -54,9 +55,11 @@ export class RegisterationComponent implements OnInit {
             }
             window.scrollTo(0, 0)
         })
-        this.countrySelected = -1
-        this.categorySelected = -1
+        this.countrySelected = null
+        this.categorySelected = null
+
     }
+
     get f() {
         return this.accountService.registerForm.controls
     }
@@ -77,4 +80,7 @@ export class RegisterationComponent implements OnInit {
     toggleConfirmPassword() {
         this.confirmPasswordField = !this.confirmPasswordField
     }
+    // togglecat() {
+    //     this.ctest = !this.ctest
+    // }
 }

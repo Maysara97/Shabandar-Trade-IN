@@ -1,0 +1,32 @@
+.collapse-content .fa.fa-heart:hover {
+  color: #f44336 !important;
+}
+
+.collapse-content .fa.fa-share:hover {
+  color: #0d47a1 !important;
+  cursor: pointer;
+}
+
+.promoting-card {
+  margin: 5%;
+}
+
+.card-text {
+  color: #000;
+}
+
+.card-title span {
+  color: #f2b414;
+}
+
+.overlay {
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin: 2%;
+}
+
+.overlay p {
+  color: #000;
+  padding: 2%;
+}
+/*# sourceMappingURL=view-message.component.css.map */

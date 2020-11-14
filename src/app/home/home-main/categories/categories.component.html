@@ -10,10 +10,35 @@
         <div class="row services-wrap-2 mt-3 justify-content-center">
             <div class="col-lg-2 col-md-4 col-sm-3 col-12 wow fadeInUp" *ngFor="let category of categories">
                 <div class="tm-service2 text-center">
+                    <a (click)="subCategory(subCategoryModal, category.categoryId)">
                     <span class="tm-service2-icon" [style.backgroundColor]="category.color">
                         <img [src]="getFilePath(category.icon)">
                     </span>
-                    <h5><a href="#">{{category.categoryName}}</a></h5>
+                    <h5>
+                    <p class="category-title">{{category.categoryName}} </p>
+                        </h5>
+                     </a>
+                    <ng-template #subCategoryModal>
+                        <div class="modal-body text-center ">
+                            <p> Sub Categories of {{category.categoryName}}</p>
+
+                            <div class="single-widget widget-categories">
+                                <ul>
+                                    <div class="row">
+                                        <div class="col-md-4" *ngFor="let sub of subCategories">
+                                            <li><a [routerLink]="['/application/accounts-by-category', sub.categoryId]"
+                                                    (click)="closeSubDialog()">{{sub.categoryName}}</a>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-danger" (click)="closeSubDialog()">Close</button>
+                        </div>
+                    </ng-template>
+               
+               
+               
                 </div>
 
             </div>

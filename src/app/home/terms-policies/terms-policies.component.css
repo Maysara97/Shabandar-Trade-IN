@@ -1,0 +1,95 @@
+h2 {
+  color: #f2b414;
+}
+
+p {
+  color: #fff;
+}
+
+li {
+  color: #fff;
+}
+
+.mat-tab-group .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+::ng-deep .mat-tab-group .mat-tab-label.mat-tab-label-active {
+  height: 48px;
+  padding: 0 24px;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  opacity: 1;
+  min-width: 160px;
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+  position: relative;
+  color: #fff;
+  background-color: #f2b414;
+  border: 1px solid #f2b414;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-right: 3px;
+}
+
+::ng-deep .mat-tab-group .mat-tab-label {
+  height: 48px;
+  padding: 0 24px;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  opacity: 1;
+  min-width: 160px;
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+  position: relative;
+  color: #fff;
+  background-color: #1494f2;
+  border: 1px solid #1494f2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-right: 3px;
+}
+
+::ng-deep .mat-tab-labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+a {
+  color: #f2b414;
+}
+
+a:hover {
+  color: #ffff;
+}
+/*# sourceMappingURL=terms-policies.component.css.map */

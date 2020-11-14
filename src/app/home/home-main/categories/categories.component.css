@@ -1,0 +1,44 @@
+.tm-service2 .decoration-img {
+  background-image: url("/assets/images/You-Trade-In/decoration.png");
+  background-repeat: no-repeat;
+  background-size: 80px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: center;
+}
+
+.tm-service2:hover .decoration-img {
+  background-image: url("/assets/images/You-Trade-In/decoration-2.png");
+  background-repeat: no-repeat;
+  background-size: 80px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: center;
+}
+
+.tm-service2-icon {
+  color: #f2b414;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  line-height: 90px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+  font-size: 38px;
+  margin-bottom: 25px;
+  background: #f2b414;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.tm-service2:hover .tm-service2-icon {
+  background: #ffffff;
+  color: #ffffff;
+}
+/*# sourceMappingURL=categories.component.css.map */

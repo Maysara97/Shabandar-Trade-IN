@@ -12,6 +12,32 @@
     background-position: center;
     // width: 50%;
 }
+.tm-service2:hover
+{
+    cursor: pointer;
+}
+
+
+.widget-categories ul li a:before {
+    content: '-';
+    padding-right: 5px;
+    // color:black
+}
+
+.modal-body p {
+    background-color: #07091a;
+    padding: 15px;
+    border-radius: 30px;
+    color: #f2b414;
+    font-weight: 600;
+}
+.modal-body a {
+    color: #07091a;
+}
+
+.modal-body a:hover {
+    color: #f2b414;
+}
 
 .tm-service2:hover .decoration-img {
     background-image: url('/assets/images/You-Trade-In/decoration-2.png');

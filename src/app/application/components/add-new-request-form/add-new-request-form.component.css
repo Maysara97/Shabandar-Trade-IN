@@ -1,0 +1,186 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+#header {
+  visibility: hidden;
+}
+
+h4 {
+  text-align: center;
+  color: #f2b414;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #f2b414;
+  border: #f2b414;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  background-color: #f2b414;
+}
+
+.custom-radio
+.custom-control-input:disabled:checked
+~ .custom-control-label::before {
+  background-color: #f2b414;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #f2b414;
+  border-radius: 5px;
+}
+
+select {
+  width: 100%;
+  border: 1px solid #f2b414;
+  border-radius: 5px;
+}
+
+.tm-button {
+  width: 100%;
+}
+
+.alert-danger {
+  height: 25%;
+  line-height: 17px;
+  margin-bottom: 0px;
+  color: #e83748;
+  background-color: inherit;
+  border: none;
+}
+
+p {
+  text-align: center;
+  margin-top: 40px;
+  color: #0e1234;
+  font-size: large;
+}
+
+p a {
+  color: #f2b414;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #0e1234;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.hoverable {
+  position: relative;
+  cursor: pointer;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.hoverable .hover-text {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.hoverable .background {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.hoverable:hover .hover-text {
+  display: block;
+}
+
+.hoverable:hover .background {
+  display: block;
+}
+
+.industry-category .brandTags {
+  background-color: #fff;
+  border: 1px solid #f2b414;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  padding: 0 0;
+}
+
+.industry-category .brandTags:focus {
+  border-color: #66afe9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.industry-category .brandTags .ng-trigger {
+  background: #428bca;
+  border: 1px solid #357ebd;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.brandTags .tag:focus {
+  background: #f2b414 !important;
+  color: #fff;
+  -webkit-box-shadow: 0 2px 3px 1px #d4d1d1;
+          box-shadow: 0 2px 3px 1px #d4d1d1;
+}
+
+.brandTags .ng2-tag-input--focused {
+  border-bottom: none;
+}
+
+.shipping-and-logistics-category .brandTags {
+  background-color: #fff;
+  border: 1px solid #f2b414;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  padding: 0 0;
+}
+
+.closeBtn {
+  background-color: #fff;
+  color: #f2b414;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #f2b414;
+}
+
+::ng-deep .e-input-group:not(.e-float-icon-left):not(.e-float-input)::before,
+.e-input-group:not(.e-float-icon-left):not(.e-float-input)::after,
+.e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::before,
+.e-input-group.e-float-icon-left:not(.e-float-input) .e-input-in-wrap::after,
+.e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::before,
+.e-input-group.e-control-wrapper:not(.e-float-icon-left):not(.e-float-input)::after,
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)
+.e-input-in-wrap::before,
+.e-input-group.e-control-wrapper.e-float-icon-left:not(.e-float-input)
+.e-input-in-wrap::after {
+  background: #f2b414;
+}
+/*# sourceMappingURL=add-new-request-form.component.css.map */

@@ -1,0 +1,4 @@
+:host ::ng-deep .multi-files-view .filepond--item {
+  width: calc(50% - 0.5em) !important;
+}
+/*# sourceMappingURL=upload-files.component.css.map */

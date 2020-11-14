@@ -44,8 +44,8 @@ export class AccountsService {
             confirmPassword: [null, [Validators.required]],
 
             accountName: [null, [Validators.required]],
-            countryId: [null, [Validators.required]],
-            categoryId: [null, [Validators.required]],
+            countryId:[null, [Validators.required]],
+            categoryId:[null, [Validators.required]],
             acceptTerms: [false, Validators.required],
         },
         {
@@ -54,7 +54,9 @@ export class AccountsService {
     )
 
     comparePassword(fb: FormGroup) {
+        
         // tslint:disable-next-line:prefer-const
+
         let confirmPswrdCtrl = fb.get('confirmPassword')
         if (
             confirmPswrdCtrl.errors == null ||
