@@ -33,8 +33,9 @@ export class SellProductComponent implements OnInit {
     filteredCategories = []
     env: any
     page: number = 1
-
     account: AccountData
+    myAccount:AccountData
+
     isFavorite = false
     pageNumber = 1
     pageSize = 6
@@ -84,6 +85,15 @@ export class SellProductComponent implements OnInit {
                 this.accountProducts = result.data
             })
 
+     //Account details
+            this.auth.getAccountDetails()
+            .subscribe((result: any) => {
+                this.myAccount = result.data
+                //accountId
+            })
+  
+
+
         // Bind all Products
         // this.productService.getAllProducts().subscribe((result: any) => {
         //     this.products = result.data
@@ -109,6 +119,7 @@ export class SellProductComponent implements OnInit {
         this.auth.isAuthed.subscribe((result) => {
             this.isLoggedIn = result
         })
+      
     }
 
     getFilePath(fileName: string): string {

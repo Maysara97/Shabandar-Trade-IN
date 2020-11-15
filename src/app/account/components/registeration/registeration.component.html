@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label for="register-firstname">First Name</label>
-                                    <br />
+                                    <br/>
                                     <input type="text" id="register-firstname" required name="primaryAdminFirstlName"
                                         formControlName="primaryAdminFirstlName" placeholder="First Name" />
                                     <label class="text-danger"
@@ -112,21 +112,25 @@
                                         Name is required</label>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-6 position-relative">
                                     <label for="register-category">Category</label>
-                                    <br />
+                                    <br/>
                                     <select class="mdb-select md-form" formControlName="categoryId"
-                                        style="text-transform: capitalize;" [(ngModel)]="categorySelected">
-                                        <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose your Category
+                                        style="text-transform: capitalize;" [(ngModel)]="categorySelected" required
+                                        >
+                                        <option [ngValue]="null" [disabled]="true" [selected]="true">Choose your Category
                                         </option>
                                         <option *ngFor="let category of categories" value={{category.categoryId}}>
                                             {{category.categoryName}}</option>
-
-                                            <label class="text-danger"
-                                            *ngIf="accountService.registerForm.get('categoryId').touched || accountService.registerForm.get('categoryId').errors?.required">Category
-                                            is required</label>
                                     </select>
+                                    <label class="text-danger "
+                                            *ngIf="accountService.registerForm.get('categoryId').touched &&
+                                            accountService.registerForm.get('categoryId').invalid  && 
+                                             accountService.registerForm.get('categoryId').errors?.required">
+                                            category is required</label>
                                    
+                                  
+                                    <!-- <label class="test position-absolute text-danger">Category is required</label> -->
 
                                 </div>
                             </div>
@@ -135,15 +139,18 @@
                         <div class="form-group tm-form-field">
                             <label for="register-country">Country</label> <br />
                             <select class="mdb-select md-form" formControlName="countryId"
-                                style="text-transform: capitalize;" [(ngModel)]="countrySelected">
-                                <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose your country
+                                style="text-transform: capitalize;" [(ngModel)]="countrySelected" required>
+                                <option [ngValue]="null" [disabled]="true" [selected]="true">Choose your country
                                 </option>
-                                <option *ngFor="let country of countries" value="{{country.id}}">
+                                <option  *ngFor="let country of countries" value="{{country.id}}">
                                     {{country.name}}</option>
-                                    <label class="text-danger"
-                                *ngIf="accountService.registerForm.get('countryId').touched || accountService.registerForm.get('countryId').errors?.required">Country
-                                is required</label>
                             </select>
+                            <label class="text-danger "
+                            *ngIf="accountService.registerForm.get('countryId').touched &&
+                            accountService.registerForm.get('countryId').invalid  && 
+                             accountService.registerForm.get('countryId').errors?.required">
+                            category is required</label>
+                   
                             
                         </div>
                         <div class="form-group tm-form-field justify-content-center" style="display: flex;">

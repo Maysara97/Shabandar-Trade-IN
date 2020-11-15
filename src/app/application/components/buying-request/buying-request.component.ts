@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment'
 import { AuthService } from 'src/app/shared/services/auth.service'
 import { AdsService } from '../../services/ads.service'
 import { Ads } from '../../models/ads'
+import { AccountData } from 'src/app/account/models/register'
 
 @Component({
     selector: 'app-buying-request',
@@ -21,6 +22,7 @@ import { Ads } from '../../models/ads'
 })
 export class BuyingRequestComponent implements OnInit {
     searchText
+    myAccount:AccountData
     categories$: Observable<Category[]>
     products$: Observable<Product[]>
     buyingRequestProducts: BuyingRequest[] = []
@@ -44,6 +46,7 @@ export class BuyingRequestComponent implements OnInit {
     pageEvent: PageEvent
     pageSizeOptions: number[] = [6, 9, 12, 15]
     isLoggedIn
+    isLogin
 
     buyingRequestAds: Ads[]
     constructor(
@@ -54,7 +57,15 @@ export class BuyingRequestComponent implements OnInit {
         private auth: AuthService,
         private adService: AdsService
     ) {
-        this.env = environment
+        this.env = environment;
+        if(auth.isLoggedIn())   
+             {
+                 this.isLogin=true;
+              }
+            else
+            {
+                this.isLogin=false;
+            }
     }
 
     ngOnInit(): void {
@@ -74,6 +85,13 @@ export class BuyingRequestComponent implements OnInit {
         this.productService.getAllProducts().subscribe((result: any) => {
             this.products = result.data
         })
+        
+        //Acoount details
+          this.auth.getAccountDetails()
+            .subscribe((result: any) => {
+                this.myAccount = result.data
+            })
+      
 
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
