@@ -2,12 +2,12 @@
 <div class="tm-section portfolio-details-area details-product tm-padding-section" style="background-color: #0e1234;">
     <div class="container" *ngIf="accountProductDetails">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt-5"
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5"
                 *ngFor="let image of accountProductDetails.productImages">
                 <div class="tm-product">
                     <div class="tm-product-image">
-                        <a (click)="viewImage(imageModal)" class="tm-product-imagelink">
-                            <img style="width: 230px; height: 230px;" [src]="getFilePath(image)" />
+                        <a (click)="viewImage(imageModal)" class="tm-product-imagelink ">
+                            <img width="300px" height="290px" [src]="getFilePath(image)" />
 
                         </a>
                     </div>
@@ -388,7 +388,13 @@
                                 &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
                             </a>
                         </div>
+                    <button class="email-btn" style="float: left;" mat-raised-button matTooltip="Send Message"
+                        [routerLink]="['/application/send-message', accountProductDetails.accountId,accountProductDetails.accountName]">
+                        &nbsp; <i class="fa fa-comments" aria-hidden="true">&nbsp; Send Message</i>
+                        &nbsp;
+                    </button>
                     </div>
+
                 </div>
             </div>
         </div>

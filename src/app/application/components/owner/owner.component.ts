@@ -13,6 +13,7 @@ import { StatusMapping } from '../../models/enum'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 import { FavoriteService } from '../../services/favorite.service'
 import { NotifierService } from 'angular-notifier'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
     selector: 'app-owner',
@@ -164,6 +165,7 @@ export class OwnerComponent implements OnInit {
         private buyingRequestService: BuyingRequestService,
         private modalService: BsModalService,
         private favoriteService: FavoriteService,
+        private toastr: ToastrService,
         notifier: NotifierService,
     ) {
         this.env = environment
@@ -205,6 +207,7 @@ export class OwnerComponent implements OnInit {
             }
         })
     }
+
 
     getAllAccountProduct() {
         this.accountProductService
@@ -253,4 +256,6 @@ export class OwnerComponent implements OnInit {
     goToEditProfile() {
         this.router.navigate(['/account/editprofile'])
     }
+
+
 }
