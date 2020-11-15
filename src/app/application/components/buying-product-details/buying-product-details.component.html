@@ -6,7 +6,7 @@
                 <div class="tm-product">
                     <div class="tm-product-image">
                         <a (click)="viewImage(imageModal)" class="tm-product-imagelink">
-                            <img width="300px" height="290px"  [src]="getFilePath(image)" />
+                            <img width="300px" height="290px" [src]="getFilePath(image)" alt="{{image}}"/>
 
                         </a>
                     </div>
@@ -21,7 +21,7 @@
                                 <ngb-carousel>
                                     <ng-template ngbSlide *ngFor="let image of buyingRequestDetails.image">
                                         <div class="picsum-img-wrapper">
-                                            <img [src]="getFilePath(image)">
+                                            <img [src]="getFilePath(image)" alt="{{image}}"> 
                                         </div>
                                     </ng-template>
                                 </ngb-carousel>
