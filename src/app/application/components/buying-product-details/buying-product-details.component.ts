@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router'
 import { environment } from 'src/environments/environment'
 import { FinishedStatusTypeMapping } from '../../models/enum'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
+import { AccountData } from 'src/app/account/models/register'
+import { AuthService } from 'src/app/shared/services/auth.service'
+
 
 @Component({
     selector: 'app-buying-product-details',
@@ -17,6 +20,8 @@ export class BuyingProductDetailsComponent implements OnInit {
 
     buyingRequestId
     env: any
+    myAccount:AccountData
+    accountId
     public FinishedStatusTypeMapping = FinishedStatusTypeMapping
     imagesSlider: any = {
         loop: false,
@@ -47,7 +52,8 @@ export class BuyingProductDetailsComponent implements OnInit {
     constructor(
         private buyingRequestService: BuyingRequestService,
         private route: ActivatedRoute,
-        private modalService: BsModalService
+        private modalService: BsModalService,
+        private auth: AuthService
     ) {
         this.buyingRequestId = route.snapshot.params['buyingRequestId']
         this.env = environment
@@ -59,6 +65,14 @@ export class BuyingProductDetailsComponent implements OnInit {
             .subscribe((result: any) => {
                 this.buyingRequestDetails = result.data
             })
+            
+            this.auth.getAccountDetails()
+            .subscribe((result: any) => {
+                this.myAccount = result.data
+                //accountId
+                this.accountId=this.myAccount.accountId
+            })
+  
     }
 
     getFilePath(fileName: string): string {
