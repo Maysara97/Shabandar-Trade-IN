@@ -9,6 +9,9 @@ import {
     FinishedStatusTypeMapping,
 } from '../../models/enum'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
+import { AccountData } from 'src/app/account/models/register'
+import { AuthService } from 'src/app/shared/services/auth.service'
+
 
 @Component({
     selector: 'app-product-details',
@@ -20,13 +23,16 @@ export class ProductDetailsComponent implements OnInit {
     accountProductId
     env: any
     viewImageModal: BsModalRef
+    myAccount:AccountData
+    accountId
 
     public FinishedStatusTypeMapping = FinishedStatusTypeMapping
 
     constructor(
         private accountProductService: AccountProductService,
         private route: ActivatedRoute,
-        private modalService: BsModalService
+        private modalService: BsModalService,
+        private auth: AuthService
     ) {
         this.accountProductId = route.snapshot.params['accountProductId']
         this.env = environment
@@ -38,6 +44,12 @@ export class ProductDetailsComponent implements OnInit {
             .subscribe((result: any) => {
                 // debugger
                 this.accountProductDetails = result.data
+            })
+            this.auth.getAccountDetails()
+            .subscribe((result: any) => {
+                this.myAccount = result.data
+                //accountId
+                this.accountId=this.myAccount.accountId
             })
     }
 
