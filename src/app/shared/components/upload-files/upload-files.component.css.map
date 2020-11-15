@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC,SAAS,CAAC,iBAAiB,CAAC,eAAe,CAAC;EAC9C,KAAK,EAAE,iBAAiB,CAAC,UAAU;CACtC",
-    "sources": [
-        "upload-files.component.scss"
-    ],
-    "names": [],
-    "file": "upload-files.component.css"
-}
