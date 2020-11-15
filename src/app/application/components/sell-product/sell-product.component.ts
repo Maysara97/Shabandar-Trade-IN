@@ -35,6 +35,7 @@ export class SellProductComponent implements OnInit {
     page: number = 1
     account: AccountData
     myAccount:AccountData
+    accountId
 
     isFavorite = false
     pageNumber = 1
@@ -90,6 +91,7 @@ export class SellProductComponent implements OnInit {
             .subscribe((result: any) => {
                 this.myAccount = result.data
                 //accountId
+                this.accountId=this.myAccount.accountId
             })
   
 

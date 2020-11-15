@@ -23,6 +23,7 @@ import { AccountData } from 'src/app/account/models/register'
 export class BuyingRequestComponent implements OnInit {
     searchText
     myAccount:AccountData
+    accountId
     categories$: Observable<Category[]>
     products$: Observable<Product[]>
     buyingRequestProducts: BuyingRequest[] = []
@@ -90,6 +91,7 @@ export class BuyingRequestComponent implements OnInit {
           this.auth.getAccountDetails()
             .subscribe((result: any) => {
                 this.myAccount = result.data
+                this.accountId=this.myAccount.accountId
             })
       
 
