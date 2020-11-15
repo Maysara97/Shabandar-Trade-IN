@@ -8,7 +8,7 @@
                         <div class="category-rectangle" [style.backgroundColor]="category.color">
                             <div class="row">
                                 <div class="col-md-4 col-sm-2">
-                                    <img [src]="getFilePath(category.icon)">
+                                    <img [src]="getFilePath(category.icon)" alt="{{category.categoryName}}">
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <a (click)="subCategory(subCategoryModal, category.categoryId)">
@@ -47,7 +47,7 @@
                         <ng-template ngbSlide *ngFor="let billboard of billboardAds">
                             <a [routerLink]="['/application/viewer', billboard.accountId]">
                                 <div class="picsum-img-wrapper">
-                                    <img [src]="getFilePath(billboard.adImage)">
+                                    <img [src]="getFilePath(billboard.adImage)" alt="{{billboard.accountName}}">
                                 </div>
                             </a>
                         </ng-template>
@@ -62,48 +62,48 @@
                     <li>
                         <a *ngIf="sponsoredAds[0]" [routerLink]="['/application/viewer', sponsoredAds[0].accountId]">
                             <div class="sponsored-rectangle">
-                                <img [src]="getFilePath(sponsoredAds[0].adImage)">
+                                <img [src]="getFilePath(sponsoredAds[0].adImage)" alt="{{sponsoredAds[0].accountName}}">
                             </div>
                         </a>
                         <a *ngIf="!sponsoredAds[0]">
                             <div class="sponsored-rectangle">
-                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png" alt="{{sponsoredAds[0].accountName}}">
                             </div>
                         </a>
                     </li>
                     <li>
                         <a *ngIf="sponsoredAds[1]" [routerLink]="['/application/viewer', sponsoredAds[1].accountId]">
                             <div class="sponsored-rectangle">
-                                <img [src]="getFilePath(sponsoredAds[1].adImage)">
+                                <img [src]="getFilePath(sponsoredAds[1].adImage)" alt="{{sponsoredAds[1].accountName}}">
                             </div>
                         </a>
                         <a *ngIf="!sponsoredAds[1]">
                             <div class="sponsored-rectangle">
-                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png" alt="{{sponsoredAds[1].accountName}}">
                             </div>
                         </a>
                     </li>
                     <li>
                         <a *ngIf="sponsoredAds[2]" [routerLink]="['/application/viewer', sponsoredAds[2].accountId]">
                             <div class="sponsored-rectangle">
-                                <img [src]="getFilePath(sponsoredAds[2].adImage)">
+                                <img [src]="getFilePath(sponsoredAds[2].adImage)" alt="{{sponsoredAds[2].accountName}}">
                             </div>
                         </a>
                         <a *ngIf="!sponsoredAds[2]">
                             <div class="sponsored-rectangle">
-                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png" alt="{{sponsoredAds[2].accountName}}">
                             </div>
                         </a>
                     </li>
                     <li>
                         <a *ngIf="sponsoredAds[3]" [routerLink]="['/application/viewer', sponsoredAds[3].accountId]">
                             <div class="sponsored-rectangle">
-                                <img [src]="getFilePath(sponsoredAds[3].adImage)">
+                                <img [src]="getFilePath(sponsoredAds[3].adImage)" alt="{{sponsoredAds[3].accountName}}">
                             </div>
                         </a>
                         <a *ngIf="!sponsoredAds[3]">
                             <div class="sponsored-rectangle">
-                                <img src="/assets/images/You-Trade-In/sponsore-1.png">
+                                <img src="/assets/images/You-Trade-In/sponsore-1.png" alt="{{sponsoredAds[3].accountName}}">
                             </div>
                         </a>
                     </li>
