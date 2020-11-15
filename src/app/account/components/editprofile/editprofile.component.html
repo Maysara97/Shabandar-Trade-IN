@@ -112,13 +112,14 @@
                                     <label for="mobile">Mobile Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let mobile of mobileNumbers;let i = index;">
-                                        <input type="tel" name="mobile" id="mobile" *ngIf="updateUserData.mobile[i]"
-                                            placeholder="Enter your Mobile {{i+1}}" style="margin-bottom: 1%;"
-                                            [(ngModel)]="updateUserData.mobile[i]"
+                                        <input type="tel" name="mobile{{i}}" id="mobile" 
+                                            placeholder="Enter your Mobile {{i+1}}" style="margin-bottom: 1%;"    
+                                            [(ngModel)]="mobile.mobile" *ngIf="!updateUserData.mobile"
                                             [ngModelOptions]="{standalone: true}" />
-                                        <input type="tel" name="mobile" id="mobile" *ngIf="!updateUserData.mobile[i]"
+                                        <input type="tel" name="mobile" id="mobile" *ngIf="updateUserData.mobile"
                                             placeholder="Enter your Mobile {{i+1}}" style="margin-bottom: 1%;"
-                                            [(ngModel)]="mobile.mobile" [ngModelOptions]="{standalone: true}" />
+                                            [(ngModel)]="updateUserData.mobile[i]" 
+                                            [ngModelOptions]="{standalone: true}" />
                                         <a *ngIf="i>0" type="button" class="btn rightAlign"
                                             style="color: #fff;background-color: #dc3545;" (click)="removeMobile(i)">
                                             Remove
