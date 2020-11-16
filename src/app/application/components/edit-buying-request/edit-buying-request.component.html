@@ -103,6 +103,7 @@
 
                     <div class="form-group">
                         <label for="productImages">Buying Request Image</label>
+                        <span class="imgHint">(Not accept more than 1 MB because Server side)</span>
                         <app-upload-files (onFileUpload)="handleImageUpload($event)"
                             (onFileRemove)="handleImageRemove($event)" [files]="images" [multiple]="true">
                         </app-upload-files>
