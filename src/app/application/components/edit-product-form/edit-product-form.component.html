@@ -209,6 +209,7 @@
 
                     <div class="form-group">
                         <label for="productImages">Product Images</label>
+                        <span class="imgHint">(Less than 1 MB)</span>
                         <app-upload-files (onFileUpload)="handleImageUpload($event)"
                             (onFileRemove)="handleImageRemove($event)" [multiple]="true" [files]="images">
                         </app-upload-files>
