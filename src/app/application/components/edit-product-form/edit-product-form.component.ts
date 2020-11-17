@@ -101,7 +101,9 @@ export class EditProductFormComponent implements OnInit {
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
                 this.tagNames = this.accountProductDetails.brandName
                 this.tagCoverage = this.accountProductDetails.coverage
+                if(this.accountProductDetails.productImages) {
                 this.images = this.accountProductDetails.productImages
+                }
                 if (this.accountProductDetails.attachments) {
                     this.files = this.accountProductDetails.attachments
                 }
@@ -244,6 +246,7 @@ export class EditProductFormComponent implements OnInit {
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
+                    this.toastr.success("Your updated successfully")
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

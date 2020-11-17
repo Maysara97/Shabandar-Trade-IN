@@ -152,6 +152,7 @@ export class EditBuyingRequestComponent implements OnInit {
             .updateBuyingRequest(buyingRequestId, this.images)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
+                     this.toastr.success("Your updated successfully")
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)
