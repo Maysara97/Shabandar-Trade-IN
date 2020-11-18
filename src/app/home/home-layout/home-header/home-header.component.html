@@ -36,6 +36,18 @@
                             <a [routerLink]="['/home/home-read-more']" routerLinkActive="active">Egypt
                                 2030</a>
                         </li>
+                        <li>
+                            <mat-icon class="text-white search pr-4 icon-search"> 
+                                search
+                            <a>
+                                <div class="container text">
+                                       <input type="text" placeholder="Search...">
+     
+                                    </div>
+                                </a>
+                            </mat-icon> 
+                               
+                        </li>
 
                         <div *ngIf="!isLoggedIn">
                             <button type="button" class="btn btn-signup" routerLink="/account/registeration">
@@ -46,12 +58,13 @@
                                 Log In
                             </button>
                         </div>
+                      
                         <div class="row" *ngIf="isLoggedIn">
                             <a class="btn messaging" style="font-size: 25px;" routerLink="/messageing/sidebar/inbox">
                                 <!-- <i class="fa fa-comments" aria-hidden="true"></i> -->
                                 <mat-icon> message</mat-icon>
                             </a>
-                            <a class="btn notifications" [matMenuTriggerFor]="menu" style="font-size: 22px;"
+                            <a class="btn notifications px-3" [matMenuTriggerFor]="menu" style="font-size: 22px;"
                                 aria-label="Example icon-button with a menu" (click)="getAllNotifications()">
                                 <!-- <mat-icon *ngIf="notifications != null">
                                     notifications
