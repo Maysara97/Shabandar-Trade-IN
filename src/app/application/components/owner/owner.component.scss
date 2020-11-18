@@ -381,8 +381,22 @@ a:hover {
 @media (min-width: 1024px) {
     .avatar-no-image .img-rounded {
         // width: 70%;
-        width: 250px;
-        height: 250px;
+        width: 217px;
+        height: 225px;
+        margin-left: 48px;
+    }
+    .title-buying
+    {
+        width: 86% !important;
+        padding-left: 27px;
+        line-height: 3;
+        padding-top: 35px;
+    }
+    .title-account
+    {
+        width: 98% !important;
+        line-height: 3;
+        padding-top: 35px;
     }
     .tab-section {
         width: 1140px;
@@ -390,6 +404,15 @@ a:hover {
     #mobileView {
         display: none;
     }
+    .text-box
+    {
+        padding-left: 60px;
+    }
+    .p-email
+    {
+        width: 50%;
+    }
+   
 }
 
 @media (max-width: 1024px) {
@@ -483,13 +506,13 @@ a:hover {
         display: none;
     }
     .leftAlign {
-        margin-left: 20%;
+        margin-left: 0%;
     }
     .rightAlign {
-        margin-right: 20%;
+        margin-right: 7%;
     }
     .tm-portfoliodetails-info {
-        width: 70%;
+        width: 100%;
     }
     .description {
         margin-left: 15%;
