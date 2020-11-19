@@ -3651,7 +3651,7 @@ button.tm-videobutton:hover span {
         margin-left: 0px;
     }
     .about-content p {
-        text-align: center;
+        text-align: inherit;
     }
 }
 

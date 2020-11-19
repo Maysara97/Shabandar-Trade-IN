@@ -109,7 +109,7 @@
                         <div class="form-group tm-form-field">
                             <div class="row">
                                 <div class="col-lg-4 col-md-8 col-sm-8 col-12">
-                                    <label for="mobile">Mobile Number Up to 4</label>
+                                    <label class="phoneTitle" for="mobile">Mobile Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let mobile of mobileNumbers;let i = index;">
                                         <input type="tel" name="mobile{{i}}" id="mobile" 
@@ -134,7 +134,7 @@
                                     </a>
                                 </div>
                                 <div class="col-lg-4 col-md-8 col-sm-8 col-12">
-                                    <label for="phone">Phone Number Up to 4</label>
+                                    <label class="phoneTitle" for="phone">Phone Number Up to 4</label>
                                     <br />
                                     <section *ngFor="let phoneN of phoneNumbers;let i = index;">
                                         <input type="tel" name="phone{{i}}" id="phone"
