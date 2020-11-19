@@ -21,3 +21,53 @@ i {
 .fa {
     font-weight: 300;
 }
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 667px){
+    .table{
+        margin-left: -9%;
+    }
+    .table .btn{
+    height: auto;
+    width: auto;
+    margin: 1%;
+    padding: 0px;
+    }
+  }
+  @media only screen 
+  and (min-device-width: 360px) 
+  and (max-device-width: 640px){
+     .table{
+        margin-left: -3%;
+    }
+  }
+  @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) {
+      .table{
+        margin-left: 0;
+    }
+  }
+@media (min-width: 414px) and (max-width: 736px){
+      .table{
+        margin-left: 0;
+    }
+    .table .btn{
+    height: auto;
+    width: auto;
+    margin: 1%;
+    padding: 0px;
+    }
+}
+@media only screen 
+  and (min-device-width: 768px)  and (max-device-width: 1024px) {
+    .table{
+        margin-left: 0;
+    }
+    .table .btn{
+    height: auto;
+    width: auto;
+    margin: 2%;
+    padding: 2px;
+    }
+  }

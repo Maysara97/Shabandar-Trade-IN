@@ -20,3 +20,13 @@ i {
 .fa {
     font-weight: 300;
 }
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) {
+      .table .btn {
+    height:auto;
+    width: auto;
+    margin: 2%;
+    padding: 0px;
+}
+  }

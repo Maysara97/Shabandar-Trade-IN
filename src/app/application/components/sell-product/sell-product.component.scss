@@ -343,3 +343,26 @@ mat-form-field {
 #productSelect {
     width: 30%;
 }
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) {
+      .sellProductTop{
+          margin-top: 6%;
+      }
+      .input-group > .form-control:not(:first-child){
+          width: 24%;
+      }
+  }
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px){
+    #countrySelect {
+    width: 14%;
+    font-size: 11px;
+}
+   .input-group > .form-control:not(:first-child){
+    padding-left: 6px !important;
+    font-size: 15px;
+    width: 7%;
+}
+  }

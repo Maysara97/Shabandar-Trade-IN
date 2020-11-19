@@ -37,3 +37,15 @@
 //         font-size: 22px;
 //     }
 // }
+@media (min-width: 300px) and (max-width: 1023px) {
+    .footer-copyright {
+        margin-left: 0 !important;
+        padding-top: 3%;
+    }
+    .widget-info-social {
+        padding-left: 0 !important;
+    }
+    .footerOne{
+        padding-top: 20%;
+    }
+}
