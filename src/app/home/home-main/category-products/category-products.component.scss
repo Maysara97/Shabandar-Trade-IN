@@ -98,3 +98,15 @@
         margin-left: 30%;
     }
 }
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) {
+      .category-product-area .services-wrap .tm-service {
+          margin: auto;
+          margin-bottom: 4%
+      }
+      .more-btn{
+          margin-left: 31%;
+          margin-top: 6%;
+      }
+  }

@@ -63,6 +63,9 @@
     .header.sticky-active .header-bottomarea {
         padding-bottom: 30px;
     }
+        .header-dropdown .messaging{
+        padding-left: 30px;
+    }
 }
 
 .header-bottominner .header-logo img {
@@ -253,11 +256,20 @@
     text-decoration: none;
     background-color: #f2b41433;
 }
-
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
-    .menu-list {
-        margin-right: 20%;
-    }
+ @media only screen  and (min-device-width: 320px) 
+  and (max-device-width: 667px){
+    ::ng-deep .mat-menu-panel {
+    min-width: 365px !important;
+    margin-left: -1%;
+}
+.menu-list .menuitem button {
+    height: 10%;
+}
+  }
+@media only screen and (min-device-width: 400px) and (max-device-width: 736px) {
+    // .menu-list {
+    //     margin-right: 20%;
+    // }
     .dropdown-item {
         display: block;
         width: 100%;
@@ -271,6 +283,15 @@
         border: 0;
         font-size: 15px;
     }
+    .header-dropdown .messaging{
+        padding-left: 30px;
+    }
+    ::ng-deep .mat-menu-panel {
+    min-width: 375px !important;
+    max-width: 600px !important;
+    min-height: 200px !important;
+    margin-left: -5%;
+}
 }
 // //////////////////////////////////////////////////////////
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
@@ -471,3 +492,10 @@ body {
     width: 35px;
     font-size: 29px;
 }
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px){
+      .header-logo-mobile img {
+          height: 70%;
+      }
+  }

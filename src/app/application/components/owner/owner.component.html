@@ -14,7 +14,7 @@
                                     <img *ngIf="userDetails.accountImage" [src]="getFilePath(userDetails.accountImage)"
                                         alt="{{userDetails.accountName}}" class="img-rounded img-responsive">
                                 </div>
-                                <div class="row justify-content-center mt-3 text-box">
+                                <div class="row justify-content-center mt-3 accountInfo">
                                     <ul>
                                         <li><i class="fa fa-user" aria-hidden="true"></i> &nbsp;
                                             <p> {{userDetails.accountAdministrators[0].firstName}}
@@ -36,11 +36,13 @@
 
                                             Edit Profile
                                         </a>
+                                        
                                         <a type="button" class="btn" routerLink="/account/update-password">
                                             <i class="fa fa-key" aria-hidden="true"></i>
                                             Update Password
                                         </a>
                                     </div>
+                                    
 
                                 </div>
                                 <div style="clear: both;"></div>
@@ -491,8 +493,13 @@
                                 <img *ngIf="userDetails.accountImage" [src]="getFilePath(userDetails.accountImage)"
                                     alt="{{userDetails.accountName}}" class="img-rounded img-responsive">
                             </div>
+<<<<<<< HEAD
                             <div class="row justify-content-center mt-3 ">
                                 <ul>
+=======
+                            <div class="row justify-content-center mt-3">
+                                <ul class="">
+>>>>>>> Responsive Website
                                     <li><i class="fa fa-user" aria-hidden="true"></i> &nbsp;
                                         <p> {{userDetails.accountAdministrators[0].firstName}}
                                             {{userDetails.accountAdministrators[0].lastName}}</p>
@@ -509,11 +516,11 @@
                                     {{userDetails.accountName}}
                                 </h4>
                                 <div class="rightAlign">
-                                    <a type="button" class="btn" routerLink="/account/editprofile">
+                                    <a type="button" class="btn btnEdit" routerLink="/account/editprofile">
 
                                         Edit Profile
                                     </a>
-                                    <a type="button" class="btn" routerLink="/account/update-password">
+                                    <a type="button" class="btn btnUpdate" routerLink="/account/update-password">
                                         <i class="fa fa-key" aria-hidden="true"></i>
                                         Update Password
                                     </a>
@@ -636,7 +643,7 @@
                                     Account Products
                                 </h4>
                                 <div class="rightAlign">
-                                    <a type="button" class="btn rightAlign" style="
+                                    <a type="button" class="btn rightAlign iconPlus" style="
                                             color: #fff;
                                             float: right;
                                             background-color: #F2B414;
@@ -710,7 +717,7 @@
                                     Buying Requests
                                 </h4>
                                 <div class="rightAlign">
-                                    <a type="button" class="btn rightAlign" style="
+                                    <a type="button" class="btn rightAlign iconPlus" style="
                                         color: #fff;
                                         float: right;
                                         background-color: #F2B414;
@@ -830,11 +837,11 @@
                                     Company Profile
                                 </h4>
                                 <div class="rightAlign">
-                                    <a type="button" class="btn" routerLink="/account/editprofile">
+                                    <a type="button" class="btn btnEdit" routerLink="/account/editprofile">
 
                                         Edit Profile
                                     </a>
-                                    <a type="button" class="btn" routerLink="/account/update-password">
+                                    <a type="button" class="btn btnUpdate" routerLink="/account/update-password">
                                         <i class="fa fa-key" aria-hidden="true"></i> Update Password
                                     </a>
                                 </div>

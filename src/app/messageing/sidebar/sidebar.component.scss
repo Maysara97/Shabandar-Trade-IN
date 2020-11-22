@@ -96,3 +96,8 @@
 .iconify {
     font-size: 25px;
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+    .sideMessage{
+        margin-top: 6%;
+    }
+}

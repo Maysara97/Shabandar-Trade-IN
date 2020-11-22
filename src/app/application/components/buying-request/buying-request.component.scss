@@ -369,3 +369,15 @@ a:hover {
         height: 32%;
     }
 }
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px){
+      #countrySelect {
+    width: 14%;
+    font-size: 11px;
+}
+.input-group > .form-control:not(:first-child){
+    padding-left: 6px !important;
+    font-size: 10px;
+}
+  }
