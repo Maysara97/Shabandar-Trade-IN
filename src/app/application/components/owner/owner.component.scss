@@ -394,6 +394,15 @@ a:hover {
     #mobileView {
         display: none;
     }
+    .text-box
+    {
+        padding-left: 60px;
+    }
+    .p-email
+    {
+        width: 50%;
+    }
+   
 }
 
 
@@ -541,13 +550,13 @@ a:hover {
     //     display: none;
     // }
     .leftAlign {
-        margin-left: 20%;
+        margin-left: 0%;
     }
     .rightAlign {
-        margin-right: 20%;
+        margin-right: 7%;
     }
     .tm-portfoliodetails-info {
-        width: 70%;
+        width: 100%;
     }
     .description {
         margin-left: 15%;

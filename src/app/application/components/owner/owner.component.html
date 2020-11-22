@@ -20,7 +20,7 @@
                                             <p> {{userDetails.accountAdministrators[0].firstName}}
                                                 {{userDetails.accountAdministrators[0].lastName}}</p>
                                         </li>
-                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
+                                        <li class="p-email"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
                                             <p>{{userDetails.accountAdministrators[0].email}}</p>
                                         </li>
                                     </ul>
@@ -153,8 +153,8 @@
                     <mat-tab label="Account Products ">
                         <div class="row" style="width: 1140px;">
                             <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
-                                <div class="row justify-content-center title">
-                                    <p>Account Products</p>
+                                <div class="row justify-content-center title ">
+                                    <p class="title-account">Account Products</p>
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
@@ -227,8 +227,8 @@
                     <mat-tab label="Buying Requests ">
                         <div class="row" style="width: 1140px;">
                             <div class="col-lg-3 col-md-4 col-12 justify-content-center about">
-                                <div class="row justify-content-center title">
-                                    <p>Buying Requests</p>
+                                <div class="row justify-content-center title ">
+                                    <p class="title-buying">Buying Requests</p>
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-8 col-12 content" style="width: 100px;">
@@ -493,8 +493,8 @@
                                 <img *ngIf="userDetails.accountImage" [src]="getFilePath(userDetails.accountImage)"
                                     alt="{{userDetails.accountName}}" class="img-rounded img-responsive">
                             </div>
-                            <div class="row justify-content-center mt-3">
-                                <ul class="">
+                            <div class="row justify-content-center mt-3 ">
+                                <ul>
                                     <li><i class="fa fa-user" aria-hidden="true"></i> &nbsp;
                                         <p> {{userDetails.accountAdministrators[0].firstName}}
                                             {{userDetails.accountAdministrators[0].lastName}}</p>
@@ -628,7 +628,7 @@
 
                     <div class="row" style="width: 1140px;">
                         <div class="col-lg-3 col-md-12 col-12 justify-content-center about">
-                            <div class="row justify-content-center title">
+                            <div class="row justify-content-center title ">
                                 <p>Account Products</p>
                             </div>
                         </div>

@@ -13,7 +13,7 @@
             </div>
             <div class="header-bottominner">
                 <div class="header-logo">
-                    <a href="index.html">
+                    <a routerLink="/home/home-main">
                         <img src="assets/images/You-Trade-In/logo.png" alt="logo" width="80%" />
                     </a>
                 </div>
@@ -32,12 +32,24 @@
                         <li class="navigation__link">
                             <a routerLink="/home/contact" routerLinkActive="active">Contact</a>
                         </li>
-                        <li class="navigation__link">
+                        <li class="navigation__link pr-1 lastLi">
                             <a [routerLink]="['/home/home-read-more']" routerLinkActive="active">Egypt
                                 2030</a>
                         </li>
+                        <li class="test">
+                            <mat-icon class="text-white search pr-4 icon-search"> 
+                                search
+                            <a>
+                                <div class="container text">
+                                       <input type="text" placeholder="Search...">
+     
+                                    </div>
+                                </a>
+                            </mat-icon> 
+                               
+                        </li>
 
-                        <div *ngIf="!isLoggedIn">
+                        <div *ngIf="!isLoggedIn" class="btn-signLogIn">
                             <button type="button" class="btn btn-signup" routerLink="/account/registeration">
                                 Sign Up
                             </button>
@@ -51,7 +63,7 @@
                                 <!-- <i class="fa fa-comments" aria-hidden="true"></i> -->
                                 <mat-icon> message</mat-icon>
                             </a>
-                            <a class="btn notifications" [matMenuTriggerFor]="menu" style="font-size: 22px;"
+                            <a class="btn notifications px-3" [matMenuTriggerFor]="menu" style="font-size: 22px;"
                                 aria-label="Example icon-button with a menu" (click)="getAllNotifications()">
                                 <!-- <mat-icon *ngIf="notifications != null">
                                     notifications

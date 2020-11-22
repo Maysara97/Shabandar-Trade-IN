@@ -10,6 +10,11 @@ h4 {
     text-align: center;
     color: #f2b414;
 }
+.imgHint
+{
+    color: rgba(0,0,0,0.7);
+    font-size: 14px;
+}
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #f2b414;
     border: #f2b414;
