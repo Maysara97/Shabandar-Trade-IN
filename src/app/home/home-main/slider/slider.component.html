@@ -1,8 +1,19 @@
-<div id="default" class="heroslider-area page-section">
+<div id="default" class="heroslider-area page-section">    
     <div class="row">
+        <div class="col-12">
+            <form class="form-inline mt-5 w-100 text-center">
+               <div class="m-auto w-75">
+                <input class="form-control w-50 searchInput" type="text" placeholder="Search...." aria-label="Search"
+                  >
+                  <mat-icon class="search icon-search"> 
+                    search</mat-icon>
+                </div>
+              </form>
+        </div>
         <div class="col-lg-3 col-md-12 col-12">
             <div class="single-widget widget-recentpost">
                 <h5 class="widget-title categories">Categories</h5>
+                
                 <ul>
                     <li *ngFor="let category of categories">
                         <div class="category-rectangle" [style.backgroundColor]="category.color">
