@@ -458,7 +458,11 @@ a:hover {
 } 
 @media (min-width: 375px) and (max-width: 1023px) {
     .avatar-no-image .img-rounded {
-        width: 30%;
+        // width: 30%;
+        width: 250px;
+        height: 250px;
+        margin-top: 5%;
+        margin-right: 2%;
     }
     .tm-portfoliodetails-info {
         width: 40%;
@@ -487,16 +491,16 @@ a:hover {
             display: none;
     }
 }
-// @media  (min-device-width: 320px)  and (max-device-width: 568px){
-//           .rightAlign .btnEdit {
-//         margin-right: 38%;
-//         margin-bottom: 1%;
-//     }
-//         .rightAlign .btnUpdate {
-//         margin-right: 1%;
-//         margin-bottom: 1%;
-//     }
-//   }
+@media  (min-device-width: 320px)  and (max-device-width: 568px){
+          .rightAlign .btnEdit {
+        margin-right: 38%;
+        margin-bottom: 1%;
+    }
+        .rightAlign .btnUpdate {
+        margin-right: 1%;
+        margin-bottom: 1%;
+    }
+  }
 @media (min-width: 320px) and (max-width: 667px){
     .rightAlign .btnEdit {
         margin-right: 3%;
@@ -550,13 +554,13 @@ a:hover {
     //     display: none;
     // }
     .leftAlign {
-        margin-left: 0%;
+        margin-left: 20%;
     }
     .rightAlign {
-        margin-right: 7%;
+        margin-right: 20%;
     }
     .tm-portfoliodetails-info {
-        width: 100%;
+        width: 70%;
     }
     .description {
         margin-left: 15%;
