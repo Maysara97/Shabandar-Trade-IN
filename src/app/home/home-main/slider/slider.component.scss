@@ -472,16 +472,12 @@ button.tm-button {
 .picsum-img-wrapper img {
     width: 99%;
 }
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) {
+@media only screen  and (min-device-width: 375px)  and (max-device-width: 812px) {
       .heroslider-area .categories{
           margin-left: 25px;
       }
   }
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) {
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
       .heroslider-area .categories{
           margin-left: 30%;
       }
@@ -568,9 +564,7 @@ button.tm-button {
         font-size: 50px;
     }
 }
-@media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px){
+@media only screen  and (min-device-width: 1024px) and (max-device-width: 1366px){
       .sponsored-rectangle{
           height: 12%;
       }

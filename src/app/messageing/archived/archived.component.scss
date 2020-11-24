@@ -20,9 +20,10 @@ i {
 .fa {
     font-weight: 300;
 }
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) {
+@media only screen  and (min-device-width: 300px) and (max-device-width: 1023px) {
+    //     table{
+    //     margin-left: 0% !important;
+    // }
       .table .btn {
     height:auto;
     width: auto;
@@ -30,3 +31,14 @@ i {
     padding: 0px;
 }
   }
+// @media only screen  and (min-device-width: 320px) and (max-device-width: 568px){
+//     table{
+//         margin-left: -12%;
+//     }
+//       .table .btn {
+//     height:auto;
+//     width: auto;
+//     margin: 2%;
+//     padding: 0px;
+// }    
+// }
