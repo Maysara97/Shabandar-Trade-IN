@@ -404,9 +404,6 @@ a:hover {
     }
    
 }
-
-
-
 @media (max-width: 360px) {
     .avatar-no-image .img-rounded {
         width: 20%;
@@ -431,10 +428,10 @@ a:hover {
 }
 @media (min-width: 360px) and (max-width: 414px) {
     .leftAlign {
-        margin-left: 32%;
+        margin-left: 33%;
     }
     .rightAlign {
-        margin-right: 33%;
+        margin-right: 35%;
     }
     .about .title p {
         position: absolute;
@@ -492,9 +489,13 @@ a:hover {
     }
 }
 @media  (min-device-width: 320px)  and (max-device-width: 568px){
+    .leftAlign{
+        margin-left: 35%;
+    }
           .rightAlign .btnEdit {
-        margin-right: 38%;
+        margin-right: 0;
         margin-bottom: 1%;
+        margin-top: 3%;
     }
         .rightAlign .btnUpdate {
         margin-right: 1%;
@@ -503,7 +504,7 @@ a:hover {
   }
 @media (min-width: 320px) and (max-width: 667px){
     .rightAlign .btnEdit {
-        margin-right: 3%;
+        margin-right: 38%;
         margin-bottom: 1%;
     }
         .rightAlign .btnUpdate {
