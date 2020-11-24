@@ -47,9 +47,14 @@ export class ProductDetailsComponent implements OnInit {
     ) {
         this.accountProductId = route.snapshot.params['accountProductId']
         this.env = environment
+      
+        
     }
 
     ngOnInit(): void {
+            
+        // var imgSrc = $("#productImg").attr("src");
+        
         this.accountProductService
             .getAccountProductById(this.accountProductId)
             .subscribe((result: any) => {
