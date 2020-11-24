@@ -1,4 +1,5 @@
 import { NotifierService } from 'angular-notifier'
+
 import {
     Component,
     HostListener,
@@ -24,14 +25,19 @@ export class AppComponent implements OnInit {
 
     title = 'Shah-bandar-trade-in'
 
+    //This Varrible For Checking if the user signed in or not
+    isLoggedIn;
+
     public constructor(
         notifier: NotifierService,
         public notificationsService: NotificationsService,
         private authService: AuthService
+        
     ) {
         this.notifier = notifier
     }
     ngOnInit(): void {
+        
         this.authService.isAuthed.subscribe((info) => {
             if (info) {
                 this.notificationsService.connect()
@@ -47,6 +53,11 @@ export class AppComponent implements OnInit {
             } else {
                 this.notificationsService.disconnect()
             }
+        })
+
+        //This Part Is For Checking If The User Logged in Or Not.
+        this.authService.isAuthed.subscribe((result) => {
+            this.isLoggedIn = result
         })
     }
 

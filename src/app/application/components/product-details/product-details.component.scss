@@ -18,9 +18,29 @@
     font-weight: 600;
 }
 
+.socialLink:hover{
+    text-decoration: none !important;
+    transform: translateY(-10px) !important;
+    transition-duration: 1s;
+}
+
+.socialLink img:hover{
+    text-decoration: none !important;
+    transform: translateY(-10px) !important;
+    transition-duration: 1s;
+}
+
+.socialLink img{
+    margin-left: 5px;
+    width: 22px !important;
+}
+
 @media (max-width: 414px) {
     .tm-portfoliodetails-info li {
         font-size: 13px;
+    }
+    .socialSahreIcons{
+        margin-left: 50px;
     }
 }
 

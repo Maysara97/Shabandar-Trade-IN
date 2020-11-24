@@ -12,7 +12,9 @@ import { Category } from '../../models/category'
     styleUrls: ['./accounts-by-category.component.scss'],
 })
 export class AccountsByCategoryComponent implements OnInit {
-    accountByCategory: AccountData[]
+    accountByCategory: AccountData[] 
+    //Getting length of the accounts array to indicate if theres an data or not.
+    accountByCategoryLength;
     targetCategoryId
     targetCat: Category
     env: any
@@ -30,6 +32,8 @@ export class AccountsByCategoryComponent implements OnInit {
             .getAccountsBySubCategoryId(this.targetCategoryId)
             .subscribe((res: any) => {
                 this.accountByCategory = res.data
+                this.accountByCategoryLength = this.accountByCategory.length;
+                
             })
         this.categoryService
             .getCategoryById(this.targetCategoryId)

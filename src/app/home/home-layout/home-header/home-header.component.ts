@@ -29,7 +29,7 @@ export class HomeHeaderComponent implements OnInit {
     // tslint:disable-next-line:variable-name
     constructor(
         public _route: Router,
-        private auth: AuthService,
+        private auth: AuthService, 
         private router: Router,
         private notificationService: NotificationsService,
         private messageService: MessageService

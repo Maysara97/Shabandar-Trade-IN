@@ -11,6 +11,28 @@
                         </a>
                     </div>
                 </div>
+                <!--Start Inserting Share Buttons-->
+            <div class="mt-3">
+                
+                <!--Facebook Share Button-->
+                <a [href]="facebookPost" target="_blank" class="facebook-btn socialLink">
+                    <img src="assets/images/facebook.png">
+                </a>
+                
+                <!--Twitter Share Button-->
+                <a [href]="this.twitterPost" class="twitter-btn socialLink" target="_blank">
+                    <img src="assets/images/twitter.png"></a>
+                
+                <!--LinkedIn Share Button-->
+                <!-- <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+                <script type="IN/Share" data-url="https://www.gumtree.com.au/"></script>  -->
+                
+                <!--Whatsapp Share Buttton-->
+                <a [href]="whatsappPost"
+                class="socialLink"
+                 data-action="share/whatsapp/share" target="_blank"><img src="assets/images/whatsappimg.png"></a>
+                 </div>
+            <!--End Inserting Share Buttons-->
             </div>
             <ng-template #imageModal>
                 <div class="modal-body text-center">

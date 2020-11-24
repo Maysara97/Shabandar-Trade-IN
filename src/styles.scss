@@ -9,3 +9,21 @@
 
 @import '~owl.carousel/dist/assets/owl.carousel.css';
 @import '~owl.carousel/dist/assets/owl.theme.default.css';
+
+/*Cancel The Float Right Property Of The pop up close button under live chat to be at center */
+.modal-body .btn {
+    float: none !important; 
+    width: 20%;
+    margin-top: 5%;
+    background-color: transparent;
+    color: #dc3545;
+    font-size: 18px;
+}
+
+
+.stickyShareButton{
+    position: fixed !important;
+    display: grid !important;
+    top: 50% !important;
+    transform: translateY(-56px) !important;
+}
