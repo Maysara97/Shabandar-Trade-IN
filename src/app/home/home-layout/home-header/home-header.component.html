@@ -20,9 +20,10 @@
                 <nav class="tm-navigation" id="mainNav">
                     <ul class="navigation nav" style="float: right;">
                         <li class="navigation__link">
-                            <a routerLink="/home/home-main">Home</a>
+                            <a routerLink="/home/home-main" routerLinkActive="active">Home</a>
                         </li>
-                        <li><a routerLink="/application/buying-request" routerLinkActive="active">Buying Request</a>
+                        <li class="navigation__link">
+                            <a routerLink="/application/buying-request" routerLinkActive="active">Buying Request</a>
                         </li>
 
                         <li class="navigation__link">
@@ -50,10 +51,10 @@
                         </li> -->
 
                         <div *ngIf="!isLoggedIn" class="btn-signLogIn">
-                            <button type="button" class="btn btn-signup" routerLink="/account/registeration">
+                            <button type="button" class="btn btn-signup editTextColor" routerLink="/account/registeration">
                                 Sign Up
                             </button>
-                            <button type="button" class="btn btn-login" routerLink="/account/login"
+                            <button type="button" class="btn btn-login editTextColor" routerLink="/account/login"
                                 style="color: #fff;">
                                 Log In
                             </button>

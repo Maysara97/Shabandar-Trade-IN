@@ -23,7 +23,8 @@
                     <tr *ngFor="let inbox of inboxMessages">
                         <td style="width: 15%;">{{inbox.senderName}}</td>
                         <td style="width: 30%;">{{inbox.title}}</td>
-                        <td>{{inbox.body | slice : 0 : 10}}</td>
+                        <td>{{inbox.body | slice : 0 : 10}}</td> 
+               
                         <td><a type="button" class="btn btn-primary"
                                 [routerLink]="['/messageing/sidebar/view-message' , inbox.threadId]" tooltip="View"
                                 placement="bottom"><i class="far fa-eye"></i></a>
@@ -31,7 +32,7 @@
                                 tooltip="Delete" placement="bottom"><i class="fa fa-trash"></i></button>
                             <button type="button" class="btn btn-warning" (click)="archiveMessage(inbox.messageId)"
                                 tooltip="Archive" placement="bottom"><i class="fa fa-archive"></i></button></td>
-                    </tr>
+                            </tr>
                 </tbody>
             </table>
         </div>
