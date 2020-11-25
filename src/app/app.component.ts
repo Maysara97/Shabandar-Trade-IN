@@ -12,6 +12,7 @@ import { NotificationsService } from './notifications/services/notification.serv
 import { Observable } from 'rxjs'
 import { Notifications } from './notifications/models/notification'
 import { AuthService } from './shared/services/auth.service'
+import { Meta , Title } from '@angular/platform-browser';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -31,7 +32,9 @@ export class AppComponent implements OnInit {
     public constructor(
         notifier: NotifierService,
         public notificationsService: NotificationsService,
-        private authService: AuthService
+        private authService: AuthService,
+        private meta: Meta,
+        private title2: Title
         
     ) {
         this.notifier = notifier

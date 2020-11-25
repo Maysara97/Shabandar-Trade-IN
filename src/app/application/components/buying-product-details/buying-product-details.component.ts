@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core'
+import { Component, OnInit, TemplateRef, OnDestroy } from '@angular/core'
 import { BuyingRequest } from '../../models/buying-request'
 import { BuyingRequestService } from '../../services/buying-request.service'
 import { ActivatedRoute } from '@angular/router'
@@ -71,6 +71,16 @@ export class BuyingProductDetailsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        //Removing Meta Tags
+        this.meta.removeTag("name='og_url'")
+        this.meta.removeTag("name='og_image'")
+        this.meta.removeTag("name='og_type'")
+        this.meta.removeTag("name='og_image_width'")
+        this.meta.removeTag("name='og_image_height'")
+        this.meta.removeTag("name='og_description'")
+        this.meta.removeTag("name='og_title'")
+        this.meta.removeTag("name='description'")
+
         this.buyingRequestService
             .getBuyingRequestById(this.buyingRequestId)
             .subscribe((result: any) => {
@@ -78,22 +88,24 @@ export class BuyingProductDetailsComponent implements OnInit {
                 this.whatsappPost =  `https://api.whatsapp.com/send?text=${'\n' +encodeURI(this.buyingRequestDetails.title + '\n' + this.buyingRequestDetails.description) + '\n' }  ${this.postUrl}`;
                 this.twitterPost =  `https://twitter.com/share?url=${this.postUrl}&text=${'\n' +encodeURI(this.buyingRequestDetails.title + '\n' + this.buyingRequestDetails.description + '\n' )}`;
                 this.imgUrl = this.getFilePath(this.buyingRequestDetails.image[0]);
-
-                // Add Meta Tags Specific For This Html Page Only.
+                
+                //Setting The Title Of This page as the product name.
                 this.title.setTitle(this.buyingRequestDetails.title);
-                this.meta.addTags([
-                    { name: 'keywords', content: '' },
-                    { name: 'Title', content: this.buyingRequestDetails.title },
-                    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-                    { name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD' },
+              
 
+                  
+                //Adding Meta Tags For Specific Product
+                  this.meta.addTags([
+                    { name:"og_url" , property:"og:url" , content:this.postUrl},
+                    { name:"og_type" , property:"og:type" , content:"website"},
+                    { name:"og_image", property:"og:image", Content:this.imgUrl},
+                    { name:"og_image_width", property:"og:image:width", content:"600"},
+                    { name:"og_image_height", property:"og:image:height", content:"600"},
+                    { name:"og_description", property:"og:description", content:this.buyingRequestDetails.description},
+                    { name:"og_title", property:"og:title", content:this.buyingRequestDetails.title},
+                    { name: 'Title', content: this.buyingRequestDetails.title},
+                    { name:"description", content: this.buyingRequestDetails.description}
                   ]);
-
-                this.meta.updateTag({name:'og_image', property:'og:image', Content:this.imgUrl})
-                this.meta.updateTag({name:'og_description', property:'og:description', content:this.buyingRequestDetails.description})
-                this.meta.updateTag({name:'description', content:this.buyingRequestDetails.description})
-                this.meta.updateTag({name:'og_url' , property:'og:url' , content:this.postUrl})
-                this.meta.updateTag({name:'og_title', property:'og:title', content:this.buyingRequestDetails.title})
             })
 
         this.auth.getAccountDetails()
@@ -116,5 +128,36 @@ export class BuyingProductDetailsComponent implements OnInit {
     }
     closeSubDialog(): void {
         this.viewImageModal.hide()
+    }
+
+    ngOnDestroy() :void{
+        //Restore The Title When Navigate Away
+        this.title.setTitle("Shah-bandar Trade")
+        
+
+        //Removing The Product Meta Tags
+        this.meta.removeTag("name='og_url'")
+        this.meta.removeTag("name='og_image'")
+        this.meta.removeTag("name='og_type'")
+        this.meta.removeTag("name='og_image_width'")
+        this.meta.removeTag("name='og_image_height'")
+        this.meta.removeTag("name='og_description'")
+        this.meta.removeTag("name='og_title'")
+        this.meta.removeTag("name='description'")
+        this.meta.removeTag("name='Title'")
+
+        //Adding Meta Tags For The Website
+        this.meta.addTags([
+            { name: 'og_title', content: "Shah-bandar Trade"},
+            { name:"og_url", property:"og:url", content:"https://shahbandartrade.com/home/home-main"},
+            { name:"og_type" ,property:"og:type", content:"website" },
+            { name:"og_image", property:"og:image", content:"https://i.ibb.co/6wNTHyB/logo.png"},
+            { name:"og_image_width", property:"og:image:width", content:"600" },
+            { name:"og_image_height", property:"og:image:height", content:"600"},
+            { name:"og_description", property:"og:description", content:"Shahbandar is a digital platform that will have forms to be filled for merchants."},
+            { name:"description", content: "Shahbandar is a digital platform that will have forms to be filled for merchants."}
+            
+          ]);
+        
     }
 }
