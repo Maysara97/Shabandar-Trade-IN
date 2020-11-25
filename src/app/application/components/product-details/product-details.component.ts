@@ -12,13 +12,8 @@ import {
     FinishedStatusTypeMapping,
 } from '../../models/enum'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
-<<<<<<< HEAD
 import { AccountData } from 'src/app/account/models/register'
 import { AuthService } from 'src/app/shared/services/auth.service'
-=======
-// import { Page } from 'ngx-pagination/dist/pagination-controls.directive';
-// import { Page } from 'tns-core-modules/ui/page';
->>>>>>> shareing updates
 
 
 @Component({
