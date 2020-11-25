@@ -379,10 +379,10 @@
                     </div>
                     <div class="col-xl-6 col-lg-5">
                         <div class="tm-portfoliodetails-description">
-                            <h1>Product Description</h1>
+                            <h1 *ngIf="accountProductDetails.description">Product Description</h1>
                             <h3>{{accountProductDetails.description}}</h3>
 
-                            <h2 class="mb-3">Product Attachments</h2>
+                            <h2 class="mb-3" *ngIf="accountProductDetails.attachments.length > 0">Product Attachments</h2>
                             <a *ngFor="let attachment of accountProductDetails.attachments"
                                 [href]="getFilePath(attachment) " alt="Product Attachments" target="_blank">
                                 &nbsp; <i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp;{{attachment}}
@@ -394,7 +394,12 @@
                         &nbsp; <i class="fa fa-comments" aria-hidden="true">&nbsp; Send Message</i>
                         &nbsp;
                     </button>
-                    
+                    <button [hidden]=' accountProductDetails.accountId !== accountId'
+                    class="edit-btn" style="float: left;" mat-raised-button matTooltip="Edit Account Product"
+                    [routerLink]="['/application/edit-product-form', accountProductDetails.accountProductId]">
+                        &nbsp; <i class="fa fa-wrench" aria-hidden="true">&nbsp; Edit</i>
+                        &nbsp;
+                    </button>
                     </div>
 
                 </div>

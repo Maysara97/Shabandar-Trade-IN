@@ -47,6 +47,7 @@ export class EditProductFormComponent implements OnInit {
     tagNames = []
     tagCoverage = []
     agents = []
+    agentsLast
     env: any
 
     industryCategorySelected = false
@@ -212,41 +213,49 @@ export class EditProductFormComponent implements OnInit {
 
     onSubmit(accountProductForm) {
         this.submitted = true
+
         // Brands
         let tagResult: string[] = []
+        tagResult = this.accountProductDetails.brandName
         this.tagNames.forEach((element) => {
-            tagResult.push(element.value)
+            if(element.value != null) {
+                tagResult.push(element.value)
+            }
         })
         // Coverage
         let coverageResult: string[] = []
         this.tagCoverage.forEach((element) => {
             coverageResult.push(element.value)
         })
-        // this.agents = accountProductForm.agentsLocation
+
         // Agents
-        let agentsResult: string[] = []
-        if(this.agents) {
-            agentsResult = accountProductForm.agentsLocation
-        }
         let agentsResults: string[] = []
-        this.agents.forEach((element) => {
-            agentsResults.push(element.value)
+        agentsResults = this.accountProductDetails.agentsLocation
+        this.agents.forEach((element: any) => {
+            if(element.value != null) {
+                agentsResults.push(element.value)
+            }
         })
 
-        let result: string[] = []
-        result = [...agentsResults, ...agentsResult]
+        const images = this.images
+        if (!accountProductForm.productImages) {
+            accountProductForm.productImages = images
+        }
+        const attachments = this.files
+        if(!accountProductForm.attachments) {
+            accountProductForm.attachments = attachments
+        }
         this.accountProductService.updateAccountProduct(
                 accountProductForm,
                 tagResult,
                 this.tagCoverage,
-                agentsResult,
+                agentsResults,
                 accountProductForm.productImages,
-                accountProductForm.attachments,
-                accountProductForm.certification
+                accountProductForm.attachments
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    this.toastr.success('Your updated successfully')
+                    this.toastr.success('Your account product updated successfully')
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

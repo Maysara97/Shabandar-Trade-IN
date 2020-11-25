@@ -25,11 +25,11 @@ export class BuyingRequestService extends BaseService<any> {
         }
         return this.post('BuyingRequest', body)
     }
-    updateBuyingRequest(buyingRequest: BuyingRequest, images) {
+    updateBuyingRequest(buyingRequest: BuyingRequest, images): Observable<BuyingRequest> {
         const body = {
             buyingRequestId: buyingRequest.buyingRequestId,
             categoryId: buyingRequest.categoryId,
-            productName: buyingRequest.productName,
+            subCategoryId: buyingRequest.subCategoryId,
             title: buyingRequest.title,
             image: images,
             location: buyingRequest.location,
