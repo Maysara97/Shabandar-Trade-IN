@@ -156,7 +156,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-5">
                         <div class="tm-portfoliodetails-description">
-                            <h1>Product Description</h1>
+                            <h1 *ngIf="buyingRequestDetails.description">Product Description</h1>
                             <h2>{{buyingRequestDetails.description}}</h2>
                         </div>
                     <button [hidden]=' buyingRequestDetails.ownerAccountId == accountId'
@@ -165,7 +165,12 @@
                         &nbsp; <i class="fa fa-comments" aria-hidden="true">&nbsp; Send Message</i>
                         &nbsp;
                     </button>
-        
+                    <button [hidden]=' buyingRequestDetails.ownerAccountId !== accountId'
+                    class="edit-btn" style="float: left;" mat-raised-button matTooltip="Edit Buying Request"
+                    [routerLink]="['/application/buying-product-details', buyingRequestDetails.buyingRequestId]">
+                        &nbsp; <i class="fa fa-wrench" aria-hidden="true">&nbsp; Edit</i>
+                        &nbsp;
+                    </button>
                     </div>
 
                 </div>

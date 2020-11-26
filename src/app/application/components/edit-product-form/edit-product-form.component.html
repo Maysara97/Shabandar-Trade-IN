@@ -10,7 +10,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <label for="categoryId">Product Category</label>
                                 <select class="form-control" id="categoryId" formControlName="categoryId"
-                                    [(ngModel)]="categorySelected" (change)="handleOnCategoryChange()">
+                                    [(ngModel)]="categorySelected">
                                     <option [ngValue]="-1" [disabled]="true" [selected]="true">Choose Product's Category
                                     </option>
                                     <option *ngFor="let category of categories" value="{{category.categoryId}}">
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <label for="agentsLocation">Agents Location</label>
-                                    <tag-input class="brandTags" [(ngModel)]="agents" formControlName="agentsLocation"
+                                    <tag-input class="brandTags" [editable]="true" [(ngModel)]="agents" [identifyBy]="'value'" [displayBy]="'display'" formControlName="agentsLocation"
                                         [secondaryPlaceholder]="'Agents Location'"
                                         [placeholder]="'Agents Location again'">
                                     </tag-input>
@@ -125,10 +125,16 @@
                                 </div>
                                 <div class="col-lg-4 col-md-8 col-sm-8">
                                     <label for="coverage">Coverage</label>
-                                    <ejs-multiselect [dataSource]='countries' [fields]='localFields'
+                                    <!-- <ejs-multiselect [dataSource]='countries' [fields]='localFields'
                                         [placeholder]='localWaterMark' formControlName="coverage"
                                         [(ngModel)]="tagCoverage">
-                                    </ejs-multiselect>
+                                    </ejs-multiselect> -->
+                                    <ng-select class="" bindLabel="name" bindValue="name" placeholder="Choose Category"
+                                        clearAllText="Clear" [virtualScroll]="true" [items]="countries"
+                                        [searchable]="true" [clearable]="true" formControlName="coverage"
+                                        [multiple]="true" [clearSearchOnAdd]="true" [closeOnSelect]="false"
+                                        [(ngModel)]="tagCoverage">
+                                    </ng-select>
                                 </div>
                             </div>
                         </div>

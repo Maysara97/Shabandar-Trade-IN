@@ -43,10 +43,11 @@ export class EditProductFormComponent implements OnInit {
     editAccountProductForm: FormGroup
     images: string[] = []
     files: string[] = []
-    certifications: string
+    certifications: string[] = []
     tagNames = []
     tagCoverage = []
     agents = []
+    agentsLast
     env: any
 
     industryCategorySelected = false
@@ -100,15 +101,21 @@ export class EditProductFormComponent implements OnInit {
                 this.unitePriceSelected = this.accountProductDetails.unitePrice
                 this.finishedStatusSelected = this.accountProductDetails.finishedStatus
                 this.tagNames = this.accountProductDetails.brandName
-                this.tagCoverage = this.accountProductDetails.coverage
-                if(this.accountProductDetails.productImages) {
-                this.images = this.accountProductDetails.productImages
+                if (this.accountProductDetails.agentsLocation) {
+                    this.agents = this.accountProductDetails.agentsLocation
+                }
+                // this.tagCoverage = this.accountProductDetails.coverage
+                if (this.accountProductDetails.coverage) {
+                    this.tagCoverage= (this.accountProductDetails.coverage || [])
+                }
+                if (this.accountProductDetails.productImages) {
+                    this.images = this.accountProductDetails.productImages
                 }
                 if (this.accountProductDetails.attachments) {
                     this.files = this.accountProductDetails.attachments
                 }
                 if (this.accountProductDetails.certification) {
-                    this.certifications = this.accountProductDetails.certification
+                    this.certifications[0] = this.accountProductDetails.certification
                 }
                 this.categorySelected = this.accountProductDetails.categoryId
                 this.productSelected = this.accountProductDetails.productId
@@ -126,10 +133,6 @@ export class EditProductFormComponent implements OnInit {
             this.categories = result.data
         })
 
-        this.productService.getAllProducts().subscribe((result: any) => {
-            this.allProducts = result.data
-        })
-
         // Bind all Countries
         this.countryService.getAllCountries().subscribe((result: any) => {
             this.countries = result.data
@@ -142,10 +145,10 @@ export class EditProductFormComponent implements OnInit {
             price: [],
             categoryId: [],
             paymentTerms: [],
-            productImages: [],
+            productImages: [null, [Validators.required]],
             attachments: [],
             size: [],
-            description: [],
+            description: [null, [Validators.required]],
             location: [],
             brandName: [],
             packing: [],
@@ -207,46 +210,52 @@ export class EditProductFormComponent implements OnInit {
             certification: files.map((file) => file.imageFile),
         })
     }
-    handleOnCategoryChange() {
-        // Bind Products by Category
-        this.productService
-            .getProductsByCategory(this.categorySelected)
-            .subscribe((result: any) => {
-                this.products = result.data
-            })
-    }
 
-    onSubmit(accountProductId) {
+    onSubmit(accountProductForm) {
         this.submitted = true
-        // Tags
-        let tagResult: string[] = []
-        this.tagNames.forEach((element) => {
-            tagResult.push(element.value)
-        })
 
+        // Brands
+        let tagResult: string[] = []
+        tagResult = this.accountProductDetails.brandName
+        this.tagNames.forEach((element) => {
+            if(element.value != null) {
+                tagResult.push(element.value)
+            }
+        })
+        // Coverage
         let coverageResult: string[] = []
         this.tagCoverage.forEach((element) => {
             coverageResult.push(element.value)
         })
 
-        let agentsResult: string[] = []
-        this.agents.forEach((element) => {
-            agentsResult.push(element.value)
+        // Agents
+        let agentsResults: string[] = []
+        agentsResults = this.accountProductDetails.agentsLocation
+        this.agents.forEach((element: any) => {
+            if(element.value != null) {
+                agentsResults.push(element.value)
+            }
         })
 
-        this.accountProductService
-            .updateAccountProduct(
-                accountProductId,
+        const images = this.images
+        if (!accountProductForm.productImages) {
+            accountProductForm.productImages = images
+        }
+        const attachments = this.files
+        if(!accountProductForm.attachments) {
+            accountProductForm.attachments = attachments
+        }
+        this.accountProductService.updateAccountProduct(
+                accountProductForm,
                 tagResult,
                 this.tagCoverage,
-                agentsResult,
-                this.images,
-                this.files,
-                this.certifications
+                agentsResults,
+                accountProductForm.productImages,
+                accountProductForm.attachments
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    this.toastr.success("Your updated successfully")
+                    this.toastr.success('Your account product updated successfully')
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

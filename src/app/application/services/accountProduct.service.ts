@@ -58,8 +58,7 @@ export class AccountProductService extends BaseService<any> {
         coverageResult,
         agentsResult,
         images,
-        files,
-        certifications
+        files
     ): Observable<AccountProduct> {
         const body = {
             accountProductId: accountProduct.accountProductId,
@@ -69,7 +68,7 @@ export class AccountProductService extends BaseService<any> {
             size: accountProduct.size,
             wieght: accountProduct.wieght,
             packing: accountProduct.packing,
-            certification: certifications,
+            certification: accountProduct.certification,
             type: accountProduct.type,
             grade: accountProduct.grade,
             storage: accountProduct.storage,

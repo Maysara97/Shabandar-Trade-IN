@@ -14,6 +14,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal'
 import { FavoriteService } from '../../services/favorite.service'
 import { NotifierService } from 'angular-notifier'
 import { ToastrService } from 'ngx-toastr'
+import { threadId } from 'worker_threads'
 
 @Component({
     selector: 'app-owner',
@@ -29,6 +30,8 @@ export class OwnerComponent implements OnInit {
     env: any
     product: Product[] = []
     fillAccountDataModal: BsModalRef
+    accountProductModal: BsModalRef
+    buyingRequestModal: BsModalRef
     public ProductStatusMapping = StatusMapping
     private notifier: NotifierService
     productSlider: any = {
@@ -227,12 +230,14 @@ export class OwnerComponent implements OnInit {
         this.accountProductService
             .deleteAccountProduct(AccountProductId)
             .subscribe((res) => this.getAllAccountProduct())
+        this.accountProductModal.hide();
     }
 
     deleteBuyingRequest(BuyingRequest: string) {
         this.buyingRequestService
             .deleteBuyingRequest(BuyingRequest)
             .subscribe((res) => this.getAllBuyingRequests())
+        this.buyingRequestModal.hide();
     }
 
     goToWebsiteUrl(url) {
@@ -258,4 +263,21 @@ export class OwnerComponent implements OnInit {
     }
 
 
+    closePopUp() {
+        this.accountProductModal.hide();
+    }
+    closeBuyingReqPopUp() {
+        this.buyingRequestModal.hide();
+    }
+    deleteProductModal(template: TemplateRef<any>) {
+        this.accountProductModal = this.modalService.show(template, {
+            class: 'modal-md',
+        })
+    }
+
+    deleteBuyingReqModal(template: TemplateRef<any>) {
+        this.buyingRequestModal = this.modalService.show(template, {
+            class: 'modal-md',
+        })
+    }
 }

@@ -80,18 +80,10 @@ export class EditprofileComponent implements OnInit {
             // }
 
             this.categorySelections = this.updateUserData.categories
-            // for (const cat of this.updateUserData.categories) {
-            //     ;[cat.categoryId] = this.categorySelections
-            // }
             this.categoryService
                 .getCategoriesByParentId(this.updateUserData.categoryId)
                 .subscribe((result: any) => {
                     this.categories = result.data
-
-                    // let categoriesSelect = []
-                    // this.categorySelections.forEach((element) => {
-                    //     categoriesSelect.push(element.categoryId)
-                    // })
                 })
             this.mainCategoryName = this.updateUserData.categoryName
             this.mainCategoryId = this.updateUserData.categoryId
@@ -102,18 +94,11 @@ export class EditprofileComponent implements OnInit {
                 this.mobileNumbers.length = this.updateUserData.mobile.length
             }
             if (this.updateUserData.categories) {
-               // this.categorySelections = this.updateUserData.categories
                 this.categorySelections= (this.updateUserData.categories || []).map(
                     c => c.categoryId
                 )
             }
         })
-
-        // this.editProfileForm.patchValue({
-        //     categories: (this.updateUserData.categories || []).map(
-        //         (c) => c.categoryId
-        //     ),
-        // })
         this.editProfileForm = this.formBuilder.group({
             accountImage: [null, Validators.required],
             accountName: [],
@@ -213,7 +198,7 @@ export class EditprofileComponent implements OnInit {
             )
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                    this.toastr.success("Your profile updated successfully")
+                    this.toastr.success('Your profile updated successfully')
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)

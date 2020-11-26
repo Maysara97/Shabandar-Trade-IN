@@ -130,29 +130,18 @@ export class EditBuyingRequestComponent implements OnInit {
                 this.subCategories = result.data
             })
     }
-    onSubmit(buyingRequestId) {
+    onSubmit(buyingRequestForm) {
         this.submitted = true
-        // Tags
-        let tagResult: string[] = []
-        this.tagNames.forEach((element) => {
-            tagResult.push(element.value)
-        })
 
-        let coverageResult: string[] = []
-        this.tagCoverage.forEach((element) => {
-            coverageResult.push(element.value)
-        })
-
-        let agentsResult: string[] = []
-        this.agents.forEach((element) => {
-            agentsResult.push(element.value)
-        })
-
+        const images = this.images
+        if (!buyingRequestForm.image) {
+            buyingRequestForm.image = images
+        }
         this.buyingRequestService
-            .updateBuyingRequest(buyingRequestId, this.images)
+            .updateBuyingRequest(buyingRequestForm, buyingRequestForm.image)
             .subscribe((result: any) => {
                 if (result.isSucceeded) {
-                     this.toastr.success("Your updated successfully")
+                    this.toastr.success('Your buying request updated successfully')
                     this.router.navigate(['/account/owner'])
                 } else {
                     this.toastr.error(result.errors)
