@@ -45,6 +45,7 @@ export class GeneralSearchComponent implements OnInit {
       if(result.isSucceeded)
       {
         this.gSearch = result.data
+        this.totalCount=result.totalRecords
         console.log(this.gSearch)
       }
       
