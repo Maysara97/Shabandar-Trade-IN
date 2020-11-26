@@ -118,3 +118,4 @@ export class BuyingProductDetailsComponent implements OnInit {
         this.viewImageModal.hide()
     }
 }
+ 

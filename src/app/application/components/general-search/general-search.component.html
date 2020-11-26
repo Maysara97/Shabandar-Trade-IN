@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4" *ngFor="let search of gSearch">
+            <a
+                *ngIf="search.itemType == 3"
+                [routerLink]="['/application/product-details', search.itemId]"
+            ></a>
+
+            <div class="card-deck mt-5">
+                <div class="card mt-5">
+                    <img *ngIf="!search.images && search.itemType == 1" src="assets/images/You-Trade-In/user.png" class="card-img-top"
+                        width="200px"
+                        height="250px">
+                    <img *ngIf="!search.images && search.itemType == 2 || !search.images && search.itemType == 3" src="/assets/images/You-Trade-In/YourProduct3.jpg" class="card-img-top"
+                        width="200px" height="250px">
+                    <img class="card-img-top" width="200px" height="250px" *ngIf="search.images"  [src]="getFilePath(search.images)"
+                        alt="Card image cap"/>
+                    <div class="card-body">
+                        <a *ngIf="search.itemType == 1" [routerLink]="['/application/viewer',search.itemId]">
+                            <h5 class="card-title">{{ search.itemName }}</h5>
+                        </a>
+                        <a *ngIf="search.itemType == 3" [routerLink]="['/application/buying-product-details',search.itemId]">
+                            <h5 class="card-title">{{ search.itemName }}</h5>
+                        </a>
+
+                        <a *ngIf="search.itemType == 2" [routerLink]="['/application/product-details',search.itemId]">
+                            <h5 class="card-title">{{ search.itemName }}</h5>
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small
+                            *ngIf="search.itemType == 1"
+                            class="text-muted"
+                            >{{ ItemTypeMapping[1] }}</small
+                        >
+                        <small
+                            *ngIf="search.itemType == 2"
+                            class="text-muted"
+                            >{{ ItemTypeMapping[2] }}</small
+                        >
+                        <small
+                            *ngIf="search.itemType == 3"
+                            class="text-muted"
+                            >{{ ItemTypeMapping[3] }}</small
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end p-2 w-100 mt-5">
+            <mat-toolbar-row>
+                <mat-paginator
+                    [length]="totalCount"
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions"
+                    (page)="handleOnPageChange($event)"
+                >
+                </mat-paginator>
+            </mat-toolbar-row>
+        </div>
+    </div>
+</div>

@@ -18,3 +18,4 @@ export class BuyingRequest {
     accountImage?: string
     status?: number
 }
+ 

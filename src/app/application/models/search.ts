@@ -1,0 +1,10 @@
+export class searching{
+
+      itemId: string
+      itemName: string
+      itemImage: string
+      images: string [] = []
+      itemType: 1
+      totalCount: 0
+      
+}
