@@ -154,7 +154,7 @@ export class BuyingProductDetailsComponent implements OnInit {
             { name: 'og_title', content: "Shah-bandar Trade"},
             { name:"og_url", property:"og:url", content:"https://shahbandartrade.com/home/home-main"},
             { name:"og_type" ,property:"og:type", content:"website" },
-            { name:"og_image", property:"og:image", content:"https://i.ibb.co/6wNTHyB/logo.png"},
+            { name:"og_image", property:"og:image", content:"https://svgshare.com/i/Rt9.svg"},
             { name:"og_image_width", property:"og:image:width", content:"600" },
             { name:"og_image_height", property:"og:image:height", content:"600"},
             { name:"og_description", property:"og:description", content:"Shahbandar is a digital platform that will have forms to be filled for merchants."},
