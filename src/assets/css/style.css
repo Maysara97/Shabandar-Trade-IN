@@ -2527,7 +2527,7 @@ button.tm-videobutton:hover span {
     }
     .header-bottominner .tm-navigation .nav {
         margin-top: 40px;
-        background-color: #000000 !important;
+        background-color: #f2b414;
         padding-bottom: 10px;
     }
 
@@ -2537,7 +2537,7 @@ button.tm-videobutton:hover span {
     }
 
     .header-bottominner .tm-navigation .nav li a {
-        color: #fff;
+        color: #000;
         border-bottom: 1px solid #fff;
         width: 99%;
         padding: 10px;
