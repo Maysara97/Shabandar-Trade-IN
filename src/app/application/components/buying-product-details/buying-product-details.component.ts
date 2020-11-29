@@ -9,7 +9,6 @@ import { AccountData } from 'src/app/account/models/register'
 import { AuthService } from 'src/app/shared/services/auth.service'
 
 import { Meta , Title } from '@angular/platform-browser'
-// import { ConsoleReporter } from 'jasmine'
 
 @Component({
     selector: 'app-buying-product-details',
@@ -20,12 +19,12 @@ export class BuyingProductDetailsComponent implements OnInit {
     buyingRequestDetails: BuyingRequest
     viewImageModal: BsModalRef
 
-    postUrl   =   encodeURI(document.location.href); // This Will Return This Product URL
-    // Facebook Share URL For This Product
+    postUrl   =   encodeURI(document.location.href); //This Will Return This Product URL
+    //Facebook Share URL For This Product
     facebookPost = `https://www.facebook.com/sharer/sharer.php?u=${this.postUrl}`;
-    whatsappPost; // This Link Will Send All Product Details By Whatsapp
-    twitterPost; // This Link Will Send All Product Details By Twitter
-    imgUrl: string;
+    whatsappPost; //This Link Will Send All Product Details By Whatsapp
+    twitterPost; //This Link Will Send All Product Details By Twitter
+    imgUrl:string ;
 
     buyingRequestId
     env: any
@@ -87,8 +86,8 @@ export class BuyingProductDetailsComponent implements OnInit {
             .getBuyingRequestById(this.buyingRequestId)
             .subscribe((result: any) => {
                 this.buyingRequestDetails = result.data
-                this.whatsappPost =  `https://api.whatsapp.com/send?text=${'\n' +encodeURI(this.buyingRequestDetails.title + '\n' + this.buyingRequestDetails.description) + '\n' }  ${this.postUrl}`;
-                this.twitterPost =  `https://twitter.com/share?url=${this.postUrl}&text=${'\n' +encodeURI(this.buyingRequestDetails.title + '\n' + this.buyingRequestDetails.description + '\n' )}`;
+                this.whatsappPost =  `https://api.whatsapp.com/send?text=${"\n" +encodeURI(this.buyingRequestDetails.title + "\n" + this.buyingRequestDetails.description) + "\n" }  ${this.postUrl}`;
+                this.twitterPost =  `https://twitter.com/share?url=${this.postUrl}&text=${"\n" +encodeURI(this.buyingRequestDetails.title + "\n" + this.buyingRequestDetails.description + "\n" )}`;
                 this.imgUrl = this.getFilePath(this.buyingRequestDetails.image[0]);
                 
                 //Setting The Title Of This page as the product name.
