@@ -2511,6 +2511,7 @@ button.tm-videobutton:hover span {
     justify-content: space-between;
     position: relative;
     /* position: absolute; */
+    padding-top: 2%;
 }
 @media (max-width: 1024px) {
     .header-bottominner .tm-navigation .nav li {
@@ -2690,6 +2691,11 @@ button.tm-videobutton:hover span {
   border-radius: 5px;
   color: #143a6d;
 } */
+.header-logo{
+    width: 25%;
+    /* margin-top: 2%; */
+    padding-bottom: 2%;
+}
 .header-logo a {
     display: inline-block;
 }
