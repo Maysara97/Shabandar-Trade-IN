@@ -6,6 +6,7 @@ import { HomeReadMoreComponent } from './home-read-more/home-read-more.component
 import { Egypt2030Component } from './home-main/egypt2030/egypt2030.component'
 import { ContactComponent } from './home-main/contact/contact.component'
 import { TermsPoliciesComponent } from './terms-policies/terms-policies.component'
+import { PartnersComponent } from './home-main/partners/partners.component'
 
 const routes: Routes = [
     {
@@ -35,6 +36,10 @@ const routes: Routes = [
             {
                 path: 'terms-policies',
                 component: TermsPoliciesComponent,
+            },
+            {
+                path: 'partners',
+                component: PartnersComponent,
             },
         ],
     },

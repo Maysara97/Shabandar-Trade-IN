@@ -47,8 +47,7 @@
                                 <a routerLink="/application/sell-product">Sell on shahbandartrade.com</a>
                             </li>
                             <li>
-                                <a routerLink="/home" fragment="partners"
-                                    (click)="navigateToSection('partners')">Partner Program</a>
+                                <a [routerLink]="['/home/partners']">Partner Program</a>
                             </li>
                         </ul>
                     </div>
