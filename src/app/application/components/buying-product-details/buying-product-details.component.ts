@@ -58,6 +58,8 @@ export class BuyingProductDetailsComponent implements OnInit {
         },
         nav: false,
     }
+
+    isLoggedIn
     constructor(
         private buyingRequestService: BuyingRequestService,
         private route: ActivatedRoute,
@@ -113,6 +115,7 @@ export class BuyingProductDetailsComponent implements OnInit {
                 this.myAccount = result.data
                 // accountId
                 this.accountId=this.myAccount.accountId
+                this.isLoggedIn = result
             })
 
     }

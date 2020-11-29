@@ -22,10 +22,8 @@
                 <h6 class="text-center m-3">Find Your Needs</h6>
                 <a *ngIf='isLogin'  class="btn icon-btn" routerLink="/application/add-new-request-form"><i class="fa fa-plus icon"
                         aria-hidden="true"></i>Add Buying Request!</a>
-                        <a *ngIf='!isLogin'  class="btn icon-btn btn-withoutIcon"
-                        style='color:#fff'
-                        routerLink="/account/registeration">
-                            Sign Up!</a>
+                <a *ngIf='!isLogin'  class="btn icon-btn btn-withoutIcon"
+                        style='color:#fff' routerLink="/account/registeration">Sign Up!</a>
             </div>
         </div>
 
@@ -84,7 +82,7 @@
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ requestProduct.subCategoryName}}</p>
                                 </div>
-                                <button [hidden]='requestProduct.ownerAccountId == accountId'
+                                <button [hidden]='requestProduct.ownerAccountId == accountId || !isLogin'
                                 class="email-btn" style="float: right;" mat-raised-button
                                     matTooltip="Send Message"
                                     [routerLink]="['/application/send-message', requestProduct.ownerAccountId,requestProduct.accountName]">

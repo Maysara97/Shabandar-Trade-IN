@@ -86,7 +86,7 @@
                                 <div class="category-btn" style="float: left;">
                                     <p>{{ product.categoryName }}</p>
                                 </div>
-                                <button [hidden]='product.accountId ==accountId'
+                                <button [hidden]='product.accountId ==accountId || !isLoggedIn'
                                 class="email-btn" style="float: right;" mat-raised-button
                                     matTooltip="Send Message"
                                     [routerLink]="['/application/send-message', product.accountId,product.accountName]">
