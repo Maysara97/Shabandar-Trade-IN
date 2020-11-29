@@ -6,13 +6,13 @@
             </div>
         </div>
     </div>
-    <div class="row services-wrap mt-5">
+    <div class="row services-wrap mt-5" *ngIf="allAdsByCategory">
 
         <div class="col-lg-3 col-md-3 col-sm-4 col-12 wow fadeInUp" *ngFor="let adCategory of ads; let i = index">
 
             <div class="tm-service text-center">
                 <span class="tm-service-icon" *ngIf="allAdsByCategory[adCategory]">
-                    <a> <img [src]="getFilePath(allAdsByCategory[adCategory].adImage)" alt="{{adCategory.accountName}}"></a>
+                    <a [routerLink]="['/application/viewer', allAdsByCategory[adCategory].accountId]"> <img [src]="getFilePath(allAdsByCategory[adCategory].adImage)" alt="{{adCategory.accountName}}"></a>
                 </span>
                 <span class="tm-service-icon" *ngIf="!allAdsByCategory[adCategory]">
                     <a> <img src="/assets/images/You-Trade-In/ads-category.png"></a>
