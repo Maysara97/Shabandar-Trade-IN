@@ -52,3 +52,16 @@ export enum MessageStatus {
     New = 1,
     Read = 2,
 }
+
+export enum ItemType{
+    Account = 1,
+    Product = 2,
+    BuyinRequest = 3
+}
+
+
+export const ItemTypeMapping = {
+    [ItemType.Account]: 'Account',
+    [ItemType.Product]: 'Product',
+    [ItemType.BuyinRequest]: 'BuyinRequest'
+}

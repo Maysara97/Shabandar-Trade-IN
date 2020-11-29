@@ -132,4 +132,11 @@ export class AuthService extends BaseService<any> {
     getAccountsBySubCategoryId(subCategoryId: string) {
         return this.getById('Account/GetAccountsBySubCategory', subCategoryId)
     }
+    getAllSearchData(
+        pageSize: number,
+        pageNumber: number,
+        searchKeyWord: string
+    ){
+    return this.getAll(`Account/GeneralSearch/${pageSize}/${pageNumber}?keyWord=${searchKeyWord}`)
+  }
 }

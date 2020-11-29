@@ -31,7 +31,8 @@ import { ReplyMessageComponent } from './components/reply-message/reply-message.
 import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
 import { AccountsByCategoryComponent } from './components/accounts-by-category/accounts-by-category.component'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { NotifierModule, NotifierOptions } from 'angular-notifier'
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { GeneralSearchComponent } from './components/general-search/general-search.component';
 
 const customNotifier: NotifierOptions = {
     position: {
@@ -91,6 +92,7 @@ const customNotifier: NotifierOptions = {
         ReplyMessageComponent,
         MoreCompaniesAdsComponent,
         AccountsByCategoryComponent,
+        GeneralSearchComponent,
     ],
     imports: [
         CommonModule,

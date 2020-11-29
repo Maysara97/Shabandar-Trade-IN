@@ -397,11 +397,11 @@
                                     {{targetAccountDetails.accountName}}
                                 </h4>
                                 <div class="rightAlign">
-                                    <a type="button" class="btn"
+                                    <a type="button" class="btn btnEdit"
                                         [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
                                         Send Message <i class="fa fa-comments" aria-hidden="true"></i>
                                     </a>
-                                    <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn"
+                                    <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn btnUpdate"
                                         (click)="addFavorite(TargetAccountId)">
                                         Add Interest <i class="fa fa-star" aria-hidden="true"></i>
                                     </a>
@@ -599,14 +599,14 @@
                                     Company Profile
                                 </h4>
                                 <div class="rightAlign">
-                                    <a type="button" class="btn"
+                                    <a type="button" class="btn btnEdit"
                                         [routerLink]="['/application/send-message', targetAccountDetails.accountId]">
                                         Send Message <i class="fa fa-comments" aria-hidden="true"></i>
                                     </a>
-                                    <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn"
+                                    <!-- <a *ngIf="!targetAccountDetails.isFavorite" type="button" class="btn btnUpdate"
                                         (click)="addFavorite(TargetAccountId)">
                                         Add Interest <i class="fa fa-star" aria-hidden="true"></i>
-                                    </a>
+                                    </a> -->
                                     <a *ngIf="targetAccountDetails.isFavorite" type="button" class="btn"
                                         (click)="deleteFavorite(targetAccountDetails.favoriteId)">
                                         Remove Interest <i class="fa fa-trash" aria-hidden="true"></i>

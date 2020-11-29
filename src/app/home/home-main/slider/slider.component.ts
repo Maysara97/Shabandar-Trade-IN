@@ -6,6 +6,10 @@ import { Category } from 'src/app/application/models/category'
 import { environment } from 'src/environments/environment'
 import { Ads } from 'src/app/application/models/ads'
 import { AdsService } from 'src/app/application/services/ads.service'
+import {FormsModule} from '@angular/forms'
+import {HttpClient} from '@angular/common/http'
+import { searching } from 'src/app/application/models/search'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-slider',
@@ -16,7 +20,11 @@ export class SliderComponent implements OnInit {
     isLoggedIn
     myBackgroundImageUrl = './assets/images/You-Trade-In/slider.png'
     subCategoryModal: BsModalRef
-
+    myForm : FormsModule
+    searchText;  
+    pageNumber = 1
+    pageSize = 6
+    searchKeyWord = ''
     categories: Category[]
     env: any
     subCategories: Category[]
@@ -26,7 +34,10 @@ export class SliderComponent implements OnInit {
         private auth: AuthService,
         private modalService: BsModalService,
         private categoryService: CategoryService,
-        private adsService: AdsService
+        private adsService: AdsService,
+        private _HttpClient:HttpClient,
+        private router: Router,
+        
     ) {
         this.env = environment
     }
@@ -63,6 +74,13 @@ export class SliderComponent implements OnInit {
     getFilePath(fileName: string): string {
         return `${this.env.file_path}${fileName}`
     }
+
+
+    getSearch(eventInfo){
+        console.log(eventInfo)
+        this.router.navigateByUrl(`/application/search/${eventInfo}`)
+    }
+
 
     closeSubDialog(): void {
         this.subCategoryModal.hide()

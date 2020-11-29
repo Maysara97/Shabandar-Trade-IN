@@ -17,6 +17,7 @@ import { BuyingRequestComponent } from './components/buying-request/buying-reque
 import { ReplyMessageComponent } from './components/reply-message/reply-message.component'
 import { MoreCompaniesAdsComponent } from './components/more-companies-ads/more-companies-ads.component'
 import { AccountsByCategoryComponent } from './components/accounts-by-category/accounts-by-category.component'
+import { GeneralSearchComponent } from './components/general-search/general-search.component'
 
 const routes: Routes = [
     {
@@ -87,6 +88,11 @@ const routes: Routes = [
                 path: 'accounts-by-category/:categoryId',
                 component: AccountsByCategoryComponent,
             },
+
+                {
+                    path: 'search/:searchText',
+                    component: GeneralSearchComponent,
+                }
         ],
     },
 ]

@@ -1,0 +1,81 @@
+// .card-search a{
+//     text-decoration: none;
+// }
+// .card-body:hover h5 {
+//         color: #f2b414;
+// }
+// .card-footer small{
+//     font-size: 16px;
+// }
+
+.search-item{
+    position: relative;
+    overflow: hidden;
+    margin-top: 10%;
+}
+.search-item img{
+    border: 2px solid #f2b414;
+    border-radius: 5px;
+}
+// img{
+//     width: 100%;
+// }
+.layer1{
+    position: absolute;
+    left: 15px;
+    right:15px;
+    bottom: 100%;
+    top: -100%;
+    z-index: 2;
+    background-color: rgba(#0E1234 , 0.8);
+    // background-color: rgba(0, 0, 0, 0.7);
+    transition: all 1s;
+}
+.layer1 p{
+    font-size: 14px;
+}
+.search-item:hover .layer1{
+    bottom: 15px;
+    top: 15px;
+}
+.layer2{
+    position: absolute;
+    left: 15px;
+    right:15px;
+    bottom:15px;
+    background-color: white;
+    transition: all 1s;
+}
+.search-item:hover .layer2{
+    transition-delay: 0.2s;
+    bottom: -100%;
+}
+a{
+    text-decoration: none;
+}
+.mat-paginator{
+    background-color: transparent;
+    color: white;
+}
+
+@media (min-width:768px) and (max-width:1366px){
+    .searching{
+        margin-top: 12% !important;
+    }
+}
+::ng-deep .mat-select-arrow {
+    color: #fff;
+}
+
+::ng-deep .mat-select-value-text {
+    color: #fff;
+}
+
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: rgb(255 255 255);
+}
+
+::ng-deep .mat-icon-button[disabled][disabled] {
+    color: rgb(255 255 255 / 26%);
+}

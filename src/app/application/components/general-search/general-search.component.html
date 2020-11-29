@@ -1,0 +1,88 @@
+
+        <!-- <div class="col-md-4 card-search" *ngFor="let search of gSearch"> -->
+            <!-- <a *ngIf="search.itemType == 3" [routerLink]="['/application/product-details', search.itemId]"></a> -->
+
+            <!-- <div class="card-deck mt-5">
+                <div class="card mt-5"> -->
+                    <!-- <img *ngIf="!search.images && search.itemType == 1" src="assets/images/You-Trade-In/user.png" class="card-img-top"
+                        width="200px"
+                        height="250px">
+                    <img *ngIf="!search.images && search.itemType == 2 || !search.images && search.itemType == 3" src="/assets/images/You-Trade-In/YourProduct3.jpg" class="card-img-top"
+                        width="200px" height="250px">
+                    <img class="card-img-top" width="200px" height="250px" *ngIf="search.images"  [src]="getFilePath(search.images)"
+                        alt="Card image cap"/> -->
+<!-- 
+                    <div class="card-body"> -->
+                        <!-- <a *ngIf="search.itemType == 1" [routerLink]="['/application/viewer',search.itemId]">
+                            <h5 class="card-title">{{ search.itemName }}</h5>
+                        </a>
+                        <a *ngIf="search.itemType == 3" [routerLink]="['/application/buying-product-details',search.itemId]">
+                            <h5 class="card-title">{{ search.itemName }}</h5>
+                        </a>
+
+                        <a *ngIf="search.itemType == 2" [routerLink]="['/application/product-details',search.itemId]">
+                            <h5 class="card-title">{{ search.itemName }}</h5>
+                        </a> -->
+                            <!-- <p class="card-text">{{search.itemDescription | slice: 0 :50}}</p> -->
+                    <!-- </div> -->
+
+                    <!-- <div class="card-footer text-center">
+                        <small *ngIf="search.itemType == 1" class="text-muted">{{ ItemTypeMapping[1] }}</small>
+                        <small *ngIf="search.itemType == 2" class="text-muted">{{ ItemTypeMapping[2] }}</small>
+                        <small *ngIf="search.itemType == 3" class="text-muted">{{ ItemTypeMapping[3] }}</small>
+                    </div> -->
+<!-- 
+                </div>
+            </div>
+        </div> -->
+
+<div class="container searching mt-5">
+    <div class="row mt-5">
+            <div class="col-md-3 mt-5" *ngFor="let search of gSearch">
+                <div class="search-item w-100">
+                    <img *ngIf="!search.images && search.itemType == 1" src="assets/images/You-Trade-In/user.png" class="card-img-top"
+                        width="300px" height="300px">
+                    <img *ngIf="!search.images && search.itemType == 2 || !search.images && search.itemType == 3" 
+                        src="/assets/images/You-Trade-In/YourProduct3.jpg" class="card-img-top" width="300px" height="300px">
+                    <img class="card-img-top" width="300px" height="300px" *ngIf="search.images" [src]="getFilePath(search.images)"
+                         />
+
+                    <div class="layer1  text-white d-flex text-center align-items-center">
+                        <div>
+                            <h3 class="text-white">About</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nisi vero veniam maiores quo nihil,
+                                 cum ipsum odit minima amet suscipit repellendus? Iusto saepe repudiandae laborum! Alias fugit sint numquam.</p> -->
+                            <p>{{search.description | slice: 0 :80}}</p>
+      
+                        <a *ngIf="search.itemType == 1" [routerLink]="['/application/viewer',search.itemId]">
+                            <p class="text-warning">Read More &rarr;</p>
+                        </a>
+                        <a *ngIf="search.itemType == 3" [routerLink]="['/application/buying-product-details',search.itemId]">
+                            <p class="text-warning">Read More &rarr;</p>
+                        </a>
+                        
+                        <a *ngIf="search.itemType == 2" [routerLink]="['/application/product-details',search.itemId]">
+                            <p class="text-warning">Read More &rarr;</p>
+                        </a> 
+                        </div>
+                    </div>
+                    <div class="layer2 py-2 text-center">
+                        <h5>{{ search.itemName }}</h5>
+                        <h6 class="text-warning" *ngIf="search.itemType == 1" >{{ ItemTypeMapping[1] }}</h6>
+                        <h6 class="text-warning" *ngIf="search.itemType == 2" >{{ ItemTypeMapping[2] }}</h6>
+                        <h6 class="text-warning" *ngIf="search.itemType == 3" >{{ ItemTypeMapping[3] }}</h6>
+                    </div>
+                </div>
+            </div>
+
+        <div class="d-flex justify-content-center p-2 w-100 mt-5">
+            <mat-toolbar-row>
+                <mat-paginator
+                    [length]="totalCount" [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions" (page)="handleOnPageChange($event)">
+                </mat-paginator>
+            </mat-toolbar-row>
+        </div>
+
+    </div>
+</div>

@@ -69,7 +69,7 @@ button.tm-button {
 
 // }
 .heroslider-area .categories {
-    margin-top: 20%;
+    margin-top: 15%;
     margin-bottom: 10%;
     color: #fff;
     font-size: 40px;
@@ -592,7 +592,7 @@ button.tm-button {
         margin-top: 5%;
         border: none;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 11px;
         color: #fff;
         font-weight: 700;
     }
@@ -783,4 +783,34 @@ button.tm-button {
     font-size: 32px;
     margin-left:25px;
 
+}
+
+
+
+.input-group.md-form.form-sm.form-2 input {
+//   border: 1px solid #f2b414;
+//   border-radius: 25px;
+  border-top-left-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
+  font-style: italic;
+}
+// .input-group.md-form.form-sm.form-2 input.amber-border {
+//   border:
+//   {
+//       top: 2px solid #ffca28;
+//       bottom: 2px solid #ffca28;
+//       left: 2px solid #ffca28;
+//   } 
+// //   border-radius: 25px;
+// }
+.input-group.md-form.form-sm.form-2 .input-group-text{
+    background-color: white;
+    border-top-right-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+//      border:
+//   {
+//       top: 2px solid #ffca28;
+//       bottom: 2px solid #ffca28;
+//       right: 2px solid #ffca28;
+//   } 
 }

@@ -161,3 +161,4 @@ export class BuyingProductDetailsComponent implements OnInit {
         
     }
 }
+ 
