@@ -38,6 +38,8 @@ export class ProductDetailsComponent implements OnInit {
     whatsappPost; // This Link Will Send All Product Details By Whatsapp
     twitterPost; // This Link Will Send All Product Details By Twitter
     imgUrl: string
+
+    isLoggedIn
     constructor(
         private accountProductService: AccountProductService,
         private route: ActivatedRoute,
@@ -98,6 +100,7 @@ export class ProductDetailsComponent implements OnInit {
             this.myAccount = result.data
             // accountId
             this.accountId=this.myAccount.accountId
+            this.isLoggedIn = result
         })
 
     }
