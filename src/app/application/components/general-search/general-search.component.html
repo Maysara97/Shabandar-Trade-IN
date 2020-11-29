@@ -52,7 +52,7 @@
                             <h3 class="text-white">About</h3>
                             <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nisi vero veniam maiores quo nihil,
                                  cum ipsum odit minima amet suscipit repellendus? Iusto saepe repudiandae laborum! Alias fugit sint numquam.</p> -->
-                            <p>{{search.itemDescription | slice: 0 :30}}</p>
+                            <p>{{search.description | slice: 0 :80}}</p>
       
                         <a *ngIf="search.itemType == 1" [routerLink]="['/application/viewer',search.itemId]">
                             <p class="text-warning">Read More &rarr;</p>
