@@ -232,47 +232,47 @@
     margin-left: -5%;
 }
     .navigation__link a {
-        color: #000 !important;
-        border-bottom: 1px solid #000 !important;
+        color: #fff !important;
+        border-bottom: 1px solid #fff !important;
     }
-    .editTextColor{
-        color : #000 !important;
-    }
+    // .editTextColor{
+    //     color : #000 !important;
+    // }
 }
 
 /* Media Querey For Iphone Devices*/
-@media only screen and (    min-device-width: 375px) and (max-device-width: 667px) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
     .navigation__link a {
-        color: #000 !important;
-        border-bottom: 1px solid #000 !important;
+        color: #fff !important;
+        border-bottom: 1px solid #fff !important;
     }
-    .editTextColor{
-        color : #000 !important;
-    }
+    // .editTextColor{
+    //     color : #000 !important;
+    // }
 
 }
 
 /* Media Querey For Ipad Devices*/
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .navigation__link a {
-        color: #000 !important;
-        border-bottom: 1px solid #000;
+        color: #fff !important;
+        border-bottom: 1px solid #fff;
     }
-    .editTextColor{
-        color : #000 !important;
-    }
+    // .editTextColor{
+    //     color : #000 !important;
+    // }
 
 }
 
 /* Media Querey For Galaxy Devices Devices*/
 @media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
     .navigation__link a {
-        color: #000 !important;
-        border-bottom: 1px solid #000 !important;
+        color: #fff !important;
+        border-bottom: 1px solid #fff !important;
     }
-    .editTextColor{
-        color : #000 !important;
-    }
+    // .editTextColor{
+    //     color : #000 !important;
+    // }
 
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1365px) {
