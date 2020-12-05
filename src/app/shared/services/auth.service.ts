@@ -1,3 +1,4 @@
+import { LocalstorageService } from './LocalstorageService';
 import { BaseService } from './../core/base.service'
 import { Injectable, Injector } from '@angular/core'
 import { map } from 'rxjs/operators'
@@ -23,7 +24,7 @@ export class AuthService extends BaseService<any> {
     private isAuthSubject = new BehaviorSubject<boolean>(this.hasToken())
     public isAuthed = this.isAuthSubject.asObservable()
 
-    constructor(injector: Injector, private jwtService: JwtHelperService) {
+    constructor(injector: Injector, private jwtService: JwtHelperService , private myStorage: LocalstorageService) {
         super(injector)
     }
 
@@ -34,7 +35,7 @@ export class AuthService extends BaseService<any> {
                     return result
                 }
 
-                localStorage.setItem('token', result.data)
+                this.myStorage.setItem('token', result.data)
                 const currentUser = this.decodeToken(result.data)
                 this.currentUserSubject.next(currentUser) // <-- pump the value in here
                 this.isAuthSubject.next(true)
@@ -48,19 +49,19 @@ export class AuthService extends BaseService<any> {
     }
 
     private decodeToken(token?: any) {
-        token = token ? token : localStorage.getItem('token')
+        token = token ? token : this.myStorage.getItem('token')
         const helper = new JwtHelperService()
         return helper.decodeToken(token)
     }
 
     private hasToken() {
-        return !!localStorage.getItem('token')
+        return !!this.myStorage.getItem('token')
     }
 
     logout() {
         this.isAuthSubject.next(false)
-        localStorage.removeItem('token')
-        localStorage.clear()
+        this.myStorage.removeItem('token')
+        this.myStorage.clear()
     }
 
     register(user: User): Observable<User> {

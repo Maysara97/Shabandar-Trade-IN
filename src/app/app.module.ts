@@ -11,6 +11,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o'
 import { FormsModule } from '@angular/forms'
 import { TagInputModule } from 'ngx-chips'
 import { NotifierModule, NotifierOptions } from 'angular-notifier'
+import { StorageServiceModule } from  'ngx-webstorage-service';
 
 export function tokenGetter() {
     return localStorage.getItem('token')
@@ -58,6 +59,7 @@ const customNotifierOptions: NotifierOptions = {
 @NgModule({
     declarations: [AppComponent],
     imports: [
+        StorageServiceModule,
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         BrowserAnimationsModule,
         AppRoutingModule,

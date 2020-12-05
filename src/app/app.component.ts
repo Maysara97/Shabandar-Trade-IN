@@ -13,6 +13,9 @@ import { Observable } from 'rxjs'
 import { Notifications } from './notifications/models/notification'
 import { AuthService } from './shared/services/auth.service'
 import { Meta , Title } from '@angular/platform-browser';
+import {Inject, PLATFORM_ID} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {isPlatformBrowser} from '@angular/common';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -25,11 +28,13 @@ export class AppComponent implements OnInit {
     notifications: Notifications
 
     title = 'Shah-bandar-trade-in'
+    static isBrowser = new BehaviorSubject<boolean>(null);
 
     //This Varrible For Checking if the user signed in or not
     isLoggedIn;
 
     public constructor(
+        @Inject(PLATFORM_ID) private platformId: any,
         notifier: NotifierService,
         public notificationsService: NotificationsService,
         private authService: AuthService,
@@ -37,6 +42,7 @@ export class AppComponent implements OnInit {
         private title2: Title
         
     ) {
+        AppComponent.isBrowser.next(isPlatformBrowser(platformId));
         this.notifier = notifier
     }
     ngOnInit(): void {
